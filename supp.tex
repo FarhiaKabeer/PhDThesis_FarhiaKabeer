@@ -1,0 +1,932 @@
+\documentclass{article}
+
+\usepackage{xr-hyper}
+\usepackage{hyperref}
+\usepackage{bm}
+\usepackage[caption=false]{subfig}
+\usepackage{graphicx}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{listings}
+\usepackage{verbatim}
+%%% Load packages
+\usepackage[utf8x]{inputenc} %unicode support
+%% internal packages
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{bbm}
+\usepackage{graphicx}
+\usepackage{comment}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{etoolbox}
+\usepackage{url}
+\usepackage{soul}
+\usepackage{xcolor}
+\usepackage{authblk}
+\usepackage{siunitx}
+\usepackage[singlelinecheck=false]{caption}
+
+
+\input{macros/typesetting-macros}
+\input{macros/basic-math-macros}
+%\graphicspath{{fitclone/supplementary/figures/}}
+\setlength\parindent{0pt}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\newcommand{\eps}{N_{\text{e}}}
+\newcommand{\subtxt}[2]{ #1_{\text{#2}} }
+
+\newcommand{\refsupfig}[2][]{\textbf{Figure S}\textbf{\ref{#2}}{#1}}
+\newcommand{\refsupfigs}[1]{\textbf{Figure S}\textbf{#1}}
+
+\newcommand{\putFigOnePaperWide}[5]
+{
+\begin{figure*}[h!]
+\begin{center}
+% Uncomment to show the figures
+\iftoggle{isDraft}{
+\includegraphics[width=#2\textwidth]{#1}
+}
+%{
+%}
+\caption{\textbf{#5} #3}
+\label{#4}
+\end{center}
+\end{figure*}
+}
+
+
+\makeatletter
+\newcommand{\putFigLargCap}[5]
+{
+\begin{center}
+\includegraphics[width=#2\textwidth]{#1}   
+\bigskip
+\setbox0\vbox{
+\let\caption@rule\relax
+\captionof{figure}[#5]{\textbf{#5} #3 \label{#4}}
+\global\skip1\lastskip\unskip
+\global\setbox1\lastbox
+
+}
+\unvbox0
+\setbox0\hbox{\unhbox1\unskip\unskip\unpenalty
+\global\setbox1\lastbox}
+\unvbox1
+\vskip\skip1
+\end{center}
+}
+\makeatother
+
+
+
+
+
+\title{Supplementary information: \newline Single cell fitness landscapes induced by genetic and pharmacologic perturbations in cancer}
+
+ 
+\newtoggle{isDraft}
+%\togglefalse{isDraft}
+\toggletrue{isDraft}
+
+
+\begin{document}
+
+\maketitle
+
+
+% For draft only
+% TODO: conform with Nature formatting
+% TODO: move Contents up (under the supp info)
+\tableofcontents
+
+\renewcommand{\thefigure}{S\arabic{figure}}
+\setcounter{figure}{0}
+
+
+\section{Biological substrates} 
+\subsection{Cell cultures}
+\subsubsection{Human mammary cell lines and serial passaging}
+The 184-hTERT WT cell line was derived from normal human mammary epithelial cells and immortalized by transduction with hTERT \cite{stampfer2003human}.
+The 184-hTERT-P53 KO mammary epithelial cell line was generated from 184hTERT-L9, and grown as previously described \cite{laks2019clonal,burleigh2015co}. 
+%Cells from 184-hTERT WT and P53 KO were cultured at 37 °C and 5 percent CO2 in MEBM-Mammary Epithelial Cell Growth Medium (Lonza CC-3151) with \SI{5}{\ug\per\mL} transferrin (Sigma) and \SI{2.5}{\micro\gram\per\milli\litre} isoproterenol (Sigma) mammary epithelial cell growth medium SingleQuots (Lonza CC-4136) 
+
+Two branches of 184-hTERT-P53$^{\small{-/-}}$ (clone 95.22) along with the counterpart wild type branch were serially passaged for $\sim$ 55-60 passages, by seeding $\sim$ 1 million cells into a new \SI{10}{\cm} tissue culture treated dish (Falcon- CABD353003) and cryopreserving every fifth passage,
+using the growth media, MEGM™ Mammary Epithelial Cell SingleQuot Kit Supplements and growth Factors (Lonza CC-4136), 
+with \SI{5}{\ug\per\ml} transferrin (Sigma) and \SI{2.5}{\ug\per\ml} isoproterenol (Sigma) as previously described. Cells were grown to around 85-90 percent confluence, 
+trypsinized for 2 minutes (Trypsin/EDTA 0.25\%(VWR CA45000-664)),
+re-suspended in cryopreservation medium (10 percent DMSO-Sigma-D2650,
+40 percent FBS-GE Healthcare SH30088.03, 50 percent media) and frozen to \SI{-80}{\degreeCelsius} at a rate of\SI{-1}{\degreeCelsius\per\minute}. 
+Cells were cultured continuously from passage 10 (post initial cloning as in \cite{burleigh2015co}) to passage 60 for 184hTERT WT and upto passage 57 and passage 55 for the P53 KO branches a and b respectively, from initial cloning/isolation (fig \ref{sfig_pdxExpDesCurves}A)
+(\textbf{Table 6.4, 6.5}). 
+Genome sequencing was undertaken at passages 25,30, 51 and 60 from the wild type branch, passages 10,15,25,30,40,50, and 57 from P53 KO branch a and passages 20, 30, 35, 40, 45, 50 and 55 from P53 KO branch b. Also, the transcriptome sequencing was carried out on passages 11 and 57 of P53 KO branch a and passages 15, 30 and 50 of P53 KO branch b (\textbf{see methods 2.1}).   
+The TP53 alleles were confirmed by Sanger sequencing as  NM\_000546(TP53):c.[156delA];[156delA], p.(GIn52Hisfs*71), and the absence of Tp53 protein was confirmed with western blot (fig \ref{sfig_pdxExpDesCurves}B)
+%-------------------------------
+%\subsubsection{P53 knockouts}
+%The 184-hTERT-L9 P53 null cell lines were generated from passage 10 of 184-hTERT-L9 WT using CRISPR-Cas9 sgRNA targeting on the locus of interest \textbf{fig-S1B}.
+%The cells were co-transfected with pX330-p53 sgRNA and pDsRED at a ratio of 4:1 according to manufacturers protocol(Mirus TransIT-LT1,MIR 2306).
+%Single cells expressing DsRED were flow sorted on BD FACS Aria II into 96 well plates containing 100uL culture media.
+%The cells were expanded, screened by target sequencing, and validated by protein expression. Off target effects were analyzed using Cas9 Online Designer (COD) software: http://cas9.wicp.net with similar methods described by \cite{drost2015sequential}.
+%\subsubsection{Serial passaging of cell lines}
+%One million of each 184-hTERT p53 WT and KO cells were transferred into a 10cm tissue culture dish (Falcon- CABD353003) for serial passaging. Cells were cultured continuously from passage 10 to passage 60 for 184hTERT WT clone L9 \cite{burleigh2015co}. Two independent cell lines were generated from passage 10 of p53 KO (95.22) 184htert-L9 cell line, referred to as p53-/- a and p53-/- b (\textbf{fig-S1A, Table 6.4, 6.5}). Cells were grown to around 80 percent confluence, trypsinized, resuspended in a cryopreservation medium and frozen to -80 \degree C at a rate of -1 \degree C per minute as described in  (Burleigh et al., 2015). 
+%For serial passaging, the cells were counted using a dual chamber haemocytometer (Hausser Scientific) after staining with Trypan blue (Gibco). 
+%To calculate the number of cells per milliliter (ml) for serial passaging, the following formula was used: Cell number/number of quadrants counted x dilution factor x 104 = number of cells per ml.
+%Serial passaging was performed by seeding 1 million cells into a new 10 cm tissue culture treated dish (Falcon).
+
+
+%-------------------------------
+\subsection{Xenoengraftment protocols} 
+%-------------------------------
+\subsubsection{Ethics statement}
+The Ethics Committees at the University of British Columbia approved all the experiments using human resources.  
+Patients in Vancouver, British Columbia were recruited, and samples were collected under the tumor tissue repository (TTR-H06-00289) protocol and transplanted in mice under the Neoadjuvant PDX (University of British Columbia BC Cancer Research Ethics Board H20-00170) protocols.
+
+\subsubsection{Biospecimen collection and tissue processing}
+After informed consent, the tumor fragments from patients undergoing excision or diagnostic core biopsy, were collected. 
+The tumor materials were processed as described in \cite {eirew2015dynamics} and transplanted in mice under the animal resource centre (ARC) bioethics protocol A19-0298-A001 approved by the animal care committee.
+Briefly, the tumor pieces were chopped finely with scalpels and mechanically disaggregated for one minute using a Stomacher 80 Biomaster (Seward Limited, Worthing,UK) in 1ml to 2ml of cold DMEM/F-12 with Glucose, L-Glutamine and HEPES (Lonza 12-719F).
+An aliquot of 200ul of medium (containing cells/organoids) from the resulting suspension was used equally for 4 transplantations in mice.
+
+\subsubsection{Establishment of patient derived xenograft models}
+Tumours were transplanted in mice as previously described~\cite{eirew2015dynamics} in accordance with SOP BCCRC 009. 
+Briefly, female immuno-compromised, NOD/SCID/IL2r$\gamma^{\small{-/-}}$ (NSG) and NOD/Rag1$^{\small{-/-}}$Il2r$\gamma ^{\small{-/-}}$ (NRG)\cite{pearson2008non} mice were bred and housed at the Animal Resource Centre (ARC) at the British Columbia Cancer Research Centre (BCCRC). 
+For subcutaneous transplants, mechanically disaggregated cells and clumps of cells were re-suspended in \SIrange{150}{200}{\ul} of a 1:1 v/v mixture of cold DMEM/F12: Matrigel (BD Biosciences, San Jose, CA, USA).
+8-12 weeks old mice were anesthetized with isofluorane, then the mechanically disaggregated cells/clumps suspension was injected under the skin on the left flank using a \SI{1}{\ml} syringe and 21gauge needle. 
+The animal care committee and animal welfare and ethical review committee, the University of British Columbia (UBC), approved all experimental procedures.
+
+\subsubsection{Serial passaging of PDX}
+Tumours were serially passaged as  described \cite{eirew2015dynamics}.
+Briefly, for serial passaging of PDX, xenograft-bearing mice were euthanized when the size of the tumors approached \SI{1000}{\mm\cubed} in volume (combining together the sizes of individual tumors when more than one was present).
+The tumour material was excised aseptically, then processed as described for primary tumor. 
+Briefly, the tumor was harvested and minced finely with scalpels then mechanically disaggregated for one minute using a Stomacher 80 Biomaster (Seward Limited, Worthing, UK) in \SIrange{1}{2}{\ml} cold DMEM-F12 medium with Glucose, L-Glutamine and HEPES. 
+Aliquots from the resulting suspension of cells and fragments were used for xenotransplants in next generation of mice and cryopreserved.
+Serially transplanted aliquots represented approximately 0.1-0.3\%  of the original tumor volume (fig \ref{sfig_pdxExpDesCurves}C).
+ 
+\subsubsection{TNBC-PDX-timeseries treatment with cisplatin}
+\label{ssec:rx}
+NRG mice of the same age and genotype as above were used for transplantation treatment experiments. Drug treatment with Cisplatin (Platinum) was commenced when the tumour size reached approximately \SIrange{300}{400}{\mm\cubed}. Cisplatin (Accord DIN: 02355183)  was administered i.p. at \SI{2}{\mg\per\kg} every third day for 8 doses maximum (Q3Dx8). The dosage schedule was adjusted 50\% less than what is mentioned in the literature \cite{li2013enhanced,wang2013klotho} and around one third of the maximum tolerated dose (MTD) calculated in the immunodeficient mice (fig \ref{sfig_pdxmixrx}B).Low dose cisplatin pulse and tumor collection timings were optimized to achieve the experimental aims of tumor resistance. The aim was to collect tumour at 50\% shrinkage (from the starting tumor at the time treatment started) in size when measured with a caliper. Cisplatin \SI{1}{\mg\per\ml} was diluted in 0.9\% NaCl to obtain concentrations \SI{200}{\ul}/\SI{20}{\g} of mouse weight and kept in glass vials at room temperature. Quality control (QC) samples were prepared freshly on each day prior to the dosing. Mice were continually monitored for acute signs of toxicity including pain at injection site, skin tenting, coat scruffing, sunken eyes, food consumption and behaviour for the first two hours following compound administration. For SA609, 8 mice at passage four (X4) of SA609-TNBC-PDX (X4) were transplanted in parallel for the treatment/treatment holiday study group. Half of the mice were treated with cisplatin when tumours exhibited $\sim$ 50\% shrinkage, the residual tumour was harvested as above and re-transplanted for the next passage (X5) in the group of eight mice. Again, half of the mice at X5 were kept untreated while the other half were exposed to cisplatin following the same dosing strategy. Four cycles of cisplatin treatment were generated, with a parallel drug holiday group at each passage. Cisplatin treated tumors were labelled as UT,UTT,UTTT,UTTTT for each of the four cycles of drug respectively, while the tumors on drug holiday were called as UTU, UTTU and UTTTU for the three time points (fig \ref{sfig_pdxmixrx}C).
+
+ 
+\subsubsection{Tumor Growth measurement curves} 
+NRG mice received sub-cutaneous inoculation (SQ) of tumor cells (\SI{150}{\ul}) on day 0. 
+The tumors were allowed to grow to palpable solid nodules.
+Around 7-9 days after they are palpable, their size were measured with calipers every 3rd day. 
+Tumors were measured in two dimensions using a digital caliper and expressed as tumor volume in mm3; defined as: [volume= 0.52x(Length)x (Width)].
+Both patient derived xenografts, HER2+SA532 and TNBC SA609 exhibited progressively higher tumour growth rates in later passages (fig \ref{sfig_pdxmixrx}D). Under drug perturbation, the treated tumors in the first two cycles of treatment showed rapid growth reduction but in third cycle started showing non-responsive behaviour leading to total resistance in fourth cycle  (fig \ref{sfig_pdxmixrx}E).
+
+\subsubsection{TNBC-PDX-tumor mixing experiments}
+Frozen untreated passages three (X3) and eight (X8) vials from SA609-TNBC PDX, were thawed and  remixed in two different volumetric proportions of X3:X8 by tumor weight (1:1 and 1:0.25-data from 1:0.25 not shown). From each of different dilutions, 200ul of aliquot was taken to be used to transplant in two mice each using the same protocol of transplantation as described above. Before transplantation a small proportion of the physical mixture of cells, from the 1:1 ratio, was subjected to whole genome single cell sequencing to measure the baseline clonal composition labelled as M0 and its subsequent PDX as M1 (fig \ref{sfig_pdxmixrx}A).Each of the X3 and X8 cell populations used for mixing were also transplanted independently in new mice to confirm the capacity of clones to generate tumors. The tumour cell mixture was then serially passaged over 6 generations, designating the transplants as M1-M6. Tumors from each X3:X8 serial passage were collected and analysed with scWGS (DLP+) as for other samples.
+
+
+\section{Library construction and sequencing}
+
+\subsection{Single cell whole genome sequencing and library construction}
+
+\subsubsection{Dissociation of patient-derived xenograft tumors for direct library prep.(DLP+)}
+
+Tumour fragments from patient derived xenograft samples were incubated with a collagenase/hyaluronidase 1:10 (10X) enzyme mix (STEM CELL technologies, Catalog \#07912) in  \SI{5}{\ml} DMEM/F-12 with Glucose, L-Glutamine and HEPES (Lonza 12-719F) with 1\%BSA at 37C with intermittent gentle pipetting up and down the sample every 30 min for 1 min during the first hour a wide bore pipette tip, 
+and every 15-20 min for the second hour, before centrifuging (1100 rpm, 5 min) and removing the supernatant.
+The tissue pellet was resuspended in \SI{1}{\ml} 0.25 percent trypsin-EDTA (VWR CA45000-664) for 1 min, 
+superadded by \SI{1}{\ml} of DNAse 1/dispase \SI{100}{\ul}/\SI{900}{\ul} (StemCell 07900,00082462) pipetted up and down 2 min, followed by neutralization with 2\% FBS in HBSS with 10 mM HEPES (STEMcells Catalog \#37150). 
+This was then passed through a 70 $\mu$m filter to remove remaining undigested tissue and centrifuged for 5 min at 1100 rpm after topping it upto \SI{5}{\ml} with HBSS, discarding the supernatant.
+Single cell were resuspended in PBS + 0.04\% BSA (Sigma) in appropriate volume to achieve $\sim$ 1 million per ml concentration of cells for robot spotting for DLP+.
+
+\subsubsection{Robot spotting of single cells into the nanolitre wells and library construction}
+Single cell suspensions from cell lines and patient derived xenografts were fluorescently stained using CellTrace CFSE (Life Technologies) and LIVE/DEAD Fixable Red Dead Cell Stain (ThermoFisher) in a PBS solution containing 0.04\% BSA (Miltenyi Biotec 130-091-376) incubated at 37C for 20 minutes. Cells were subsequently centrifuged to remove stain, and resuspended in fresh PBS with 0.04 percent BSA. This single cell suspension was loaded into a contactless piezoelectric dispenser (sciFLEXARRAYER S3, Scienion) and spotted into the open nanowell arrays (SmartChip, TakaraBio) preprinted with unique dual index sequencing primer pairs. Occupancy and cell state were confirmed by fluorescent imaging and wells were selected for single cell copy number profiling using the DLP+ method \cite{Laks411058}.Briefly, cell dispensing was followed by enzymatic and heat lysis.After cell lysis,tagmentation mix (14.335 nL TD Buffer, 3.5 nL TDE1, and 0.165 nL 10\% Tween-20) in PCR water were dispensed into each well followed by incubation and neutralization. Final recovery and purification of single cell libraries was done after 8 cycles of PCR. Cleaned up pooled single-cell libraries were analyzed using the Aglient Bioanalyzer 2100 HS kit. Libraries were sequenced at UBC Biomedical Research Centre (BRC) in Vancouver, British Columbia on the Illumina NextSeq 550 (mid- or high-output, paired-end 150-bp reads), or at the GSC on Illumina HiSeq2500 (paired-end 125-bp reads) and Illumina HiSeqX (paired-end 150-bp reads).The data was then processed to quantification and statistical analysis pipeline \cite{Laks411058}(fig \ref{sfig_pdxmixrx}D).
+
+\subsection{Single cells RNA sequencing}
+
+\subsubsection{Processing of cell lines for scRNAseq data }
+Suspensions of 184-hTERT p53 WT and KO cells were fixed with 100\% ice-cold methanol prior to preparation for single cell RNAseq. 
+Single cell suspensions were loaded onto the 10x Genomics single cell controller and libraries prepared according to the Chromium Single Cell 3’ Reagent Chemistry kit standard protocol. 
+Libraries were then sequenced on an Illumina Nextseq500/550 with 42bp paired endreads, or a HiSeq2500 v4 with 125bp paired end reads. 10x Genomics Cell Ranger 3.0 was used to perform demultiplexing, alignment and counting. 
+
+\subsubsection{Processing of patient derived xenografts for scRNAseq data }
+PDX tumours were harvested and mechanically disaggregated into small fragments to viably freeze them according to the protocol mentioned above. 
+One of the viable frozen tumor vial was thawed and after washing out the freezing media, the tumor clumps and fragments were incubated with digestion enzymes as with DLP+ preparation. After complete dissociation with collagenase/hyaluronidase enzyme mix according to the protocol at 37°C, followed by briefly washing in 0.05\% trypsin-EDTA and resuspension in 0.04\% BSA in PBS. Dead cells were removed using the Miltenyi MACS Dead Cell Removal kit and cells were processed as previously described \cite{o2019dissociation}
+We used Cell Ranger (v.3.0.10X Genomics) to analyze sequencing data generated from Chromium Single Cell 3’ RNAseq libraries
+
+\subsection{Histopathology of the PDX tumors} 
+
+The triple-negative status of both tumor samples was determined by immunohistochemistry and FISH copy number.
+Two separate tissue microarrays were prepared using duplicate 1mm cores extracted from formalin-fixed paraffin-embedded blocks containing material from passage 1 to passage 10 of both patient derived xenografts (TNBC, HER2+) used for the study. 
+Deparaffinized 4 $\mu$m sections of paraformaldehydefixed collagen gels were processed for immunohistochemistry (IHC) using a Discovery XT automated system (Ventana Medical Systems, Tucson, AZ, USA). 
+EGFR, INPP4B, Ki67, PR, ECAD were all performed on the Ventana Discovery XT platform using CC1 for antigen retrieval, incubating for one hour at room temp, and using the UltraMap DAB detection kit.
+Primary antibodies to ER$\alpha$ (clone SP1, Ventana), HER2 (clone 4B5, Ventana), EGFR (clone EP22, Epitomics, Burlingamen, CA, USA) and Ki67 (clone SP6, Thermo Scientific).(Supplementary IHC antibodies list). 
+Horseradish peroxidase-conjugated Discovery Universal Secondary Antibody (Ventana) was then applied and the slides developed using 3,3’-diaminobenzidine Map Kit (Ventana). 
+The slides were reviewed by a pathologist.
+Sections were deparaffinized in xylene, rehydrated in graded alcohol, and used for histology and immunostaining.
+H\&E and (IHC) immunohistochemistry of the two PDX tumors showed that SA609 is  derived from a triple negative breast cancer patient while SA532 was derived from a HER2+ breast cancer patient. As the HER2 staining on IHC was not very strong so it was also confirmed by RNA transcriptomes and FISH (Fluorescence in situ hybridization) analysis.
+
+\subsubsection{TNBC-PDX-SA609-TMA IHC results}
+Summary: Morphology is similar throughout the passage except for amounts of necrosis. EGFR positivity is negative at first and getting stronger as the passages progress but there are no obvious correlations with other basal makers.
+E-cadherin is consistently negative, slug/snail is mild to moderate positive in all passages, other EMT markers are negative or only a few positive cells are seen scatteringly. Collagen fiber deposition in tumor stroma is similar to A532.
+Morphology (HE): It is generally similar throughout the passages except that there is a lot of necrosis in X2, 5, 10, especially in X2.
+\subsubsection{HER2-PDX-SA532-TMA IHC results}
+The morphology is similar throughout the passage. As HER2 subtypes, the expression of HER2 is weak overall from the X1. The first half passage is CK5/6-, CK14-positive, E-cadherin-negative, and the second half passage shows almost the reverse pattern. Although slug/snail is weakly positive in most cases, other EMT markers are negative or only a few positive cells are seen sparsely. No obvious regularity of EMT markers is seen, and the correlation is not clear between E-cadherin and Slug, twist.Collagen fiber deposition in tumor stroma is not noticeable throughout the passages, and no significant difference is seen between passages (fig-S1-updated)
+
+% We might only need the table of scores for the rest
+%\subsubsection*{H and E}It is generally similar throughout the passages except that there is more necrosis in X7 than the other passages. 
+%\subsubsection*{ER/PR} Almost all passages are negative
+%\subsubsection*{HER2} As this origin tumor is HER2 subtype, none can be judged as 3+, mostly negative and partially equivocal. The regularity between passages seemed to be poor.
+%\subsubsection*{Ki67} Overall high score but X3 and X8 slightly lower than others
+%\subsubsection*{EGFR} The first half passages are completely negative, weakly and focal positive cells are visible in the second half passages except for X8.CK5/6: The beginning is strongly positive, it is getting weaker as the passages progress and the degree of positivity again increases in the second half.
+%\subsubsection*{CK14}It is initially strongly positive and weakens as the passage progresses, like CK5/6, and after X4, there are few positive cells throughout the passages different from CK5/6.
+%\subsubsection*{SMA} Few positive cells are seen in scattered throughout the passages, except that many strong positives are observed at X4 and X10.
+%\subsubsection*{CK8} There are few and weakly positive cells throughout the passages.
+%\subsubsection*{E-cadherin} X1 to X4 are negative and mostly positive after X5, appears to be inversely correlated with CK 5/6 and CK14.
+%\subsubsection*{Vimentin}\ There are only few positive cells throughout the passages.
+%\subsubsection*{Slug/snail}A considerable amount of weakly positive cells is observed throughout the passages, but the positive rate decreases in X7, shows negative in X8, and rises again in X9.
+%\subsubsection*{Twist} Although X6, X9 and X10 have very few positive cells, this marker is almost negative for tumor cells throughout the %passages.
+%\subsubsection*{Masson trichrome} Some passages are accompanied by scattered bundles of collagen deposition, but collagen deposition in the stroma is not noticeable overall. There is no regularity in the deposition amount of collagen, and it is difficult to determine whether the deposition amount is a different between passages or by the sampling site.
+%\subsubsection{TNBC-PDX-SA609-TMA IHC results}
+%The morphology is similar throughout the passage except for amounts of necrosis. EGFR positivity is negative at first and getting stronger as the passages progress but there are no obvious correlations with other basal makers.
+%E-cadherin is consistently negative, slug/snail is mild to moderate positive in all passages, other EMT markers are negative or only a few positive cells are seen scatteringly. 
+%Collagen fiber deposition in tumor stroma is similar to A532.
+% We might only need the table of scores for the rest
+%\subsubsection*{H and E} It is generally similar throughout the passages except that there is a lot of necrosis in X2, 5, 10, especially in X2.
+%\subsubsection*{ER} All passages are negative. PR: Focal and weakly positive cells are seen throughout passages, it is judged as negative or weak positive if Allred score is applied.
+%\subsubsection*{HER2} All passages are negative.
+%\subsubsection*{Ki67} High score throughout the passages. 
+%\subsubsection*{EGFR} The first 2 passages (X1, 2) are negative, and positivity is getting stronger as the passages progress.
+%\subsubsection*{CK5/6} All passages are negative except that X1 has focal and weak positive cells.
+%\subsubsection*{CK14} There are very few and weakly positive cells throughout the passages.
+%%\subsubsection*{SMA} There are few scattered positive cells throughout the passages.
+%\subsubsection*{CK8} There are very few and weakly positive cells only in X6, almost all passages can be judged as negative.
+%\subsubsection*{E-cadherin} All passages are negative. 
+%\subsubsection*{Vimentin} There is a non-regular variation in the positivity rate from a few to many among the passage.
+%\subsubsection*{Slug/snail} Most tumors show mild to moderate positivity on all passage
+%\subsubsection*{Twist} Although a few positive cells are found in passages other than X2 and X5, the majority of tumor cells consistently show negative for this marker
+%\subsubsection*{Masson trichrome} Scattered bundles of collagen deposition, but collagen deposition in the stroma is not noticeable.
+
+\begin{comment}
+
+\end{comment}
+
+summary-statistics
+Quality of cells (3.1.2)
+Depth
+etc
+
+\subsection{Bulk WGS}
+For the normal cells and snv calling. 
+As in DLP+.
+% Were samples fro SA501 SNV analysed differently than the match normals of the SA609, SA532, SA906?
+
+\subsubsection*{SNV and breakpoint calling}
+
+We used mutationseq \citep{Ding:2012nr} and strelka \citep{Saunders:2012fr} to call SNVs in merged DLP genomes.
+We first created merged BAMs for each DLP library, split into non-overlapping 10MB regions.
+Both mutationseq and strelka were used to call SNVs with default parameters as for SNV calling in bulk whole genome data, as previously described \citep{McPherson:2016ly}.
+We generated a set of high quality SNV predictions by filtering for SNVs with strelka somatic score $\geq 20$, mutationseq probability $\geq 0.9$, envode 50mer mappability $\geq 0.99$.
+Samtools was used to extract per cell, per SNV reference and alternate allele counts for a union set of filtered SNVs.
+
+\begin{comment}
+For breakpoint prediction we used deStruct \citep{McPherson117523}, which produced per cell per breakpoint counts.
+Breakpoints were filtered for predictions with at least 5 split reads, and at least 250 nucleotides anchoring the predicted sequence on either side of the breakpoint ($\operatorname{template\_length\_min}$ feature).
+\end{comment}
+
+
+
+\section{Data analysis}
+\subsection{DLP+}
+@Sohrab, @Andrew 
+auto populate the tables from Andrew
+
+\subsubsection{Quality control}
+
+\XXX{pending @Andrew's confirmation}
+Cleaned up pooled single-cell libraries were analyzed using the Aglient Bioanalyzer 2100 HS kit. Libraries were sequenced at UBC Biomedical Research Centre (BRC) in Vancouver, British Columbia on the Illumina NextSeq 550 (mid- or high-output, paired-end 150-bp reads), or at the GSC on Illumina HiSeq2500 (paired-end 125-bp reads) and Illumina HiSeqX (paired-end 150-bp reads).
+
+
+
+\subsubsection{Copy number calling}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Copy number calling was done using \texttt{HMMcopy} as described in \citet{Ha2012}. 
+Briefly, we obtained a histogram of aligned read start positions at 500k bins resolution across the genome, corrected for the bias effect of GC content on sequencing depth, then predicted the copy number with a 12 state Hidden Markov Model. In order to optimize \texttt{HMMcopy} which was originally designed for heterogeneous bulk tumour genomes for single cells, two major changes were made. Firstly, instead of applying the default loess regression method from \texttt{HMMcopy}, we implemented a modal regression algorithm that correctly normalizes bin counts to integer values as expected of single-cell profiles. Secondly, instead of a 7 state model, we expanded to a 12 state model to better capture the dynamic range of copies we encounter in single-cell libraries.
+
+Determining the correct copy number calls was complicated by the lack of a ``ladder'' to map observed coverage depth to biological chromosome count. This means that the data from a perfectly normal female human diploid cell could also be explained by a single haploid genome, or any other ploidy genome sampled uniformly. For normal cells like this, we resolved this issue with prior knowledge and manually set the parameter set to assume diploid biological input. For cells with more events in their copy number profile, we can use these events to infer the actual copy number, under the assumption that all events should be derived from an integer number of chromosomes as data was derived from a single genome. Algorithmically, we made copy number predictions with \texttt{HMMcopy} using 6 possible ploidy assumptions (haploid to hexaploid), by multiplying the normalized data by 1 to 6. We then computed a penalty score we call \textit{halfiness} that penalizes non-integer copy number predictions and select the ploidy that minimizes this penalty for downstream analysis.
+
+Formally, halfiness is a single score computed for each cell independently as follows:
+
+\begin{equation}
+    \sum_{n = 1}^{b}{\frac{-\log_{2}(\mid\mid c_{n} - s_{n} \mid - 0.5\mid) - 1}{s_{n} + 1}}
+\end{equation}
+
+Where $b$ is the number of bins in the genome, $n$ is the median predicted copy numbers for the segment the bin resides in (where a ``segment'' is simply contiguous bins with the same copy number state), and $s$ is the integer copy number state that is one of 0 to 11. Intuitively, the closer the predicted copy number is halfway between two integer copy number states, the higher the penalty score. We also penalize these errors much more heavily at lower states, as practically these are the states with the highest occurrence and confidence. We cap $(\mid c_{n} - s_{n} \mid)$ at 0.499 to prevent the asymptotic numerator from going to infinity and handle edge cases where this difference exceeds 0.5.
+
+\subsubsection*{Computing cell quality}
+
+Using the \texttt{randomForest} package from CRAN (\url{https://cran.r-project.org/web/packages/randomForest/index.html}), we created a binary classifier trained on 20000 labelled cells. The labelling was done by two of the co-authors independently on separate sets of cells (13000 and 7000). A total of 6700 were labelled as good and 13300 as bad, based on the integerness of the segments and overall noise in the single cell-library, with roughly 2500 other cells discarded during the process due to ambiguity. This classifier produces a quality score (QS) for each cell using 18 cell specific features ordered by importance (\refsupfig{sfig:analysis}\textbf{b}).
+
+\begin{itemize}
+    \item \texttt{total\_mapped\_reads}: the total number of mapped reads
+    \item \texttt{total\_duplicate\_reads}: the total number of duplicate reads
+    \item \texttt{MBRSM\_dispersion}: median of bin residuals from segment median copy number values
+    \item \texttt{MSRSI\_non\_integerness}: median of segment residuals from segment integer copy number states
+    \item \texttt{scaled\_halfiness}: a scaled metric to assess integer goodness of fit, as previously defined
+    \item \texttt{MBRSI\_dispersion\_non\_integerness}: median of bin residuals from segment integer copy number states
+    \item \texttt{breakpoints}: number of intrachromosomal breakpoints
+    \item \texttt{loglikehood}: log-likelihood of \texttt{HMMcopy} CNV fit
+    \item \texttt{mad\_hmmcopy}: mean absolute deviation of CNV results
+    \item \texttt{total\_halfiness}: halfiness, but not scaled by copy number state (no denominator in definition)
+    \item \texttt{cv\_hmmcopy}: coefficient of variation of CNV results
+    \item \texttt{mean\_state\_mads}: the mean across all MADs of each copy number state
+    \item \texttt{mean\_state\_vars}: the mean across all variances of each copy number state
+    \item \texttt{percent\_duplicate\_reads}: percentage of reads that are duplicates
+    \item \texttt{autocorrelation\_hmmcopy}: autocorrelation of CNV results
+    \item \texttt{mean\_copy}: mean copy number of all bins
+    \item \texttt{standard\_deviation\_insert\_size}: read insert size standard deviation
+    \item \texttt{state\_mode}: the most commonly occurring copy number state
+
+\end{itemize}
+
+The random forest tree was trained using all default settings, where 500 trees were grown with 4 variables tried at each split, and a training out-of-bag estimate error rate of 2.38\%. The quality score is the probability of being in the ``good'' class, and ranges from 0 to 1, with 1 indicating a high probability that a cell is high quality.
+
+The strongest two features were representations of sequenced depth, with the next 4 all being various calculations of how well the copy number profile fits to integer copy number states. On the other end, it is somewhat reassuring to the generalizability of the model that the actual mean and mode copy numbers are not significant features in determining cell quality.
+
+% TODO: More on the affects of sequencing depth on quality... 
+
+When applied to the entire dataset the resulting quality distribution is strongly bimodal, with 34\% of results are below 0.1 and 52\% above 0.9. Given this distribution, as visualized in \refsupfig{sfig:optimization}\textbf{a}, we used a threshold score of $\geq$0.75 to capture a highly confident subset of cells for downstream analysis.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\subsubsection{S-phase classification}
+@Andrew: This is on his list. will contact him again on April 15th.
+
+\subsubsection{Phylogenetics}
+The corrupt-tree algorithm \cite{corrupttree} was used to identify populations and measure their abundances based on phylogenetic inference. 
+It is a Bayesian phylogenetic method based on binary features that uses a phylogenetic tree exploration move which makes the cost of each MCMC iteration $\mathcal{O}({\lvert}L{\rvert} + {\lvert}C{\rvert})$  where ${\lvert}L{\rvert}$ and ${\lvert}C{\rvert}$ are the number of loci and the number cells respectively, in contract to the majority of Bayesian phylogenetic methods that incur a per move cost of $\mathcal{O}({\lvert}L{\rvert} {\lvert}C{\rvert})$.
+corrupt-tree achieves this superior performance by assuming a perfect phylogeny that has been affected by noise. 
+% Filtering cells
+Since dividing cells may exhibit abnormal copy number states, we have removed the s-phase cells as determined by the s-phase classification algorithm to avoid confusing the phylogenetic inference.
+Furthermore, 10-15\% of cells with highest average CN state jumps were removed. 
+CN state jump occurs when a pair of consecutive genomic bins have different CN states.
+These cell include early and late dividing cells that were not captured by the s-phase classifier. 
+The profiles of these cells were visually inspected and confirmed to be of substandard quality. 
+The remaining cells comprised the input to the phylogenetic inference algorithm.
+% Phylogenetic inference
+%In this work, we have used about 5 percent of the loci to reconstruct the tree.
+Major subpopulations, i.e., clones, were selected by cutting the resulting phylogenetic tree according to the following procedure (see algorithm \ref{alg:atutocut}).
+%%Notation
+Let $L$ be a set of loci and $C$ a set of cells and ${\lvert}L{\rvert}$ and ${\lvert}C{\rvert}$ their respective cardinalities. 
+Define $\tau = (L, C, E)$ to be a rooted phylogenetic tree with $E$ its set of directed edges.
+Let ${\lvert}\tau{\rvert} = {\lvert}C{\rvert}$, that is the number of cells that belong to tree $\tau$.
+By $\tau_{l} = (L_l, C_l, E_l)$ denote the subtree rooted at node $l$.
+Set $\text{pa}(l)$ and $\text{child}(l)$ be the parent node and set of immediate children of node $l$ with $\text{desc}(l)$ comprising all its descendent.
+Represent a cell $c = (k_1, k_2, \dots, k_J) \in \mathbb{N}_{0}^J$ where $k_i$ is a non-negative integer that denotes the copy number state of cell c at bin $i$.
+We assume that the genome in partitioned into $J$ genomics bins.
+
+% Final clone determination
+The objective of the tree-cutting algorithm is to identify clones by grouping subsets of cells that are genomically distinct based on both the topology of the tree and the cells copy number states. 
+The inputs to the algorithm are the rooted phylogenetic tree with no branch lengths and the copy number states of its cells.
+The phylogenetic tree is assumed to comprise internal nodes that are phylogenetic markers (loci) and terminal nodes that are either cells or loci. 
+Terminal loci are considered unused phylogenetic markers and are discarded. 
+A clone is defined as a monophyletic clade that has sufficient genomic homogeneity. 
+We allow nesting clones, i.e., those that constitute subtrees of another clone.
+The degree of homogeneity can be tuned by limiting the number loci and the difference in copy number of sub-clades in a clone. 
+The algorithm works by first finding the coarse structure, that is dividing the tree into major clades and then looking for fine structures within each clade by traversing the tree in a bottom up manner and merging loci that are sufficiently similar.
+The remaining loci constitute the roots of detected clades.
+
+% First pick coarse structures
+To obtain the coarse structure from the reconstructed phylogenetic tree on the CNV space we use a two step procedure. (i) First we identify monophyletic clades via \ref{alg:atutocut}. 
+(ii) We then remove the cells comprising the clades found in step one from the tree and repeat algorithm \ref{alg:atutocut}. 
+We note that these new clades (if any) could be paraphyletic.
+
+To find the fine structures within the initial clades we use the following procedure.
+For each clade and its corresponding sub-tree $\tau_s$, denote by $L_s$ a set of loci $l$ for which $m \le \lvert \tau_l \rvert \le M$. 
+In a bottom-up traverse of the tree, for each node $l \in L_s$, remove it from $L_s$ if $\lvert \tau_{\text{pa}(l)} \rvert - \lvert \tau_{l} \rvert \le n$, otherwise remove $\tau_{l}$ from $\tau_c$
+At the end of the tree traversal set $L_s$ contains new candidate roots for each initial clade.
+For each $l \in L_s$ define the summary copy number profile as a vector whose $i$th element is the median of the copy number states of the $i$th for all cells in $\tau_{l}$.
+Compute the distance between two subclades as the mean absolute difference of their median genotypes.
+Merge subclones induced by $L_s$ if their summary copy number profiles are too similar.
+We can do this by computing a t-test over the pairwise distances to exclude outlier subclades and merge the rest.
+For the cell lines datasets, namely p532 wildtype and p532-/-a and p53-/-b,  we opted to also split clades by the ploidy of their consituent cells, where ploidy is defined as the most recurrent CN state in the cell.  
+
+%A cut at a locus in the tree is defined as the trajectory induced by the subtree %rooted at the base node of that locus, i.e., the node farthest from the root.
+%A locus that meets all the conditions above is called an eligible locus.
+
+\begin{algorithm}
+\caption{Heuristic (Top-down) }\label{alg:atutocut}
+\begin{algorithmic}[1]
+\Procedure{autocut}{locus-queue}\Comment{locus-queue constructed by Depth First Search of $\tau$}
+\For {locus l in locus-queue}
+    \If { $m \le \lvert \tau_l \rvert| \le M$}
+        \State $CUTS \gets CUTS \cup l$
+        \State Remove all loci below $l$ from $\tau$
+    \Else
+        \For {locus l' in descendents(l)}
+            \If {$m \le \lvert \tau_{l'} \rvert| \le M$}
+                \State $CUTS \gets CUTS \cup l'$
+			    \State Remove all loci below $l'$ from $\tau$
+            \EndIf
+	    \EndFor
+		\If {no eligible loci were found}
+		    \State $CUTS \gets CUTS \cup l$
+            \State Remove $\tau_l$ from $\tau$
+        \EndIf
+    \EndIf
+\EndFor
+\State \textbf{return} $CUTS$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+
+
+\subsubsection{Determination of clones}
+
+\subsubsection{Time-series observations}
+
+\subsubsection{Fitness modelling}
+
+%--------------------------------------------------------------
+%-------------------------------
+\textbf{State space models}
+%-------------------------------
+
+The state space models we will consider are rooted in the well established discipline of populations genetics. 
+Starting from timeseries data measuring abundances over fixed numbers of populations, they will infer the unknown parameters of interest:  \textit{fitness coefficients}, and \textit{distributions over continuous-time trajectories}.
+We will model a latent (unobserved) population structure trajectory.
+The \textit{effective population size} could be estimated through F-statistics \cite{jorde1999estimating}.
+Each time point in this trajectory consists of an unobserved random vector encoding the relative abundance of each population.
+A state space model encodes the probability distribution over changes of population abundances over time.
+Specifically, the Wright-Fisher model with selection, as well as closely related but more tractable population genetics differential equation models also taking selection into account \cite{ewens2012mathematical}.
+For the Wright-Fisher models considered, we will use the stochastic differential equation representation (SDE) also known as diffusion approximation.
+
+%% WF-SDE full form
+The Wright-Fisher SDE has the following form:
+\begin{equation}
+dZ_t = \mu (Z_t)d_t + \sigma(Z_t)dW_t
+\end{equation}
+where $\{W_t\}$ represents Brownian motion and \\
+$Z_t = (Z_t^{1}, \ldots, Z_t^{K})$ is the abundance of each $K$ clones at time t
+subject to $\sum_{i=1}^{K}Z_t^{i} = 1$ and $Z_t^{i} \ge 0$ for $i \in \{1, \ldots, K\}$.\\
+Note: It suffices to model the abundance of $K-1$ clones.\\
+\\
+The drift coefficient $\mu(Z_t)$ controls the deterministic dynamics of the process and is defined as
+$\mu(Z_t) = (\mu_1, \ldots, \mu_K)$
+where
+$\mu_i = Z_t^{i}(s_i - \langle s, Z_t \rangle)$ and \\
+$\langle s, Z_t \rangle$ is the inner product of vectors $s$ and $Z_t$. \\
+\\
+The diffusion coefficient $\sigma^{2}(Z_t) = \lbrack \sigma^{2}_{i,j} \rbrack_{i,j \in \{1,\ldots, K\}}$
+governs the stochastic dynamics of the process and in the Wright-Fisher formulation does not depend on the selection coefficients and is of the form
+$\sigma^2_{i,j} = Z_t^i(\delta_{i,j} - Z_t^j)$ and \\ $\delta_{i,j}$ is the Kronecker's delta and \\
+$s = (s_1, \ldots, s_K)$ are selection coefficients of respective clones.\\
+ \\
+Each dimension of the SDE will look like: \\
+\begin{equation}
+\label{eq:sdecomponent} 
+dZ_t^{i} = \mu_i(Z_{t})dt + \sum_{j=1}^K \sigma_{i,j}(Z_t)dW_{j,t}
+\end{equation}
+
+
+%The SDE approximation provides a framework for potential incorporation of more detailed population genetics structure, including epistasis47,48, time-varying population size49–51, known population bottlenecks at engraftment times49,52, and partially observed environmental pressure49,53–55.
+Since the marginal distributions of this SDE has no closed form we resort to discretisation by the Euler-Maruyama \cite{malham2010introduction} scheme.
+The dynamics of the state space model is governed by this discretised SDE. 
+Briefly, for a given time-step $\Delta \tau$, a SDE could be simulated forward in time as follows:
+
+\begin{equation} \label{eq:eulerssm}
+p(Z_{\tau + \Delta \tau} \mid Z_{\tau}) \approx \mathcal{N} (Z_{\tau} + \mu(Z_\tau) \Delta \tau, \sigma^2 (Z_{\tau}) \Delta \tau)
+\end{equation}
+
+Trajectories consistent with the observations are simulated using the SDE, whereby the mean function encodes the effects of selection and the diffusion coefficient encodes the inherent stochasticity (i.e., genetic drift).
+See Equation (\ref{eq:sdecomponent}).
+
+Equation (\ref{eq:wfsde2dim}) shows the Wright-Fisher SDE in 1 dimension. 
+The vector $Z = (Z_1)$ encodes the relative abundance of the subpopulations, here for example two subpopulations with the second derived by $Z_2 = 1 - Z_1, s = (s_1)$, their respective selection coefficients, and B is a one-dimensional Brownian motion.
+In our representation, $Z_2$ is chosen as the reference clone and will be assigned a selection coefficient of $s_2 = 0$.
+
+\begin{align}
+\label{eq:wfsde2dim}
+    dZ_1&=\eps Z_1(s_1(1-Z_1))dt + \sqrt{Z_1(1-Z_1)}dB_{1,t}
+\end{align}    
+
+
+% Deterministic model - logistic growth, the limit of the dynamic when Ne -> Inf (could \cite{rousseau2017estimating}
+We developed a closely related population genetics model which incorporates selection via deterministic differential equations, but has closed form solutions.
+In this model \cite{sallybioguide}, the solution of deterministic DE, the frequency of each population $c$ out of possible $K$ populations, at time $t$, with selection coefficient $s_c$ is proportional to its starting prevalence $p_0(c)$ multiplied by a power of the relative fitness coefficient $w_c = (s_c + 1)$,
+
+\begin{equation} \label{eq:wfde}
+    f(c,t,s) = \frac{(s_c+1)^t p_0(c) }{\sum_{k=1}^{K} (s_k+1)^t p_0(k) }
+\end{equation}
+
+%-------------------------------
+\textbf{Error models}
+%-------------------------------
+
+\begin{comment}
+We have considered two scenarios for the error models.
+First, a sample of $N_t$ cells is taken from the tumour mass at timepoint $t$ and then partitioned into $K$ clones.
+This is the case, for example, when the subpopulations are inferred by phylogenetic analysis; that is, when each clone is defined as a clade in the phylogenetic tree. 
+
+\end{comment}
+
+When the population abundances are given as fractions, we could model the noise as a multivariate-Gaussian distribution.
+It may happen when the fractions are indirectly derived, for instance as a result of a clustering algorithm based on the Dirichlet Process.
+We assume a diagonal covariance matrix, specific to each timepoint. 
+
+
+% The likelihood
+Put together, the likelihood function of the SSM is as follows.
+We model the true clonal prevalences at time $t$ by $Z_t = (Z_t^1, \ldots Z_t^K)$.
+We use $Y_{1:T} = (Y_1, \ldots, Y_T)$ where $Y_t = (Y_t^1, \ldots Y_t^K)$ to denote noisy observations.
+Depending on the mode of observation, if noisy clonal fractions are observed, a Gaussian observation model is used, i.e., $Y_t^i  \mid Z_t^i \sim \mathcal{N}(Z_t^i, {}_{t}\sigma_{obs}^2)$.
+Whereas if the cell counts constituting each clone is given, observations are modelled a Dirichlet-Multinomial, i.e., $Y_t  \mid Z_t \sim \text{Dirichlet-multinomial}(\alpha, Z_t)$.
+
+
+The likelihood function factorises as:
+\begin{equation} \label{eq:likelihood}
+p(Y_{1:T} \mid s) = \int \ldots \int p(Z_{1:T}, Y_{1:T} \mid s) dZ_1 \ldots dZ_T
+\end{equation}
+
+where $s = (s_1, \ldots s_K) $ are the selection coefficients for clones 1 to K.
+
+The integrand further factorises as:
+\begin{equation} \label{eq:likelihood1}
+p(Z_{1:T}, Y_{1:T} \mid s) =   p(Z_1 \mid s) \prod_{t=2}^T p(Z_t \mid Z_{t-1}, s)  \prod_{t=1}^T p(Y_{t} \mid Z_t)
+\end{equation}
+
+Discretising the time between the two latent states using $m$ intermediate states $\bar{x}_t = (\bar{x}_{t,1}, \ldots, \bar{x}_{t, m})$, we will have:
+
+%\begin{equation} \label{eq:rejuvenationtarget}
+\begin{align*} \label{eq:rejuvenationtarget}
+%\begin{split}
+& p(Z_t \mid Z_{t-1}, s) = \\ 
+& \int \ldots \int p(Z_t \mid \bar{x}_{t, m}, s)  \{  \prod_{j=2}^{m} p(\bar{x}_{t,j} \mid \bar{x}_{t,j-1} , s)  \} p(\bar{x}_{t,1} \mid Z_{t-1}, s) d\bar{x}_{1,m}  \ldots d\bar{x}_{t,m}
+%\end{split}
+%\end{equation}
+\end{align*}
+For simplicity, we assume the same number of discretisations between observations.
+
+%-------------------------------
+\subsubsection{Bayesian analysis of population genetic parameters}
+%-------------------------------
+% iii) \textbf{Bayesian analysis of population genetic parameters}. 
+To obtain not only point estimates of parameters such as fitness coefficients, but also calibrated confidence intervals representing uncertainty in our estimates we resort to Bayesian analysis of the parameters of interest.
+We used a particle Marcov chain monte carlo (pMCMC) method called the Particle Gibbs with Ancestor Sampling \cite{lindsten2014particle} in addition to a Metropolis within Gibbs sampler to draw samples from the posterior distribution of the model.
+See Algorithms \ref{alg:PGASlearning} and \ref{alg:PGASSSM} respectively. 
+In Algorithm \ref{alg:PGASSSM}, $r_{\theta, t}(.)$ is the proposal distribution,
+$g_{\theta}(.)$ is the error model, and $f_{\theta}(.)$ denotes the state transition function.
+We set $f_{\theta}(.) = r_{\theta, t}(.)$ to the Wright-Fisher diffusion approximation.
+
+% Bayesian learning of the SSM
+% Bayesian learning of SSMs
+\begin{algorithm}
+\caption{Bayesian learning of SSMs using PGAS} \label{alg:PGASlearning}
+\begin{algorithmic}[1]
+\Procedure{LearnTheta}{} 
+\State $\theta[0] \sim q_0(.)$ and $Z_{1:T}[0] \sim p_0(.)$
+\For {$n$ in $1:M$}
+\State Draw $Z_{1:T}[n] \sim P_{\theta[n-1]}^N(Z_{1:T}[n-1], .)$
+\Comment{Run algorithm \ref{alg:PGASSSM}}
+\State Draw $\theta[n] \sim p(\theta \mid Z_{1:T}[n], Y_{1:T}) $
+\EndFor
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+
+% PGAS for SSMs
+\begin{algorithm}
+\caption{PGAS Markov kernel for the joint smoothing distribution $p_{\theta}(Z_{1:T} \mid Y_{1:T})$} \label{alg:PGASSSM}
+\begin{algorithmic}[1]
+\Procedure{PGASForSSM
+($\theta \in \Theta$, $Z'_{1:T} \in Z^T$) }{} 
+\State Draw $Z_1^i \sim r_{\theta, 1}(Z_1 \mid Y_1)$ for $i = 1, ..., N-1$
+\State $Z_1^N \leftarrow Z'_1$ 
+\State \[ w_{1}^i \leftarrow \frac{g_{\theta}(Y_1 \mid Z_1^i)\mu_{\theta}(Z_1^i)}{r_{\theta, 1}(Z_1^{i} \mid Y_1)}  \text{\hskip\algorithmicindent for     } i = 1, ..., N \]
+\For{$t$ in $2:T$}
+\State $\{ \tilde{Z}^i_{1:t-1}\}_{i=1}^{N-1} \sim \text{Mult}(\{Z_{1:t-1}^{i}\}_{i=1}^{N}, \{w^{i}_{t-1}\}^N_{i=1}) $
+\Comment{Resampling and ancestor sampling}
+\State Draw $J$ with 
+\Statex  \[ \mathbb{P}(J = i) = \frac{w^{i}_{t-1}f_{\theta}(Z'_t \mid Z_{t-1}^i) }{\sum_{l=1} w_{t-1}^l f_{\theta}(Z'_t \mid Z^l_{t-1}) }  \text{\hskip\algorithmicindent for     } i = 1, ..., N \]
+\Statex \hskip\algorithmicindent \hskip\algorithmicindent and $\tilde{Z}_{1:t-1}^N \leftarrow Z_{1:t-1}^J$
+\State Simulate $Z_t^i \sim r_{\theta, t}(Z_t \mid \tilde{Z}^i_{t-1}, Y_t)$ for $i = 1, ..., N-1$
+\Comment{Particle propagation}
+\State $Z_t^{N} \leftarrow Z_t^{'}$
+\State $Z_t^i \leftarrow (\tilde{Z}_{1:t-1}^{i}, Z_t^i)$ for $i = 1, .., N$
+\Comment{Weighting}
+\Statex \[ w_{t}^i \leftarrow  \frac{g_{\theta}(Y_t \mid Z_t^i) f_{\theta}(Z_t^i \mid \tilde{Z}_{t-1}^i)}{r_{\theta,t}(Z_t^i \mid \tilde{Z}_{t-1}^i, Y_t)}  \text{\hskip\algorithmicindent for     } i = 1, ..., N  \]
+\EndFor
+\State Draw $k$ with $\mathbb{P}(k = i) \propto w_T^i$
+\State \Return $Z_{1:T}^{\star} = Z_{1:T}^{k}$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+%--------------------------------------------------------------
+
+\subsubsection{Fitting the deterministic model}
+\label{ssec:fitwfd}
+%root mean square deviation (RMSD)
+To estimate fitness coefficients $w_{1:T}$ from observed clonal fractions $Y_{1:T}$, we solve the optimisation problem in Equation \ref{eq:wfd} using a limited memory Broyden–Fletcher–Goldfarb–Shanno (BFGS) optimisation procedure with box constraints \cite{nocedal2006numerical}. 
+Note that $f_{t,c}(w)$ is the clonal fraction estimates from Equation \ref{eq:wfde} and $Y_{t,c}$ is the observed clonal fraction for clone c at time t.
+\begin{equation} \label{eq:wfd}
+\min_{w \in \mathcal{W}} (\Sigma_{t=1}^{T} d_t )^{\frac{1}{2}} 
+\end{equation}
+where $d_{1:T}$ is a vector whose elements are $d_t = (\Sigma_{c=1}^K (f_{t,c}(w) - Y_{t,c})^{\frac{1}{2}}$ and $\mathcal{W} = (\mathcal{R} \cup \{0\})^{K}$ and $w_1 = 1.0$, that is we assume without loss of generality that the index of the reference clone with fitness coefficient 1 is set to 1.
+
+\subsubsection{Simulation benchmarking}
+We use a uniform prior for each component of the s vector, in the (-5,5) range.
+We simulated 100 datasets. 
+The following parameters for simulations were used unless otherwise noted. 
+Step size $\Delta t$ = 0.01 and $\eps$ = 200. 
+Number of clones, $K$ = 4.
+We used 5 different models as follows (Fig. \ref{fig:modelcomparisonK4}):
+(i) $WF_{\text{full}}:$ The Wright-Fisher model with diffusion approximation. 
+We call it full to emphasize the incorporation of all interactions between all clones.
+(ii) $WF_{\text{hierarchical}}:$
+The Wright-Fisher model with diffusion approximation, with three conditionally independent replicates. 
+Selection coefficients were fixed for the 3 instantiations and starting values were randomly sampled.
+(iii) $WF_{\text{deterministic}}:$ The deterministic differential equation WF model. See chapter 2.
+(iv) $WF_{\text{one}_{\text{step}}}:$ Applies no discretisation for the time between observations. 
+(v) $WF_{\text{one}_K}:$ A one-clone Wright-Fisher model, run independently for each clone, effectively ignoring the covariance between clones.
+
+The performance metric shown in Fig.\ \ref{fig:modelcomparisonK4} is the mean absolute error (MAE) of the mean posterior of marginal selection coefficients. 
+
+As expected, the hierarchical model that receives 3 replicates of the stochastic process performs best, closely followed by the $WF_{\text{full}}$ and $WF_{\text{deterministic}}$ models. 
+$WF_{\text{one}_K}$ is the worst performing model which suggests that ignoring the covariance between clones is sub-optimal.
+
+
+
+%-------------------------------
+\subsubsection{Estimating the effective population size from data}
+\label{ssec:estimate_ne}
+%-------------------------------
+
+Following \cite{jorde1999estimating} we use $F^{'}_{s}$ an unbiased moment-based estimator of the $\eps$ where $\eps = \frac{1}{F^{'}_{S}}$; and t is the number of generations between each passage.
+
+% Estimating N_e
+\begin{equation} \label{eq:fsprime}
+F^{'}_{s} = (1/t) \frac{F_s (1 - 1/(2\tilde{n})) - 1/\tilde{n}}{(1+F_S/4)(1-1/n_y)}
+\end{equation}
+
+% NOTE THAT IN FOLL et al, THERE IS A 2 in the numerator but this does not exist in the reference.
+where 
+$ F_s = \frac{(x-y)^2}{z(1-z)} $  and $z = (x+y)/2$ and $\tilde{n} = \frac{2n_{y}n_{x}}{n_y + n_x}$, the harmonic mean of the sample size (initial population size at the passage) $n_x$
+and $n_y$ at the two timepoints. 
+$x$ and $y$ are the minor allele frequencies at the two timepoints.
+
+In the multi-allelic (K clones) case, we will have:
+\[
+F_s = \frac{1}{K} \sum_{i=1}^K \frac{ (x_i -y_i)^2}{\ z_i (1-z_i)}
+\]
+
+This is equivalent to plan 2 in \cite{jorde1999estimating}, sampling before reproduction and without replacement. 
+
+We used the sum of clone sizes as the approximate initial population size at each timepoint/passage. 
+%The resulting $\eps$ estimates ranged from 177.0 to 1461.7 with a median of 468.3 ± 444. 
+Table \ref{stab:ne_estimate} lists the resulting $\eps$ estimates.
+Since fitClone is robust to the choice of $\eps$ in this range (Sfig \ref{sfig:simul}C), for set $\eps = 500.0$ for all datasets analysed in this paper. 
+
+\begin{table}[ht]
+\centering
+\caption{Effective population size estimates for real datasets}
+\label{stab:ne_estimate}
+\begin{tabular}{rlr}
+  \hline
+ & datatag & Ne \\ 
+  \hline
+1 & SA039 & 985.79 \\ 
+  2 & SA906a & 614.93 \\ 
+  3 & SA906b & 422.14 \\ 
+  4 & SA532 & 1461.70 \\ 
+  5 & SA609 & 468.30 \\ 
+  6 & SA609X3X8a & 177.01 \\ 
+  7 & SA000 & 333.34 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+
+We note that in our model we assume that the effective population size remains constant over all timepoints. 
+This does not take in account the potential changing population growth rate or the bottleneck effect due to passaging overtime. 
+These phenomena may scale the diffusion time and bias our estimates of evolutionary events including fixation or extinction times. 
+This stretching and compressing of time could be accounted for by adding random effects to the number of generations in the model, for example by taking ${\eps}_t$ as piece-wise constant random variable that can vary between passages.
+This is subject to our ongoing research.
+
+
+
+%-------------------------------
+\subsubsection{Selecting the reference clone}
+\label{ssec:select_ref}
+%-------------------------------
+In our formulation of the Wright-Fisher diffusion one reference clone with selection coefficient of zero has to be chosen. 
+The selective coefficient of the other clones are reported relative to this values. 
+For instance, if the fittest clone is chosen as reference, the other clones will have negative selective coefficients. 
+We chose to set the reference to a clone with an approximately monotonically decreasing trajectory (clonal abundance over time). 
+This chose was motivated by a desire to infer a non-negative value for the fittest clones.
+Sfig \ref{sfig:simul}B shows that the model is robust to the choice of the reference clone.
+We run the inference procedure over the same dataset multiple times, each time changing the reference.
+The posterior ordering of clones over different choices of clones mostly identical.
+
+
+%-------------------------------
+\subsubsection{Testing for near neutrality}
+%-------------------------------
+In a near-neutral selective regime, we expect the non-reference clones to have very clone selective coefficients, whereas selective coefficients that are sufficiently different is indicative of a regime where strong selection is acting.
+To assess divergence from neutrality, we defined $\Delta s$ to be the empirical distribution of pairwise differences between posterior selective coefficients of all non-reference clones.
+The closer the selective coefficients are the smaller the spread of the $\Delta s$ distribution. 
+We quantified the dispersion of this distribution using median absolute deviation (MAD), with lower values of MAD indicating more similar selective coefficients. 
+We further tested the significance of the difference between the 
+using the \texttt{stats::var.test} function in the R programming language. 
+
+
+
+\subsection{Bulk WGS}
+For the normal cells and snv calling. 
+% Were samples fro SA501 SNV analysed differently than the match normals of the SA609, SA532, SA906?
+
+\subsection{Processing and analysis of scRNAseq data }
+
+\subsubsection{Quality control}
+
+Count matrices were generated using CellRanger version 3.1.0. Cells were considered to have passed a quality control (QC) and retained for subsequent analysis if they met the following criteria: (i) at least 1000 genes detected, (ii) less than 20\% of counts (UMIs) mapping to genes from the mitochondrial genome (``mitochondrial genes''), (iii) fewer than 60\% of counts (UMIs) mapping to ribosomal genes, (iv) the total counts (UMIs) per cell was at most 3 median absolute deviations lower than the overall median, and (v) cells with non-zero normalized expression for MALAT1. Low expression of MALAT1 was found to be associated with cells having low overall count and gene expression.  Cells not matching all criteria were filtered using the \texttt{calculateQCMetrics} and\texttt{isOutlier} functions in the \texttt{scater} package \cite{mccarthy2017scater}. 
+
+\subsubsection{Gene expression normalization}
+
+Sample level normalized log expression values were computed using \texttt{scran} \cite{lun2016pooling} with grouping variables calculated from clustering using the \texttt{quickCluster} function \cite{lun2016step}. Overall normalized expression was computed by merging sample level matrices
+Normalized batch corrected expression values were computed with Scanorama \cite{hie2019efficient} after re-applying the described normalization procedure on the merged count matrices from all libraries.
+
+\subsubsection{Dimensionality reduction}
+
+Principal component analysis was performed on the 
+
+
+\subsection{Pathway Enrichment Networks}
+
+Enriched pathways were computed from differentially expressed genes (adjusted p-value $<$ 0.01) with a minimum log fold change of 0.25.  A normalized enrichment score (NES) was calculated from single sample gene set enrichment analysis (GSEA) \cite{shi2007gene} performed on each subset of differentially expressed genes using the hallmark gene set collection from MSigDB \cite{liberzon2015molecular}.  Significantly enriched pathways (adjusted p-value $<$ 0.01) and pathway specific differentially expressed genes were included in network enrichment figures.  Larger pathway nodes were colored by NES value. Pathway specific genes are represented as black nodes within each pathway node.  A maximum of 20 pathway specific genes were drawn in each pathway node.  Edges are defined between gene nodes representing the same genes.  All analysis and visualization was performed using \texttt{gseapy} and \texttt{networkx} \cite{hagberg2008exploring} Python packages.
+
+
+\subsection{Integrative genome-transcriptome analysis}
+
+
+
+
+\subsubsection{Clone-specific expression}
+
+\subsubsection{Volcano plots}
+Volcano plots were generated using the R 3.6.0 Bioconductor package edgeR\_3.26.0 that implements RNA-seq differential expression analysis methodology based on the negative binomial distribution. Given the normalized expression levels for the cells in two clones, we first call the estimateDisp() function to estimate the dispersion by fitting a generalized linear model that accounts for all systematic sources of variation. Next, we use the edgeR functions glmQLFit() and glmQLFTest() to perform a quasi-likelihood dispersion estimation and hypothesis testing that assigns false discovery rate values to each gene. In plain English, a gene with high -log10(FDR) and low negative log fold change is significantly more expressed in the left clone than in the right while taking into consideration all the expression values for all the genes in both clones. Similarly, a gene with high -log10(FDR) and large positive log fold change is significantly more expressed in the right clone than in the left. 
+
+
+\subsubsection{Phenotypic volume analysis}
+\label{sec:phvolume}
+
+Phenotypic volume \cite{azizi2018single} was computed for each of the 13 scRNA-Seq TNBC PDX libraries. After removing the mitocondrial and ribosomal genes, we selected 1,983 common genes that were detected in at least 200 cells in each of the 13 libraries. Then, we sampled uniformly at random 800 cells from each library, thus yielding a 1,983 genes x 800 cells matrix of normalized log2 counts for each library. Next, we computed the  covariance matrix such that only the common values between every pair of genes was considered, while the missing values were ignored. The phenotypic volume is the sum of log10 of all the singular values of the covariance matrix. We repeated the entire process 20 times.
+
+
+\subsubsection{RNA velocity analysis}
+We used \verb|velocyto.R_0.6| \cite{la2018rna} to estimate RNA velocities. 
+Briefly  \verb|run10x| from velocyto CLI was used to preprocess the cellranger output directories from the 10x Genomics platform for each timepoint of the TNBC Rx arm individually. 
+The resulting loom files were merged using the \verb|combine| command in the \verb|loompy| package as recommended by the authors. 
+Cells and genes were selected as in section \ref{section:my}. 
+RNA velocities were computed using the \verb|gene.relative.velocity.estimates(emat, nmat, deltaT=1, fit.quantile = 0.02, kCells = 20)| routine with an identical embedding matrix as in Figure 7 in the main text. 
+Absolute cumulative RNA velocity was defined as the mean average magnitude of the estimated velocities of all genes per cell. 
+
+
+
+\section{Phenotypes}
+\subsection{Private mutations}
+\subsection{SNV-based lineage tracking in mixture-experiments}
+\subsection{Private gene-expression}
+
+
+
+
+
+\section{Supplementary figures}
+\input{suppfigs}
+
+%\subsection{sfig\_pdxExpDesCurves}
+%\subsection{fig\_S2\_sfig\_MixRxDesCurves}
+%\subsection{Summary sequencing figures}
+
+
+\subsection{IHC stainined slides}
+Slides of each passage of tumor- stained with panel of 12-13 antibodies
+This file contains Supplementary Figures 1-x– see Supplementary Information document for legends.
+legends for Supplementary Figures 1-x and Tables 1-x
+
+\section{Supplementary tables}
+% From DLP+
+\subsubsection{Conditions for single cell library construction}
+% library_conditions - say P53-null for htert
+
+\subsubsection{DLP+ single cell sequencing metrics per single cell library}
+% DLP-seq-all
+% Column names:
+\begin{comment}
+% "cell_id","jira_id","cell_call","experimental_condition","total_reads","total_mappe%d_reads","total_duplicate_reads","mean_insert_size","standard_deviation_insert_size"%,"coverage_breadth","coverage_depth","mad_neutral_state","MBRSM_dispersion","MSRSI_n%on_integerness","scaled_halfiness","MBRSI_dispersion_non_integerness","breakpoints",%"log_likelihood","mad_hmmcopy","total_halfiness","cv_hmmcopy","mean_state_mads","per%cent_duplicate_reads","autocorrelation_hmmcopy","mean_copy","state_mode","quality"
+%\
+\end{comment}
+
+\subsubsection{Omnibus table of statistical comparisons of the DLP+ dataset}
+% stab:statstable
+
+\subsubsection{Summarisation of high quality cell sequencing metrics}
+% seqsummary
+% sample_id,passed,failed,cells,success_rate,live_cells,dead_cells,nuclei,total_cells,viability,live_cells_passed,dead_cells_passed,nuclei_passed,total_cells_passed,viability_passed,mean_total_read_count,mean_mapped_reads,mean_coverage_depth,mean_coverage_breadth,mean_duplicate_rate,mean_MSRSI_non_int,mean_quality_score,mean_insert_size,mean_breakpoints,median_breakpoints,median_copy,mean_copy,success_rate_live,success_rate_dead
+
+\begin{comment}
+passed/failed is simply if quality >= 0.75 or not, the number of cells that fall into these categories (edited) 
+cells is total number of cells in the library
+success_rate == passed / total cells
+live_cells is cells with cell_state == C1
+dead_cells is cells with cell_state == C2
+\end{comment}
+
+
+
+\subsection{IHC antibodies list}
+Attached
+\subsection{TMA-IHC staining score table}
+\subsection{Tumor growth measurements}
+Attached
+\subsection{184hTERT WT Doubling time}
+Attached
+\subsection{184hTERT p53KO Doubling time}
+Attached
+\subsection{List of libraries used in the fitness analysis}
+\texttt{stable\_all\_libs.csv}
+\subsection{List of all cells and their alignment stats}
+\texttt{stable\_cells\_alignment.csv}
+\subsection{List of s-phase status for all cells} \texttt{stable\_cells\_sphase\_classification.csv} 
+    \XXX{possibility combine with above}
+\subsection{List of cell to clone assignment} \texttt{stable\_fitness\_cell\_assignment.csv}
+\subsection{List of SNVs and their clonal assignment} \texttt{stable\_snv\_per\_clone.csv.tar.gz}
+
+\section{Supplimentary data}
+This file contains the script to carry out credible interval   significance testing.
+
+\section{Contact for further reagents and resource sharing}
+Further information and requests for resources and reagents should be directed to and will be fulfilled by the Lead Contacts,
+Dr. Samuel Aparicio (saparicio@bccrc.ca), Dr. Sohrab Shah (sshah@bccrc.ca).
+
+% Supplementary References
+\bibliographystyle{vancouver}
+\bibliography{ref} 
+
+%% Figures
+
+
+% All figures here for now
+\begin{comment}
+
+
+\putFigLargCap{figures/supp/modelcomparisonK4.pdf}{1}
+{write the description or details of the figure
+}{fig:simulation}{Simulations}
+
+
+
+\end{comment}
+
+% Fig S1, conceptual
+
+% latex table generated in R 3.5.1 by xtable 1.8-4 package
+% Fri Jul 26 15:25:04 2019
+% latex table generated in R 3.5.1 by xtable 1.8-4 package
+% Fri Jul 26 15:42:34 2019
+\begin{table}[ht]
+\centering
+\begin{tabular}{rlllll}
+  \hline
+ & Specimen & Stain.IHC & Vendor...Ab.Clone & Dilution & Facility.stained \\ 
+  \hline
+1 & TMA1 \& 2 & CK14 & Empire Genomics clone LL002 & 1 in 50 & BC CANCER Histology \\ 
+  2 & TMA1 \& 2 & Ck5/6 & Dako D5/16 B4 & RTU & VGH Anatomical Pathology \\ 
+  3 & TMA1 \& 2 & Ck8 (CAM5.2) & BC Bioscience CAM5.2 & 1 in 10 & VGH Anatomical Pathology \\ 
+  4 & TMA1 \& 2 & EGFR & Epitomics 1902-1 & 1 in 100 & BC CANCER Histology \\ 
+  5 & TMA1 \& 2 & ER & Ventana  clone SP1 & RTU & BC CANCER Histology \\ 
+  6 & TMA1 \& 2 & H\&E & N/A & N/A & BC CANCER Histology \\ 
+  7 & TMA1 \& 2 & INPP4B & Abcam EPR3108Y ab81269 & 1 in 50 & GPEC \\ 
+  8 & TMA1 \& 2 & Ki67 & Abcam ab16667 & 1 in 400 & BC CANCER Histology \\ 
+  9 & TMA1 \& 2 & PR & Abcam ab30285 & 1 in 200 & BC CANCER Histology \\ 
+  10 & TMA1 \& 2 & Slug/Snail & Abcam ab85936  & 1 in 125 & VGH Anatomical Pathology \\ 
+  11 & TMA1 \& 2 & SMA & Dako clone 1A4 & 1 in 100 & BC CANCER Histology \\ 
+  12 & TMA1 \& 2 & Trichrome & N/A & N/A & VGH Anatomical Pathology \\ 
+  13 & TMA1 \& 2 & Twist & Cedarlane Labs NB120-49254  & 1 in 200 & VGH Anatomical Pathology \\ 
+  14 & TMA1 \& 2 & Vimentin & Dako V9 & RTU & VGH Anatomical Pathology \\ 
+  15 & TMA1 only & E-Cad & Cell Signal 3195 & 1 in 100 & BC CANCER Histology \\ 
+  16 & TMA1 only & HER2 & Roche 4B5 & 1 in 8 RTU & VGH Anatomical Pathology \\ 
+  17 & TMA2 only & E-Cad & Dako NCH-38 & RTU & VGH Anatomical Pathology \\ 
+  18 & TMA2 only & HER2 & Ventana  clone 4B5 & RTU & BC CANCER Histology \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\end{document}

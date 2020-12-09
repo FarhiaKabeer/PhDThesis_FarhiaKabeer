@@ -1,0 +1,59 @@
+%% The following is a directive for TeXShop to indicate the main file
+%%!TEX root = diss.tex
+
+\chapter{List of abbreviations}
+
+
+
+% use \acrodef to define an acronym, but no listing
+\acrodef{UI}{user interface}
+\acrodef{UBC}{University of British Columbia}
+
+% The acronym environment will typeset only those acronyms that were
+% *actually used* in the course of the document
+\begin{acronym}[PDX]
+\acro{NER}{nucleotide excision repair}
+\acro{PDX}{patient-derived xenograft}
+\acro{NSG}{NOD/SCID/IL2r$\gamma^{\small{-/-}}$}
+\acro{NRG}{ NOD/Rag1$^{\small{-/-}}$Il2r$\gamma ^{\small{-/-}}$}
+\acro{QC}{Quality Control}
+\acro{TNBC}{triple negative breast cancer}
+\acro{ARC}{animal resource centre}
+\acro{MTD}{Maximum tolerated dose}
+\acro{CNA}{copy number aberration}
+\acro{EGFR}{epidermal growth factor receptor (HER1)}
+\acro{ER}{estrogen receptor-alpha}
+\acro{ERBB2}{v-erb-b2 avian erythroblastic leukemia viral oncogene homolog 2 (HER2)}
+\acro{FDR}{false discovery rate}
+\acro{pCR}{pathologic complete response}
+\acro{IHC}{immunohistochemistry}
+\acro{FFPE}{formalin-fixed paraffin embedded}
+\acro{FISH}{fluorescence in situ hybridization}
+\acro{HER2}{human epidermal growth factor receptor 2 (ERBB2)}
+\acro{INSR}{insulin receptor}
+\acro{LBC}{lobular breast cancer}
+\acro{LOH}{loss of heterozygosity}
+\acro{NGS}{Next generation DNA sequencing}
+\acro{PARP1}{poly(ADP-ribose) polymerase 1}
+\acro{PBS}{phosphate-buffered saline}
+\acro{PCR}{polymerase chain reaction}
+\acro{PR}{progesterone receptor}
+
+
+\end{acronym}
+
+% You can also use \newacro{}{} to only define acronyms
+% but without explictly creating a glossary
+% 
+% \newacro{ANOVA}[ANOVA]{Analysis of Variance\acroextra{, a set of
+%   statistical techniques to identify sources of variability between groups.}}
+% \newacro{API}[API]{application programming interface}
+% \newacro{GOMS}[GOMS]{Goals, Operators, Methods, and Selection\acroextra{,
+%   a framework for usability analysis.}}
+% \newacro{TLX}[TLX]{Task Load Index\acroextra{, an instrument for gauging
+%   the subjective mental workload experienced by a human in performing
+%   a task.}}
+% \newacro{UI}[UI]{user interface}
+% \newacro{UML}[UML]{Unified Modelling Language}
+% \newacro{W3C}[W3C]{World Wide Web Consortium}
+% \newacro{XML}[XML]{Extensible Markup Language}

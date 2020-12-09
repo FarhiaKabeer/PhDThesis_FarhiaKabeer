@@ -1,0 +1,151 @@
+\documentclass[12pt, a4paper]{article}
+\setlength{\oddsidemargin}{0.5cm}
+\setlength{\evensidemargin}{0.5cm}
+\setlength{\topmargin}{-1.6cm}
+\setlength{\leftmargin}{0.5cm}
+\setlength{\rightmargin}{0.5cm}
+\setlength{\textheight}{24.00cm} 
+\setlength{\textwidth}{15.00cm}
+\parindent 0pt
+\parskip 5pt
+\pagestyle{plain}
+
+\title{Research Proposal}
+\author{}
+\date{}
+
+\newcommand{\namelistlabel}[1]{\mbox{#1}\hfil}
+\newenvironment{namelist}[1]{%1
+\begin{list}{}
+    {
+        \let\makelabel\namelistlabel
+        \settowidth{\labelwidth}{#1}
+        \setlength{\leftmargin}{1.1\labelwidth}
+    }
+  }{%1
+\end{list}}
+
+\begin{document}
+\maketitle
+
+\begin{namelist}{xxxxxxxxxxxx}
+\item[{\bf Title:}]
+	Quantitative estimates of fitness in cancer using single cell population dynamics
+\item[{\bf Author:}]
+	Sohrab Salehi
+\item[{\bf Supervisors:}]
+	Professor Sohrab P. Shah \\
+	Professor Alexandre Bouchard-C\^ot\'e
+\item[{\bf Degree:}]
+	MSc Bioinformatics, 2016, UBC
+\end{namelist}
+
+\section*{Agenda}
+
+% How do we think cancer works
+% What is mutation / heterogeneity 
+% How does it relate to tumour evolution
+% How has it been measured
+% -- through bulk data
+% -- indirectly, usnig clusters of mutations
+% -- through the synonymous mutations
+% -- Ideas transplanted from DE
+% -- cell lines
+% -- Xenografts
+% -- CRISPER pool experiments
+
+% What is its clinical relevance?
+% Question?
+ 
+
+\begin{itemize}
+    \item Description of the samples in SA609
+    \item Emphasise that we dont know if this is due to the CN changes or a SNV or some other change (including change in the environment) - remedy, repeat | killer experiment
+    \item Add bulk?
+    
+\end{itemize}
+
+
+
+
+\section*{Introduction} 
+
+Main questions in the field
+The usecases
+
+Literature review:
+Ways to measure selection, detect footprints of evolution
+Classical methods
+
+ka/ks rate
+Methods based on the structure of phylogenetic trees 
+Methods based on rate of nonsynonymous/synonymous mutations
+limitations
+
+Methods based on 1/f frequency [cite bigbang, and the new grapham paper]
+Wright-Fisher ones [influenza paper]
+
+Methods based on the different regimes of selection
+
+Utility is prediction
+
+In this section you should give some background to your
+research area. What is the problem you are tackling, and why is it
+worthwhile solving? Who has already done some work in this area,
+and what have they achieved?
+
+\section*{Proposed work} Now state explicitly the hypothesis you aim to
+test. Make references to the items listed in the Reference section
+that back up your arguments for why this is a reasonable
+hypothesis to test, for example the work of d.
+Explain what you expect will be accomplished by undertaking this
+particular project.  Moreover, is it likely to have any other
+applications?
+ 
+ \subsubsection{Datasets}
+ 
+ 
+ 
+\section*{Conclusions} 
+Summary
+Real-time monitoring of evolution of cancerous cells at the single cells copy number resolution is now feasible [1]. We have been working on adapting a diffusion approximation of the Wright Fisher (WF) model to infer the magnitudes of relative fitness in presence of genetic and/or drug-induced perturbations. Our current implementations support inference of up to a dozen clones (sub-populations). We have also worked on extensions to higher dimensions.
+
+I propose the PhD dissertation to be organised as follows:
+A chapter on Bayesian methods of analysing Wright Fisher (WF) diffusions (fitClone)
+A chapter on application of fitClone to direct evolution experiments, i.e. feasible subset of xenografts lines SA532 and SA609, and isognetic cells lines SA1101
+A chapter on adapting Bayesian methods of analysing WF onto double-barcoded CRISPR cell-lines
+
+WF diffusion approximation - fitClone
+Inference of relative fitness was modelled as a discretely observed state space model the dynamics of which is governed by the K-dimensional WF diffusion. An MCMC inference algorithm has been implemented from scratch in Python and subsequently optimised in C to support learning of selection coefficients and predicting future clonal abundance trajectories. It was profiled using synthetics datasets. A hierarchical model that supports multiple observation of the same process shows improved accuracy. A Gibbs-sampling based method has been partially developed as an extension to support higher dimensions. 
+Exponential growth model
+A model where clonal abundance at each time is a deterministic function of selection coefficients and the starting frequencies. This is a highly scalable model and works comparatively well to the WF-diffusion model in terms of parameter inference and as such is a practical candidate for higher dimensional problems, e.g., CRISPR-pool depletion.
+Biological substrates
+New datasets are being procured as part of the direct evolution experiments. These include the deep-spanning tree xenograft lines and isogenic hTERT cell-lines. Currently the two xenograft lines have 6 consecutive timepoints each and are planned to be extended to 10. Parallel branches are to come later. 
+Three parallel hTERT cells-lines (wild-type and p53-null) have been passaged for 60 generations. These are sparsely sampled (the longest having three timepoints), however up to 6 have been planned.
+Double-barcoded CRISPR libraries
+Double-barcoded CRISPR libraries allow tracking a cell and all its direct progeny. About 60 libraries, a mix of xenografts and cell-lines have been generated to investigate the effects of modified genes on cell-survival in different genomic backgrounds. We posit that this could be modelled using a branching process and propose to adapt the fitClone machinery or the framework developed for the exponential growth model to model the trajectories of cells and ascertain selection coefficients [2].  
+			
+					
+References						
+					
+[1] Zahn H, Steif A, Laks E, Eirew P, VanInsberghe M, Shah SP, Aparicio S, Hansen CL. Scalable whole-genome single-cell library preparation without preamplification. Nature methods. 2017 Feb;14(2):167.
+
+Bansaye V, Méléard S. Some stochastic models for structured populations: scaling limits and long time behavior. arXiv preprint arXiv:1506.04165. 2015 Jun 12.
+
+ 
+\section*{Method}
+In this section you should outline how you intend to go
+about accomplishing the aims you have set in the previous
+section. Try to break your grand aims down into small,
+achievable tasks. Try to estimate how long you will
+spend on each task, and draw up a timetable for each
+sub-task.\cite{jorde1999estimating}
+
+
+
+% For some reason overeleaf can't find the reference file. Tex it can though...
+\bibliographystyle{vancouver}
+\bibliography{../fitclone/ref} 
+
+\end{document}
+

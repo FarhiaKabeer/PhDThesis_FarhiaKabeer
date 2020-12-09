@@ -1,0 +1,53 @@
+
+
+\makeatletter
+\newcommand{\putFigLargCap}[5]
+{
+\begin{center}
+\includegraphics[width=#2\textwidth]{#1}   
+\bigskip
+\setbox0\vbox{
+\let\caption@rule\relax
+\captionof{figure}[#5]{\textbf{#5} #3 \label{#4}}
+\global\skip1\lastskip\unskip
+\global\setbox1\lastbox
+
+}
+\unvbox0
+\setbox0\hbox{\unhbox1\unskip\unskip\unpenalty
+\global\setbox1\lastbox}
+\unvbox1
+\vskip\skip1
+\end{center}
+}
+\makeatother
+
+
+
+
+
+\title{Supplementary information}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%% The following is a directive for TeXShop to indicate the main file
+%%!TEX root = diss.tex
+
+\chapter{Acknowledgments}
+
+My deepest gratitude to my supervisor Professor Samuel Aparicio. I have been extremely
+fortunate to have a mentor who guided and supported me in my PhD
+research with great patience. Sam taught me to think “problem in science”,
+ and think “why and how to find the solution”, which in my opinion is the essential attitude towards scientific research.
+
