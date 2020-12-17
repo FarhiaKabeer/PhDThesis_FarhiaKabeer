@@ -4,9 +4,8 @@
 \label{ch:Chapter4}
 
 \section{Motivation}
-As discussed in introduction chapter 1, tumor fitness landscape underpin selection in cancer evolution and response to chemotherapy. However,quantifying fitness in heterogeneous tumor populations remains an open problem that hampers effective treatment leading to tumor recurrence. Previous work has established models of fitness through interpreting allelic measurements of single snapshots \cite{Williams2016-of,Williams2018-ga,Gerstung2020-jl,shah2012clonal,Nik-Zainal2012-uk} from bulk sequencing over large patient cohorts \cite{martincorena2017universal}, timeseries study of cell free DNA \cite{Khan2018-uj}, multiregion sequencing \cite{Gerlinger2014-qd,Jamal-Hanjani2017-yc,Lopez2020-ku,mcpherson2016divergent,williams2018quantification} and estimating fitness landscapes of clonal haematopoiesis \cite{Watson2020-yu}. Moreover, the cancer field has generally lacked serial measurements from patient derived tissues to directly observe cancer evolution over realistic timescales. This has impeded a thorough understanding of causal factors driving selection, achieved in other biological systems through studying granular timeseries with population genetics modeling \cite{Good2017-fv}. The majority of the work on cancer has focused on bulk tumour sequencing, where cellular population structure decomposition approaches are limited. Single cell genome measurements to scalably define clonal populations in cancer over thousands of cells have only recently emerged \cite{Laks2019-dm,zahn2017scalable}, enabling identification of rare populations, precise tracking of clones and robust clone-specific measurements suitable for population genetics modeling. We are also motivated by newly developed quantifying 
-tools of sitka, a phylogenetic inference method accompanying toolkits to assign cells to clones, \cite{dorri2020efficient} and 
-\texttt{fitClone}, a probabilistic framework that designates quantitative selection coefficients to individual cancer clones and forecasts competitive clonal dynamics over time \cite{salehi2020single}.
+As discussed in introduction chapter 1, tumor fitness landscape underpin selection in cancer evolution and response to chemotherapy. However,quantifying fitness in heterogeneous tumor populations remains an open problem that hampers effective treatment leading to tumor recurrence. Previous work has established models of fitness through interpreting allelic measurements of single snapshots \cite{williams2016identification, williams2018quantification,gerstung2020evolutionary,shah2012clonal,nik2012life} from bulk sequencing over large patient cohorts \cite{martincorena2017universal}, timeseries study of cell free DNA \cite{khan2018longitudinal}, multiregion sequencing \cite{Gerlinger2014-qd,Jamal-Hanjani2017-yc,Lopez2020-ku,mcpherson2016divergent,williams2018quantification} and estimating fitness landscapes of clonal haematopoiesis \cite{Watson2020-yu}. Moreover, the cancer field has generally lacked serial measurements from patient derived tissues to directly observe cancer evolution over realistic timescales. This has impeded a thorough understanding of causal factors driving selection, achieved in other biological systems through studying granular timeseries with population genetics modeling \cite{good2017dynamics}. Infact, patient derived xenograft (PDX) systems are an effective model to study timeseries of a human tumour cell population \cite{williams2018using,willey2015patient}.
+The majority of the work on cancer has focused on bulk tumour sequencing, where cellular population structure decomposition approaches are limited. Single cell genome measurements to scalably define clonal populations in cancer over thousands of cells have only recently emerged \cite{Laks2019-dm,zahn2017scalable}, enabling identification of rare populations, precise tracking of clones and robust clone-specific measurements suitable for population genetics modeling. We are also motivated by newly developed quantifying tools of sitka, a phylogenetic inference method accompanying toolkits to assign cells to clones, \cite{dorri2020efficient} and  \texttt{fitClone}, a probabilistic framework that designates quantitative selection coefficients to individual cancer clones and forecasts competitive clonal dynamics over time \cite{salehi2020single}. Motivated by these observations, we sought to investigate the hypothesis that clones that grow reproducibly have higher fittness in the growing cancer.
 
 \section{Synopsis}
 Based on the knowledge we gained from chapter 3, three \ac{PDX} tumors and two drugs were selected to investigate clonal dynamics and identify patterns of clonal resistance with single cell whole genome sequencing. First, we generated two serially transplanted timeseries PDX (SA535-HER2+ and SA609-TNBC) from passage one (X1) to passage ten (X10) to test the newly developed methods (from collaborators) for identifying sub-populations with their genotypes.
@@ -57,7 +56,7 @@ Dark grey circles represent each sampled mouse for scWGS. The light grey circles
 	{\small
 	\textbf{Comparison of fitness landscapes of two untreated breast cancer PDX timeseries models.}
 	    \textbf{(a, b)} Clonal dynamics of HER2+ and TNBC models.
-	    \textbf{(c)} Probability of positive selection in both PDx
+	    \textbf{(c)} Probability of positive selection in both PDX
 	    \textbf{(d)} Heatmap representation of copy number profiles of 2,193 cells, grouped in 4 phylogenetic clades. 
 	    \textbf{(e)} Phylogeny (simplified type II sitka tree) of cells over the timeseries HER2+ Untreated PDX, where nodes are groups of cells (scaled in size by number) with shared copy number genotype and edges represent distinct genomic copy number change points (sitka markers)
  
@@ -66,7 +65,7 @@ Dark grey circles represent each sampled mouse for scWGS. The light grey circles
  \textbf{(h-k)} Analogous plots for the TNBC model (n=3,216 cells).
  
 	}
-	\label{fig:Untreated timeseries growth curves only}
+	\label{fig:UnRxseries}
 \end{figure}
 
 
@@ -79,15 +78,16 @@ A median of 907 single cell genomes were sequenced per passage for a total of 11
 
 
 \subsubsection{Phylogenetics and fitness analysis on single cell whole genome data}
-For each of the two timeseries PDX, we inferred single cell copy number profiles, constructed a phylogenetic tree using \textbf{sitka} model taking copy number states as input to establish clonal lineages and measured clonal abundances as a function of time. For each timeseries (branch), we pulled all single cells to infer a phylogenetic tree \textbf{(See introduction and methods for details)}. The tree was cut using Lumberjack to yield clones and their abundances over time. Then \texttt{fitClone} inferred selection coefficient of a clone by reporting the posterior mean 1 + s followed by its standard deviation.
+For each of the two timeseries PDX (HER2+ and TNBC), we inferred single cell copy number profiles , constructed a phylogenetic tree using \textbf{sitka} model taking copy number states as input to establish clonal lineages and measured clonal abundances as a function of time \textbf{(\autoref{fig:UnRxseries} a, b, c)}. For each timeseries (branch), we pulled all single cells to infer a phylogenetic tree \textbf{(See introduction and methods for details)}. The tree was cut using Lumberjack to yield clones and their abundances over time. Then \texttt{fitClone} inferred selection coefficient of a clone by reporting the posterior mean 1 + s followed by its standard deviation.
 
 \subsubsection{Untreated timeseries SA532 HER2+ PDX undergo neutral clonal dynamics}
- The SA532 HER2+ series exhibited 4 distinct clones ranging in size from 134 to 1,421 cells (median 319, \textbf{Figure 4.2 e)}, and the TNBC series exhibited 8 distinct clones with 18 to 680 cells (median 556, \textbf{Figure 4.2 i)}. Clonal trajectories in the HER2+ model, were consistent with selective coefficients with small relative differences in fitness \textbf{(Figure 4.2 f, g)}.
+
+ The SA532 HER2+ series exhibited 4 distinct clones ranging in size from 134 to 1,421 cells (median 319, \textbf{(median 319, \autoref{fig:UnRxseries} e)}, and the TNBC series exhibited 8 distinct clones with 18 to 680 cells (median 556, \textbf{(\autoref{fig:UnRxseries} i)}. Clonal trajectories in the HER2+ model, were consistent with selective coefficients with small relative differences in fitness \textbf{(\autoref{fig:UnRxseries} f, g)}.
  We observed a small decrease of 0.04 copy number breakpoints per generation (linear regression, p=0.002,=0.05). 
 
 \subsubsection{Untreated timeseries SA609 TNBC PDX undergo deterministic clonal dynamics}
-In contrast to HER2+ timeseries, the TNBC model trajectories resulted in a high positive selective coefficient for a minority of clones \textbf{(Figure 4.2 j, k)} mean = 1.03 $\pm $0.11. Consistent with increased dynamics in the TNBC series, we found an initial increase of 0.1 breakpoints per cell per generation in the first 4 passages  \textbf{(Figure A.1 a)}). After this initial increase the average number of breakpoints per cell remained constant.
- Clone E in TNBC swept the population over the last 3 timepoints \textbf{(Figure 4.2 j, k)} (n=541 over the timeseries). Clone E had the highest selective coefficient (1+s= 1.08 $\pm $ 0.043), having grown from undetectable proportions in earlier timepoints to 58\% of cells by the end of the timeseries. Clone E also had the highest number of breakpoints with 12.8 additional copy number breakpoints per cell, relative to the reference clone C with the lowest (linear regression with coverage breadth, ploidy and cell cycle state as covariates (p $<$0.0001) \textbf{(Figure A.1 c)}.
+In contrast to HER2+ timeseries, the TNBC model trajectories resulted in a high positive selective coefficient for a minority of clones \textbf{(\autoref{fig:UnRxseries} j, k)} mean = 1.03 $\pm $0.11. Consistent with increased dynamics in the TNBC series, we found an initial increase of 0.1 breakpoints per cell per generation in the first 4 passages  \textbf{(Figure A.1 a)}). After this initial increase the average number of breakpoints per cell remained constant.
+ Clone E in TNBC swept the population over the last 3 timepoints \textbf{(\autoref{fig:UnRxseries} j, k)} (n=541 over the timeseries). Clone E had the highest selective coefficient (1+s= 1.08 $\pm $ 0.043), having grown from undetectable proportions in earlier timepoints to 58\% of cells by the end of the timeseries. Clone E also had the highest number of breakpoints with 12.8 additional copy number breakpoints per cell, relative to the reference clone C with the lowest (linear regression with coverage breadth, ploidy and cell cycle state as covariates (p $<$0.0001) \textbf{(Figure A.1 c)}.
 
 
 \subsection{SA609-TNBC mixture timeseries yielded selection of biologically similar population}
@@ -101,7 +101,7 @@ timepoints ($\approx$~50\% each) at the ratio of 1:1. In branch b, we aimed to h
 We forward-simulated trajectories from \texttt{fitClone} using the median of the posterior distribution of the estimated selection coefficients (F = -0.01  $\pm$ 0.13, A = -0.00 $\pm$ 0.16, B= 0.00 $\pm$  0.01, D = 0.00  $\pm$  0.01, G = 0.02  $\pm$  0.02, H = 0.03  $\pm$  0.03, E = 0.08  $\pm$ 0.10) and starting clonal proportions of (A=0.000 (no observed cells), B=0.07, C=0.25, D=0.51, E=0.02, F=0.000 (no observed cells), G=0.08 H=0.07) \textbf{\autoref{fig:Mixturenew} a, f}. The starting clonal proportions were inferred by adding the cells from the initial passage (M0) to the tree inferred from the cells in the original series (TNBC-SA609) and assigning them to their respective clones. We generated 10,000 trajectories from the model. \textbf{Figure 4.3 c} shows the simulated trajectories in black.
 The mean clonal fraction at each step is shown in red. All clones except for clones E, D, and F are predicted to vanish to clonal fractions of below 1\%. We have combined the trajectories for clones E and F since clone F (i) had fewer than 19 total cells in the original series and consequently its selection coefficient had a high variance, (ii) is phylogenetically proximal to clone E \textbf{\autoref{fig:Mixturenew} b} and thus likely represented a biologically similar population and (iii) finally, is not observed above a threshold of 20 cells in any other line in the TNBC-SA609 family.
 
-We experimentally tested these predictions by initiating a new PDX line with the remixed population (from M0), serially passaged over 4 timepoints \textbf{\autoref{fig:Mixturenew} a} (top), and sequenced with DLP+ (7,839 single cell genomes, median 1,354.5 per library). After placing the cells from all timepoints of this mixture experiment on the tree, they got assigned to seven clones from the original timeseries (all but clone A) between 26 to 499 (median 162) cells \textbf{\autoref{fig:Mixturenew} d} . In \textbf{\autoref{fig:Mixturenew} c, f} blue dots show the observed clonal fractions at each timepoint in PDX branch a. Clones with higher selection co-efficients swept through the mixture timeseries by passage 4 \textbf{\autoref{fig:Mixturenew} e}. In the last timepoint, the clade composed of clones E and F comprised 94\% of cells, outcompeting low-fitness clones. The estimated selection co-efficients were relatively strongly correlated (Pearson correlation of 0.795, considering only clones that reached overall prevalence of over 1\% in the original series, i.e., all clones except A and F.
+We experimentally tested these predictions by initiating a new PDX line with the remixed population (from M0), serially passaged over 4 timepoints \textbf{\autoref{fig:Mixturenew} a} (top), and sequenced with DLP+ (7,839 single cell genomes, median 1,354.5 per library). After placing the cells from all timepoints of this mixture experiment on the tree, they got assigned to seven clones from the original timeseries (all but clone A) between 26 to 499 (median 162) cells \textbf{\autoref{fig:Mixturenew} d} . In \textbf{\autoref{fig:Mixturenew} c, f} blue dots show the observed clonal fractions at each timepoint in PDX branch a. Clones with higher selection co-efficients swept through the mixture timeseries by passage 4 \textbf{(\autoref{fig:Mixturenew} e)}. In the last timepoint, the clade composed of clones E and F comprised 94\% of cells, outcompeting low-fitness clones. The estimated selection co-efficients were relatively strongly correlated (Pearson correlation of 0.795, considering only clones that reached overall prevalence of over 1\% in the original series, i.e., all clones except A and F.
 
 
 \begin{figure}
@@ -334,16 +334,16 @@ Tumor growth curves displayed progressively less response of the tumors in last 
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{Figures/SA535-family_FK.pdf}
+\includegraphics[width=\textwidth]{Figures/SA535combinebarplotspdf.pdf}
 	
 \caption[Combined data analysis of SA535 with cisplatin and CX-5461]
 	{\small
 	\textbf{Combined data analysis of SA535 with cisplatin and CX-5461.}
-	    \textbf{(a)} Combined computed phylogenetic tree indicating purple circled clnes from CX-5461 and green from cisplatin treated. Red dotted arbitrary line separating the early and late time points dynamics of clones. 
-	    \textbf{(b)} Bar plots showing clonal composition at each time point. Vertical axis shows the clonal frraction   and horizontal axis presents the passage timepoint.
-	     \textbf{(c)} Simplified way to present clonal lineage tree matching the bars composition in \textbf{(b)}.
+	   
+	    \textbf{(a)} Bar plots showing clonal composition at each time point. Vertical axis shows the clonal frraction   and horizontal axis presents the passage timepoint.
+	     \textbf{(b)} Simplified way to present clonal lineage tree matching the bars composition in \textbf{(a)}.
 	}
-	\label{fig:SA535-family_FK}
+	\label{fig:SA535combinebarplotspdf}
 \end{figure}
 
 %...............................................................

@@ -115,12 +115,12 @@ Clonal relationship also develop from the ramifications of mutation over time in
 
 
 \subsubsection{Clonal hierarchy or lineage}
- Clonal lineage relationship is defined by the ordinal relationship between the clones over time. These relationship are considered as branched, treelike structures.However,defining a sub population from mutation information and computing a phylogeny, describes hierarchical ordering. Phylogeny is the mathematical way of saying that there is a relationship between the cells to the lineage identified cell population.
+ Clonal lineage relationship is defined by the ordinal relationship between the clones over time. These relationship are considered as branched, treelike structures.However, defining a sub population from mutation information and computing a phylogeny, describes hierarchical ordering. Phylogeny is the mathematical way of saying that there is a relationship between the cells to the lineage identified cell population.
  
 \subsection{Clonal fitness and selection}
 
 The tendency of clones to increase or decrease in prevalence under some intrinsic or extrinsic form of selection leads to the idea that the \textbf{fitness} of a clone is known by its reproducible growth trajectory. Fitness means quantitative measure of ability of specific clonal lineage that undergo directional dynamics over time. 
-Mutation, selection and genetic drift are the three basic processess that defines cancer evolution. \cite{lipinski2016cancer,szendro2013predictability}.
+Mutation, selection and genetic drift are the three basic processes that defines cancer evolution. \cite{lipinski2016cancer,szendro2013predictability}.
 The topology of the fitness landscape is determined by how different mutations interact in their effect to confer survival advantage or disadvantage \cite{de2014empirical}. Clones that impose more fitness behaviour are less likely to be eradicated by the drift.
 In contrast, selection is an ongoing system that could be transient or stable. The tumor phenotypes selected from fixed oncogenic mutations \cite{sidransky1992clonal,j2010mutator} are tend to be more stable as compared to the emergence of genetic drift which includes mutations over time.These random events are inherent in evolution and tumor spatial structures hinder the efficacy of selection, which is the only deterministic evolutionary force \cite{szendro2013predictability}.
 However, interdependencies of mutation and spacial and temporal variabilities selection along with genetic drift creates an additional layer of complexity of evolving clones. Any new mutation that enhances the ability of the dividing individual cell to survive and reproduce under particular environmental conditions and increase its abundance within a tumor population is selection while the fitness of an individual clone is defined by the fitness of other competing clones \cite{jain2007deterministic,gerrish1998fate}. These form of cellular dynamics plays a role in the the concept of tumour initiating cells \cite{magee2012cancer} and to some forms of drug resistance \cite{shaffer2017rare, kreso2013variable}.
@@ -282,32 +282,38 @@ We reported that both CX-5461 and the related compound CX-3543 induce DNA damage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Single cell sequencing can reveal molecular dynamics of cellular
-population fitness in patients and model systems}
+\section{Single cell sequencing can reveal molecular dynamics of cellular population fitness in biological systems}
 Cellular fitness underpins the tissue population dynamics of cancer progression and treatment response. Yet, quantifying fitness in heterogeneous cell populations and identifying causal mechanisms shaping fitness landscapes remain open problems, impeding progress in developing effective and durable therapeutic strategies. In particular, quantitative fitness modelling of cancer cells has numerous and diverse implications; attributing clonal dynamics to drift or selection, identifying the determinants of clonal expansion, enabling causal inference, and forecasting growth trajectories. 
 
 Large scale single cell genome measurements to scalably define clonal populations in  cancer  over  thousands  of  cells  have  only  recently  emerged,  enabling  identification  of rare populations, precise tracking of clones and robust clone-specific measurements suitable for population genetics modeling  \cite{laks2019clonal,zahn2017scalable}. Several amplification-based methods have been described \cite{navin2011tumour,zong2012genome, hou2012single,ni2013reproducible} but measuring single-cell genomes at \ac{DLP+} in tissues and cell populations has greatly advanced clonal decomposition of malignant tissues. Moreover, helped studying properties of negative selection, resolving rare cell population genotypes and identifying DNA replication states of individual cells, all of which are hard to measure when cellular information is destroyed in bulk sequencing. 
-From DLP+ variation in mitotic mis-segregation rates across tissue types and genotypes can be defined. Analysis of matched genomic and image measurements can reveal correlations between cellular morphology and genome ploidy states. Aggregation of cells sharing copy number profiles allowed for calculation of single-nucleotide resolution, clonal genotypes and inference of clonal phylogenies.
 
-\subsection{Identification of sub-population in growing cancers}
-To quantify fitness based on sub-population in growing cancers require 
 
-(i) method for identifying sub-populations with their genotypes
-(ii) serial sampling of the populations
-(iii) a method for estimating the likelihood the trajectory is non neutral
+\subsection{Measurement of fitness of sub-population in growing cancers}
+To identify and quantify fitness based on sub-population in growing cancers require: 
 
-Limitations of this approach to structural and copy number genotypes arise from inability to resolve populations accurately. Single cell sequencing technology opens up the opportunity to accurately identify CNA, structural sub-populations
+\textbf{(i) method for identifying sub-populations with their genotypes}.
+Variation in mitotic mis-segregation rates across tissue types and genotypes can be defined from DLP+. Analysis of matched genomic and image measurements can reveal correlations between cellular morphology and genome ploidy states. Aggregation of cells sharing copy number profiles allowed for calculation of single-nucleotide resolution, clonal genotypes and inference of clonal phylogenies.
+Limitations of this approach to structural and copy number genotypes arise from inability to resolve populations accurately. Single cell sequencing technology opens up the opportunity to accurately identify CNA, structural sub-populations that in turn gives clonal relationship with phylogenetic reconstruction \cite{satas2020scarlet, dorri2020efficient}.
+
+\textbf{(ii) serial or repeated sampling of the populations}.
 We know from population genetics that it is possible to measure quantitatively the tendency of populations with shared genotypes to experience differential growth and survival, i.e. the \textbf{fitness of genotypes}, from population samples drawn \textbf{over time}.
-These two concepts can be linked to measure the fitness associated with copy number assigned clones identified by a novel scWGS method (DLP+), in serially sampled tumours.
-\subsection{Statistical models to quantify fitness of clones}
-Two key statistical innovations were required, a Bayesian phylogenetic inference method, \textbf{Sitka} that scales to thousands of cells for copy number states in scWGS and adaptation of a birth death process statistical model, and  \textbf{Wright-Fisher diffusion}, to scWGS genotypes, named as \texttt{fitClone}.
+These two concepts can be linked to measure the fitness associated with copy number assigned clones identified by a novel scWGS method (DLP+), in serially sampled tumours
 
-\subsubsection{Introduction to Sitka application on single cell data}
-
-
-\subsubsection{\texttt{fitClone}-quantitative measure of fitness model}
+\textbf{(iii) a method for estimating the likelihood the trajectory is non neutral}.
+These estimations involve mathematical and statistical models to actually quantify and infer the fitness of any clonal population showing dynamical behaviour over time.
 
 
+\section{Statistical models to measure clonal fitness}
+The two key statistical innovations required to identify and measure  clonal fitness are first of all to find their relationships, a Bayesian phylogenetic inference method, \textbf{Sitka} that scales to thousands of cells for copy number states in scWGS and adaptation of a birth death process statistical model, and  \textbf{Wright-Fisher diffusion}, to scWGS genotypes, named as \texttt{fitClone}.
+
+\subsection{Introduction to Sitka application on single cell data}
+
+
+
+
+
+
+\subsection{\texttt{fitClone}-quantitative measure of fitness model}
 
 
 \section{Studying cancer dynamics by single cell RNA sequencing}
