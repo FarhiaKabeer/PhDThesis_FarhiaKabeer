@@ -125,10 +125,7 @@ re-suspended in cryopreservation medium (10 percent DMSO-Sigma-D2650,
 40 percent FBS-GE Healthcare SH30088.03, 50 percent media) and frozen
 to \SI{-80}{\degreeCelsius} at a rate of
 \SI{-1}{\degreeCelsius\per\minute}. 
-Cells were cultured continuously from passage 10 (post initial cloning as in \cite{burleigh2015co}) to passage 60 for 184hTERT WT and upto passage 57 and passage 55 for the P53 KO branches a and b respectively, from initial cloning/isolation. 
-(\textbf{fig-S1A, Table 6.4, 6.5}). 
-Genome sequencing was undertaken at passages 25,30, 51 and 60 from the wild type branch, passages 10,15,25,30,40,50, and 57 from P53 KO branch a and passages 20, 30, 35, 40, 45, 50 and 55 from P53 KO branch b. Also, the transcriptome sequencing was carried out on passages 11 and 57 of P53 KO branch a and passages 15, 30 and 50 of P53 KO branch b (\textbf{see methods 2.1}).   
-The TP53 alleles were confirmed by Sanger sequencing as  NM_000546(TP53):c.[156delA];[156delA], p.(GIn52Hisfs*71), and the absence of Tp53 protein was confirmed with western blot (\textbf{fig-S1B, Table 6.4, 6.5})
+
 
 %-------------------------------
 %\subsubsection{P53 knockouts}
@@ -796,19 +793,7 @@ Enriched pathways were computed from differentially expressed genes (adjusted p-
 Volcano plots were generated using the R 3.6.0 Bioconductor package edgeR\_3.26.0 that implements RNA-seq differential expression analysis methodology based on the negative binomial distribution. Given the normalized expression levels for the cells in two clones, we first call the estimateDisp() function to estimate the dispersion by fitting a generalized linear model that accounts for all systematic sources of variation. Next, we use the edgeR functions glmQLFit() and glmQLFTest() to perform a quasi-likelihood dispersion estimation and hypothesis testing that assigns false discovery rate values to each gene. In plain English, a gene with high -log10(FDR) and low negative log fold change is significantly more expressed in the left clone than in the right while taking into consideration all the expression values for all the genes in both clones. Similarly, a gene with high -log10(FDR) and large positive log fold change is significantly more expressed in the right clone than in the left. 
 
 
-\subsubsection{Phenotypic volume analysis}
-\label{sec:phvolume}
 
-Phenotypic volume \cite{azizi2018single} was computed for each of the 13 scRNA-Seq TNBC PDX libraries. After removing the mitocondrial and ribosomal genes, we selected 1,983 common genes that were detected in at least 200 cells in each of the 13 libraries. Then, we sampled uniformly at random 800 cells from each library, thus yielding a 1,983 genes x 800 cells matrix of normalized log2 counts for each library. Next, we computed the  covariance matrix such that only the common values between every pair of genes was considered, while the missing values were ignored. The phenotypic volume is the sum of log10 of all the singular values of the covariance matrix. We repeated the entire process 20 times.
-
-
-\subsubsection{RNA velocity analysis}
-We used \verb|velocyto.R_0.6| \cite{la2018rna} to estimate RNA velocities. 
-Briefly  \verb|run10x| from velocyto CLI was used to preprocess the cellranger output directories from the 10x Genomics platform for each timepoint of the TNBC Rx arm individually. 
-The resulting loom files were merged using the \verb|combine| command in the \verb|loompy| package as recommended by the authors. 
-Cells and genes were selected as in section \ref{section:my}. 
-RNA velocities were computed using the \verb|gene.relative.velocity.estimates(emat, nmat, deltaT=1, fit.quantile = 0.02, kCells = 20)| routine with an identical embedding matrix as in Figure 7 in the main text. 
-Absolute cumulative RNA velocity was defined as the mean average magnitude of the estimated velocities of all genes per cell. 
 
 
 
@@ -821,10 +806,7 @@ Absolute cumulative RNA velocity was defined as the mean average magnitude of th
 
 
 
-\section{Supplementary figures}
-\subsection{sfig_pdxExpDesCurves}
-\subsection{fig_S2_sfig_MixRxDesCurves}
-\subsection{Summary sequencing figrues}
+
 
 
 \subsection{IHC stainined slides}

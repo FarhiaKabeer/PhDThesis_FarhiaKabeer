@@ -164,23 +164,35 @@ Single cells pellet  was resuspended in PBS + 0.04\% BSA (Sigma) in appropriate 
 scWGS DLP+ library construction was carried out as described in \cite{laks2019clonal}. Briefly, single cell suspensions from cell lines and patient derived xenografts were fluorescently stained using CellTrace CFSE (Life Technologies) and LIVE/DEAD Fixable Red Dead Cell Stain (ThermoFisher) in a PBS solution containing 0.04\% BSA (Miltenyi Biotec 130-091-376) incubated at \SI{37}{\degreeCelsius} for 20 minutes. Cells were subsequently centrifuged to remove stain, and resuspended in fresh PBS with 0.04 percent BSA. This single cell suspension was loaded into a contactless piezo electric dispenser (sciFLEXARRAYER S3, Scienion) and spotted into the open nanowell arrays (SmartChip, TakaraBio) preprinted with unique dual index sequencing primer pairs. Occupancy and cell state were confirmed by fluorescent imaging and wells were selected for single cell copy number profiling using the DLP+ method \cite{laks2019clonal}. Briefly, cell dispensing was followed by enzymatic and heat lysis. After cell lysis, tagmentation mix 
 (\SI{14.335}{\nano\liter} TD Buffer, \SI{3.5}{\nano\liter} TDE1, and \SI{0.165}{\nano\liter} 10\% Tween-20) in PCR water were dispensed into each well followed by incubation and neutralization. Final recovery and purification of single cell libraries was done after 8 cycles of PCR. Cleaned up pooled single-cell libraries were analyzed using the Aglient Bioanalyzer 2100 HS kit. Libraries were sequenced at UBC Biomedical Research Centre (BRC) in Vancouver, British Columbia on the Illumina NextSeq 550 (mid- or high-output, paired-end 150-bp reads), or at the GSC on Illumina HiSeq2500 (paired-end 125-bp reads) and Illumina HiSeqX (paired-end 150-bp reads). The data was then processed to quantification and statistical analysis pipeline \cite{laks2019clonal}.
 
+
+
+
+\section{Data Analysis}
+\subsection{DLP+ sequence analysis, copy number determination and quality control filtering}
+FASTQ pre-processing, sequence alignment, quality control, copy number calling and S-phase classification and filtering was performed on all libraries as detailed in \cite{laks2019clonal}. Briefly, cells were assigned a QS score for data quality based on a 13 feature Random forest classifier fitted and applied as per \cite{laks2019clonal}. Copy number alterations on a per cell basis were determined using a hidden Markov Model (HMM) approach using the \texttt{HMMCopy} package with parameterizations detailed in \cite{laks2019clonal}. S-phase cells were identified using an automated classifier trained using cell-cycle sorted cells and where features from HMM output were used to identify cells most probably in early or late phase replication of their genomes. As these cells interfere with downstream phylogenetic analysis, they were removed from the analysis according to parameter settings and thresholds established in \cite{laks2019clonal}. To further enable phylogenetic inference, 10-15\% of cells with highest average copy number state jumps were removed. Upon inspection, these cells included early and late dividing cells that were not captured by the s-phase classifier. 
+Attrition of cells at each stage of quality control is shown in (suptabtab:omnibusMedians).
+
+
+
 \subsection{Identifying clones through phylogenetic analysis}
-Using sitka we established the evolutionary relationships of cells in a PDX heterogeneous samples. To investigate cancer evolution we need to determine the abundance of subpopulations over time. To this end, we introduce \textbf{Lumberjack}, a tree-cutting algorithm that we used to define clonal subpopulations. In the output tree of \textbf{sitka}, cells are part of the terminal leaf nodes of the phylogenetic topology. We post-processed the inferred trees to identify clonal populations from major clades. When clonal populations are defined, their abundances were counted as a function of timeseries and these were used for fitness inference. 
+Using sitka we established the evolutionary relationships of cells in a PDX heterogeneous samples. To investigate cancer evolution we need to determine the abundance of subpopulations over time. To this end, we introduce \texttt{Lumberjack}, a tree-cutting algorithm that we used to define clonal subpopulations. In the output tree of \texttt{sitka}, cells are part of the terminal leaf nodes of the phylogenetic topology. We post-processed the inferred trees to identify clonal populations from major clades. When clonal populations are defined, their abundances were counted as a function of timeseries and these were used for fitness inference. 
 Clones are constructed by identifying connected components (each a clade or a paraphyly) in the phylogenetic tree reconstruction. The tree is `cut' into discrete populations according to the following procedure
+
 \subsubsection{Sitka Model}
+
 \subsubsection{Lumberjack}
 
 
 
 \section{Single cell RNA sequencing (scRNAseq)}
-All libraries generated using 10x scRNAseq are listed in suptab{stab:tenx}.
+
 
 
 \subsection{Processing of patient derived xenografts for scRNAseq data}
 PDX tumours were harvested and mechanically disaggregated into small fragments to viably freeze them according to the protocol mentioned above. 
 One of the viable frozen tumour vial was thawed and after washing out the freezing media, the tumour clumps and fragments were incubated with digestion enzymes as with DLP+ preparation. After complete dissociation with collagenase/hyaluronidase enzyme mix according to the protocol at \SI{37}{\degreeCelsius}, followed by briefly washing in 0.05\% trypsin-EDTA and resuspension in 0.04\% BSA in PBS. Dead cells were removed using the Miltenyi MACS Dead Cell Removal kit and cells were processed as previously described \cite{o2019dissociation}.
 To avoid processing artifacts, dissociation methods and times were tightly controlled and for treatment and treatment holiday pairs, library construction was performed on the same chips. Single cell suspensions were loaded onto the 10x Genomics single cell controller and libraries prepared according to the Chromium Single Cell 3’ Reagent Chemistry kit standard protocol. 
-Libraries were then sequenced on an Illumina Nextseq500/550 with 42bp paired-end reads, or a HiSeq2500 v4 with 125bp paired-end reads. 10x Genomics Cell Ranger 3.0 was used to perform demultiplexing, alignment and counting.
+Libraries were then sequenced on an Illumina Nextseq500/550 with 42bp paired-end reads, or a HiSeq2500 v4 with 125bp paired-end reads. 10x Genomics Cell Ranger version 3.0 was used to perform demultiplexing, alignment and counting.
 
 
 
