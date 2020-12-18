@@ -86,8 +86,8 @@ For each of the two timeseries PDX (HER2+ and TNBC), we inferred single cell cop
  We observed a small decrease of 0.04 copy number breakpoints per generation (linear regression, p=0.002,=0.05). 
 
 \subsubsection{Untreated timeseries SA609 TNBC PDX undergo deterministic clonal dynamics}
-In contrast to HER2+ timeseries, the TNBC model trajectories resulted in a high positive selective coefficient for a minority of clones \textbf{(\autoref{fig:UnRxseries} j, k)} mean = 1.03 $\pm $0.11. Consistent with increased dynamics in the TNBC series, we found an initial increase of 0.1 breakpoints per cell per generation in the first 4 passages  \textbf{(Figure A.1 a)}). After this initial increase the average number of breakpoints per cell remained constant.
- Clone E in TNBC swept the population over the last 3 timepoints \textbf{(\autoref{fig:UnRxseries} j, k)} (n=541 over the timeseries). Clone E had the highest selective coefficient (1+s= 1.08 $\pm $ 0.043), having grown from undetectable proportions in earlier timepoints to 58\% of cells by the end of the timeseries. Clone E also had the highest number of breakpoints with 12.8 additional copy number breakpoints per cell, relative to the reference clone C with the lowest (linear regression with coverage breadth, ploidy and cell cycle state as covariates (p $<$0.0001) \textbf{(Figure A.1 c)}.
+In contrast to HER2+ timeseries, the TNBC model trajectories resulted in a high positive selective coefficient for a minority of clones \textbf{(\autoref{fig:UnRxseries} j, k)} mean = 1.03 $\pm $0.11. Consistent with increased dynamics in the TNBC series, we found an initial increase of 0.1 breakpoints per cell per generation in the first 4 passages \textbf{(\autoref{fig:Umutationanalysisbreakpoints} a)}. After this initial increase the average number of breakpoints per cell remained constant.
+ Clone E in TNBC swept the population over the last 3 timepoints \textbf{(\autoref{fig:UnRxseries} j, k)} (n=541 over the timeseries). Clone E had the highest selective coefficient (1+s= 1.08 $\pm $ 0.043), having grown from undetectable proportions in earlier timepoints to 58\% of cells by the end of the timeseries. Clone E also had the highest number of breakpoints with 12.8 additional copy number breakpoints per cell, relative to the reference clone C with the lowest (linear regression with coverage breadth, ploidy and cell cycle state as covariates (p $<$0.0001) \textbf{(\autoref{fig:Umutationanalysisbreakpoints} c)}.
 
 
 \subsection{SA609-TNBC mixture timeseries yielded selection of biologically similar population}
@@ -98,7 +98,7 @@ timepoints ($\approx$~50\% each) at the ratio of 1:1. In branch b, we aimed to h
 
 
 \subsubsection{Clones with higher selection coefficients out compete low fitness clones in mixture branch a}
-We forward-simulated trajectories from \texttt{fitClone} using the median of the posterior distribution of the estimated selection coefficients (F = -0.01  $\pm$ 0.13, A = -0.00 $\pm$ 0.16, B= 0.00 $\pm$  0.01, D = 0.00  $\pm$  0.01, G = 0.02  $\pm$  0.02, H = 0.03  $\pm$  0.03, E = 0.08  $\pm$ 0.10) and starting clonal proportions of (A=0.000 (no observed cells), B=0.07, C=0.25, D=0.51, E=0.02, F=0.000 (no observed cells), G=0.08 H=0.07) \textbf{\autoref{fig:Mixturenew} a, f}. The starting clonal proportions were inferred by adding the cells from the initial passage (M0) to the tree inferred from the cells in the original series (TNBC-SA609) and assigning them to their respective clones. We generated 10,000 trajectories from the model. \textbf{Figure 4.3 c} shows the simulated trajectories in black.
+We forward-simulated trajectories from \texttt{fitClone} using the median of the posterior distribution of the estimated selection coefficients (F = -0.01  $\pm$ 0.13, A = -0.00 $\pm$ 0.16, B= 0.00 $\pm$  0.01, D = 0.00  $\pm$  0.01, G = 0.02  $\pm$  0.02, H = 0.03  $\pm$  0.03, E = 0.08  $\pm$ 0.10) and starting clonal proportions of (A=0.000 (no observed cells), B=0.07, C=0.25, D=0.51, E=0.02, F=0.000 (no observed cells), G=0.08 H=0.07) \textbf{\autoref{fig:Mixturenew} a}. The starting clonal proportions were inferred by adding the cells from the initial passage (M0) to the tree inferred from the cells in the original series (TNBC-SA609) and assigning them to their respective clones. We generated 10,000 trajectories from the model. \textbf{\autoref{fig:Mixturenew} c, f} shows the simulated trajectories in black.
 The mean clonal fraction at each step is shown in red. All clones except for clones E, D, and F are predicted to vanish to clonal fractions of below 1\%. We have combined the trajectories for clones E and F since clone F (i) had fewer than 19 total cells in the original series and consequently its selection coefficient had a high variance, (ii) is phylogenetically proximal to clone E \textbf{\autoref{fig:Mixturenew} b} and thus likely represented a biologically similar population and (iii) finally, is not observed above a threshold of 20 cells in any other line in the TNBC-SA609 family.
 
 We experimentally tested these predictions by initiating a new PDX line with the remixed population (from M0), serially passaged over 4 timepoints \textbf{\autoref{fig:Mixturenew} a} (top), and sequenced with DLP+ (7,839 single cell genomes, median 1,354.5 per library). After placing the cells from all timepoints of this mixture experiment on the tree, they got assigned to seven clones from the original timeseries (all but clone A) between 26 to 499 (median 162) cells \textbf{\autoref{fig:Mixturenew} d} . In \textbf{\autoref{fig:Mixturenew} c, f} blue dots show the observed clonal fractions at each timepoint in PDX branch a. Clones with higher selection co-efficients swept through the mixture timeseries by passage 4 \textbf{(\autoref{fig:Mixturenew} e)}. In the last timepoint, the clade composed of clones E and F comprised 94\% of cells, outcompeting low-fitness clones. The estimated selection co-efficients were relatively strongly correlated (Pearson correlation of 0.795, considering only clones that reached overall prevalence of over 1\% in the original series, i.e., all clones except A and F.
@@ -144,7 +144,7 @@ The analysis of the two mixture series suggests that (i) we can validate the sel
 	\textbf{Experimental overview of TNBC PDX treated time series.}
 	      All nodes representing each PDX tumour were digested to acquire genomes of single cells (~200-600 cells/tumor). Extra replicate tumors at each time point are not shown in the diagram (n=2-4). Grey circles represent un-treated, green represents Cisplatin treated and grey with green outline presents drug-holiday samples \textbf{(a)} SA609-TNBC time series with replicate treated and un-treated branches. DLP+ collected starting from X1 to X10 (Un-Rx line 1). Top grey branch indicating Un-Rx line 2. The middle three branches are cisplatin treated time series replicate branches \textbf{(b)} SA535-TNBC  showing the tumor nodes taken for DLP+ starting from X5 untreated \textbf{(c)} SA1035-TNBC  showing the tumor nodes taken for DLP+ starting from X 4 untreated.}
 	
-	\label{fig:Untreated timeseries growth curves only}
+	\label{fig:treatedtimeseriesgreen}
 \end{figure}
 
 %...............................................................
@@ -153,11 +153,11 @@ So far we have applied our framework to pharmacologically unperturbed tumor envi
 additional TNBC PDX lines to check the reproduabiblty and generalizability of our observation.
 
 \subsubsection{Repeated platinum exposure causes less tumor responsiveness} 
- To test pharmacologic perturbation with cisplatin (platinum) impacted the stability of the fitness landscape of the TNBC series, we generated a separate branch of the SA609-TNBC PDX model where we administered cisplatin (2mg/kg, \textit{Q3Dx8} i.p. max) serially over four successive passages to induce drug resistance along with its un treated control branch. For each serially treated tumour, a parallel set of transplanted mice were left untreated, establishing corresponding drug ‘holiday’ samples (\textbf{(See methods for detailed experimental design 1.1.4, Figure 2.2 a)}. Briefly, We coded the treated passages with 'T' and untreated with 'U' initialised by the X3 untreated (U) passage in SA609 TNBC, X4 untreated (U) in SA1035 TNBC and X5 untreated (U) in SA535 TNBC \textbf{Figure 4.4 a, b, c}. In SA609 TNBC, the first treatment passage(\textit{X4 UT}) exhibited rapid tumour shrinkage (>50\% of initial size). However \textit{X5 UTT}, \textit{X6 UTTT} and \textit{X7 UTTTT} had progressively less response, indicating drug resistance and positive growth kinetics \textbf{Figure 4.5}. 
+ To test pharmacologic perturbation with cisplatin (platinum) impacted the stability of the fitness landscape of the TNBC series, we generated a separate branch of the SA609-TNBC PDX model where we administered cisplatin (2mg/kg, \textit{Q3Dx8} i.p. max) serially over four successive passages to induce drug resistance along with its un treated control branch. For each serially treated tumour, a parallel set of transplanted mice were left untreated, establishing corresponding drug ‘holiday’ samples (\textbf{See methods for detailed experimental design \textbf{1.1.4}, \textbf{\autoref{fig:treatmentdesignMTD} a)}}. Briefly, We coded the treated passages with `T' and untreated with `U' initialised by the X3 untreated (U) passage in SA609 TNBC, X4 untreated (U) in SA1035 TNBC and X5 untreated (U) in SA535 TNBC \textbf{\autoref{fig:treatedtimeseriesgreen} a, b, c}. In SA609 TNBC, the first treatment passage(\textit{X4 UT}) exhibited rapid tumour shrinkage (>50\% of initial size). However \textit{X5 UTT}, \textit{X6 UTTT} and \textit{X7 UTTTT} had progressively less response, indicating drug resistance and positive growth kinetics \textbf{(\autoref{fig:SA609allcyclescisplatin})}. 
 
 
 \subsubsection{A new clone evolved and swept to fixation with increasing platinum cycles in SA609-TNBC PDX}
-Decomposing the growth dynamics over (\textit{X3 U}; \textit{X4 UT}; \textit{X5 UTT}; \textit{X6 UTTT}; \textit{X7 UTTTT}) into clonal trajectories with DLP+ analysis suggested sustained cisplatin treatment inverted the fitness landscape. A new Clone R,  derived from Clone A in the phylogeny, but with a distinct clonal genotype (fewer copies of \textit{MYC} and deletions at \textit{RB1}, \textit{PRDM9} and \textit{NUDT15} loci \textbf{Figure 4.6 a, b}, swept to fixation comprising 48\% (\textit{X4 UT}), 98\% (\textit{X5 UTT}), 100\% (\textit{X6 UTTT}) and 100\% (\textit{X7 UTTTT}) of cells across the treated series \textbf{Figure 4.6 c}. Notably, the high fitness clones E, H, G, D from the untreated series exhibited low fitness coefficients in the treatment series and were no longer detected \textbf{Figure 4.6 d, 4.11}. Conversely, Clones A, and B, comprising a low fitness phylogenetic superclade, distinct from high fitness clones E and F in the untreated series, were the precursors to the resistant clone R \textbf{Figure 4.7 d, 4.11}. Thus, cisplatin perturbation resulted in a near complete inversion of the fitness landscape.
+Decomposing the growth dynamics over (\textit{X3 U}; \textit{X4 UT}; \textit{X5 UTT}; \textit{X6 UTTT}; \textit{X7 UTTTT}) into clonal trajectories with DLP+ analysis suggested sustained cisplatin treatment inverted the fitness landscape. A new Clone R,  derived from Clone A in the phylogeny, but with a distinct clonal genotype (fewer copies of \textit{MYC} and deletions at \textit{RB1}, \textit{PRDM9} and \textit{NUDT15} loci, \textbf{\autoref{fig:drugholidayfitnesscost} a, b)}, swept to fixation comprising 48\% (\textit{X4 UT}), 98\% (\textit{X5 UTT}), 100\% (\textit{X6 UTTT}) and 100\% (\textit{X7 UTTTT}) of cells across the treated series \textbf{(\autoref{fig:drugholidayfitnesscost} c)}. Notably, the high fitness clones E, H, G, D from the untreated series exhibited low fitness coefficients in the treatment series and were no longer detected \textbf{(\autoref{fig:drugholidayfitnesscost} d}, \textbf{\autoref{fig:landscapefitness})}. Conversely, Clones A, and B, comprising a low fitness phylogenetic superclade, distinct from high fitness clones E and F in the untreated series, were the precursors to the resistant clone R \textbf{(\autoref{fig:SA609Rxnew} d)},    \textbf{(\autoref{fig:landscapefitness})} Thus, cisplatin perturbation resulted in a near complete inversion of the fitness landscape.
 
 %....................................................................
 
@@ -169,9 +169,9 @@ Decomposing the growth dynamics over (\textit{X3 U}; \textit{X4 UT}; \textit{X5 
 \caption[Representative growth curves from SA609 TNBC treated with cisplatin]
 	{\small
 	\textbf{Growth curves from SA609 TNBC treated with cisplatin.}
-	   The vertical axis on the left side presents the tumor volume in cubic millimeters and on the right side presents the type of mice groups and their treatemnt status. Res arrows in the top panel indicates the time of start of drug treatment adn black arrow indicates the tumor that was taken to generate the next generation of mice.
+	   The vertical axis on the left side presents the tumor volume in cubic millimeters and on the right side presents the type of mice groups and their treatemnt status. Res arrows in the top panel indicates the time of start of drug treatment and black arrow indicates the tumor that was taken to generate the next generation of mice.
 	}
-	\label{fig:Untreated timeseries growth curves only}
+	\label{fig:SA609allcyclescisplatin}
 \end{figure}
 
 
@@ -187,7 +187,7 @@ Decomposing the growth dynamics over (\textit{X3 U}; \textit{X4 UT}; \textit{X5 
 	\textbf{Impact of cisplatin perturbation on fitness landscape in  SA609 TNBC PDX.}
 	  \textbf{(a)} Copy number genotype of clone E from untreated timeseries \textbf{(b)} Copy number genotype of clone R from treated timeseries (arrows indicate differences to clone E) \textbf{(c)} Clades with higher fitness in the untreated (-Rx) and treated (+Rx) series \textbf{(d)} Evolution as a function of drug treatment and drug holiday. Arrows indicate the path of serial passaging. For each sample, the phylogeny with clonal abundance from DLP+ is shown, reflecting selection..
 	}
-	\label{fig:Untreated timeseries growth curves only}
+	\label{fig:drugholidayfitnesscost}
 \end{figure}
 
 %......................................................
@@ -203,20 +203,20 @@ Decomposing the growth dynamics over (\textit{X3 U}; \textit{X4 UT}; \textit{X5 
 	    \textbf{(a)} Heatmap representation of copy number profiles of 841 cells, grouped in 6 phylogenetic clades 
 	    \textbf{(b)} Phylogeny (simplified type II sitka tree) of cells over the SA609-Un-Rx where nodes are groups of cells (scaled in size by number) with shared copy number genotype and edges represent distinct genomic copy number change points (sitka markers). \textbf{(c)} Observed clonal abundances \textbf{(d)} distribution over magnitude of difference between selective coefficients of pairs of clones \textbf{(e, f, g, h)} Analogous plots for the treated branch (n=1,593 cells).
 	}
-	\label{fig:Untreated timeseries growth curves only}
+	\label{fig:SA609Rxnew}
 \end{figure}
 
 %.......................................................
 
 
 \subsubsection {Clone-specifc cisplatin resistance has a fitness cost}
-We next asked whether the clonal dynamics in the presence of cisplatin were reversible by exploring the drug holiday samples \textbf{(Figure 4.4 a, 4.6 d} \textit{X5 UTU}; \textit{X6 UTTU}; \textit{X7 UTTTU}). In the first drug holiday \textit{X5 UTU}, clonal composition reverted to consist predominantly of precursor clone B with 90\% abundance, and only 10\% abundance from clone R \textbf{(Figure 4.11}.  However, in \textit{X6 UTTU} and \textit{X7 UTTTU} no reversion was detected, and these populations consisted of  $>$99\% Clone R, similar to their on-treatment analogues. Thus, clonal competition in the absence of drug led to clones derived from the A-B clade out-competing clone R, and clone-specific cisplatin resistance thus has a fitness cost. Moreover, the genotype specificity of reversion between \textit{X4 UT} to \textit{X5 UTU} indicates that the clonal dynamics can be attributed to selection of genomically defined clones with differential fitness. 
+We next asked whether the clonal dynamics in the presence of cisplatin were reversible by exploring the drug holiday samples \textbf{(\autoref{fig:treatedtimeseriesgreen} a}, \textbf{\autoref{fig:drugholidayfitnesscost} d)} \textit{X5 UTU}; \textit{X6 UTTU}; \textit{X7 UTTTU}). In the first drug holiday \textit{X5 UTU}, clonal composition reverted to consist predominantly of precursor clone B with 90\% abundance, and only 10\% abundance from clone R, \textbf{\autoref{fig:landscapefitness}}.  However, in \textit{X6 UTTU} and \textit{X7 UTTTU} no reversion was detected, and these populations consisted of  $>$99\% Clone R, similar to their on-treatment analogues. Thus, clonal competition in the absence of drug led to clones derived from the A-B clade out-competing clone R, and clone-specific cisplatin resistance thus has a fitness cost. Moreover, the genotype specificity of reversion between \textit{X4 UT} to \textit{X5 UTU} indicates that the clonal dynamics can be attributed to selection of genomically defined clones with differential fitness. 
 
 
 \subsubsection{Fitness inversion is reproducible and not a stochastic effect}
 Next, we examined whether the fitness inversion dynamics as a result of cisplatin chemotherapy in SA609 TNBC PDX model are due to stochastic effect or real.
 
-We established parallel replicate timeseries of SA609 with cisplatin treatment shown as line 2 and line 3 in \textbf{figure 4.4 a}, and duplicate experiments of specific time points. We observed the same type of clonal dynamics as of line 1, briefly, a phylogenetic branch of the population which has low fitness in the untreated control branch is repeatedly observed to selectively expand on treatment. The precurosr clone B that gave rise to clone R in line 1, also gave rise to clone R1 in line 2 \textbf{(Figure 4.8 Line 2)}. Few time points analysis of line 3 also exhibited expansion of precursor clone B started giving rose to clone R, that was again found to be reversed in drug holiday sample of line 3 \textbf{(Figure 4.8 Line 3)}. This indicates that the fitness inversion is not a stochastic effect and establishes with precision that high fitness lineages in the untreated setting are selectively pruned, while low fitness lineages in the untreated setting selectively expand.
+We established parallel replicate timeseries of SA609 with cisplatin treatment shown as line 2 and line 3 in \textbf{Figure 4.4 a}, and duplicate experiments of specific time points. We observed the same type of clonal dynamics as of line 1, briefly, a phylogenetic branch of the population which has low fitness in the untreated control branch is repeatedly observed to selectively expand on treatment. The precurosr clone B that gave rise to clone R in line 1, also gave rise to clone R1 in line 2 \textbf{(Figure 4.8 Line 2)}. Few time points analysis of line 3 also exhibited expansion of precursor clone B started giving rose to clone R, that was again found to be reversed in drug holiday sample of line 3 \textbf{(Figure 4.8 Line 3)}. This indicates that the fitness inversion is not a stochastic effect and establishes with precision that high fitness lineages in the untreated setting are selectively pruned, while low fitness lineages in the untreated setting selectively expand.
 %.....................................................................
 
 \begin{figure}
@@ -228,7 +228,7 @@ We established parallel replicate timeseries of SA609 with cisplatin treatment s
 	\textbf{TNBC-SA609 PDX reproducible clonal dynamics with and without treatment.}
 	    In both Line 1 and Line 2, the derivatives of clone B (R and R1) sweep the population. Line 3 confirms the same dynamics of clonal proportion with reversal of fitness at X5 in drug holiday sample where clone R is not fit in the absence of drug.
 	}
-	\label{fig:Untreated timeseries growth curves only}
+	\label{fig:SA609barplotanalysis}
 \end{figure}
 
 %.....................................................................
@@ -238,7 +238,7 @@ To test the generalizability of the observed drug selection dynamics with cispla
 
 \subsubsection{Fitness inversion landscape also observed in SA1035-TNBC PDX with cisplatin}
 Another independent PDX system with 14,170 single cells were generated where 4,444 passed the quality filters. The experimental design diagram is shown in \textbf{figure 4.4. b}.
-Sc-WGS data collected from an untreated branch with five serial passages (X4, X5, X6, X7, and X8) \textbf{(Figure A.2 b)} with a total of 2,015 single cells. A parallel branch was treated with cisplatin starting at X5, X6, X7, and X8 comprising 1,596 filtered cells. 833 cells belonged to the drug-holiday timepoints \textbf{(Figure A.3 right top panel)}. Phylogenetic inference followed by cutting the tree yielded 11 clones \textbf{(Figure 4.9, 4.11)}. Clonal fractions over all timepoints in the untreated branch were A(0.097), B(0.140), C(0.087), D(0.160), E(0.266), F(0.010), G(0.058), H(0.053), I(0.065), J(0.018), and K(0.047). The abundance of clone A fell over time and it was chosen as the reference clone. Clone E rose from a clonal fraction of 0.028 at X4 to 0.69 at X8 and had the highest selection coefficient (1+s = 1.06 $\pm$ 0.0367). In the treated branch, clonal fractions were A(0.065), B(0.129), C(0.132), D(0.066), E(0.055), F(0.018), G(0.205), H(0.144), I(0.094), J(0.014), and K(0.078). In this regime, G (1+s = 1.01 $\pm$ 0.0123) and H (1+s = 1.02 $\pm$ 0.0135), which were among the clones with lower fitness in absence of treatment, rose to occupy 73\% at X8 while clone E (1 + s = 0.993 $\pm$ 0.0344) fell from about 10\% at X5 to undetectable at X8. Unlike SA609 TNBC, where we saw new clone emerging from existing precursor clone, a clone H with highest fitness coefficient in SA1035 TNBC was already present in the initial population at the start of drug treatment and exponentially increased with increasing drug cycles \textbf{(Figure\ref{4.9} c, g}. 
+Sc-WGS data collected from an untreated branch with five serial passages (X4, X5, X6, X7, and X8) \textbf{(Figure A.2 b)} with a total of 2,015 single cells. A parallel branch was treated with cisplatin starting at X5, X6, X7, and X8 comprising 1,596 filtered cells. 833 cells belonged to the drug-holiday timepoints \textbf{(Figure A.3 right top panel)}. Phylogenetic inference followed by cutting the tree yielded 11 clones \textbf{(\autoref{fig:SA1035Rxnew}, \autoref{fig:landscapefitness}} . Clonal fractions over all timepoints in the untreated branch were A(0.097), B(0.140), C(0.087), D(0.160), E(0.266), F(0.010), G(0.058), H(0.053), I(0.065), J(0.018), and K(0.047). The abundance of clone A fell over time and it was chosen as the reference clone. Clone E rose from a clonal fraction of 0.028 at X4 to 0.69 at X8 and had the highest selection coefficient (1+s = 1.06 $\pm$ 0.0367). In the treated branch, clonal fractions were A(0.065), B(0.129), C(0.132), D(0.066), E(0.055), F(0.018), G(0.205), H(0.144), I(0.094), J(0.014), and K(0.078). In this regime, G (1+s = 1.01 $\pm$ 0.0123) and H (1+s = 1.02 $\pm$ 0.0135), which were among the clones with lower fitness in absence of treatment, rose to occupy 73\% at X8 while clone E (1 + s = 0.993 $\pm$ 0.0344) fell from about 10\% at X5 to undetectable at X8. Unlike SA609 TNBC, where we saw new clone emerging from existing precursor clone, a clone H with highest fitness coefficient in SA1035 TNBC was already present in the initial population at the start of drug treatment and exponentially increased with increasing drug cycles \textbf{(Figure\ref{4.9} c, g}. 
 
 \subsubsection{High fitness clone emerged from the existing starting population with cisplatin in SA535-TNBC PDX}
  SA535 TNBC is a BRCA1 deficient patient derived tumour. We established a timeseries trransplants with treated and untreated branches similar to SA609 TNBC PDX \textbf{(Figure 4.6 b)}. 
@@ -307,11 +307,11 @@ to treated, the first group goes from high to low fitness, while the second grou
 
 \subsection{Comparison of fitness landscape of platinum and CX-5461 in TNBC PDX timeseries}
 So far we have applied only platinum compound to TNBC PDX in a time series manner to track copy number based genomic clones. Now we investigate whether establishing the same patients tumor model of forced amplified evolution, with another drug, CX-5461, could help to interpret the clonal relationship and their fitness within the same tumor type.
-One TNBC SA535, was BRCA1 deficient (HRD-Dup), so we developed a repeated CX-5461 drug exposure timeseries model same experimental design \textbf{(Figure 2.2 a)} to compare cisplatin induced clonal dynamics. Platinum (cisplatin) is a standard chemotherapeutic agent whereas, CX-5461 is a G4 quadruplex stabilizer drug, known to have synthetic lethality with BRCA deficiency.
+One TNBC SA535, was BRCA1 deficient (HRD-Dup), so we developed a repeated CX-5461 drug exposure timeseries model same experimental design \textbf{(\autoref{fig:SA535CX5461} a)} to compare cisplatin induced clonal dynamics. Platinum (cisplatin) is a standard chemotherapeutic agent whereas, CX-5461 is a G4 quadruplex stabilizer drug, known to have synthetic lethality with BRCA deficiency.
 
 % waiting for correct data from Hoa: We established a timeseries SA535 TNBC PDX with treated and untreated branches similar and in parallel to cisplatin \textbf{(Figure 4.12 a)}. We collected sc-WGS from consecutively transplanted untreated timepoints (X4, X5, X6, X7, X8, X9) for a total of 1,341 single cells (mean = 335, $\sigma$ = 84.4 per timepoint). Simultaneously, we established a cisplatin treated timeseries starting from timepoint X6 to X10, CX-5461 treated timeseries in parallel and continued CX-5461 treatment for 5 cycles from X5 to x9 to X10, generating a total of 1,425 cells from sc-WGS (mean = 356, $\sigma$= 159 per timepoint).
 
-Tumor growth curves displayed progressively less response of the tumors in last cycle of drug as comnpared to the first, indicating initiation of drug resistance to both cisplatin and cX-5461 \textbf{Figure 4.12 b, c}. Positive growth kinetics started earlier in cisplatin tumors as compared to CX-5461.
+Tumor growth curves displayed progressively less response of the tumors in last cycle of drug as comnpared to the first, indicating initiation of drug resistance to both cisplatin and CX-5461 \textbf{(\autoref{fig:SA535CX5461} b, c)}. Positive growth kinetics started earlier in cisplatin tumors as compared to CX-5461.
 %......................................................
 
 \begin{figure}
@@ -334,16 +334,16 @@ Tumor growth curves displayed progressively less response of the tumors in last 
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{Figures/SA535combinebarplotspdf.pdf}
+\includegraphics[width=\textwidth]{Figures/SA535combinebarplots.pdf}
 	
 \caption[Combined data analysis of SA535 with cisplatin and CX-5461]
 	{\small
 	\textbf{Combined data analysis of SA535 with cisplatin and CX-5461.}
-	   
-	    \textbf{(a)} Bar plots showing clonal composition at each time point. Vertical axis shows the clonal frraction   and horizontal axis presents the passage timepoint.
-	     \textbf{(b)} Simplified way to present clonal lineage tree matching the bars composition in \textbf{(a)}.
+	   \textbf{(a)} Heat map showing vertical columns as chromosomes and each row represent single cell.
+	    \textbf{(b)} Bar plots showing clonal composition at each time point. Vertical axis shows the clonal fraction   and horizontal axis presents the passage timepoint.
+	     \textbf{(c)} Simplified way to present clonal lineage tree matching the bars composition in \textbf{(a)}.
 	}
-	\label{fig:SA535combinebarplotspdf}
+	\label{fig:SA535combinebarplots}
 \end{figure}
 
 %...............................................................

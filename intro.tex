@@ -315,23 +315,18 @@ forces acting on the clones through their observed dynamics
  
 
 \subsection{Introduction to phylogenetics on single cell data}
-Most studies of tumour phylogenetics to date have adapted standard algorithms that were developed for species phylogenetics (for example, maximum par-simony21,61, minimum evolution73, neighbour joining71,80, UPGMA21, or various maximum likelihood or Bayesian probabilistic inference methods81,82
+Standard algorithms have been used by majority of studies of tumour phylogenetics that were developed for species phylogenetics (for example, maximum parsimony, minimum evolution , neighbour joining,  UPGMA (unweighted pair group method with arithmetic mean), or various maximum likelihood or Bayesian probabilistic inference methods \cite{de2014spatial, zhang2014intratumor, brocks2014intratumor, navin2011tumour, xu2012single, huelsenbeck2001bayesian, felsenstein2004inferring}. Recent researches are now developing new and modified algorithms that are taking into account the specifics to tumor evolution \cite{chowdhury2013phylogenetic, yuan2015bitphylogeny, jahn2016tree}.
 
 Quantifying intra-tumor heterogeneity and reconstructing the evolutionary history of tumor cells is critical for the diagnosis and treatment \cite{burrell2013causes, tabassum2015tumorigenesis}. The tumor evolution  is typically described by a phylogenetic tree (phylogeny), whose leaves represent the cells observed at the present time and whose internal nodes represent ancestral cells \cite{satas2020scarlet}.
 The phylogeny methods are established on defining certain traits or inherited marks on observed individual cells. The majority of single cell phylogenetic tree inferences focus on point mutations \cite{singer2018single, zafar2017sifit, schwartz2017evolution}. Others markers include \ac{SNV} \cite{bashashati2013distinct}, \ac{CNVs} \cite{navin2011tumour},  DNA methylation, histone marks or RNA expression \cite {brocks2014intratumor, yates2012evolution, greaves2012clonal}.
 
-A new model applied on the data set used in this dissertation is \texttt{sitka} \cite{dorri2020efficient}, which is based on lossy transformation of single cell copy number matrices retaining only presence or absence of changes in copy number profiles. This transformation turns a complex evolutionary process (integer-valued copy numbers, prone to a high degree of homoplasy and dense dependence structure across sites) into a simpler one which can be approximated by a probabilistic version of an ideal phylogeny.
+Distance based and agglomerative clustering methods such as neighbour joining are scalable and are used to elucidate hierarchical
+structures over cells \cite{wang2020single, xu2012single}. While useful heuristics, these methods are statistically sub-optimal relative to likelihood based methods \cite{williams2003investigation}. A new model applied on the data set used in this dissertation is \texttt{sitka} \cite{dorri2020efficient}, which is based on lossy transformation of single cell copy number matrices retaining only presence or absence of changes in copy number profiles. This transformation turns a complex evolutionary process (integer-valued copy numbers, prone to a high degree of homoplasy and dense dependence structure across sites) into a simpler one which can be approximated by a probabilistic version of an ideal phylogeny .
 
 \texttt{Sitka} exploits the information of scWGS data and gives a novel phylogenetic encoding of copy number data providing a statistical-computational trade-off by simplifying the site dependencies induced by rearrangements while still forming a sound foundation to phylogenetic inference. Then a tree cutting algorithm, \texttt{Lumberjack} is used to cut the sitka trees and assign single-cells to clones.
 
 \subsection{\texttt{fitClone}-quantitative measure of fitness model}
-
- 
- 
- 
- \texttt{fitClone} is a Bayesian model and associated inference algorithm based on a diffusion approximation
-to K-allele Wright-Fisher model with selection. We start with timeseries clonal abundance measurements over a fixed number of clones and estimate two key unknown parameters of interest:
-fitness coeffcients si for clone i which represents a quantitative measure of the growth potential of a given clone; and distributions over continuous-time trajectories, a latent (unobserved) population structure trajectory in `generational' time.
+ \texttt{fitClone} is a Bayesian model and associated inference algorithm based on a diffusion approximation to K-allele Wright-Fisher model with selection. We start with timeseries clonal abundance measurements over a fixed number of clones and estimate two key unknown parameters of interest. Fitness coeffcients represents a quantitative measure of the growth potential of a given clone; and distributions over continuous-time trajectories, a latent (unobserved) population structure gives trajectory in `generational' time \textbf{See methods}.
 
 \section{Studying cancer dynamics by single cell RNA sequencing}
 For any given difference between the types of drug resistance, for example, the expression of a particular gene, it is assumed that differences arise deterministically or probabilistically in the configuration of transcription factors regulating the genes in the tumors. Cancer cells in distinct cell- states often exhibit important differences in functional properties depending on the which genes are turned on and off resulting in sensitive or resistant phenotype.
