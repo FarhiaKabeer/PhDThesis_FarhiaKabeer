@@ -309,12 +309,19 @@ to treated, the first group goes from high to low fitness, while the second grou
 So far we have applied only platinum compound to TNBC PDX in a time series manner to track copy number based genomic clones. Now we investigate whether establishing the same patients tumor model of forced amplified evolution, with another drug, CX-5461, could help to interpret the clonal relationship and their fitness within the same tumor type.
 One TNBC SA535, was BRCA1 deficient (HRD-Dup), so we developed a repeated CX-5461 drug exposure timeseries model same experimental design \textbf{(\autoref{fig:SA535CX5461} a)} to compare cisplatin induced clonal dynamics. Platinum (cisplatin) is a standard chemotherapeutic agent whereas, CX-5461 is a G4 quadruplex stabilizer drug, known to have synthetic lethality with BRCA deficiency.
 
-% waiting for correct cell numbers and mean data from Hoa:
 We established a timeseries SA535 TNBC PDX treated and untreated branches of CX-5461 similar and in parallel to cisplatin.
-we established a CX-5461 treated timeseries starting from timepoint X5 to X9 while cisplatin continued in parallel from X6 to X10  \textbf{\autoref{fig:SA535CX5461} a}. Another untreated timeseries simultaneously was set up forr comparison of dynamics and tumor growth rate record.
-We collected sc-WGS from consecutively transplanted treated and untreated all aforementioned timepoints for a total of 7,894 single cells that passed the pipeline filters and taken for analysis. %(mean = 335, $\sigma$ = 84.4 per timepoint).
+we established a CX-5461 treated timeseries starting from timepoint X5 to X9 while cisplatin continued in parallel from X6 to X10  \textbf{\autoref{fig:SA535CX5461} a}. Another untreated timeseries simultaneously was set up for comparison of dynamics and tumor growth rate record.
+We collected sc-WGS from consecutively transplanted treated and untreated all aforementioned timepoints for a raw total of 44,618 single cells (mean = 1274.8, $\sigma$ = 300.8 per library. After aggressive filtering for a very high quality human genomes and removing dividing cells, we analysed a total of 7,894 (mean = 1127.7, $\sigma$ = 708.2 per timepoint) single cells from the whole SA535 TNBC PDX \textbf{(\autoref{fig:A535combinebarplots} a)}
 
-Tumor growth curves displayed progressively less response of the tumors in last cycle of drug as comnpared to the first, indicating initiation of drug resistance to both cisplatin and CX-5461 \textbf{(\autoref{fig:SA535CX5461} b, c)}. Positive growth kinetics started earlier in cisplatin tumors as compared to CX-5461.
+We acquired scWGS on 7 consecutively transplanted untreated timepoints (X4, X5, X6, X7, X8, X9, X10) generating a total of 1,968 single cells (mean = 328, $\sigma$ = 104.5 per timepoint).
+Clonal fractions calculated as I(0.002), J(0.3206), K(0.0071), L(0.0051), N(0.0066), P(0.0056), Q(0.6011), R(0.0386), S(0.0097), U(0.0036). 
+
+Simultaneously,from a Cisplatin treated timeseries starting from timepoint X6, and continued for 5 cycles up to X10, generating a total of 2,921 cells from scWGS (mean = 584.2, $\sigma$ = 190.5 per timepoint) from 5 cycles. A cut of the phylogenetic tree inferred over all cells in this series, resulted in 13 clones.
+In the drug cycle treatment Cisplatin line, clonal fractions were
+calculated as I(0.1568), J(0.0575), K(0.0791), L(0.1852), N(0.0065), O(0.001), P(0.1072), Q(0.0387), R(0.0524), S(0.0839), T(0.1938) and U(0.038).
+
+Moreover, from a CX-5461 treated timeseries, starting from timepoint X5, and continuing for 5 cycles up to X9, we generated a total of 3,005 cells from scWGS (mean = 601, $\sigma$ = 342 per timepoint). A cut of the phylogenetic tree inferred over all cells in this series, resulted in 13 clones. In the drug cycle treatment CX-5461 line, clonal fractions were I(0.0004), J(0.0077), K(0.0027), L(0.0013), M(0.0389), N(0.0709),  O(0.0795), P(0.003), Q(0.005), R(0.3428), S(0.016), U(0.4319).
+Tumor growth curves displayed progressively less response of the tumors in last cycle of drug as compared to the first, indicating initiation of drug resistance to both cisplatin and CX-5461 \textbf{(\autoref{fig:SA535CX5461} b, c)}. Positive growth kinetics started earlier in cisplatin tumors as compared to CX-5461.
 %......................................................
 
 \begin{figure}
@@ -352,7 +359,7 @@ Tumor growth curves displayed progressively less response of the tumors in last 
 %...............................................................
 
 \subsubsection{Drug resistant clones arise from the same precursor}
-Integer heat map of copy number heterogeneity was computed using \texttt{sitka} and interestingly cisplatin and CX-5461 treated cells clustered independently from each other and frrorm the un treated cell clusters \textbf{\autoref{fig:SA535combinebarplots} a}. Clonal abundance for the un treated time series depicted increase of Clone Q till passage 7 (X7) but then gradual decrease favouring emerging of clone J in the later generrations \textbf{(\autoref{fig:SA535combinebarplots} b (left top panel))}. In cisplatin treated series, clone T showed up expanding under the drug whereas with CX-5461 favored emerging of clone U.
+Integer heat map of copy number heterogeneity was computed using \texttt{sitka} and interestingly cisplatin and CX-5461 treated cells clustered independently from each other and from the un treated cell clusters \textbf{\autoref{fig:SA535combinebarplots} a}. Clonal abundance for the un treated time series depicted increase of Clone Q till passage 7 (X7) but then gradual decrease favouring emerging of clone J in the later generations \textbf{(\autoref{fig:SA535combinebarplots} b (left top panel))}. In cisplatin treated series, clone T showed up expanding under the drug whereas with CX-5461 favored emerging of clone U.
 Moreover, the resistant branches having clone S and clone T for cisplatin and clone U for CX-5461, both derive from clone R, which is present early in variable proportions in the two branches, but does not have fitness in the untreated, present but at a very minor proportion. Perhaps its giving an idea that independently, drug resistance has apparently a favored clonal starting point in this PDX \textbf{\autoref{fig:SA535combinebarplots} c}. 
 
 Comparing drug holiday samples from cisplatin and CX-5461 treated time series informed resistant clones are reversible early in the treatment of cisplatin but not in case of CX-5461 \textbf{\autoref{fig:SA535combinebarplots} b (middle and right panels)}

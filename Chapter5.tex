@@ -1,11 +1,41 @@
+
 {\chapter{Characterization of cancer transcriptomics under drug perturbations in TNBC-PDX}
 
 }
-\label{ch:Chapter5}
-\section{Synopsis}
-From the previous chapter we know that the population changes with the tumor growth from one passage to another with and without the drugs. We see the shifts in the clones and some clones get selected and others disappear.
-Now in this chapter, first of all we sought to determine whether under neutral conditions when there is no drug pressure what proportion of the transcriptomes might be copy number driven just due to the natural evolution of the copy number clones.This allows us to understand the stability of the gene expression in our timeseries models in the absence of drugs.
-Next, we explored that on drug being introduced into the system, how much of the drug induced change in expression is dependent on the copy number and which. are independent.
+ \label{ch:Chapter5}
+ \section{Motivation}
+
+In spite of advanced technologies and treatment, triple negative breast cancer still facing the problems of tumor recurrence and drug resistance.
+For any given difference between the types of drug resistance, for example, the expression of a particular gene, it is assumed that differences arise deterministically or probabilistically in the configuration of transcription factors regulating the genes in the tumors. Cancer cells in distinct cell- states often exhibit important differences in functional properties depending on the which genes are turned on and off resulting in sensitive or resistant phenotype.
+
+The most challenging analysis is to differentiate whether the change in gene expression leading to change in cellular state is stochastic\cite{raj2008nature} and random or its deterministic to produce the same output under similar environment.
+Cancer cells in distinct cell- states often exhibit important differences in functional properties depending on which genes are turned on and off resulting in sensitive  or resistant phenotype.
+Previously it is shown that unique cells within a population can exhibit fluctuations in expression of a group of genes, that could predict distinct phenotypes \cite{shaffer2019memory}.
+Un-like genomic clones that could get selected in resistant phenotype \cite{salehi2020single}, we still are not clear whether the cell-states are acquainted for this kind of behaviour or the selected states are pre-existing in the cancer population and under continues pressure shows obvious dynamics or there is a transition from one state to another that ultimately gets selected over time. Because of difficulty to analyse longitudinal patient's samples for single cell gene expression and lack of multiple longitudinal pre-clinical breast cancer models, these questions remains unexplored.
+
+Here we set to examine three breast cancer patient derived xenografts (PDX) that were serially challenged for around 4-5 cycles with the drug until they started showing less response to the treatment. We wanted to understand the magnitude of fluctuations in gene expression from sensitive to resistant phenotype.
+
+
+ \section{Synopsis}
+   From the previous chapter we know that the population changes with the tumor growth from one passage to another with and without the drugs. We see the shifts in the clones and some clones get selected and others disappear.
+   Now in this chapter, first of all we sought to determine whether under neutral conditions when there is no drug pressure what proportion of the transcriptomes might be copy number driven just due to the natural evolution of the copy number clones. This allows us to understand the stability of the gene expression in our timeseries models in the absence of drugs.
+   Next, we explored that on drug being introduced into the system, how much of the drug induced change in expression is dependent on the copy number and which are independent.
+
+\begin{figure}
+\centering
+  
+  \includegraphics[width=\textwidth]{Figures/fig1schematicsoverview.pdf}
+	
+\caption[Schematic overview of experimental design and analysis pipeline.]
+	{\small
+	\textbf{Need to update: Schematic overview of experimental design and analysis pipeline.}
+	   Upper panel shows biological systems used to acquire single cell RNA sequencing data. The time point tumors are similar to DLP+ samples in Chapter 4. After applying filters and normalization, various packages are used for analysis as mentioned in the lower half of the schematics.
+	 
+	}
+	\label{fig:fig1schematicsoverview}
+\end{figure}
+
+
 
 
 
@@ -14,16 +44,106 @@ Next, we explored that on drug being introduced into the system, how much of the
 
 
 \section{Results}
-\subsection{Correlation coefficient between copy number and expression}
+\subsection{Correlation coefficient between copy number and scRNAseq expression}
+Clonealign approach \cite{campbell2019clonealign} was used to reveal clone-specific phenotypic properties. The serially passaged triple-negative breast cancer patient-derived xenografts from Chapter 4 as substrates.
+Each point is the proportion of DLP cells in a clone (x axis) versus the proportion of the tenx cells in the same clone. Then calculate the correlation coefficient for all clones. 
 
-Each point is the proportion of DLP cells in a clone (x axis) versus the proportion of the tenx cells in the same clone. Then calculate the correlation coefficient for all clones. Once we have the clonealign results, we can very easily do this.
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{Figures/fig2_clonealignembeddings.pdf}
+	
+\caption[Gene expression impacts of clone-specific copy number profiles]
+	{\small
+	\textbf{Gene expression impacts of clone-specific copy number profiles.}
+	   \textbf{(a)} \texttt{clonealign} clonal proportions vs DLP+ clonal proportions of SA609 PDX timeseries samples indicating positive correlation (Pearson correlation from 0.89).
+	    \textbf{(b)} Low dimensional \ac{UMAP} embedding of matching scRNAseq libraries across the SA609 TNBC timeseries. Left top and bottom panels show treated and untreated complete embedding annotated with clonealign assignments and right all panels show the density of cell clusters over the timeseries X4-X7.
+	     \textbf{(c)} Phylogeny of SA609 taken from previous chapter to recall emerged clones with or without drug. 
+	     \textbf{(d)} Same like \textbf{(a)} but for SA1035 PDX and Pearson correlation is 0.78. \textbf{(e)} Same like \textbf{(b)} but for SA1035 starting from X5-X8. \textbf{(f)} Same like \textbf{c} but for SA1035. \textbf{(g)} Same like \textbf{a} but for SA535 PDX and Pearson correlation is 0.94 for cisplatin treated and 0.97 with CX-5461 treated. \textbf{(h)} Same like \textbf{b} but for SA535 starting from X5-X9, X10.
+	}
+	\label{fig:fig2_clonealignembeddings}
+\end{figure}
 
-\subsection{Clonealign-Copy number dependent in-cis transcription patterns}
-Clonealign approach was used to reveal clone-specific phenotypic properties. The serially passaged triple-negative breast cancer patient-derived xenografts from Chapter 4 as substrates.
 
-\subsection{Cellular prevalance in sensitive and resistant clones based on single cell RNA sequencing}
 
-\subsection{Copy number defined resistant clones showed distinct upregulated pathways as compared to sensitive clones}
+
+\subsection{Copy number dependent in-cis and trans regulated gene expression rates in scRNAseq data set}
+
+
+
+\begin{figure}
+\centering
+  \includegraphics[width=\textwidth]{Figures/fig3_In_cispercentage.pdf}
+	
+\caption[Proportion of cis and trans regulated gene expression in scRNAseq data]
+	{\small
+	\textbf{Proportion of cis and trans regulated gene expression in scRNAseq data.}
+	   Horizontal axis shows differential expression between two selected clones from all the three PDX treated and un-treated timeseries. Vertical axis gives percentage presence of genes in-cis or in trans. red bars represent in-cis and blue bars represent in -trans regulated gene expression.
+	   \textbf{(Upper)} This graph gives us percentage of genes by looking into the gene data set from COSMIC cancer gene dataset \cite{vogelstein2013cancer} that corresponds to our clone aware\ac{DE}.
+	    \textbf{(Middle)} same like upper plot but looking into CORE FITNESS data set \cite{behan2019prioritization}.
+	     \textbf{(Lower)} Same like above but looking into cisplatin related gene list curated from literature.
+	    
+	}
+	\label{fig:fig3_In_cispercentage}
+\end{figure}
+
+
+
+\subsection{Differential expression  analysis of resistant and sensitive clones}
+
+
+
+
+\begin{figure}
+\centering
+  \includegraphics[width=\textwidth]{Figures/fig4_Volcanotrackplots.pdf}
+\caption[DE of resistant and sensitive clonealign defined clones]
+	{\small
+	\textbf{Differential expression of resistant and sensitive clones.}
+	\textbf{(a)} Volcano plot from SA609 -log10(FDR) plotted against log2 fold change of pairwise differential gene expression between resistant and sensitive clones (left). Manhattan plot (genome-wide view) of differential gene expression between pairs of clones, R vs H corresponding to change in gene expression (Right).
+	    \textbf{(b)} Same like \textbf{a} but in SA1035 and comparing between pairs of clones, H vs E. 
+	     \textbf{(c)} Same like \textbf{a} but in SA535 (cisplatin) and comparing between pairs of clones, S\_T vs J. 
+	     \textbf{(d)} Same like \textbf{a} but in SA535 (CX-5461) and comparing between pairs of clones, U vs J.}
+	
+	\label{fig:fig4_Volcanotrackplots}
+\end{figure}
+
+
+
+
+\begin{figure}
+\centering
+  \includegraphics[width=\textwidth]{Figures/fig5pathwaysnetwork.pdf}
+\caption[Pathways enrichment analysis of PDX timeseries]
+	{\small
+	\textbf{Pathways enrichment analysis of PDX timeseries.}
+	 Vertical axis on the left enlisting the pathways involved under various conditions in timeseries PDXs. Left panel comparing resistant clone versus clone exposed to only one cycle of drug. Middle panel comparing resistant versus sensitive clone in all PDXs. Right panel comparing last treated timepoint as a whole with first treated timepoint. Horizontal axis is showing the names of PDXs.
+	}
+	\label{fig:fig5pathwaysnetwork}
+\end{figure}
+
+\begin{figure}
+\centering
+  \includegraphics[width=\textwidth]{Figures/fig6resistantsensitivenetwork.pdf}
+\caption[DE of resistant and sensitive clonealign defined clones]
+	{\small
+	\textbf{Pathway enrichment network comparing of resistant and sensitive clones across timeseries PDX.}
+	\textbf{(a)} Normalized enrichment score of Pathways between resistant and sensitive clone of all treated timeseries PDXs.
+	    \textbf{(b)} Pathway enrichment network comparison of clone R vs clone H in SA609. Colour of grey to black lines between the pathways show strength of common genes on scale vertically drawn on right side. 
+	     \textbf{(c)} Same like \textbf{a} but in SA1035  and comparing pathways between pairs of clones, G\_H vs E. 
+	     \textbf{(d)} Same like \textbf{a} but in SA535 (Cisplatin) and comparing between pairs of clones, S\_T vs J\_Q.
+	 \textbf{(e)} Same like \textbf{a} but in SA535 (CX-5461) and comparing between pairs of clones, U vs Q.}
+	
+	\label{fig:fig6resistantsensitivenetwork}
+\end{figure}
+
+
+
+
+
+
+
+
+
 
 \subsubsection{SA609-TNBC-FBI PDX up regulated pathways in resistant clone}
 
