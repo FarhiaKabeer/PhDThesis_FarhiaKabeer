@@ -43,12 +43,12 @@ Un-like genomic clones that could get selected in resistant phenotype \cite{sale
 
 
 \subsection{Clone-specific genotypes underpin clone-specific gene expression programs}
-We profiled the impact of clone specific gene expression changes as a higher order representation of phenotypic properties. We tested if the genotypes of high fitness clones exhibited changes in their transcriptional program, with scRNAseq performed on matched aliquots of samples sequenced using DLP+ on the serially passaged triple-negative breast cancer patient-derived xenografts from Chapter 4 as substrates. \textbf{\autoref{fig:treatedtimeseriesmanuscript}}.
+We profiled the impact of clone specific gene expression changes as a higher order representation of phenotypic properties. We tested if the genotypes of high fitness clones exhibited changes in their transcriptional program, with scRNAseq performed on matched aliquots of samples sequenced using DLP+ on the serially passaged triple-negative breast cancer patient-derived xenografts from Chapter 4 as substrates \textbf{(\autoref{fig:treatedtimeseriesmanuscript)}}.
 
 \subsubsection{Copy number change and scRNAseq expression revealed legitimate correlation across PDX timeseries}
   In our approach, we assume clones are defined through grouped cell subsets which share to a first approximation similar genomic copy number structure (e.g., through phylogenetic reconstruction or dimensionality reduction) \cite{laks2019clonal}. Based on this relationship we applied
   \texttt{clonealign} approach \cite{campbell2019clonealign} to reveal clone-specific phenotypic properties across all samples.
-  Each point is taken as the proportion of DLP cells in a clone horizontal axis versus the proportion of the scRNAseq cells in the same clone. The  correlation for all clones were then calculated by using Pearson correlation coefficient formula. The heat maps of SA609 TNBC PDX \textbf{\autoref{fig:UnRxseries} h} and SA535 TNBC PDX \textbf{\autoref{fig:SA535analysis} a,e} exhibit more complex heterogeneity at copy number space along with structural genomic rearrangements as compared to SA1035 TNBC PDX \textbf{\autoref{fig:SA1035Rxnew} a, e}. Our results showed DLP+ and \texttt{clonealign} clone abundance measures were positively correlated across all libraries \textbf{\autoref{fig:fig2_clonealignembeddings.pdf} a, d, g}. Importantly, we inferred that SA535 TNBC treated with cisplatin present the high confidence correlation with Pearson correlation 0.97 (p$<$0.001), followed by its CX-5461 treated series, presenting Pearson correlation of 0.94 \textbf{\autoref{fig:fig2_clonealignembeddings.pdf} g}. However, SA609 PDX timeseries samples present a Pearson correlation coefficient of 0.94 (p$<$0.001) \textbf{\autoref{fig:fig2_clonealignembeddings.pdf} a} and SA1035 PDX with Pearson correlation of 0.78 (p$<$0.001) \textbf{\autoref{fig:fig2_clonealignembeddings.pdf} d}.
+  Each point is taken as the proportion of DLP cells in a clone horizontal axis versus the proportion of the scRNAseq cells in the same clone. The  correlation for all clones were then calculated by using Pearson correlation coefficient formula. The heat maps of SA609 TNBC PDX \textbf{(\autoref{fig:UnRxseries} h)} and SA535 TNBC PDX \textbf{(\autoref{fig:SA535analysis} a,e)} exhibit more complex heterogeneity at copy number space along with structural genomic rearrangements as compared to SA1035 TNBC PDX \textbf{(\autoref{fig:SA1035Rxnew} a, e)}. Our results showed DLP+ and \texttt{clonealign} clone abundance measures were positively correlated across all libraries \textbf{\autoref{fig:fig2_clonealignembeddings.pdf} a, d, g}. Importantly, SA535 TNBC treated with cisplatin present the high confidence correlation with Pearson correlation 0.97 (p$<$0.001), followed by its CX-5461 treated series, presenting Pearson correlation of 0.94 (p$<$0.001) \textbf{\autoref{fig:fig2_clonealignembeddings.pdf} g}. However, SA609 PDX timeseries samples present a Pearson correlation coefficient of 0.94 (p$<$0.001) \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} a)} and SA1035 PDX with Pearson correlation of 0.78 (p$<$0.001) \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} d)}.
   
   
 
@@ -69,12 +69,8 @@ We profiled the impact of clone specific gene expression changes as a higher ord
 
 
 
-
-\subsubsection{scRNAseq embeddings showed a dynamic pattern of global expression over time which tracked with clone assignments}
-Next, we used UMAP \cite{becht2019dimensionality} dimensionality reduction method to aggregate cells into treated and untreated subpopulations while retaining the relationship between subpopulations. 
-we visualized the data using UMAP
-
-indicating co-variation of transcriptional properties with clonal abundance
+\subsubsection{Single cell RNAseq clusters exhibit a dynamic pattern of global expression over time which tracked with clone assignments}
+Next, we visualized the data using UMAP \cite{becht2019dimensionality}, dimensionality reduction method, to aggregate cells into treated and untreated subpopulations while retaining the relationship between subpopulations. scRNAseq embeddings displayed a dynamic pattern of global expression over time with and without treatment, which tracked with clone assignments indicating co-variation of transcriptional properties with clonal abundance \textbf{\autoref{fig:fig2_clonealignembeddings.pdf}}. UMAP Visualization of clusters identified clone H clusters in untreated setting and clone R clusters, in the cisplatin treated series of SA609 TNBC PDX, purified over time matching their genomically defined counterparts \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} b)}. Similarly, clone E in untreated and clone H in treated timeseries of SA1035  \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} e)}, clustered uniquely at the later time points. \textbf{\autoref{fig:fig2_clonealignembeddings.pdf} c, f} reminding the clones emerging with and without treatment through the phylogeny of DLP+ from chapter 4, in SA609 and SA1035, respectively.  SA535 TNBC PDX all three arms of untreated, treated with cisplatin and CX-5461, exhibited aggregation of similar patterns of clusters that favours emerging of genomic clones in their respective series. Clone J, in untreated control timeseries \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} h, upper panel)}, clone T, in cisplatin timeseries 
 
 
 \subsection{Copy number dependent in-cis and trans regulated gene expression rates in scRNAseq data set}
@@ -139,7 +135,7 @@ indicating co-variation of transcriptional properties with clonal abundance
   \includegraphics[width=\textwidth]{Figures/fig6resistantsensitivenetwork.pdf}
 \caption[DE of resistant and sensitive clonealign defined clones]
 	{\small
-	\textbf{Pathway enrichment network comparing of resistant and sensitive clones across timeseries PDX.}
+	\textbf{Pathway enrichment network comparing resistant and sensitive clones across timeseries PDX.}
 	\textbf{(a)} Normalized enrichment score of Pathways between resistant and sensitive clone of all treated timeseries PDXs.
 	    \textbf{(b)} Pathway enrichment network comparison of clone R vs clone H in SA609. Colour of grey to black lines between the pathways show strength of common genes on scale vertically drawn on right side. 
 	     \textbf{(c)} Same like \textbf{a} but in SA1035  and comparing pathways between pairs of clones, G\_H vs E. 
