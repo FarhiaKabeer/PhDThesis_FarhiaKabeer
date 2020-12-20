@@ -107,14 +107,6 @@ Serially transplanted aliquots represented approximately 0.1-0.3\%  of the origi
 \subsection{TNBC PDX tumour mixing experiments} Frozen untreated passages three (X3) and eight (X8) vials from TNBC PDX, were thawed and  physically remixed in two different volumetric proportions of X3:X8 by tumour weight at the ratio of approximately 1:1 and 1:0.4, labelled as mixture branch a and branch b, respectively. From each of different dilutions, \SI{200}{\ul} of aliquot was taken to be used to transplant in two mice each using the same protocol of transplantation as described above. Before transplantation a small proportion of the physical mixture of cells, from the 1:1 ratio, was subjected to whole genome single cell sequencing to measure the baseline clonal composition labelled as M0 and its subsequent PDX as M1 \textbf{\autoref{fig:Mixturenew} a)}. Each of the thawed X3 and X8 cell populations used for mixing were also transplanted independently to confirm the viability of the tumour material for PDX tumour growth. The tumour cell mixture was then serially passaged over 4 generations, designating the transplants as M1-M4. Tumours from each X3:X8 serial passages from both mixture branches were collected and analysed with scWGS (DLP+) as for other samples.
 
 
-
-
-
-
-
-
-
-
  
 \subsection{TNBC PDX timeseries treatment with cisplatin}
 \label{ssec:rx}
@@ -131,9 +123,6 @@ NRG mice of the same age and genotype as above were used for transplantation tre
 	
 	\label{fig:treatmentdesignMTD}
 \end{figure}
-
-
-
 
 
 
@@ -187,17 +176,34 @@ Clones are constructed by identifying connected components (each a clade or a pa
 \section{Single cell RNA sequencing (scRNAseq)}
 
 
-
 \subsection{Processing of patient derived xenografts for scRNAseq data}
 PDX tumours were harvested and mechanically disaggregated into small fragments to viably freeze them according to the protocol mentioned above. 
 One of the viable frozen tumour vial was thawed and after washing out the freezing media, the tumour clumps and fragments were incubated with digestion enzymes as with DLP+ preparation. After complete dissociation with collagenase/hyaluronidase enzyme mix according to the protocol at \SI{37}{\degreeCelsius}, followed by briefly washing in 0.05\% trypsin-EDTA and resuspension in 0.04\% BSA in PBS. Dead cells were removed using the Miltenyi MACS Dead Cell Removal kit and cells were processed as previously described \cite{o2019dissociation}.
 To avoid processing artifacts, dissociation methods and times were tightly controlled and for treatment and treatment holiday pairs, library construction was performed on the same chips. Single cell suspensions were loaded onto the 10x Genomics single cell controller and libraries prepared according to the Chromium Single Cell 3’ Reagent Chemistry kit standard protocol. 
 Libraries were then sequenced on an Illumina Nextseq500/550 with 42bp paired-end reads, or a HiSeq2500 v4 with 125bp paired-end reads. 10x Genomics Cell Ranger version 3.0 was used to perform demultiplexing, alignment and counting.
 
+\subsection{Quality control}
 
+Count matrices were generated using CellRanger version 3.1.0. Cells were considered to have passed a quality control filter (QC-filter) and retained for subsequent analysis if they met the following criteria: (i) at least 1000 genes detected, (ii) less than 20\% of counts (UMIs) mapping to genes from the mitochondrial genome (``mitochondrial genes''), (iii) fewer than 60\% of counts (UMIs) mapping to ribosomal genes, and (iv) the total counts (UMIs) per cell was at most 3 median absolute deviations lower than the overall median. Cells not matching all criteria were filtered using the \texttt{calculateQCMetrics} and \texttt{isOutlier} functions in the \texttt{scater} package \cite{mccarthy2017scater}. Then, all the mouse cells were eliminated. A cell is called a mouse cell if the total number of counts in a mouse alignment of the 10x sample was greater than the total number of counts in a human alignment. Finally, we eliminated doublets using package \texttt{scrublet}\cite{scrublet}.
 
+\subsection{Gene expression normalization}
 
+Sample level normalized log expression values were computed using \texttt{scran} \cite{lun2016pooling} with grouping variables calculated from clustering using the \texttt{quickCluster} function \cite{lun2016step}. Overall normalized expression was computed by merging sample level matrices and recalculating normalized expression with grouping labels computed on the merged matrix. Batch correction between libraries was performed using Scanorama \cite{hie2019efficient} on the overall normalized expression values with default parameters and the library id as the batch label.
 
+\subsection{Dimensionality reduction}
 
+Principal component analysis was performed on the batch corrected expression matrix using the \texttt{scater} \cite{mccarthy2017scater} R package.  A single two dimension UMAP \cite{becht2019dimensionality} embedding was generated using the first 50 principle components. This embedding was used in downstream analysis and visualizations.
 
+\subsection{Pathway Enrichment Networks}
 
+Enriched pathways were computed from differentially expressed genes (adjusted p-value $<$ 0.01) ranked by log fold change.  A normalized enrichment score (NES) was calculated from a ranked gene set enrichment analysis (GSEA) \cite{shi2007gene} performed on each subset of differentially expressed genes using the hallmark gene set collection from MSigDB \cite{liberzon2015molecular}.  Significantly enriched pathways (adjusted p-value $<$ 0.01) and pathway specific differentially expressed genes were included in network enrichment figures.  
+Pathway nodes were colored by NES value. Edges are defined between pathways sharing genes.
+All analysis and visualization was performed using \texttt{gseapy} and \texttt{networkx} \cite{hagberg2008exploring} Python packages.
+
+\subsection{Integrative genome-transcriptome analysis with \texttt{clonealign}}
+
+\texttt{clonealign} version 1.99.2 was used to align scRNAseq cells to the DLP+ clones obtained. First, genes whose purity was less than 60\% in any clone (40\% for \textit{X5 UT}) were removed, where the purity of a gene in a clone  is defined as the percentage of cells that have the modal copy number for that gene and clone. Then, we used the following clonealign parameters: \texttt{n\_repeats = 3}, \texttt{mc\_samples = 1}, \texttt{learning\_rate = 0.07}, \texttt{max\_iter = 500}, \texttt{data\_init\_mu = TRUE} for all samples except \texttt{FALSE} for \textit{X5 UTU}, \texttt{data\_init\_mu = FALSE},
+\texttt{saturation\_threshold = 6} and \texttt{clone\_call\_probability = 0.9}.
+
+\subsection{Differential expression analysis}
+Differential expression quantifiers including log2 fold change and FDR  were computed using the R 3.6.0 Bioconductor package \texttt{edgeR\_3.26.0} that implements scRNAseq differential expression analysis methodology based on the negative binomial distribution. Given the raw counts for the cells in two clones, we first call the \texttt{estimateDisp()} function to estimate the dispersion by fitting a generalized linear model that accounts for all systematic sources of variation. Next, we use the \texttt{edgeR} functions \texttt{glmQLFit()} and \texttt{glmQLFTest()} to perform a quasi-likelihood dispersion estimation and hypothesis testing that assigns false discovery rate values to each gene. In the track and volcano plots, a positive log2 fold change value for clone X relative to clone Y signifies that the gene is significantly more upregulated (at a given FDR threshold) in X than in Y while taking into consideration all the expression values for all the genes in both clones. Similarly, a gene with negative log2 fold change is significantly more downregulated in X than in Y. 
