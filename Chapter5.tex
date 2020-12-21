@@ -48,7 +48,7 @@ We profiled the impact of clone specific gene expression changes as a higher ord
 \subsubsection{Copy number change and scRNAseq expression revealed legitimate correlation across PDX timeseries}
   In our approach, we assume clones are defined through grouped cell subsets which share to a first approximation similar genomic copy number structure (e.g., through phylogenetic reconstruction or dimensionality reduction) \cite{laks2019clonal}. Based on this relationship we applied
   \texttt{clonealign} approach \cite{campbell2019clonealign} to reveal clone-specific phenotypic properties across all samples.
-  Each point is taken as the proportion of DLP cells in a clone horizontal axis versus the proportion of the scRNAseq cells in the same clone. The  correlation for all clones were then calculated by using Pearson correlation coefficient formula. The heat maps of SA609 TNBC PDX \textbf{(\autoref{fig:UnRxseries} h)} and SA535 TNBC PDX \textbf{(\autoref{fig:SA535analysis} a,e)} exhibit more complex heterogeneity at copy number space along with structural genomic rearrangements as compared to SA1035 TNBC PDX \textbf{(\autoref{fig:SA1035Rxnew} a, e)}. Our results showed DLP+ and \texttt{clonealign} clone abundance measures were positively correlated across all libraries \textbf{\autoref{fig:fig2_clonealignembeddings.pdf} a, d, g}. Importantly, SA535 TNBC treated with cisplatin present the high confidence correlation with Pearson correlation 0.97 (p$<$0.001), followed by its CX-5461 treated series, presenting Pearson correlation of 0.94 (p$<$0.001) \textbf{\autoref{fig:fig2_clonealignembeddings.pdf} g}. However, SA609 PDX timeseries samples present a Pearson correlation coefficient of 0.94 (p$<$0.001) \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} a)} and SA1035 PDX with Pearson correlation of 0.78 (p$<$0.001) \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} d)}.
+  Each point is taken as the proportion of DLP cells in a clone horizontal axis versus the proportion of the scRNAseq cells in the same clone. The  correlation for all clones were then calculated by using Pearson correlation coefficient formula. The heat maps of SA609 TNBC PDX \textbf{(\autoref{fig:UnRxseries} h)} and SA535 TNBC PDX \textbf{(\autoref{fig:SA535analysis} a,e)} exhibit more complex heterogeneity at copy number space along with structural genomic rearrangements as compared to SA1035 TNBC PDX \textbf{(\autoref{fig:SA1035Rxnew} a, e)}. Our results showed DLP+ and \texttt{clonealign} clone abundance measures were positively correlated across all libraries \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} a, d, g)}. Importantly, SA535 TNBC treated with cisplatin present the high confidence correlation with Pearson correlation 0.97 (p$<$0.001), followed by its CX-5461 treated series, presenting Pearson correlation of 0.94 (p$<$0.001)? \textbf{\autoref{fig:fig2_clonealignembeddings.pdf} g}. However, SA609 PDX timeseries samples present a Pearson correlation coefficient of 0.94 (p$<$0.001)? \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} a)} and SA1035 PDX with Pearson correlation of 0.78 (p$<$0.001)? \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} d)}.
   
   
 
@@ -70,10 +70,8 @@ We profiled the impact of clone specific gene expression changes as a higher ord
 
 
 \subsubsection{Single cell RNAseq clusters exhibit a dynamic pattern of global expression over time which tracked with clone assignments}
-Next, we visualized the data using UMAP \cite{becht2019dimensionality}, dimensionality reduction method, to aggregate cells into treated and untreated subpopulations while retaining the relationship between subpopulations. scRNAseq embeddings displayed a dynamic pattern of global expression over time with and without treatment, which tracked with clone assignments indicating co-variation of transcriptional properties with clonal abundance \textbf{\autoref{fig:fig2_clonealignembeddings.pdf}}. UMAP Visualization of clusters identified clone H clusters in untreated setting and clone R clusters, in the cisplatin treated series of SA609 TNBC PDX, purified over time matching their genomically defined counterparts \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} b)}. Similarly, clone E in untreated and clone H in treated timeseries of SA1035  \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} e)}, clustered uniquely at the later time points. \textbf{\autoref{fig:fig2_clonealignembeddings.pdf} c, f} reminding the clones emerging with and without treatment through the phylogeny of DLP+ from chapter 4, in SA609 and SA1035, respectively.  SA535 TNBC PDX all three arms of untreated, treated with cisplatin and CX-5461, exhibited aggregation of similar patterns of clusters that favours emerging of genomic clones in their respective series. Clone J, in untreated control timeseries \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} h, upper panel)}, clone T, in cisplatin timeseries 
+Next, we visualized the data using UMAP \cite{becht2019dimensionality}, dimensionality reduction method, to aggregate cells into treated and untreated subpopulations while retaining the relationship between subpopulations. scRNAseq embeddings displayed a dynamic pattern of global expression over time with and without treatment, which tracked with clone assignments indicating co-variation of transcriptional properties with clonal abundance \textbf{\autoref{fig:fig2_clonealignembeddings.pdf}}. UMAP visualization of clusters identified clone H clusters in untreated setting and clone R clusters, in the cisplatin treated series of SA609 TNBC PDX, purified over time matching their genomically defined counterparts \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} b)}. Similarly, clone E in untreated and clone H in treated timeseries of SA1035  \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} e)}, clustered uniquely at the later time points. \textbf{\autoref{fig:fig2_clonealignembeddings.pdf} c, f} reminding the clones emerging with and without treatment through the phylogeny of DLP+ from chapter 4, in SA609 and SA1035, respectively.  SA535 TNBC PDX all three arms of untreated, treated with cisplatin and CX-5461, exhibited aggregation of similar patterns of clusters that favours emerging of genomic clones in their respective series. Clone J, in untreated control timeseries \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} h, upper panel)}, clone T, in cisplatin treated \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} h, middle panel)}, and clone U in CX-5461 treated \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} h, lower panel)}.
 
-
-\subsection{Copy number dependent in-cis and trans regulated gene expression rates in scRNAseq data set}
 
 
 
@@ -81,9 +79,9 @@ Next, we visualized the data using UMAP \cite{becht2019dimensionality}, dimensio
 \centering
   \includegraphics[width=\textwidth]{Figures/fig3_In_cispercentage.pdf}
 	
-\caption[Proportion of in-cis and in-trans regulated gene expression in scRNAseq data]
+\caption[Proportion of \textit{in-cis} and \textit{in-trans} regulated gene expression in scRNAseq data]
 	{\small
-	\textbf{Proportion of cis and trans regulated gene expression in scRNAseq data.}
+	\textbf{Proportion of \textit{cis} and \textit{trans} regulated gene expression in scRNAseq data.}
 	   Horizontal axis shows differential expression between two selected clones from all the three PDX treated and un-treated timeseries. Vertical axis gives percentage presence of genes in-cis or in trans. red bars represent in-cis and blue bars represent in -trans regulated gene expression.
 	   \textbf{(Upper)} This graph gives us percentage of genes by looking into the gene data set from COSMIC cancer gene dataset \cite{vogelstein2013cancer} that corresponds to our clone aware \ac{DE}.
 	    \textbf{(Middle)} same like upper plot but looking into CORE FITNESS data set \cite{behan2019prioritization}.
@@ -94,10 +92,22 @@ Next, we visualized the data using UMAP \cite{becht2019dimensionality}, dimensio
 \end{figure}
 
 
+\subsection{Quantitative single cell gene expression analysis deciphers the rates of \textit{cis} and \textit{trans} components}
+Next, we investigated the proportions of cis and trans regulated genes in our procured single cell RNA expression data but within selected \ac{DE} of clones across all timeseries. From HMMcopy output of segment copy number position (chromosome start and end), we get gene coordinate by map our segment positions with reference database of known genes for human  \cite{carlson2015txdb}. First, we identify overlapping positions between chromosome segment and known genes, then we assigned that segment to an ensemble gene ID \cite{rainer2019ensembldb}.
 
-\subsection{Differential expression  analysis of resistant and sensitive clones}
+Total of 22,326 segment positions, from each DE analysis, were mapped. In each pair wise comparison of clones, we captured all segment copy number position where there is a change in copy number values. So \textit{in-cis} gene is DE gene in scRNAseq analysis and coupled with change in copy number at the same position of genome HMM copy number segment positions.
 
 
+\subsubsection{Differential expression single cell RNAseq data is decomposed into \textit{cis} and \textit{trans} components}
+To calculate the percentage of genes presenting  \textit{cis} or \textit{trans} regulatory effects, first we pulled the reference genes  intersecting with our \ac{DE} data from the three lists (COSMIC \cite{vogelstein2013cancer}, core cancer fitness \cite{behan2019prioritization} and cisplatin related genes curated from last 10 years literature \textbf{\autoref{tab:Cisplatinrelatedgenes}}.
+
+Next, we classified the common genes into  \textit{cis}  and \textit{trans} genes and calculated their number and percentages in each PDX timeseries. In  SA609 TNBC PDX, the mean number of \textit{in cis} genes was 1173.8 (segment positions, $\sigma$ = 494 \textit{in cis} genes, max= 1640, min=215), SA1035 presented with the lowest \textit{in cis} with
+ mean value of 187.8 (segment positions, $\sigma$ = 51 \textit{in cis} genes, max=246, min=144). SA535 in cisplatin timeseries showed mean number of 1056.9 \textit{in cis} genes (segment positions, $\sigma$ = 624 , max=1900, min=116), whereas, SA535 in CX-5461 exhibit highest number of mean \textit{in cis} value of 1400.7 (segment positions, $\sigma$ = 481 \textit{in cis} genes, max=1884, min=739).
+ 
+ Overall, our results remained consistent with the fact that the proportion of \textit{in trans} regulation of gene expression is higher than the \textit{in cis} in all the time series PDXs and from all the reference lists.   
+ 
+ Interestingly, we noticed that SA535 TNBC in both treatment regimes, inferred highest rate of \textit{in cis} genes with 28\% maximum, whereas, SA1035 TNBC possessing the lowest rate of 2.4\% maximum. 
+\textbf{\autoref{fig:fig3_In_cispercentage}}. SA609 TNBC showed 12.8\% of its highest \textit{in cis} gene rate in the DE of resistant vs sensitive clone.
 
 
 \begin{figure}
@@ -115,6 +125,45 @@ Next, we visualized the data using UMAP \cite{becht2019dimensionality}, dimensio
 	     \textbf{(g-j)} Manhattan plot (genome-wide view) of differential gene expression between pairs of clones, from \textbf{a, b, c, d}. }
 	\label{fig:fig4_Volcanotrackplots2}
 \end{figure}
+
+\subsubsection{Differential expression analysis of resistant and sensitive clones}
+Next, we sought to explore individual genes that are deferentially expressed in resistant clones of all four treatment regimes in all PDX in the above data.
+Pairwise comparisons of clone-specific differential gene expression over the genome
+
+
+
+
+ % Table generated by Excel2LaTeX from sheet 'Sheet1'
+ \begin{table}[htbp]
+   
+   \centering
+   \caption{List of resistant and sensitive clones}
+     \begin{tabular}{|l|l|l|}
+      \hline
+     TNBC PDX & Resistant clone & Sensitive clone \\
+     \hline
+     SA609  & Clone R & Clone H \\
+     SA1035 & Clone H & Clone E \\
+     SA535-Cisplatin Rx & Clone S\_T & Clone J \\
+     SA535-CX-5461 Rx & Clone U & Clone J \\    \hline
+     \end{tabular}%
+   \label{tab:addlabel}%
+   
+  
+ \end{table}%
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -154,24 +203,24 @@ Next, we visualized the data using UMAP \cite{becht2019dimensionality}, dimensio
 
 
 
-\subsubsection{SA609-TNBC-FBI PDX up regulated pathways in resistant clone}
+%\subsubsection{SA609-TNBC-FBI PDX up regulated pathways in resistant clone}
 
 
-\subsubsection{SA535-TNBC-BRCA deficient PDX up regulated pathways in resistant clone}
-Next we compared the emerging clone under drug pressure with the clone that could not survive the repeated drug exposures. We identified the following significantly up regulated pathways:
-- Apoptosis, Epithelial mesenchymal transition, Hypoxia, mitotic spindle, MTORC1 signaling, MYC targets-V1, P53 pathway, TGF Beta signaling, TNFA signalling via NFKB, UV response up, UV response down, KRAS signaling, Angiogenesis, PI3K AKT MTOR signaling, unfolded protein response.
+%\subsubsection{SA535-TNBC-BRCA deficient PDX up regulated pathways in resistant clone}
+%Next we compared the emerging clone under drug pressure with the clone that could not survive the repeated drug exposures. We identified the following significantly up regulated pathways:
+%- Apoptosis, Epithelial mesenchymal transition, Hypoxia, mitotic spindle, MTORC1 signaling, MYC targets-V1, P53 pathway, TGF Beta signaling, TNFA signalling via NFKB, UV response up, UV response down, KRAS signaling, Angiogenesis, PI3K AKT MTOR signaling, unfolded protein response.
 
 
-\subsubsection{SA1035-TNBC-APOBEC deficient PDX up regulated pathways in resistant clone}
-
-
-
-
-\subsection{key Pathways and genes shared among the three TNBC PDX}
+%\subsubsection{SA1035-TNBC-APOBEC deficient PDX up regulated pathways in resistant clone}
 
 
 
 
-\subsection{Distinct genes monotonically increasing and decreasing with drug} 
+%\subsection{key Pathways and genes shared among the three TNBC PDX}
+
+
+
+
+%\subsection{Distinct genes monotonically increasing and decreasing with drug} 
 
 
