@@ -1,5 +1,5 @@
 
-{\chapter{Characterization of cancer transcriptomics under drug perturbations in TNBC-PDX}
+{\chapter{Exploring the single-cell RNAseq analysis landscape in timeseries patient derived xenografts}
 
 }
  \label{ch:Chapter5}
@@ -44,12 +44,12 @@ Un-like genomic clones that could get selected in resistant phenotype \cite{sale
 \section{Results}
 
 \subsection{Clone-specific genotypes underpin clone-specific gene expression programs}
-We profiled the impact of clone specific gene expression changes as a higher order representation of phenotypic properties. We tested if the genotypes of high fitness clones exhibited changes in their transcriptional program, with scRNAseq performed on matched aliquots of samples sequenced using DLP+ on the serially passaged triple-negative breast cancer patient-derived xenografts from Chapter 4 as substrates \textbf{(\autoref{fig:treatedtimeseriesmanuscript)}}.
+We profiled the impact of clone specific gene expression changes as a higher order representation of phenotypic properties. We tested if the genotypes of high fitness clones exhibited changes in their transcriptional program, with scRNAseq performed on matched aliquots of samples sequenced using DLP+ on the serially passaged triple-negative breast cancer patient-derived xenografts from Chapter 4 as substrates \textbf{\autoref{fig:treatedtimeseriesmanuscript}} and \textbf{\autoref{fig:SA535CX5461} a}.
 
 \subsubsection{Copy number change and scRNAseq expression revealed legitimate correlation across PDX timeseries}
   In our approach, we assume clones are defined through grouped cell subsets which share to a first approximation similar genomic copy number structure (e.g., through phylogenetic reconstruction or dimensionality reduction) \cite{laks2019clonal}. Based on this relationship we applied
   \texttt{clonealign} approach \cite{campbell2019clonealign} to reveal clone-specific phenotypic properties across all samples.
-  Each point is taken as the proportion of DLP cells in a clone horizontal axis versus the proportion of the scRNAseq cells in the same clone. The  correlation for all clones were then calculated by using Pearson correlation coefficient formula. The heat maps of SA609 TNBC PDX \textbf{(\autoref{fig:UnRxseries} h)} and SA535 TNBC PDX \textbf{(\autoref{fig:SA535analysis} a,e)} exhibit more complex heterogeneity at copy number space along with structural genomic rearrangements as compared to SA1035 TNBC PDX \textbf{(\autoref{fig:SA1035Rxnew} a, e)}. Our results showed DLP+ and \texttt{clonealign} clone abundance measures were positively correlated across all libraries \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} a, d, g)}. Importantly, SA535 TNBC treated with cisplatin present the high confidence correlation with Pearson correlation 0.97 (p$<$0.001), followed by its CX-5461 treated series, presenting Pearson correlation of 0.94 (p$<$0.001)? \textbf{\autoref{fig:fig2_clonealignembeddings.pdf} g}. However, SA609 PDX timeseries samples present a Pearson correlation coefficient of 0.94 (p$<$0.001)? \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} a)} and SA1035 PDX with Pearson correlation of 0.78 (p$<$0.001)? \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} d)}.
+  Each point is taken as the proportion of DLP cells in a clone horizontal axis versus the proportion of the scRNAseq cells in the same clone. The  correlation for all clones were then calculated by using Pearson correlation coefficient formula. The heat maps of SA609 TNBC PDX \textbf{(\autoref{fig:UnRxseries} h)} and SA535 TNBC PDX \textbf{(\autoref{fig:SA535analysis} a, e)} exhibit more complex heterogeneity at copy number space along with structural genomic rearrangements as compared to SA1035 TNBC PDX \textbf{(\autoref{fig:SA1035Rxnew} a, e)}. Our results showed DLP+ and \texttt{clonealign} clone abundance measures were positively correlated across all libraries \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} a, d, g)}. Importantly, SA535 TNBC treated with cisplatin present the high confidence correlation with Pearson correlation 0.97 (p$<$0.001), followed by its CX-5461 treated series, presenting Pearson correlation of 0.94 (p$<$0.001)? \textbf{\autoref{fig:fig2_clonealignembeddings.pdf} g}. However, SA609 PDX timeseries samples present a Pearson correlation coefficient of 0.94 (p$<$0.001)? \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} a)} and SA1035 PDX with Pearson correlation of 0.78 (p$<$0.001)? \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} d)}.
   
   
 
@@ -93,14 +93,14 @@ Next, we visualized the data using UMAP \cite{becht2019dimensionality}, dimensio
 \end{figure}
 
 
-\subsection{Quantitative single cell gene expression analysis deciphers the rates of \textit{cis} and \textit{trans} components}
+\subsection{Quantitative single cell gene expression analysis unravels the rates of \textit{cis} and \textit{trans} components}
 Next, we investigated the proportions of cis and trans regulated genes in our procured single cell RNA expression data but within selected \ac{DE} of clones across all timeseries. From HMMcopy output of segment copy number position (chromosome start and end), we get gene coordinate by map our segment positions with reference database of known genes for human  \cite{carlson2015txdb}. First, we identify overlapping positions between chromosome segment and known genes, then we assigned that segment to an ensemble gene ID \cite{rainer2019ensembldb}.
 
 Total of 22,326 segment positions, from each DE analysis, were mapped. In each pair wise comparison of clones, we captured all segment copy number position where there is a change in copy number values. So \textit{in-cis} gene is DE gene in scRNAseq analysis and coupled with change in copy number at the same position of genome HMM copy number segment positions.
 
+\subsubsection{All time series presented higher proportion of \textit{trans}-regulated gene expression variations than \textit{cis}-regulated genes} 
 
-\subsubsection{Differential expression single cell RNAseq data is decomposed into \textit{cis} and \textit{trans} components}
-To calculate the percentage of genes presenting  \textit{cis} or \textit{trans} regulatory effects, first we pulled the reference genes  intersecting with our \ac{DE} data from the three lists (COSMIC \cite{vogelstein2013cancer}, core cancer fitness \cite{behan2019prioritization} and cisplatin related genes curated from last 10 years literature \textbf{\autoref{tab:Cisplatinrelatedgenes}}.
+To calculate the percentage of genes presenting  \textit{cis} or \textit{trans} regulatory effects, the differential expression single cell RNAseq data was decomposed into \textit{cis} and \textit{trans} components. First we pulled the reference genes  intersecting with our \ac{DE} data from the three lists (COSMIC \cite{vogelstein2013cancer}, core cancer fitness \cite{behan2019prioritization} and cisplatin related genes curated from last 10 years literature \textbf{\autoref{tab:Cisplatinrelatedgenes}}.
 
 Next, we classified the common genes into  \textit{cis}  and \textit{trans} genes and calculated their number and percentages in each PDX timeseries. In  SA609 TNBC PDX, the mean number of \textit{in cis} genes was 1173.8 (segment positions, $\sigma$ = 494 \textit{in cis} genes, max= 1640, min=215), SA1035 presented with the lowest \textit{in cis} with
  mean value of 187.8 (segment positions, $\sigma$ = 51 \textit{in cis} genes, max=246, min=144). SA535 in cisplatin timeseries showed mean number of 1056.9 \textit{in cis} genes (segment positions, $\sigma$ = 624 , max=1900, min=116), whereas, SA535 in CX-5461 exhibit highest number of mean \textit{in cis} value of 1400.7 (segment positions, $\sigma$ = 481 \textit{in cis} genes, max=1884, min=739).
@@ -108,7 +108,7 @@ Next, we classified the common genes into  \textit{cis}  and \textit{trans} gene
  Overall, our results remained consistent with the fact that the proportion of \textit{in trans} regulation of gene expression is higher than the \textit{in cis} in all the time series PDXs and from all the reference lists.   
  
  Interestingly, we noticed that SA535 TNBC in both treatment regimes, inferred highest rate of \textit{in cis} genes with 28\% maximum, whereas, SA1035 TNBC possessing the lowest rate of 2.4\% maximum. 
-\textbf{\autoref{fig:fig3_In_cispercentage}}. SA609 TNBC showed 12.8\% of its highest \textit{in cis} gene rate.
+. SA609 TNBC showed 12.8\% of its highest \textit{in cis} gene rate \textbf{\autoref{fig:fig3_In_cispercentage}}.
 
 
 \begin{figure}
@@ -117,21 +117,32 @@ Next, we classified the common genes into  \textit{cis}  and \textit{trans} gene
 \caption[DE of resistant and sensitive clonealign defined clones]
 	{\small
 	\textbf{Differential expression of resistant and sensitive clones.}
-	\textbf{(a)} Volcano plot from SA609 -log10(FDR) plotted against log2 fold change of pairwise differential gene expression between resistant and sensitive clones. Manhattan plot (genome-wide view) of differential gene expression between pairs of clones, R vs H corresponding to change in gene expression (Right).
+	\textbf{(a)} Volcano plot from SA609 -log10(FDR) plotted against log2 fold change of pairwise differential gene expression between resistant and sensitive clones. (The threshold for significant genes are FDR p$<$00.01, P Value p$<$00.05, logFC p$>$0 0.25). Manhattan plot (genome-wide view) of differential gene expression between pairs of clones, R vs H corresponding to change in gene expression (Right).
 	    \textbf{(b)} Same like \textbf{a} but in SA1035 and comparing between pairs of clones, H vs E. 
 	     \textbf{(c)} Same like \textbf{a} but in SA535 (cisplatin) and comparing between pairs of clones, S\_T vs J. 
 	     \textbf{(d)} Same like \textbf{a} but in SA535 (CX-5461) and comparing between pairs of clones, U vs J.
 	   \textbf{(e)} Barplot showing copy number driven percentage of in cis or in trans up and down regulation of genes.
 	   \textbf{(f)} Barplots showing summary of total in cis and in trans proportion in the whole data set.
 	     \textbf{(g-j)} Manhattan plot (genome-wide view) of differential gene expression between pairs of clones, from \textbf{a, b, c, d}. }
-	\label{fig:fig4_Volcanotrackplots2}
+	\label{fig:fig4_Volcanotrackplots2.pdf}
 \end{figure}
 
 
+\subsubsection{Differential expression analysis of resistant and sensitive clones deciphers cancer related genes}
+ Next, we sought to explore individual genes that are differentially expressed  between the in resistant and sensitive clones of all four treatment regimes in all PDX in the above data. We assume that the clones that show fitness advantage under drug in chapter 4 are resistant and the clones that are having high fitness coefficient in the absence of drug are sensitive clones. Summarized in  \textbf{\autoref{tab:Listofresistantandsensitiveclones}}.
+ 
+ Pairwise comparisons of clone-specific differential gene expression in SA609, resistant (Clone R) and sensitive (Clone H) clone (FDR$<$0.01, p$<$0.05) identified 922 genes having clone specific copy number increase in expression, whereas, 435 genes were downregulated with decrease in copy number. However, 850 genes were downregulated and 738 were upregulated and 975 were downregulated \textit{in trans} \textbf{(\autoref{fig:fig4_Volcanotrackplots2.pdf} a)}.  Amidst the upregulated \textit{in cis}, some known cancer promoting genes were detected, for example, HSPA1 \cite{zoppino2018comprehensive}, TCF4 \cite{ravindranath2011wnt}, NDUF \cite{li2015down}, PTN \cite{huang2018chemotherapy}, ID4 \cite{donzelli2018expression}, RAC3 \cite{donnelly2017rac3}. Additionally, \textit{in cis} downregulated genes includes genes that have role in tumor suppression, for example, OSR2, is known tumor suppressor in gastric and lung cancer \cite{otani2014odd,wang2018odd}. Other genes include, DYRK4 is found to be downregulated in our data and is a key regulator
+of p53, and phosphorylates it at Ser46 to induce apoptosis in response to
+DNA damage \cite{yoshida2019multiple}, POLR2K is a candidate biomarker for predicting breast cancer immunotherapy \cite{lopez2020prediction}. Another gene, PRRX1 predicts poor prognosis in hepatocellular carcinoma via the p53-dependent signaling pathway predicts poor prognosis in hepatocellular carcinoma \cite{fan2017downregulation}. Moreover,
+KLF6 is found to be among the upregulated genes, which is associated with poor prognosis in prostate, lung, ovarian cancer and breast cancer \cite{hatami2013klf6,difeo2009role}, RHOB \cite{ju2018rhob},
+STAT3 \cite{li2019clinicopathological,kamran2013role} and 
+ARF5 \cite{li2017roles,casalou2020role} promotes cancer cell survival, migration and invasion. HMGCS \cite{chen2017hmgcs2} mRNA expression is associated with poor clinical prognosis and outcomes in
+patients with colorectal cancer (CRC) and oral squamous cell carcinoma (OSCC). NR2F2 is also found upregulated in resistant clone and is known for a worse prognosis and lymph node metastasis in human breast cancer \cite{erdHos2020nr2f2,xia2020nr2f2},
+M6PR is frequently down-regulated or inactivated by mutations in a broad range of malignant human cancers \cite{dalle2018mannose} found to be down regulated in the resistant clone.
 
-\subsubsection{Differential expression analysis of resistant and sensitive clones}
- Next, we sought to explore individual genes that are differentially expressed  between the in resistant and sensitive clones of all four treatment regimes in all PDX in the above data. We assume that the clones that show fitness advantage under drug in chapter 4 are resistant and the clones that were having high fitness coefficient in the absence of drug are sensitive clones. Summarized in  \textbf{\autoref{tab:Listofresistantandsensitiveclones}}.
- Pairwise comparisons of clone-specific differential gene expression in SA609, resistant and sensitive clones (FDR$<$0.01, p$<$0.05). However, among the differentially expressed panel, 611 genes have clone specific copy number increase in expression, whereas, 352 genes were downregulated with decrease in copy number. On the other hand, 850 genes were downregulated and 659 were upregulated \textit{in trans} \textbf{(\autoref{fig:fig4_Volcanotrackplots2} a)}. Amidst the upregulated \textit{in cis}, some known cancer promoting genes were detected, for example, HSPA1 \cite{zoppino2018comprehensive}, TCF4 \cite{ravindranath2011wnt}, NDUF \cite{li2015down}, PTN \cite{huang2018chemotherapy}, ID4 \cite{donzelli2018expression}, RAC3 \cite{donnelly2017rac3}. Additionally, \textit{in cis} downregulated genes includes genes that have role in tumor suppression, for example, OSR2, is known tumor suppressor in gastric and lung cancer \cite{otani2014odd,wang2018odd}. Other genes include, DYRK4 \cite{yoshida2019multiple}, POLR2K \cite{lopez2020prediction} and PRRX1 \cite{fan2017downregulation} via the p53-dependent signaling pathway predicts poor prognosis in hepatocellular carcinoma.
+
+
+
  
 In SA1035 resistant versus sensitive DE plots shows  
 
@@ -161,14 +172,28 @@ MMP7 \cite{mcgowan2008matrix} correlated with cancer invasion, metastasis, and p
 TMEM45A \cite{schmit2019characterization} chemoresistance in breast cancer
 ETS2 \cite{ge2008role} functions as an oncogene and plays a key role in the progression of hypopharyngeal cancer and associated with poor prognosis \cite{fu2017high}.
 COX7A2 \cite{deng2018overexpression} is downregulated in resistant clone which is negatively correlated with prognosis
-POLR2C \cite {moriwaki2017polr2c} mutation is known to progress Ovarian cancers and its found downregulated in resistant clone.
-OLFM4 \cite{ashizawa2019olfm4} is reported to increase in cancers, including gastric cancer, colon cancer, and pancreatic cancer and to promote tumor progression by inducing cell‐cycle progression and enhancing tumor invasion and metastasis.
+POLR2C \cite {moriwaki2017polr2c} mutation is known to progress ovarian cancers and its found downregulated in resistant clone.
+OLFM4 \cite{ashizawa2019olfm4} is reported to be highly expressed in cancers, including gastric cancer, colon cancer, and pancreatic cancer and to promote tumor progression by inducing cell‐cycle progression and enhancing tumor invasion and metastasis.
+
+\begin{figure}
+\centering
+  \includegraphics[width=\textwidth]{Figures/fig4Summaryincistrans.pdf}
+	
+\caption[Summary proportion of \textit{in-cis} and \textit{in-trans} regulated gene expression in scRNAseq data]
+	{\small
+	\textbf{Summary proportion of \textit{cis} and \textit{trans} regulated gene expression in scRNAseq data.}
+	   Horizontal axis shows differential expression between two selected clones from all the three PDX treated and un-treated timeseries. Vertical axis gives percentage presence of genes in-cis or in trans. red bars represent in-cis and blue bars represent in -trans regulated gene expression.
+	   \textbf{(a)} This graph gives us percentage of genes by looking into the gene data set from COSMIC cancer gene dataset \cite{vogelstein2013cancer} that corresponds to our clone aware \ac{DE}.
+	    \textbf{(b)} same like upper plot but looking into CORE FITNESS data set \cite{behan2019prioritization}.
+	     
+	}
+	\label{fig:ffig4Summaryincistrans}
+\end{figure}
 
 
 
 
-
-\subsection{Integrated transcriptome and Pathway analyses revealed potential crucial genes and key pathways in breast cancer}
+\subsection{Integrated transcriptome and pathway analyses revealed potential crucial genes and key pathways in breast cancer}
 
 \subsubsection{Transcriptomic profiling capture key pathways up-down regulation in resistant and sensitive clones}
 
