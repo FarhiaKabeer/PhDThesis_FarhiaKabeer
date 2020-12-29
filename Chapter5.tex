@@ -118,13 +118,30 @@ Next, we visualized the data using UMAP \cite{becht2019dimensionality}, dimensio
 \subsection{Quantitative single cell gene expression analysis unravels the rates of \textit{ in cis} and \textit{in trans} components}
 Next, we investigated the proportions of \textit{in cis} and \textit{in trans} regulated genes in our procured single cell RNA expression data but within selected \ac{DE} of clones across all timeseries. From HMMcopy output of segment copy number position (chromosome start and end), we get gene coordinate by map our segment positions with reference database of known genes for human  \cite{carlson2015txdb}. First, we identify overlapping positions between chromosome segment and known genes, then we assigned that segment to an ensemble gene ID \cite{rainer2019ensembldb}.
 
+give refeence of chapter 4 that we saw change in copy number form one clone to another- here we are finding the rpooprtion.
+
+We computed median genotypes to summarize the profiles of each clone.
 Total of 22,326 segment positions, from each DE analysis, were mapped. In each pair wise comparison of clones, we captured all segment copy number position where there is a change in copy number values. So \textit{in-cis} gene is DE gene in scRNAseq analysis and coupled with change in copy number at the same position of genome HMM copy number segment positions.
 
 \subsubsection{Single cell RNAseq global proportion of resistant vs sensitive clones presented high \textit{in trans}-regulated gene expression variations than \textit{in cis}-regulated genes} 
 
+\textbf{The proportion of copy number change between two clones in the genome:}
+
 To calculate the percentage of genes presenting \textit{in cis} or \textit{in trans} regulatory effects, the differential expression single cell RNAseq data was decomposed into \textit{cis}, where the gene expression that is following the change in copy number and \textit{trans}, where it is independent. Then, we classified the common genes into  \textit{cis}  and \textit{trans} genes and calculated their number and percentages in each PDX timeseries. 
 
-The average change in copy number between the genomes of two clones in our data set was found to be around 41\%. Out of this approximately 28\% of the transcriptome is coupled with change in copy number state between clones. It involves either increase in expression with copy number gain or decrease in expression with copy number loss, shown in pink and red for \textit{in cis} and rest of  around 72\% of the others in green as shown in  \textbf{(\autoref{fig:fig3Summaryincistrans} a)}.
+The average change in copy number between the genomes of two clones in our data set was found to be around 41\%. Out of this, approximately 28\% of the transcriptome is coupled with change in copy number state between clones. It involves either increase in expression with copy number gain or decrease in expression with copy number loss, shown in pink and red for \textit{in cis} and rest of  around 72\% of the others in green as shown in  \textbf{(\autoref{fig:fig3Summaryincistrans} a)}.
+
+Next, we 
+
+
+
+
+
+
+
+
+
+
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
@@ -173,7 +190,7 @@ SA535\_UXXXX\_M\_N\_O\_UUUUU\_Q & 19.7 & 7.7 & 1.3 & 19.3 & 18.6 & 33.5 \\
 \end{table}
 \end{landscape}
 
-Next, we 
+
 
 
 
@@ -195,6 +212,31 @@ Next, we
 	   }
 	\label{fig:fig4_Volcanotrackplots2.pdf}
  \end{figure}
+
+
+
+
+
+
+\begin{figure}
+\centering
+  \includegraphics[width=\textwidth]{Figures/commongenesfromvolcanoplots.pdf}
+	
+\caption[Proportion of \textit{in-cis} and \textit{in-trans} regulated gene expression in scRNAseq data]
+	{\small
+	\textbf{Proportion of \textit{cis} and \textit{trans} regulated gene expression in scRNAseq data.}
+	   Horizontal axis shows differential expression between two selected clones from all the three PDX treated and un-treated timeseries. Vertical axis gives percentage presence of genes in-cis or in trans. red bars represent in-cis and blue bars represent in -trans regulated gene expression.
+	   \textbf{(a)} ASPH
+	    \textbf{(b)} RAB10.
+	    \textbf{(b)} UBE3C.
+	     \textbf{c)} YY1
+	}
+	\label{fig:commongenesfromvolcanoplots}
+\end{figure}
+
+
+
+
 
 \begin{figure}
 \centering
@@ -271,9 +313,31 @@ First we pulled the reference genes  intersecting with our \ac{DE} data from the
 
 
 
+ \begin{figure}
+\centering
+\includegraphics[width=\textwidth]{Figures/pathwaysevolution.pdf}
+\caption[Summary of number of genes \textit{in-cis} and \textit{in-trans}]
+	{\small
+	\textbf{Pathways comparison over time in all PDX series}
+	
+}
+    \label{fig:pathwaysevolution}
+    \end{figure}
+
+
 
 
 \subsection{Integrated transcriptome and pathway analyses revealed potential crucial genes and key pathways in breast cancer}
+\begin{figure}
+\centering
+  \includegraphics[width=\textwidth]{Figures/pathwaysnetwork.pdf}
+\caption[Pathways enrichment analysis of PDX timeseries]
+	{\small
+	\textbf{Pathways enrichment analysis of PDX timeseries.}
+	 Vertical axis on the left enlisting the pathways involved under various conditions in timeseries PDXs. Left panel comparing resistant clone versus clone exposed to only one cycle of drug. Middle panel comparing resistant versus sensitive clone in all PDXs. Right panel comparing last treated timepoint as a whole with first treated timepoint. Horizontal axis is showing the names of PDXs.
+	}
+	\label{fig:pathwaysnetwork}
+\end{figure}
 
 \subsubsection{Transcriptomic profiling capture key pathways up-down regulation in resistant and sensitive clones}
 
@@ -284,16 +348,10 @@ First we pulled the reference genes  intersecting with our \ac{DE} data from the
 
 
 
-\begin{figure}
-\centering
-  \includegraphics[width=\textwidth]{Figures/fig5pathwaysnetwork.pdf}
-\caption[Pathways enrichment analysis of PDX timeseries]
-	{\small
-	\textbf{Pathways enrichment analysis of PDX timeseries.}
-	 Vertical axis on the left enlisting the pathways involved under various conditions in timeseries PDXs. Left panel comparing resistant clone versus clone exposed to only one cycle of drug. Middle panel comparing resistant versus sensitive clone in all PDXs. Right panel comparing last treated timepoint as a whole with first treated timepoint. Horizontal axis is showing the names of PDXs.
-	}
-	\label{fig:fig5pathwaysnetwork}
-\end{figure}
+
+
+
+
 
 \begin{figure}
 \centering
@@ -309,17 +367,6 @@ First we pulled the reference genes  intersecting with our \ac{DE} data from the
 
 
 
- \begin{figure}
-\centering
-\includegraphics[width=\textwidth]{Figures/pathwaysevolution.pdf}
-\caption[Summary of number of genes \textit{in-cis} and \textit{in-trans}]
-	{\small
-	\textbf{Pathways comparison over time in all PDX series}
-	
-}
-    \label{fig:pathwaysevolution}
-    \end{figure}
-
 
 
 
@@ -327,13 +374,13 @@ First we pulled the reference genes  intersecting with our \ac{DE} data from the
 
 \begin{figure}
 \centering
- \includegraphics[width=\textwidth]{Figures/genelinetrajectories.pdf}
+ \includegraphics[width=\textwidth]{Figures/generegressionanalysis.pdf}
 	
 \caption[Gene expression changes over time]
 	{\small
 	 \textbf{Gene expression changes over time in all 4 TNBC PDX timseries} .
 	}
-	\label{fig:genelinetrajectories}
+	\label{fig:generegressionanalysis}
 \end{figure}
 
 
