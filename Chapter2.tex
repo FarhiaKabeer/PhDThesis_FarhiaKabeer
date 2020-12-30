@@ -90,13 +90,6 @@ Summary of antibodies clones and their suppliers used for staining TMAs for IHC.
 
 
 
-
-
-
-
-
-
-
 \subsection{Serial passaging of PDX}
 Tumours were serially passaged as  described \cite{eirew2015dynamics}.
 Briefly, for serial passaging of PDX, xenograft-bearing mice were euthanized when the size of the tumours approached \SI{1000}{\mm\cubed} in volume (combining together the sizes of individual tumours when more than one was present).
@@ -168,9 +161,50 @@ Attrition of cells at each stage of quality control is shown in (suptabtab:omnib
 Using sitka we established the evolutionary relationships of cells in a PDX heterogeneous samples. To investigate cancer evolution we need to determine the abundance of subpopulations over time. To this end, we introduce \texttt{Lumberjack}, a tree-cutting algorithm that we used to define clonal subpopulations. In the output tree of \texttt{sitka}, cells are part of the terminal leaf nodes of the phylogenetic topology. We post-processed the inferred trees to identify clonal populations from major clades. When clonal populations are defined, their abundances were counted as a function of timeseries and these were used for fitness inference. 
 Clones are constructed by identifying connected components (each a clade or a paraphyly) in the phylogenetic tree reconstruction. The tree is `cut' into discrete populations according to the following procedure
 
-\subsubsection{Sitka Model}
+\subsection{Phylogenetic tree inference, clone determination and clonal abundance measurements}
+\label{ssec:phylo}
+We developed a single cell Bayesian tree reconstruction method based on copy number change point binary variables called \texttt{sitka} \cite{dorri2020efficient} to fit phylogenetic trees to the copy number profiles.  
+In the output of \texttt{sitka}, cells are the terminal leaf nodes of the phylogenetic topology.  
+The inferred trees were post-processed to identify clonal populations from major clades. With clonal populations defined, their abundances were counted as a function of timeseries and these were used for fitness inference (see below). 
+Clones were constructed by identifying connected components (each a clade or a paraphyly) in the phylogenetic tree reconstruction. The tree was `cut' into discrete populations according to the following procedure (see Algorithm \cite{salehi2020single}).
+%%Notation
+Let $L$ be a set of loci and $C$ a set of cells and ${\lvert}L{\rvert}$. 
+Define $\tau = (L, C, E)$ to be a rooted phylogenetic tree with $E$ its set of directed edges.
+The phylogenetic tree is assumed to comprise internal nodes that are phylogenetic markers (loci) and terminal nodes that are either cells or loci. 
+Terminal loci are considered unused phylogenetic markers and are discarded. 
+Let ${\lvert}\tau{\rvert} = {\lvert}C{\rvert}$, that is the number of cells that belong to tree $\tau$.
+By $\tau_{l} = (L_l, C_l, E_l)$ denote the subtree rooted at node $l$.
+Set $\text{pa}(l)$ and $\text{child}(l)$ be the parent node and set of immediate children of node $l$ with $\text{desc}(l)$ comprising all its descendant. 
 
-\subsubsection{Lumberjack}
+% Final clone determination
+The inputs to the algorithm are the rooted phylogenetic tree $\tau$ and the copy number states of its cells.
+A clone is defined as connected components (each a clade or a paraphyly) in the graph tree $\tau$ composed of cell of sufficient genomic homogeneity. 
+The degree of homogeneity can be tuned by limiting the number of loci and the difference in copy number of sub-clades in a clone. 
+The algorithm works by first finding the coarse structure, that is dividing the tree into major clades and then looking for fine structures within each clade by traversing the tree in a bottom up manner and merging loci that are sufficiently similar.
+The remaining loci constitute the roots of detected clades.
+
+% First pick coarse structures
+To obtain the coarse structure from the reconstructed phylogenetic tree we use a two step procedure. (i) First we identify monophyletic clades via algorithm \cite{salehi2020single}. 
+(ii) We then remove the cells comprising the clades found in step one from the tree and repeat algorithm. 
+We note that these new clades (if any) could be paraphyletic.
+
+To find the fine structures within the initial clades we use the following procedure.
+For each clade and its corresponding sub-tree $\tau_s$, denote by $L_s$ a set of loci $l$ for which $m \le \lvert \tau_l \rvert \le M$. 
+In a bottom-up traverse of the tree, for each node $l \in L_s$, remove it from $L_s$ if $\lvert \tau_{\text{pa}(l)} \rvert - \lvert \tau_{l} \rvert \le n$, otherwise remove $\tau_{l}$ from $\tau_c$
+At the end of the tree traversal set $L_s$ contains new candidate roots for each initial clade.
+For each $l \in L_s$ define the summary copy number profile as a vector whose $i$th element is the median of the copy number states of the $i$th for all cells in $\tau_{l}$.
+Compute the distance between two subclades as the mean absolute difference of their median genotypes.
+Merge subclones induced by $L_s$ if their summary copy number profiles are too similar.
+We can do this by computing a t-test over the pairwise distances to exclude outlier subclades and merge the rest. we opted to also split clades by the ploidy of their constituent cells, where ploidy is defined as the most recurrent CN state in the cell.  
+
+%A cut at a locus in the tree is defined as the trajectory induced by the subtree %rooted at the base node of that locus, i.e., the node farthest from the root.
+%A locus that meets all the conditions above is called an eligible locus.
+Once clones are identified, we set the abundance of each clone at a specific timepoint as the fraction of cells in that clone from that timepoint.
+For estimation of clonal fractions, we used the following procedure (i) let $M$ denote the mutational cellular prevalence (rows) estimated over multiple timepoints (columns) using the multi-sample \texttt{PyClone}~\cite{roth2014pyclone} model, (ii) define $A$ as the genotype matrix (which mutation-cluster (rows) is present in which clones (columns), (iii) then we set $A X = M$ where $ X = A^{-1}M$ are the clonal fractions overtime. (iv) we solve for $X$ using QR-decomposition.
+
+
+
+
 
 
 
