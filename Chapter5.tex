@@ -19,6 +19,33 @@ Here we set to explore timeseries three breast cancer patient derived xenografts
  \section{Synopsis}
  From the previous chapter we know that the population changes with the tumor growth from one passage to another with and without the drugs. We see the shifts in the clones and some clones get selected and others disappear.
 For this chapter, to explore the cellular compositions and heterogeneity under diverse conditions, in breast cancer, we performed scRNAseq analysis on the same 3 patient derived xenograft timeseries tumors used as substrates in chapter 4. We acquired transcriptional signatures comprising of total of 171,560 individual cells including -------cells from untreated tumors, ----------cells from cisplatin treated tumors, ----------cells from cisplatin drug holiday tumors, ---------cells from CX-5461 treated tumors and -----------cells from CX-5461 drug holiday tumors.
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[htbp]
+ \centering
+  \caption{Number of cells sequenced for transcriptome analysis}
+{
+\begin{tabular}{|l|l|l|}
+\hline
+Sample labels     & No. of cells sequenced for scRNA & Filtered \\
+\hline
+Total cells          & 145,858                          & 63,183\\
+Untreated         & 52,256                           & 21,510    \\
+Cisplatin-Rx      & 40,754                           & 19,095    \\
+Cisplatin-holiday & 31,269                           & 15,158    \\
+CX-5461-Rx        & 8,558                            & 4,047     \\
+CX-5461-holiday   & 13,021                           & 3,373  \\  
+\hline
+\end{tabular}%
+
+}
+\end{table}
+
+
+
+
+
  
 In order to pursue our analysis in single cell RNA space, first, we summarized the clonal identities from chapter 4 into sensitive and resistant. We assume that the clones that show fitness advantage under drug selection, in chapter 4, are resistant because they were high abundance clones and the tumors started responding less, whereas the clones that are having high fitness coefficient in the absence of drug are sensitive because they could not survive under drug pressure. Briefly summarized in  \textbf{\autoref{tab:Listofresistantandsensitiveclones}}.
  
@@ -45,7 +72,7 @@ We did dimentionality reduction embedding of the cells and revealed that the clo
   
  \end{table}%
 
-Next, we asked how much of the expression is accounted by the change in copy number and what proportion is independent. The global proportions of \textit{in cis} and \textit{in trans} in resistant versus sensitive clones were measured. Then we looked for the magnitude of difference of upregulated or down regulated genes by calculating differential expression of resistant and sensitive clones through volcano plots analysis. Lastly, we explored which pathways and individual genes are involved in resistant and sensitive clones across all timeseries PDX models. We identified some genes that were monotonically increasing or decreasing under continuous drrug pressure in our models.
+Next, we asked how much of the expression is accounted by the change in copy number and what proportion is independent. The global proportions of \textit{in cis} and \textit{in trans} in resistant versus sensitive clones were measured. Then we looked for the magnitude of difference of upregulated or down regulated genes by calculating differential expression of resistant and sensitive clones through volcano plots analysis. Lastly, we explored which pathways and individual genes are involved in resistant and sensitive clones across all timeseries PDX models. We identified some genes that were monotonically increasing or decreasing under continuous drug pressure in our models.
 
 
 
