@@ -12,13 +12,15 @@ The most challenging analysis is to differentiate whether the change in gene exp
 Cancer cells in distinct cell- states often exhibit important differences in functional properties depending on which genes are turned on and off resulting in sensitive  or resistant phenotype.
 Previously it is shown that unique cells within a population can exhibit fluctuations in expression of a group of genes, that could predict distinct phenotypes \cite{shaffer2019memory}.
 
-Un-like genomic clones that could get selected in resistant phenotype \cite{salehi2020single}, we still are not clear whether the cell-states are acquainted for this kind of behaviour or the selected states are pre-existing in the cancer population and under continuous pressure shows obvious dynamics or there is a transition from one state to another that ultimately gets selected over time. Because of difficulty to analyse longitudinal patient's samples for single cell gene expression and lack of multiple longitudinal pre-clinical breast cancer models, these questions remains unexplored. Our understanding of these processes, and how they relate to triple negative breast cancer heterogeneity, is limited.
-Here we set to explore timeseries three breast cancer patient derived xenografts (PDX) that were serially challenged for around 4-5 cycles with the drug until they started showing less response to the treatment.The aim is to measure the magnitude of fluctuations in gene expression from sensitive to resistant phenotype.
+Although many studies have analyzed CNV and differential gene expression of distinct oncogenes and tumor suppressor genes in various cancers \cite{kuzyk2015mycn, budczies2016pan, kwak2015fibroblast} but there has been no precise study about the relationship between CNV and differential gene expression across a multiple tumor samples. It is unclear to what extent the expression level is affected by CNV.  Because of difficulty to analyse longitudinal patient's samples for single cell gene expression and lack of multiple longitudinal pre-clinical breast cancer models, these questions remains unexplored and how they relate to triple negative breast cancer heterogeneity, is limited.
 
+
+Here we aimed to systematically investigate the specific relationship between copy number change and differential gene expression across timeseries TNBC PDX for which we have clonal copy number proportions already known frorm chapter 4. We set to explore timeseries three breast cancer patient derived xenografts (PDX) that were serially challenged for around 4-5 cycles with the drug until they started showing less response to the treatment.The aim is to measure the magnitude of fluctuations in gene expression from sensitive to resistant phenotype.
+This study may help us better understand the correlation between CNV and differential gene expression and provide new insights into the mechanism of development and progression of cancer with potential biomarkers in triple negative breast cancer.
 
  \section{Synopsis}
  From the previous chapter we know that the population changes with the tumor growth from one passage to another with and without the drugs. We see the shifts in the clones and some clones get selected and others disappear.
-For this chapter, to explore the cellular compositions and heterogeneity under diverse conditions, in breast cancer, we performed scRNAseq analysis on the same 3 patient derived xenograft timeseries tumors used as substrates in chapter 4. We acquired transcriptional signatures comprising of total of 171,560 individual cells including -------cells from untreated tumors, ----------cells from cisplatin treated tumors, ----------cells from cisplatin drug holiday tumors, ---------cells from CX-5461 treated tumors and -----------cells from CX-5461 drug holiday tumors.
+For this chapter, to explore the cellular compositions and heterogeneity under diverse conditions, in breast cancer, we performed scRNAseq analysis on the same 3 patient derived xenograft timeseries tumors used as substrates in chapter 4. We acquired transcriptional signatures of 171,560 individual cells. Two libraries from CX-5461 treated samples were excluded from analysis as they didn't pass our QC threshold. Total of 145,858 individual cells were taken into further transcriptome analysis, including  52,256 cells from untreated tumors, 40,754 cells from cisplatin treated tumors, 31,269 cells from cisplatin drug holiday tumors, 8,558 cells from CX-5461 treated tumors and 13,021 cells from CX-5461 drug holiday tumors. The detail after filtering is summarized in  \textbf{\autoref{tab:nofcellsRNA}}.
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
@@ -38,16 +40,12 @@ CX-5461-Rx        & 8,558                            & 4,047     \\
 CX-5461-holiday   & 13,021                           & 3,373  \\  
 \hline
 \end{tabular}%
-
+\label{tab:nofcellsRNA}
 }
 \end{table}
 
 
-
-
-
- 
-In order to pursue our analysis in single cell RNA space, first, we summarized the clonal identities from chapter 4 into sensitive and resistant. We assume that the clones that show fitness advantage under drug selection, in chapter 4, are resistant because they were high abundance clones and the tumors started responding less, whereas the clones that are having high fitness coefficient in the absence of drug are sensitive because they could not survive under drug pressure. Briefly summarized in  \textbf{\autoref{tab:Listofresistantandsensitiveclones}}.
+To pursue our analysis in single cell RNA space, first, we summarized the clonal identities from chapter 4 into sensitive and resistant. We assume that the clones that show fitness advantage under drug selection, in DLP+ level, are resistant because they were high abundance clones and the tumors started responding less, whereas the clones that are having high fitness coefficient in the absence of drug are sensitive because they could not survive under drug pressure. Briefly summarized in  \textbf{\autoref{tab:Listofresistantandsensitiveclones}}.
  
 Next, by using clonealign \cite{campbell2019clonealign}, we were able to assign single cell RNAseq to clones and observed similar clonal proportion from RNA seq what we concluded in the DLP+ in chapter 4. 
 We did dimentionality reduction embedding of the cells and revealed that the clones appear to be clustering together with minor exceptions. 
@@ -72,38 +70,8 @@ We did dimentionality reduction embedding of the cells and revealed that the clo
   
  \end{table}%
 
-Next, we asked how much of the expression is accounted by the change in copy number and what proportion is independent. The global proportions of \textit{in cis} and \textit{in trans} in resistant versus sensitive clones were measured. Then we looked for the magnitude of difference of upregulated or down regulated genes by calculating differential expression of resistant and sensitive clones through volcano plots analysis. Lastly, we explored which pathways and individual genes are involved in resistant and sensitive clones across all timeseries PDX models. We identified some genes that were monotonically increasing or decreasing under continuous drug pressure in our models.
+Next, we asked how much of the expression is accounted by the change in copy number and what proportion is independent. The global proportions of \textit{in cis} and \textit{in trans} in resistant versus sensitive clones were measured. Then we looked for the magnitude of difference of upregulated or down regulated genes by calculating differential expression of resistant and sensitive clones through volcano plots analysis. Lastly, we explored which pathways and individual genes are involved in resistant and sensitive clones across all timeseries PDX models. We identified some genes that were monotonically increasing or decreasing under continuous drug pressure in our models. We found few intersecting pathways that seems to be upregulated in all timeserries and some with 2-3. We have identified certain commom genes that are showing trends under the drug and could be further investigated as potential biomarkers of disease progression and tumor response.
 
-
-
-
-
-
-
-\begin{figure}
-\centering
- \includegraphics[width=\textwidth]{Figures/fig1schematicsoverview.pdf}
-	
-\caption[Schematic overview of experimental design and single cell RNA seq data analysis]
-	{\small
-	 \textbf{Schematic overview of experimental design and single cell RNA seq data analysis} .
-	     
-	}
-	\label{fig:fig1schematicsoverview}
-\end{figure}
-
-
-\section{Results}
-
-\subsection{Clone-specific genotypes underpin clone-specific gene expression programs}
-We profiled the impact of clone specific gene expression changes as a higher order representation of phenotypic properties. We tested if the genotypes of high fitness clones exhibited changes in their transcriptional program, with scRNAseq performed on matched aliquots of samples sequenced using DLP+ on the serially passaged triple-negative breast cancer patient-derived xenografts from Chapter 4 as substrates \textbf{\autoref{fig:treatedtimeseriesmanuscript}} and \textbf{\autoref{fig:SA535CX5461} a}.
-
-\subsubsection{Copy number change and scRNAseq expression revealed legitimate correlation across PDX timeseries}
-  In our approach, we assume clones are defined through grouped cell subsets which share to a first approximation similar genomic copy number structure (e.g., through phylogenetic reconstruction or dimensionality reduction) \cite{laks2019clonal}. Based on this relationship we applied
-  \texttt{clonealign}, a statistical method, \cite{campbell2019clonealign} to reveal clone-specific phenotypic properties across all samples.
-  Each point is taken as the proportion of DLP cells in a clone horizontal axis versus the proportion of the scRNAseq cells in the same clone. The  correlation for all clones were then calculated by using Pearson correlation coefficient formula. The heat maps of SA609 TNBC PDX \textbf{(\autoref{fig:UnRxseries} h)} and SA535 TNBC PDX \textbf{(\autoref{fig:SA535analysis} a, e)} exhibit more complex heterogeneity at copy number space along with structural genomic rearrangements as compared to SA1035 TNBC PDX \textbf{(\autoref{fig:SA1035Rxnew} a, e)}. Our results showed DLP+ and \texttt{clonealign} clone abundance measures were positively correlated across all libraries \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} a, d, g)}. Importantly, SA535 TNBC treated with cisplatin presented the high confidence correlation with Pearson correlation 0.94 (p-value$< 10^{-18}$), followed by its CX-5461 treated series, presenting Pearson correlation of 0.97 (p-value$< 10^{-15}$) \textbf{\autoref{fig:fig2_clonealignembeddings.pdf} g}. However, SA609 PDX timeseries samples present a Pearson correlation coefficient of 0.89 (p-value $< 10^{-16}$) \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} a)} and SA1035 PDX with Pearson correlation of 0.78 (p-value$< 10^{-18}$) \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} d)}.
-  
-  
 
 \begin{figure}
 \centering
@@ -121,9 +89,19 @@ We profiled the impact of clone specific gene expression changes as a higher ord
 \end{figure}
 
 
+\section{Results}
 
+\subsection{Clone-specific genotypes underpin clone-specific gene expression programs}
+We profiled the impact of clone specific gene expression changes as a higher order representation of phenotypic properties. We tested if the genotypes of high fitness clones exhibited changes in their transcriptional program, with scRNAseq performed on matched aliquots of samples sequenced using DLP+ on the serially passaged triple-negative breast cancer patient-derived xenografts from Chapter 4 as substrates \textbf{\autoref{fig:treatedtimeseriesmanuscript}} and \textbf{\autoref{fig:SA535CX5461} a}.
+
+\subsubsection{Copy number change and scRNAseq expression revealed legitimate correlation across PDX timeseries}
+  In our approach, we assume clones are defined through grouped cell subsets which share to a first approximation similar genomic copy number structure (e.g., through phylogenetic reconstruction or dimensionality reduction) \cite{laks2019clonal}. Based on this relationship we applied
+  \texttt{clonealign}, a statistical method, \cite{campbell2019clonealign} to reveal clone-specific phenotypic properties across all samples.
+  Each point is taken as the proportion of DLP cells in a clone horizontal axis versus the proportion of the scRNAseq cells in the same clone. The  correlation for all clones were then calculated by using Pearson correlation coefficient formula. The heat maps of SA609 TNBC PDX \textbf{(\autoref{fig:UnRxseries} h)} and SA535 TNBC PDX \textbf{(\autoref{fig:SA535analysis} a, e)} exhibit more complex heterogeneity at copy number space along with structural genomic rearrangements as compared to SA1035 TNBC PDX \textbf{(\autoref{fig:SA1035Rxnew} a, e)}. Our results showed DLP+ and \texttt{clonealign} clone abundance measures were positively correlated across all libraries \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} a, d, g)}. Importantly, SA535 TNBC treated with cisplatin presented the high confidence correlation with Pearson correlation 0.94 (p-value$< 10^{-18}$), followed by its CX-5461 treated series, presenting Pearson correlation of 0.97 (p-value$< 10^{-15}$) \textbf{\autoref{fig:fig2_clonealignembeddings.pdf} g}. However, SA609 PDX timeseries samples present a Pearson correlation coefficient of 0.89 (p-value $< 10^{-16}$) \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} a)} and SA1035 PDX with Pearson correlation of 0.78 (p-value$< 10^{-18}$) \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} d)}.
+  
+  
 \subsubsection{Single cell RNAseq clusters exhibit relatively monomorphic pattern of global expression over time which tracked with clone assignments}
-Next, we visualized the data using UMAP \cite{becht2019dimensionality}, dimensionality reduction method, to aggregate cells into treated and untreated subpopulations while retaining the relationship between subpopulations. scRNAseq embeddings displayed a dynamic pattern of global expression over time with and without treatment, which tracked with clone assignments indicating co-variation of transcriptional properties with clonal abundance \textbf{\autoref{fig:fig2_clonealignembeddings.pdf}}. UMAP visualization of clusters identified clone H clusters in untreated setting and clone R clusters, in the cisplatin treated series of SA609 TNBC PDX, purified over time matching their genomically defined counterparts \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} b)}. Similarly, clone E in untreated and clone H in treated timeseries of SA1035  \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} e)}, clustered uniquely at the later time points. \textbf{\autoref{fig:fig2_clonealignembeddings.pdf} c, f} reminding the clones emerging with and without treatment through the phylogeny of DLP+ from chapter 4, in SA609 and SA1035, respectively.  SA535 TNBC PDX all three arms of untreated, treated with cisplatin and CX-5461, exhibited aggregation of similar patterns of clusters that favours emerging of genomic clones in their respective series. Clone J, in untreated control timeseries \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} h, upper panel)}, clone T, in cisplatin treated \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} h, middle panel)}, and clone U in CX-5461 treated \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} h, lower panel)}.
+Having made the assignments of cells to clones, next, we visualized the data using UMAP \cite{becht2019dimensionality}, dimensionality reduction method, to aggregate cells into treated and untreated subpopulations while retaining the relationship between subpopulations. scRNAseq embeddings displayed a dynamic pattern of global expression over time with and without treatment, which tracked with clone assignments indicating co-variation of transcriptional properties with clonal abundance \textbf{\autoref{fig:fig2_clonealignembeddings.pdf}}. UMAP visualization of clusters identified clone H clusters in untreated setting and clone R clusters, in the cisplatin treated series of SA609 TNBC PDX, purified over time matching their genomically defined counterparts \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} b)}. Similarly, clone E in untreated and clone H in treated timeseries of SA1035  \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} e)}, clustered uniquely at the later time points. \textbf{\autoref{fig:fig2_clonealignembeddings.pdf} c, f} reminding the clones emerging with and without treatment through the phylogeny of DLP+ from chapter 4, in SA609 and SA1035, respectively.  SA535 TNBC PDX all three arms of untreated, treated with cisplatin and CX-5461, exhibited aggregation of similar patterns of clusters that favours emerging of genomic clones in their respective series. Clone J, in untreated control timeseries \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} h, upper panel)}, clone T, in cisplatin treated \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} h, middle panel)}, and clone U in CX-5461 treated \textbf{(\autoref{fig:fig2_clonealignembeddings.pdf} h, lower panel)}.
 
 \begin{figure}
 \centering
@@ -132,9 +110,9 @@ Next, we visualized the data using UMAP \cite{becht2019dimensionality}, dimensio
 \caption[Summary proportion of \textit{in-cis} and \textit{in-trans} regulated gene expression in scRNAseq data]
 	{\small
 	\textbf{Summary proportion of \textit{cis} and \textit{trans} regulated gene expression in scRNAseq data.}
-	   Horizontal axis shows differential expression between two selected clones from all the three PDX treated and un-treated timeseries. Vertical axis gives percentage presence of genes in-cis or in trans. red bars represent in-cis and blue bars represent in -trans regulated gene expression.
-	   \textbf{(a)} This graph gives us percentage of genes by looking into the gene data set from COSMIC cancer gene dataset \cite{vogelstein2013cancer} that corresponds to our clone aware \ac{DE}.
-	    \textbf{(b)} same like upper plot but looking into CORE FITNESS data set \cite{behan2019prioritization}.
+	   Horizontal axis shows differential expression between two selected clones from all the three PDX treated and un-treated timeseries. Vertical axis gives percentages of genes.  \textbf{(a)}  Red and pink bars represent \textit{in-cis} change in expression in both panels. and blue bars represent in -trans regulated gene expression.
+	    \textbf{(a)} 
+	    \textbf{(b)} 
 	     
 	}
 	\label{fig:fig3Summaryincistrans}
@@ -142,31 +120,29 @@ Next, we visualized the data using UMAP \cite{becht2019dimensionality}, dimensio
 
 
 
-\subsection{Quantitative single cell gene expression analysis unravels the rates of \textit{ in cis} and \textit{in trans} components}
-Next, we investigated the proportions of \textit{in cis} and \textit{in trans} regulated genes in our procured single cell RNA expression data but within selected \ac{DE} of clones across all timeseries. From HMMcopy output of segment copy number position (chromosome start and end), we get gene coordinate by map our segment positions with reference database of known genes for human  \cite{carlson2015txdb}. First, we identify overlapping positions between chromosome segment and known genes, then we assigned that segment to an ensemble gene ID \cite{rainer2019ensembldb}.
+ \subsection{Quantitative single cell gene expression analysis unravels the rates of \textit{in cis} and \textit{in trans} components}
 
-give refeence of chapter 4 that we saw change in copy number form one clone to another- here we are finding the rpooprtion.
+It is broadly acknowledged that somatic CNV is highly associated with the development and progression of numerous cancers by influencing gene expression level \cite{yang2017prame, gut2018sox2}. 
+Here, we investigated as to how much of the proportions of \textit{in cis} and \textit{in trans} regulated genes in our procured single cell RNA expression data is influenced by the change in copy number.
 
-We computed median genotypes to summarize the profiles of each clone.
-Total of 22,326 segment positions, from each DE analysis, were mapped. In each pair wise comparison of clones, we captured all segment copy number position where there is a change in copy number values. So \textit{in-cis} gene is DE gene in scRNAseq analysis and coupled with change in copy number at the same position of genome HMM copy number segment positions.
-
-\subsubsection{Single cell RNAseq global proportion of resistant vs sensitive clones presented high \textit{in trans}-regulated gene expression variations than \textit{in cis}-regulated genes} 
-
-\textbf{The proportion of copy number change between two clones in the genome:}
-
-To calculate the percentage of genes presenting \textit{in cis} or \textit{in trans} regulatory effects, the differential expression single cell RNAseq data was decomposed into \textit{cis}, where the gene expression that is following the change in copy number and \textit{trans}, where it is independent. Then, we classified the common genes into  \textit{cis}  and \textit{trans} genes and calculated their number and percentages in each PDX timeseries. 
-
-The average change in copy number between the genomes of two clones in our data set was found to be around 41\%. Out of this, approximately 28\% of the transcriptome is coupled with change in copy number state between clones. It involves either increase in expression with copy number gain or decrease in expression with copy number loss, shown in pink and red for \textit{in cis} and rest of  around 72\% of the others in green as shown in  \textbf{(\autoref{fig:fig3Summaryincistrans} a)}.
-
-Next, we 
+To calculate the percentage of genes presenting \textit{in cis} or \textit{in trans} regulatory effects, the differential expression single cell RNAseq data was decomposed into \textit{cis}, where the gene expression that is following the change in copy number and \textit{trans}, where it is independent.
 
 
 
+\subsubsection{Differential gene expression between resistant and sensitive clones exhibit high \textit{in cis} proportion.}
 
+Firstly, we did differential expression analysis of resistant clones and the clones that are closely related to the resistant clones versus the sensitive ones from each of the time series PDX using \texttt{edgeR} \cite{robinson2010edger}. Then, we classified these genes into upregulated with increase in copy number (incis\_IU) and downregulated (incis\_DD) with decrease in copy number or upregulated with decrease in copy number (incis\_DU) or downregulated with increase in copy number (incis\_ID), from one clone to another, as mentioned in the legend of \textbf{\autoref{fig:fig3Summaryincistrans} a}.
 
+From HMMcopy output of segment copy number position (chromosome start and end), we get gene coordinates by mapping our segment positions with reference database of known genes for human  \cite{carlson2015txdb}. First, we identify overlapping positions between chromosome segments and known genes, then we assigned those segments to an ensemble gene ID \cite{rainer2019ensembldb} of the  selected \ac{DE} of clones across all timeseries and calculated their number and percentages in each PDX timeseries  \textbf{\autoref{tab:DEpercentageincisintrans}}. Importantly, we found that the overall number of \textit{in trans} genes were higher as compared to \textit{in cis},which is supporting previously reported results \cite{shao2019copy}. 
 
+\subsubsection{Global copy number change between the genomes of two clones}
 
+To estimate approximately how much of the genome manifest change in copy numbers from one clone to other in our data sets, we computed median genotype profiles of the clones for which we calculated \ac{DE} above.
 
+Total of 22,326 segment positions, from each DE analysis, were mapped. In each pair wise comparison of clones, we captured all segment copy number position where there is a change in copy number values. So \textit{in-cis} gene is DE gene in scRNAseq analysis and coupled with change in copy number at the same position of genome HMM copy number segment positions. Approximately 9000 segments had copy number changes between two clones, and $>$2000 position intersect with scRNAseq genes.
+
+In other words, the average change in copy number between the genomes of two clones in our data set was found to be around 41\%. Out of this, approximately 28\% of the transcriptome is coupled with change in copy number state between clones. It involves either increase in expression with copy number gain or decrease in expression with copy number loss, shown in pink and red for \textit{in cis} and rest of  around 72\% of the copy number change was not associated with change in expression shown as green in \textbf{(\autoref{fig:fig3Summaryincistrans} b)}. Detailed percentages of \textit{in cis} and others are mentioned in 
+\textbf{\autoref{tab:copynumberchange}}
 
 
 
@@ -176,52 +152,48 @@ Next, we
 \begin{landscape}
 \begin{table} 
 \centering
- \caption{Summary of \textit{in cis} and \textit{in trans} percentages(\%)}
+
+ \caption{Summary of \textit{in cis} and \textit{in trans} percentages (\%) of differentially expressed genes}
 \resizebox{\textwidth}{!}{%
-\begin{tabular}{|l|p{5em}|p{5em}|p{5em}|p{5em}|p{5em}|p{5em}|}
+\begin{tabular}{|l|p{4em}|p{4em}|p{4em}|p{4em}|p{4em}|p{4em}|}
   \hline
-\ac{DE}-scRNAseq &
-  In\_cis\_Decrease\_DownRegulated &
-  In\_cis\_Decrease\_UpRegulated &
-  In\_cis\_Increase\_DownRegulated &
-  In\_cis\_Increase\_UpRegulated &
-  In\_trans\_DownRegulated &
-  In\_trans\_UpRegulated \\
+\ac{DE}-scRNAseq between clones &
+  In\_cis\_Decrease\_DownRegulated \% &
+  In\_cis\_Decrease\_UpRegulated \% &
+  In\_cis\_Increase\_DownRegulated \% &
+  In\_cis\_Increase\_UpRegulated \% &
+  In\_trans\_DownRegulated \% &
+  In\_trans\_UpRegulated \% \\
     \hline
-SA609\_UUUU\_B\_UUUU\_C         & 7.9  & 4.4 & 4   & 5.2  & 40.1 & 38.4 \\
-SA609\_UUUU\_B\_UUUU\_H         & 3.5  & 5.1 & 13  & 17.5 & 27.7 & 33.2 \\
-SA609\_UTTT\_R\_UUUU\_C         & 14.4 & 3.3 & 1.1 & 9.3  & 32.1 & 39.8 \\
-SA609\_UTTT\_R\_UUUU\_H         & 13   & 2.5 & 6.5 & 22.5 & 31.3 & 24.2 \\
-SA609\_UTTTT\_R\_UUUUU\_C       & 13.2 & 3.8 & 0.9 & 10.1 & 30.5 & 41.5 \\
-SA609\_UTTTT\_R\_UUUUU\_H       & 12.8 & 2.2 & 6.1 & 27.1 & 28.7 & 23   \\
-SA1035\_UTTTT\_G\_UUUUU\_E      & 1.8  & 0.2 & 0.4 & 2.3  & 59.2 & 36.2 \\
-SA1035\_UTTTT\_H\_UUUUU\_E      & 2.6  & 0.5 & 0.5 & 3.3  & 47.2 & 45.8 \\
-SA1035\_UTTT\_G\_UUUU\_E        & 1.6  & 0.1 & 0.1 & 4.8  & 31.5 & 61.9 \\
-SA1035\_UTTT\_H\_UUUU\_E        & 1.9  & 0.3 & 0.3 & 3.4  & 27.4 & 66.7 \\
-SA535\_UUTTTT\_T\_UUUUUU\_J     & 9.7  & 5.6 & 0.3 & 3.2  & 22.8 & 58.3 \\
-SA535\_UUTTT\_T\_UUUUU\_J       & 20.9 & 3.4 & 0.2 & 4.5  & 27.6 & 43.3 \\
-SA535\_UUTTT\_S\_T\_UUUUU       & 20.7 & 3.4 & 0.2 & 4.4  & 28.3 & 43   \\
-SA535\_UUTTT\_R\_UUUUU\_J       & 7.9  & 2.5 & 1.5 & 12.3 & 36.8 & 39.1 \\
-SA535\_UUTTT\_T\_UUUUU\_Q       & 22.5 & 4.9 & 1.5 & 20.7 & 18.4 & 32   \\
-SA535\_UUTTT\_S\_T\_UUUUU\_2    & 21.7 & 5.2 & 1.4 & 21.2 & 18.1 & 32.4 \\
-SA535\_UUTTT\_R\_UUUUU\_Q       & 16   & 4.4 & 1.8 & 31.5 & 19.9 & 26.4 \\
-SA535\_UXXXX\_U\_UUUUU\_J       & 21.5 & 2.8 & 0.6 & 8.8  & 29.2 & 37.1 \\
-SA535\_UXXXX\_U\_UUUUU\_Q       & 18.1 & 4.4 & 1.6 & 21.4 & 20.1 & 34.5 \\
-SA535\_UXXXX\_R\_UUUUU\_J       & 15.3 & 2.4 & 0.6 & 7    & 40.4 & 34.3 \\
-SA535\_UXXXX\_R\_UUUUU\_Q       & 17.1 & 3.4 & 1.9 & 27.5 & 21.8 & 28.2 \\
-SA535\_UXXXX\_M\_N\_O\_UUUUU\_J & 22.1 & 4.3 & 0.4 & 6    & 28.5 & 38.7 \\
-SA535\_UXXXX\_M\_N\_O\_UUUUU\_Q & 19.7 & 7.7 & 1.3 & 19.3 & 18.6 & 33.5 \\
+SA609-UUUU-B\_vs\_UUUU-C         & 7.9  & 4.4 & 4   & 5.2  & 40.1 & 38.4 \\
+SA609-UUUU-B\_vs\_UUUU-H         & 3.5  & 5.1 & 13  & 17.5 & 27.7 & 33.2 \\
+SA609-UTTT-R\_vs\_UUUU-C         & 14.4 & 3.3 & 1.1 & 9.3  & 32.1 & 39.8 \\
+SA609-UTTT-R\_vs\_UUUU-H         & 13   & 2.5 & 6.5 & 22.5 & 31.3 & 24.2 \\
+SA609-UTTTT-R\_vs\_UUUUU-C       & 13.2 & 3.8 & 0.9 & 10.1 & 30.5 & 41.5 \\
+SA609-UTTTT-R\_vs\_UUUUU-H       & 12.8 & 2.2 & 6.1 & 27.1 & 28.7 & 23   \\
+SA1035-UTTTT-G\_vs\_UUUUU-E      & 1.8  & 0.2 & 0.4 & 2.3  & 59.2 & 36.2 \\
+SA1035-UTTTT-H\_vs\_UUUUU-E      & 2.6  & 0.5 & 0.5 & 3.3  & 47.2 & 45.8 \\
+SA1035-UTTT-G\_vs\_UUUU-E        & 1.6  & 0.1 & 0.1 & 4.8  & 31.5 & 61.9 \\
+SA1035-UTTT-H\_vs\_UUUU-E        & 1.9  & 0.3 & 0.3 & 3.4  & 27.4 & 66.7 \\
+SA535\_UUTTTT-T\_vs\_UUUUUU-J     & 9.7  & 5.6 & 0.3 & 3.2  & 22.8 & 58.3 \\
+SA535\_UUTTT-T\_vs\_UUUUU-J       & 20.9 & 3.4 & 0.2 & 4.5  & 27.6 & 43.3 \\
+SA535\_UUTTT-S\_T\_vs\_UUUUU-J       & 20.7 & 3.4 & 0.2 & 4.4  & 28.3 & 43   \\
+SA535-UUTTT-R\_vs\_UUUUU-J       & 7.9  & 2.5 & 1.5 & 12.3 & 36.8 & 39.1 \\
+SA535\_UUTTT-T\_vs\_UUUUU-Q       & 22.5 & 4.9 & 1.5 & 20.7 & 18.4 & 32   \\
+SA535-UUTTT\_S\_T\_vs\_UUUUU-Q    & 21.7 & 5.2 & 1.4 & 21.2 & 18.1 & 32.4 \\
+SA535-UUTTT-R\_vs\_UUUUU-Q       & 16   & 4.4 & 1.8 & 31.5 & 19.9 & 26.4 \\
+SA535-UXXXX-U\_vs\_UUUUU-J       & 21.5 & 2.8 & 0.6 & 8.8  & 29.2 & 37.1 \\
+SA535-UXXXX-U\_vs\_UUUUU-Q       & 18.1 & 4.4 & 1.6 & 21.4 & 20.1 & 34.5 \\
+SA535-UXXXX-R\_vs\_UUUUU-J       & 15.3 & 2.4 & 0.6 & 7    & 40.4 & 34.3 \\
+SA535-UXXXX-R\_vs\_UUUUU-Q       & 17.1 & 3.4 & 1.9 & 27.5 & 21.8 & 28.2 \\
+SA535\_UXXXX\_M\_N\_O\_vs\_UUUUU-J & 22.1 & 4.3 & 0.4 & 6    & 28.5 & 38.7 \\
+SA535-UXXXX-M\_N\_O\_vs\_UUUUU\_Q & 19.7 & 7.7 & 1.3 & 19.3 & 18.6 & 33.5 \\
   \hline
  \end{tabular}%
 }
+\label{tab:DEpercentageincisintrans}
 \end{table}
 \end{landscape}
-
-
-
-
-
-
 
 
 
@@ -242,9 +214,6 @@ SA535\_UXXXX\_M\_N\_O\_UUUUU\_Q & 19.7 & 7.7 & 1.3 & 19.3 & 18.6 & 33.5 \\
 
 
 
-
-
-
 \begin{figure}
 \centering
   \includegraphics[width=\textwidth]{Figures/commongenesfromvolcanoplots.pdf}
@@ -260,6 +229,55 @@ SA535\_UXXXX\_M\_N\_O\_UUUUU\_Q & 19.7 & 7.7 & 1.3 & 19.3 & 18.6 & 33.5 \\
 	}
 	\label{fig:commongenesfromvolcanoplots}
 \end{figure}
+
+
+ % Table generated by Excel2LaTeX from sheet 'copy number change'
+ \begin{table}[htbp]
+   \centering
+   \caption{Percent change of copy number from one clone to another}
+     \begin{tabular}{|l|l|l|l|}
+      
+      \hline
+     Samples & \multicolumn{1}{|l}{Percent\_incis\_incr} & \multicolumn{1}{|l}{Percent\_incis\_decr} & 
+     \multicolumn{1}{|l|}{Percent\_others} \\
+      \hline
+    
+     SA609-UUUU-B\textbackslash{}\_to\textbackslash{}\_UUUU-C & 2.25 & 3.01 & 94.74 \\
+     SA609-UUUU\_B\textbackslash{}\_to\textbackslash{}\_UUUU-H & 13.51 & 3.82 & 82.67 \\
+     SA609-UTTT\_R\textbackslash{}\_to\textbackslash{}\_UUUU-C & 9.35 & 15.91 & 74.74 \\
+     SA609-UTTT\_R\textbackslash{}\_to\textbackslash{}\_UUUU-H & 8.55 & 4.57 & 86.88 \\
+     SA609-UTTTT\_R\textbackslash{}\_to\textbackslash{}\_UUUUU-C & 9.96 & 15.35 & 74.69 \\
+     SA609-UTTTT\_R\textbackslash{}\_to\textbackslash{}\_UUUUU-H & 12.27 & 5.54 & 82.19 \\
+     SA1035-UTTTT\_G\textbackslash{}\_to\textbackslash{}\_UUUUU-E & 12.15 & 9.19 & 78.66 \\
+     SA1035-UTTTT\_H\textbackslash{}\_to\textbackslash{}\_UUUUU-E & 14.66 & 12.05 & 73.29 \\
+     SA1035-UTTT\_G\textbackslash{}\_to\textbackslash{}\_UUUU-E & 16 & 5.63 & 78.37 \\
+     SA1035-UTTT\_H\textbackslash{}\_to\textbackslash{}\_UUUU-E & 14.66 & 8.69 & 76.65 \\
+     SA535-UUTTTT\_T\textbackslash{}\_to\textbackslash{}\_\_UUUUUU-J & 4.5 & 19.81 & 75.69 \\
+     SA535-UUTTT\_T\textbackslash{}\_to\textbackslash{}\_UUUUU-J & 3.59 & 18.63 & 77.78 \\
+     SA535-UUTTT\_S\_T\textbackslash{}\_to\textbackslash{}\_UUUUU-J & 3.51 & 18.53 & 77.96 \\
+     SA535-UUTTT\_R\textbackslash{}\_to\textbackslash{}\_UUUUU-J & 2.03 & 1.54 & 96.43 \\
+     SA535-UUTTT\_T\textbackslash{}\_to\textbackslash{}\_UUUUU-Q & 9.89 & 12.2 & 77.91 \\
+     SA535-UUTTT\_S\_T\textbackslash{}\_to\textbackslash{}\_UUUUU-Q & 10.42 & 12.44 & 77.14 \\
+     SA535-UUTTT\_R\textbackslash{}\_to\textbackslash{}\_UUUUU-Q & 7.92 & 4.85 & 87.23 \\
+     SA535-UXXXX\_U\textbackslash{}\_to\textbackslash{}\_UUUUU-J & 7.19 & 18.45 & 74.36 \\
+     SA535-UXXXX\_U\textbackslash{}\_to\textbackslash{}\_UUUUU-Q & 11.84 & 11.59 & 76.57 \\
+     SA535-UXXXX\_R\textbackslash{}\_to\textbackslash{}\_UUUUU-J & 6.8 & 15.94 & 77.26 \\
+     SA535-UXXXX\_R\textbackslash{}\_to\textbackslash{}\_UUUUU-Q & 14.37 & 10.06 & 75.57 \\
+     SA535-UXXXX\_M\_N\_O\textbackslash{}\_to\textbackslash{}\_UUUUU-J & 4.53 & 18.69 & 76.78 \\
+     SA535-UXXXX\_M\_N\_O\textbackslash{}\_to\textbackslash{}\_UUUUU-Q & 9.27 & 12.36 & 78.37 \\
+   \hline 
+     \end{tabular}%
+   
+   \label{tab:copynumberchange}%
+   
+ \end{table}%
+
+
+
+
+
+
+
 
 
 
@@ -281,8 +299,23 @@ SA535\_UXXXX\_M\_N\_O\_UUUUU\_Q & 19.7 & 7.7 & 1.3 & 19.3 & 18.6 & 33.5 \\
 	\label{fig:fig3_In_cispercentage}
 \end{figure}
 
-\subsubsection{Differential expression analysis of resistant and sensitive clones deciphers cancer related genes}
- Next, we sought to explore individual genes that are differentially expressed  between the resistant and sensitive clones of all four treatment regimes in all PDX in the above data. 
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Differential expression analysis displayed modest magnitude of fold differences between resistant and sensitive clones}
+To get the idea of the magnitude of expression differences for most of upregulated and down regulated genes between the resistant and sensitive clones of all timeseries PDX, we explored \ac{DE} with respect to their regulation \textit{in cis} and \textit{in trans}. 
+
+
+ \subsubsection{Differential expression analysis of resistant and sensitive clones deciphers cancer related genes}
+ 
  Pairwise comparisons of clone-specific differential gene expression in SA609, resistant (Clone R) and sensitive (Clone H) clone (FDR$<$0.01, p$<$0.05) identified 922 genes having clone specific copy number increase in expression, whereas, 435 genes were downregulated with decrease in copy number. However, 850 genes were downregulated and 738 were upregulated and 975 were downregulated \textit{in trans} \textbf{(\autoref{fig:fig4_Volcanotrackplots2.pdf} a)}.  Amidst the upregulated \textit{in cis}, some known cancer promoting genes were detected, for example, HSPA1 \cite{zoppino2018comprehensive}, TCF4 \cite{ravindranath2011wnt}, NDUF \cite{li2015down}, PTN \cite{huang2018chemotherapy}, ID4 \cite{donzelli2018expression}, RAC3 \cite{donnelly2017rac3}. Additionally, \textit{in cis} downregulated genes includes genes that have role in tumor suppression, for example, OSR2, is known tumor suppressor in gastric and lung cancer \cite{otani2014odd,wang2018odd}. Other genes include, DYRK4 is found to be downregulated in our data and is a key regulator
 of p53, and phosphorylates it at Ser46 to induce apoptosis in response to
 DNA damage \cite{yoshida2019multiple}, POLR2K is a candidate biomarker for predicting breast cancer immunotherapy \cite{lopez2020prediction}. Another gene, PRRX1 predicts poor prognosis in hepatocellular carcinoma via the p53-dependent signaling pathway predicts poor prognosis in hepatocellular carcinoma \cite{fan2017downregulation}. Moreover,

@@ -203,13 +203,7 @@ Once clones are identified, we set the abundance of each clone at a specific tim
 For estimation of clonal fractions, we used the following procedure (i) let $M$ denote the mutational cellular prevalence (rows) estimated over multiple timepoints (columns) using the multi-sample \texttt{PyClone}~\cite{roth2014pyclone} model, (ii) define $A$ as the genotype matrix (which mutation-cluster (rows) is present in which clones (columns), (iii) then we set $A X = M$ where $ X = A^{-1}M$ are the clonal fractions overtime. (iv) we solve for $X$ using QR-decomposition.
 
 
-
-
-
-
-
 \section{Single cell RNA sequencing (scRNAseq)}
-
 
 \subsection{Processing of patient derived xenografts for scRNAseq data}
 PDX tumours were harvested and mechanically disaggregated into small fragments to viably freeze them according to the protocol mentioned above. 
