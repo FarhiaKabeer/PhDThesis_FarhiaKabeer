@@ -107,10 +107,10 @@ Having made the assignments of cells to clones, next, we visualized the data usi
 \centering
   \includegraphics[width=\textwidth]{Figures/fig4Summaryincistrans.pdf}
 	
-\caption[Summary proportion of \textit{in-cis} and \textit{in-trans} regulated gene expression in scRNAseq data]
+\caption[Summary proportion of \textit{in cis} and \textit{in trans} regulated gene expression in scRNAseq data]
 	{\small
 	\textbf{Summary proportion of \textit{cis} and \textit{trans} regulated gene expression in scRNAseq data.}
-	   Horizontal axis shows differential expression between two selected clones from all the three PDX treated and un-treated timeseries. Vertical axis gives percentages of genes.  \textbf{(a)}  Red and pink bars represent \textit{in-cis} change in expression in both panels. and blue bars represent in -trans regulated gene expression.
+	   Horizontal axis shows differential expression between two selected clones from all the three PDX treated and un-treated timeseries. Vertical axis gives percentages of genes.  \textbf{(a)}  Red and pink bars represent \textit{in cis} change in expression in both panels, and blue bars represent \textit{in trans} regulated gene expression.
 	    \textbf{(a)} 
 	    \textbf{(b)} 
 	     
@@ -118,33 +118,22 @@ Having made the assignments of cells to clones, next, we visualized the data usi
 	\label{fig:fig3Summaryincistrans}
 \end{figure}
 
-
-
- \subsection{Quantitative single cell gene expression analysis unravels the rates of \textit{in cis} and \textit{in trans} components}
+%---------------------------------------------------------------
+\subsection{Quantitative single cell gene expression analysis unravels the rates of \textit{in cis} and \textit{in trans} components}
 
 It is broadly acknowledged that somatic CNV is highly associated with the development and progression of numerous cancers by influencing gene expression level \cite{yang2017prame, gut2018sox2}. 
 Here, we investigated as to how much of the proportions of \textit{in cis} and \textit{in trans} regulated genes in our procured single cell RNA expression data is influenced by the change in copy number.
 
 To calculate the percentage of genes presenting \textit{in cis} or \textit{in trans} regulatory effects, the differential expression single cell RNAseq data was decomposed into \textit{cis}, where the gene expression that is following the change in copy number and \textit{trans}, where it is independent.
 
+\subsubsection{Differential gene expression between resistant and sensitive clones exhibit high \textit{in trans} proportion.}
+
+Firstly, we did differential expression analysis of resistant clones as in \textbf{\autoref{tab:Listofresistantandsensitiveclones}} and some of selected clones that were closely related to the resistant clones or having second highest fitness coefficients in DLP+ data from chapter 4, versus the sensitive ones from each of the time series PDX using \texttt{edgeR} \cite{robinson2010edger}. Then, we classified these genes into upregulated with increase in copy number (incis\_IU) and downregulated (incis\_DD) with decrease in copy number or upregulated with decrease in copy number (incis\_DU) or downregulated with increase in copy number (incis\_ID), from one clone to another, as mentioned in the legend of \textbf{\autoref{fig:fig3Summaryincistrans} a}.
+
+From HMMcopy output of segment copy number position (chromosome start and end), we get gene coordinates by mapping our segment positions with reference database of known genes for human  \cite{carlson2015txdb}. First, we identify overlapping positions between chromosome segments and known genes, then we assigned those segments to an ensemble gene ID \cite{rainer2019ensembldb} of the  selected \ac{DE} of clones across all timeseries and calculated their number and percentages in each PDX timeseries  \textbf{\autoref{tab:DEpercentageincisintrans}}. Importantly, we found that the overall number of \textit{in trans} genes were higher as compared to \textit{in cis}, which is supporting previously reported results \cite{shao2019copy}. 
 
 
-\subsubsection{Differential gene expression between resistant and sensitive clones exhibit high \textit{in cis} proportion.}
-
-Firstly, we did differential expression analysis of resistant clones and the clones that are closely related to the resistant clones versus the sensitive ones from each of the time series PDX using \texttt{edgeR} \cite{robinson2010edger}. Then, we classified these genes into upregulated with increase in copy number (incis\_IU) and downregulated (incis\_DD) with decrease in copy number or upregulated with decrease in copy number (incis\_DU) or downregulated with increase in copy number (incis\_ID), from one clone to another, as mentioned in the legend of \textbf{\autoref{fig:fig3Summaryincistrans} a}.
-
-From HMMcopy output of segment copy number position (chromosome start and end), we get gene coordinates by mapping our segment positions with reference database of known genes for human  \cite{carlson2015txdb}. First, we identify overlapping positions between chromosome segments and known genes, then we assigned those segments to an ensemble gene ID \cite{rainer2019ensembldb} of the  selected \ac{DE} of clones across all timeseries and calculated their number and percentages in each PDX timeseries  \textbf{\autoref{tab:DEpercentageincisintrans}}. Importantly, we found that the overall number of \textit{in trans} genes were higher as compared to \textit{in cis},which is supporting previously reported results \cite{shao2019copy}. 
-
-\subsubsection{Global copy number change between the genomes of two clones}
-
-To estimate approximately how much of the genome manifest change in copy numbers from one clone to other in our data sets, we computed median genotype profiles of the clones for which we calculated \ac{DE} above.
-
-Total of 22,326 segment positions, from each DE analysis, were mapped. In each pair wise comparison of clones, we captured all segment copy number position where there is a change in copy number values. So \textit{in-cis} gene is DE gene in scRNAseq analysis and coupled with change in copy number at the same position of genome HMM copy number segment positions. Approximately 9000 segments had copy number changes between two clones, and $>$2000 position intersect with scRNAseq genes.
-
-In other words, the average change in copy number between the genomes of two clones in our data set was found to be around 41\%. Out of this, approximately 28\% of the transcriptome is coupled with change in copy number state between clones. It involves either increase in expression with copy number gain or decrease in expression with copy number loss, shown in pink and red for \textit{in cis} and rest of  around 72\% of the copy number change was not associated with change in expression shown as green in \textbf{(\autoref{fig:fig3Summaryincistrans} b)}. Detailed percentages of \textit{in cis} and others are mentioned in 
-\textbf{\autoref{tab:copynumberchange}}
-
-
+%------------------------------------------------------
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
@@ -152,8 +141,7 @@ In other words, the average change in copy number between the genomes of two clo
 \begin{landscape}
 \begin{table} 
 \centering
-
- \caption{Summary of \textit{in cis} and \textit{in trans} percentages (\%) of differentially expressed genes}
+\caption{Summary of \textit{in cis} and \textit{in trans} percentages (\%) of differentially expressed genes}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|l|p{4em}|p{4em}|p{4em}|p{4em}|p{4em}|p{4em}|}
   \hline
@@ -190,11 +178,66 @@ SA535\_UXXXX\_M\_N\_O\_vs\_UUUUU-J & 22.1 & 4.3 & 0.4 & 6    & 28.5 & 38.7 \\
 SA535-UXXXX-M\_N\_O\_vs\_UUUUU\_Q & 19.7 & 7.7 & 1.3 & 19.3 & 18.6 & 33.5 \\
   \hline
  \end{tabular}%
-}
+ }
 \label{tab:DEpercentageincisintrans}
 \end{table}
 \end{landscape}
 
+%---------------------------------------------------------------------
+
+% Table generated by Excel2LaTeX from sheet 'copy number change'
+ \begin{table}[htbp]
+   \centering
+   \caption{Percent change of copy number from one clone to another}
+     \begin{tabular}{|l|l|l|l|}
+       \hline
+     Samples & \multicolumn{1}{|l}{Percent\_incis\_incr} & \multicolumn{1}{|l}{Percent\_incis\_decr} & 
+     \multicolumn{1}{|l|}{Percent\_others} \\
+      \hline
+     SA609-UUUU-B\textbackslash{}\_to\textbackslash{}\_UUUU-C & 2.25 & 3.01 & 94.74 \\
+     SA609-UUUU\_B\textbackslash{}\_to\textbackslash{}\_UUUU-H & 13.51 & 3.82 & 82.67 \\
+     SA609-UTTT\_R\textbackslash{}\_to\textbackslash{}\_UUUU-C & 9.35 & 15.91 & 74.74 \\
+     SA609-UTTT\_R\textbackslash{}\_to\textbackslash{}\_UUUU-H & 8.55 & 4.57 & 86.88 \\
+     SA609-UTTTT\_R\textbackslash{}\_to\textbackslash{}\_UUUUU-C & 9.96 & 15.35 & 74.69 \\
+     \textbf{*}SA609-UTTTT\_R\textbackslash{}\_to\textbackslash{}\_UUUUU-H & 12.27 & 5.54 & 82.19 \\
+     SA1035-UTTTT\_G\textbackslash{}\_to\textbackslash{}\_UUUUU-E & 12.15 & 9.19 & 78.66 \\
+     \textbf{*}SA1035-UTTTT\_H\textbackslash{}\_to\textbackslash{}\_UUUUU-E & 14.66 & 12.05 & 73.29 \\
+     SA1035-UTTT\_G\textbackslash{}\_to\textbackslash{}\_UUUU-E & 16 & 5.63 & 78.37 \\
+     SA1035-UTTT\_H\textbackslash{}\_to\textbackslash{}\_UUUU-E & 14.66 & 8.69 & 76.65 \\
+     \textbf{*}SA535-UUTTTT\_T\textbackslash{}\_to\textbackslash{}\_\_UUUUUU-J & 4.5 & 19.81 & 75.69 \\
+     SA535-UUTTT\_T\textbackslash{}\_to\textbackslash{}\_UUUUU-J & 3.59 & 18.63 & 77.78 \\
+     SA535-UUTTT\_S\_T\textbackslash{}\_to\textbackslash{}\_UUUUU-J & 3.51 & 18.53 & 77.96 \\
+     SA535-UUTTT\_R\textbackslash{}\_to\textbackslash{}\_UUUUU-J & 2.03 & 1.54 & 96.43 \\
+     SA535-UUTTT\_T\textbackslash{}\_to\textbackslash{}\_UUUUU-Q & 9.89 & 12.2 & 77.91 \\
+     SA535-UUTTT\_S\_T\textbackslash{}\_to\textbackslash{}\_UUUUU-Q & 10.42 & 12.44 & 77.14 \\
+     SA535-UUTTT\_R\textbackslash{}\_to\textbackslash{}\_UUUUU-Q & 7.92 & 4.85 & 87.23 \\
+     \textbf{*}SA535-UXXXX\_U\textbackslash{}\_to\textbackslash{}\_UUUUU-J & 7.19 & 18.45 & 74.36 \\
+     SA535-UXXXX\_U\textbackslash{}\_to\textbackslash{}\_UUUUU-Q & 11.84 & 11.59 & 76.57 \\
+     SA535-UXXXX\_R\textbackslash{}\_to\textbackslash{}\_UUUUU-J & 6.8 & 15.94 & 77.26 \\
+     SA535-UXXXX\_R\textbackslash{}\_to\textbackslash{}\_UUUUU-Q & 14.37 & 10.06 & 75.57 \\
+     SA535-UXXXX\_M\_N\_O\textbackslash{}\_to\textbackslash{}\_UUUUU-J & 4.53 & 18.69 & 76.78 \\
+     SA535-UXXXX\_M\_N\_O\textbackslash{}\_to\textbackslash{}\_UUUUU-Q & 9.27 & 12.36 & 78.37 \\
+   \hline 
+ \end{tabular}%
+\label{tab:copynumberchange}%
+
+  \small\textbf{(* Resistant vs sensitive clones at the last time point of treatment cycle)}.
+\end{table}%
+
+\subsubsection{Global copy number change between the genomes of two clones}
+
+To estimate approximately how much of the genome manifest change in copy numbers from one clone to other in our data sets, we computed median genotype profiles of the clones for which we calculated \ac{DE} above.
+
+Total of 22,326 segment positions, from each DE analysis, were mapped. In each pair wise comparison of clones, we captured all segment copy number position where there is a change in copy number values. So \textit{in cis} gene is differentially expressed gene in scRNAseq analysis and coupled with change in copy number at the same position of genome HMM copy number segment positions. Approximately 9000 segments had copy number changes between two clones, and $>$2000 position intersect with scRNAseq genes.
+
+In other words, the average change in copy number between the genomes of two clones in our data set was found to be around 41\%. Out of this, approximately 28\% of the transcriptome is coupled with change in copy number state between clones. It involves either increase in expression with copy number gain or decrease in expression with copy number loss, shown in pink and red for \textit{in cis} and rest of  around 72\% of the copy number change was not associated with change in expression shown as green in \textbf{(\autoref{fig:fig3Summaryincistrans} b)}. Detailed percentages of \textit{in cis} and others are mentioned in 
+\textbf{\autoref{tab:copynumberchange}}.
+
+ 
+%-----------------------------------------------------------------------
+
+\subsection{Differential expression analysis displayed two fold  magnitude differences on both sides}
+To get the idea of the magnitude of expression differences for most of up and down regulated genes, between the resistant and sensitive clones, we explored \ac{DE} with respect to their regulation \textit{in cis} and \textit{in trans}. In all the comparisons in 4 timeseries TNBC PDX, the magnitude of differentially expressed genes were found to be modestly equal on both up and down regulated sides. Majority of them were in the range of log2 fold change both in positive and negative directions. Furthermore, the colour coding in \textbf{\autoref{fig:Volcanotrackplots2.pdf}}, Right sided panels also signifies the categories of their regulations with respect to change in copy numbers or independent of copy number change between the resistant and sensitive clones.
 
 
 \begin{figure}
@@ -203,16 +246,75 @@ SA535-UXXXX-M\_N\_O\_vs\_UUUUU\_Q & 19.7 & 7.7 & 1.3 & 19.3 & 18.6 & 33.5 \\
 \caption[DE of resistant and sensitive clonealign defined clones]
 	{\small
 	\textbf{Differential expression of resistant and sensitive clones.}
-	\textbf{(a)} Volcano plot from SA609 -log10(FDR) plotted against log2 fold change of pairwise differential gene expression between resistant and sensitive clones. (The threshold for significant genes are FDR p$<$00.01, P Value p$<$00.05, logFC p$>$0 0.25). Manhattan plot (genome-wide view) of differential gene expression between pairs of clones, R vs H corresponding to change in gene expression (Right).
+	\textbf{(a)} Volcano plot from SA609 -log10 (FDR) plotted against log2 fold change of pairwise differential gene expression between resistant and sensitive clones. (The threshold for significant genes are FDR p$<$00.01, P Value p$<$00.05, logFC p$>$0 0.25). Manhattan plot (genome-wide view) of differential gene expression between pairs of clones, R vs H corresponding to change in gene expression (Right).
 	    \textbf{(b)} Same like \textbf{a} but in SA1035 and comparing between pairs of clones, H vs E. 
 	     \textbf{(c)} Same like \textbf{a} but in SA535 (cisplatin) and comparing between pairs of clones, S\_T vs J.
 	      \textbf{(d)} Same like \textbf{a} but in SA535 (CX-5461) and comparing between pairs of clones, U vs J.
 	 
 	   }
-	\label{fig:fig4_Volcanotrackplots2.pdf}
+	\label{fig:Volcanotrackplots2.pdf}
  \end{figure}
 
+%------------------------------------------------------------------------
 
+
+% Please add the following required packages to your document preamble:
+% \usepackage{lscape}
+
+\begin{landscape}
+\begin{table}
+\centering
+
+ \caption{Summary of number of differentially expressed genes \textit{in cis} and \textit{in trans} in resistant vs sensitive clones}
+
+
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|p{3.8em}|p{3.8em}|p{3.8em}|p{3.8em}|p{3.8em}|p{3.8em}|}
+\hline
+DE scRNAseq between clones &
+  In\_cis\_Decrease\_DownRegulated &
+  In\_cis\_Decrease\_UpRegulated &
+  In\_cis\_Increase\_DownRegulated &
+  In\_cis\_Increase\_UpRegulated &
+  In\_trans\_DownRegulated &
+  In\_trans\_UpRegulated \\
+  \hline
+SA609-UUUU-B\_vs\_UUUU-C           & 79  & 44  & 40  & 52   & 399  & 382  \\
+SA609-UUUU-B\_vs\_UUUU-H           & 127 & 186 & 471 & 636  & 1005 & 1207 \\
+SA609-UTTT-R\_vs\_UUUU-C           & 655 & 150 & 48  & 425  & 1466 & 1817 \\
+SA609-UTTT-R\_vs\_UUUU-H           & 352 & 69  & 177 & 611  & 850  & 659  \\
+SA609-UTTTT-R\_vs\_UUUUU-C         & 603 & 174 & 43  & 461  & 1394 & 1894 \\
+\textbf{*}SA609-UTTTT-R\_vs\_UUUUU-H         & 435 & 75  & 208 & 922  & 975  & 783  \\
+SA1035-UTTTT-G\_vs\_UUUUU-E        & 55  & 7   & 11  & 71   & 1841 & 1125 \\
+\textbf{*}SA1035-UTTTT-H\_vs\_UUUUU-E        & 93  & 18  & 19  & 116  & 1661 & 1612 \\
+SA1035-UTTT-G\_vs\_UUUU-E          & 35  & 3   & 2   & 106  & 696  & 1368 \\
+SA1035-UTTT-H\_vs\_UUUU-E          & 69  & 11  & 11  & 124  & 1004 & 2440 \\
+\textbf{*}SA535\_UUTTTT-T\_vs\_UUUUUU-J      & 469 & 271 & 13  & 155  & 1102 & 2814 \\
+SA535\_UUTTT-T\_vs\_UUUUU-J        & 599 & 97  & 6   & 128  & 791  & 1240 \\
+SA535\_UUTTT-S\_T\_vs\_UUUUU-J     & 595 & 97  & 5   & 126  & 811  & 1235 \\
+SA535-UUTTT-R\_vs\_UUUUU-J         & 38  & 12  & 7   & 59   & 177  & 188  \\
+SA535\_UUTTT-T\_vs\_UUUUU-Q        & 831 & 183 & 57  & 765  & 681  & 1184 \\
+SA535-UUTTT\_S\_T\_vs\_UUUUU-Q     & 834 & 200 & 54  & 812  & 696  & 1243 \\
+SA535-UUTTT-R\_vs\_UUUUU-Q         & 294 & 80  & 33  & 578  & 365  & 483  \\
+\textbf{*}SA535-UXXXX-U\_vs\_UUUUU-J         & 697 & 91  & 21  & 286  & 948  & 1204 \\
+SA535-UXXXX-U\_vs\_UUUUU-Q         & 695 & 167 & 61  & 820  & 771  & 1324 \\
+SA535-UXXXX-R\_vs\_UUUUU-J         & 448 & 70  & 18  & 203  & 1178 & 1002 \\
+SA535-UXXXX-R\_vs\_UUUUU-Q         & 646 & 130 & 70  & 1038 & 823  & 1063 \\
+SA535\_UXXXX\_M\_N\_O\_vs\_UUUUU-J & 746 & 145 & 14  & 202  & 961  & 1307 \\
+SA535-UXXXX-M\_N\_O\_vs\_UUUUU\_Q  & 753 & 296 & 48  & 739  & 710  & 1281 \\
+  \hline
+
+\end{tabular}
+}
+
+\label{tab:numberofDEgenesincistrans}
+
+  \small\textbf{(* Resistant vs sensitive clones at the last time point of treatment cycle)}.
+\end{table}
+\end{landscape}
+
+
+%------------------------------------------------------------------------
 
 \begin{figure}
 \centering
@@ -230,139 +332,59 @@ SA535-UXXXX-M\_N\_O\_vs\_UUUUU\_Q & 19.7 & 7.7 & 1.3 & 19.3 & 18.6 & 33.5 \\
 	\label{fig:commongenesfromvolcanoplots}
 \end{figure}
 
-
- % Table generated by Excel2LaTeX from sheet 'copy number change'
- \begin{table}[htbp]
-   \centering
-   \caption{Percent change of copy number from one clone to another}
-     \begin{tabular}{|l|l|l|l|}
-      
-      \hline
-     Samples & \multicolumn{1}{|l}{Percent\_incis\_incr} & \multicolumn{1}{|l}{Percent\_incis\_decr} & 
-     \multicolumn{1}{|l|}{Percent\_others} \\
-      \hline
-    
-     SA609-UUUU-B\textbackslash{}\_to\textbackslash{}\_UUUU-C & 2.25 & 3.01 & 94.74 \\
-     SA609-UUUU\_B\textbackslash{}\_to\textbackslash{}\_UUUU-H & 13.51 & 3.82 & 82.67 \\
-     SA609-UTTT\_R\textbackslash{}\_to\textbackslash{}\_UUUU-C & 9.35 & 15.91 & 74.74 \\
-     SA609-UTTT\_R\textbackslash{}\_to\textbackslash{}\_UUUU-H & 8.55 & 4.57 & 86.88 \\
-     SA609-UTTTT\_R\textbackslash{}\_to\textbackslash{}\_UUUUU-C & 9.96 & 15.35 & 74.69 \\
-     SA609-UTTTT\_R\textbackslash{}\_to\textbackslash{}\_UUUUU-H & 12.27 & 5.54 & 82.19 \\
-     SA1035-UTTTT\_G\textbackslash{}\_to\textbackslash{}\_UUUUU-E & 12.15 & 9.19 & 78.66 \\
-     SA1035-UTTTT\_H\textbackslash{}\_to\textbackslash{}\_UUUUU-E & 14.66 & 12.05 & 73.29 \\
-     SA1035-UTTT\_G\textbackslash{}\_to\textbackslash{}\_UUUU-E & 16 & 5.63 & 78.37 \\
-     SA1035-UTTT\_H\textbackslash{}\_to\textbackslash{}\_UUUU-E & 14.66 & 8.69 & 76.65 \\
-     SA535-UUTTTT\_T\textbackslash{}\_to\textbackslash{}\_\_UUUUUU-J & 4.5 & 19.81 & 75.69 \\
-     SA535-UUTTT\_T\textbackslash{}\_to\textbackslash{}\_UUUUU-J & 3.59 & 18.63 & 77.78 \\
-     SA535-UUTTT\_S\_T\textbackslash{}\_to\textbackslash{}\_UUUUU-J & 3.51 & 18.53 & 77.96 \\
-     SA535-UUTTT\_R\textbackslash{}\_to\textbackslash{}\_UUUUU-J & 2.03 & 1.54 & 96.43 \\
-     SA535-UUTTT\_T\textbackslash{}\_to\textbackslash{}\_UUUUU-Q & 9.89 & 12.2 & 77.91 \\
-     SA535-UUTTT\_S\_T\textbackslash{}\_to\textbackslash{}\_UUUUU-Q & 10.42 & 12.44 & 77.14 \\
-     SA535-UUTTT\_R\textbackslash{}\_to\textbackslash{}\_UUUUU-Q & 7.92 & 4.85 & 87.23 \\
-     SA535-UXXXX\_U\textbackslash{}\_to\textbackslash{}\_UUUUU-J & 7.19 & 18.45 & 74.36 \\
-     SA535-UXXXX\_U\textbackslash{}\_to\textbackslash{}\_UUUUU-Q & 11.84 & 11.59 & 76.57 \\
-     SA535-UXXXX\_R\textbackslash{}\_to\textbackslash{}\_UUUUU-J & 6.8 & 15.94 & 77.26 \\
-     SA535-UXXXX\_R\textbackslash{}\_to\textbackslash{}\_UUUUU-Q & 14.37 & 10.06 & 75.57 \\
-     SA535-UXXXX\_M\_N\_O\textbackslash{}\_to\textbackslash{}\_UUUUU-J & 4.53 & 18.69 & 76.78 \\
-     SA535-UXXXX\_M\_N\_O\textbackslash{}\_to\textbackslash{}\_UUUUU-Q & 9.27 & 12.36 & 78.37 \\
-   \hline 
-     \end{tabular}%
-   
-   \label{tab:copynumberchange}%
-   
- \end{table}%
+%------------------------------------------------------------------------
 
 
 
-
-
-
-
-
-
-
-
-
-\begin{figure}
-\centering
-  \includegraphics[width=\textwidth]{Figures/fig3_In_cispercentage.pdf}
-	
-\caption[Proportion of \textit{in-cis} and \textit{in-trans} regulated gene expression in scRNAseq data]
-	{\small
-	\textbf{Proportion of \textit{cis} and \textit{trans} regulated gene expression in scRNAseq data.}
-	   Horizontal axis shows differential expression between two selected clones from all the three PDX treated and un-treated timeseries. Vertical axis gives percentage presence of genes in-cis or in trans. red bars represent in-cis and blue bars represent in -trans regulated gene expression.
-	   \textbf{(Upper)} This graph gives us percentage of genes by looking into the gene data set from COSMIC cancer gene dataset \cite{vogelstein2013cancer} that corresponds to our clone aware \ac{DE}.
-	    \textbf{(Middle)} same like upper plot but looking into CORE FITNESS data set \cite{behan2019prioritization}.
-	     \textbf{(Lower)} Same like above but looking into cisplatin related gene list curated from literature.
-	    
-	}
-	\label{fig:fig3_In_cispercentage}
-\end{figure}
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{Differential expression analysis displayed modest magnitude of fold differences between resistant and sensitive clones}
-To get the idea of the magnitude of expression differences for most of upregulated and down regulated genes between the resistant and sensitive clones of all timeseries PDX, we explored \ac{DE} with respect to their regulation \textit{in cis} and \textit{in trans}. 
-
+%------------------------------------------------------------------------
 
  \subsubsection{Differential expression analysis of resistant and sensitive clones deciphers cancer related genes}
+ Next, we investigated the proportions and types of genes that are upregulated in resistant clones in each of the treated PDX series.
  
- Pairwise comparisons of clone-specific differential gene expression in SA609, resistant (Clone R) and sensitive (Clone H) clone (FDR$<$0.01, p$<$0.05) identified 922 genes having clone specific copy number increase in expression, whereas, 435 genes were downregulated with decrease in copy number. However, 850 genes were downregulated and 738 were upregulated and 975 were downregulated \textit{in trans} \textbf{(\autoref{fig:fig4_Volcanotrackplots2.pdf} a)}.  Amidst the upregulated \textit{in cis}, some known cancer promoting genes were detected, for example, HSPA1 \cite{zoppino2018comprehensive}, TCF4 \cite{ravindranath2011wnt}, NDUF \cite{li2015down}, PTN \cite{huang2018chemotherapy}, ID4 \cite{donzelli2018expression}, RAC3 \cite{donnelly2017rac3}. Additionally, \textit{in cis} downregulated genes includes genes that have role in tumor suppression, for example, OSR2, is known tumor suppressor in gastric and lung cancer \cite{otani2014odd,wang2018odd}. Other genes include, DYRK4 is found to be downregulated in our data and is a key regulator
-of p53, and phosphorylates it at Ser46 to induce apoptosis in response to
-DNA damage \cite{yoshida2019multiple}, POLR2K is a candidate biomarker for predicting breast cancer immunotherapy \cite{lopez2020prediction}. Another gene, PRRX1 predicts poor prognosis in hepatocellular carcinoma via the p53-dependent signaling pathway predicts poor prognosis in hepatocellular carcinoma \cite{fan2017downregulation}. Moreover,
-KLF6 is found to be among the upregulated genes, which is associated with poor prognosis in prostate, lung, ovarian cancer and breast cancer \cite{hatami2013klf6,difeo2009role}, RHOB \cite{ju2018rhob},
-STAT3 \cite{li2019clinicopathological,kamran2013role} and 
-ARF5 \cite{li2017roles,casalou2020role} promotes cancer cell survival, migration and invasion. HMGCS \cite{chen2017hmgcs2} mRNA expression is associated with poor clinical prognosis and outcomes in
-patients with colorectal cancer (CRC) and oral squamous cell carcinoma (OSCC). NR2F2 is also found upregulated in resistant clone and is known for a worse prognosis and lymph node metastasis in human breast cancer \cite{erdHos2020nr2f2,xia2020nr2f2},
-M6PR is frequently down-regulated or inactivated by mutations in a broad range of malignant human cancers \cite{dalle2018mannose} found to be down regulated in the resistant clone.
-
-CRABP2 can suppress invasion and metastasis of ER+ breast cancer 
-
-
+ In \textbf{SA609} PDX, pairwise comparisons of clone-specific differential gene expression, between resistant clone R and sensitive clone H (FDR$<$0.01, p$<$0.05), identified 922 genes having clone specific copy number increase in expression \textit{(incis\_IU)}, whereas, 435 genes were downregulated with decrease in copy number \textit{(incis\_DD)}. However, 850 genes were downregulated and 738 were upregulated and 975 were downregulated independent of change in copy number \textit{in trans} \textbf{(\autoref{fig:Volcanotrackplots2.pdf} a, left )}. The Manhattan plot establishing the increase and decrease in copy number between clones at that genomic position and its respective change in gene expression \textbf{(\autoref{fig:Volcanotrackplots2.pdf} a, right)}.
  
-In SA1035 resistant versus sensitive DE plots shows  
+Amidst the upregulated \textit{in cis}, some known cancer promoting genes were detected, for example, \textbf{HSPA1} \cite{zoppino2018comprehensive}, \textbf{TCF4} \cite{ravindranath2011wnt}, \textbf{NDUF} \cite{li2015down}, PTN \cite{huang2018chemotherapy}, \textbf{ID4} \cite{donzelli2018expression}, \textbf{RAC3} \cite{donnelly2017rac3}. Many of them are not well studied in breast cancers and could be used as a potential candidates for comprehensive research.
+Moreover, \textit{in cis} downregulated genes includes genes that have role in tumor suppression, for example, \textbf{OSR2}, is a known tumor suppressor in gastric and lung cancer \cite{otani2014odd,wang2018odd}. Other genes including, \textbf{DYRK4}, found to be downregulated in our data, is a key regulator of p53, and phosphorylates it at Ser46 to induce apoptosis in response to DNA damage \cite{yoshida2019multiple}, \textbf{POLR2K} is a candidate biomarker for predicting breast cancer immunotherapy \cite{lopez2020prediction}. Another gene, \textbf{PRRX1} is known to predict poor prognosis in hepatocellular carcinoma via the p53-dependent signaling pathway in hepatocellular carcinoma \cite{fan2017downregulation}. Furthermore, \textbf{KLF6} is found to be among the upregulated genes, which is associated with poor prognosis in prostate, lung, ovarian cancer and breast cancer \cite{hatami2013klf6,difeo2009role}, \textbf{RHOB} \cite{ju2018rhob},
+\textbf{STAT3} \cite{li2019clinicopathological,kamran2013role} and 
+\textbf{ARF5} \cite{li2017roles,casalou2020role} promotes cancer cell survival, migration and invasion. \textbf{HMGCS} \cite{chen2017hmgcs2} mRNA expression is associated with poor clinical prognosis and outcomes in patients with colorectal cancer (CRC) and oral squamous cell carcinoma (OSCC). \textbf{NR2F2} is also found upregulated in resistant clone and is known for a worse prognosis and lymph node metastasis in human breast cancer \cite{erdHos2020nr2f2,xia2020nr2f2},
+\textbf{M6PR} is frequently down-regulated or inactivated by mutations in a broad range of malignant human cancers \cite{dalle2018mannose} and is found to be down regulated in the resistant clone in our dataset. 
+
+Similarly, we congregated the number of genes upregulated and down regulated \textit{in cis} and \textit{in trans} in other 3 series which are summarized in \textbf{\autoref{tab:numberofDEgenesincistrans}}.
+ In \textbf{SA1035} PDX, some of the resistant versus sensitive DE plots shows upregulated genes, including, upregulation \textit{(incis\_IU)} of  \textbf{COX6C} \cite{yang2018overexpression,chang2017estrogen} and 
+ \textbf{UQCRB} \cite{kim2017mitochondrial,park2017mitochondrial} on chromosome 8 \textbf{(\autoref{fig:Volcanotrackplots2.pdf} b, right)}, are novel prognostics markers in prostate, colorectal and hepatocellular carcinomas, \textbf{ATP5MPL}, a prognostic factor in ovarian cancer also seems to be upregulated with copy number gain on chromosome 14q in our dataset. These three genes are not well recognized in triple negative breast cancers before and could be potential candidates for further validations. \textbf{CSDE1} gene \cite{martinez2019unr}, an example of downregulated gene with copy number loss \textit{(incis\_DD)}, found to be downregulated in our dataset on chromosome 1 \textbf{(\autoref{fig:Volcanotrackplots2.pdf} b, right)}. Many genes were found to be upregulated \textit{in trans}, for example,  \textbf{CXCL3} \cite{gui2016overexpression, karin2020cxcr3}, \textbf{S100P} \cite{arumugam2011s100p,cong2020calcium}, 
+\textbf{HERC5} \cite{wrage2015identification}, \textbf{IFITM3} \cite{liu2019ifitm3}, \textbf{S100A7} \cite{zhang2019clinical, mayama2018olfm} and \textbf{NDUF} \cite{li2015down}. These genes could be further probed in triple negative breast cancers as likely biomarkers of prognosis.
+
+In \textbf{SA535} TNBC PDX, both timeseries from two different drugs showed up with somewhat distinct set of regulated genes. Interestingly, the first upregulated gene,\textit{(incis\_IU)}, that caught our attention was on chromosome X, \textbf{XIST}\cite{salama2020xist,chen2017long, chen2019up}, in both independently treated different drug series \textbf{(\autoref{fig:Volcanotrackplots2.pdf} c, d right)}.
 
 
- COX6C \cite{yang2018overexpression,chang2017estrogen}
- UQCRB \cite{kim2017mitochondrial,park2017mitochondrial} novel prognostics markers in colorectal and hepatocellular carcinoma.
- ATP5MPL, prognostic factor in ovarian cancer
- CXCL3 \cite{gui2016overexpression, karin2020cxcr3}
-CSDE1 \cite{martinez2019unr}
-AK4 \cite{jan2019co}
 
 
-SA535-cisplatin
-
-TACC1 \cite{shakya2018high} hepatocellular carcinoma.
-DST  \cite{salerno2016human}
-HMGCS1 \cite{walsh2020mevalonate}
-TAGLN \cite{wu2014transgelin, elsafadi2020transgelin}
-KRT16 \cite{huang2019novel}
-IFITM3 \cite{liu2019ifitm3}
-S100A7 \cite{zhang2019clinical, mayama2018olfm}
-CYP27A1  \cite{liang2019cyp27a1, wu201327}
-SLC31A2 \cite{bai2017structural}, membrane transporters downregulated
+\textbf{TACC1} \cite{shakya2018high} hepatocellular carcinoma.
+\textbf{DST}  \cite{salerno2016human}
+\textbf{HMGCS1} \cite{walsh2020mevalonate}
+\textbf{TAGLN} \cite{wu2014transgelin, elsafadi2020transgelin}
+\textbf{KRT16} \cite{huang2019novel}
+\textbf{IFITM3} \cite{liu2019ifitm3}
+\textbf{S100A7} \cite{zhang2019clinical, mayama2018olfm}
+\textbf{CYP27A1}  \cite{liang2019cyp27a1, wu201327}
+\textbf{SLC31A2} \cite{bai2017structural}, membrane transporters downregulated
 
 SA535-CX-5461
-MMP7 \cite{mcgowan2008matrix} correlated with cancer invasion, metastasis, and poor prognosis,
-TMEM45A \cite{schmit2019characterization} chemoresistance in breast cancer
-ETS2 \cite{ge2008role} functions as an oncogene and plays a key role in the progression of hypopharyngeal cancer and associated with poor prognosis \cite{fu2017high}.
-COX7A2 \cite{deng2018overexpression} is downregulated in resistant clone which is negatively correlated with prognosis
-POLR2C \cite {moriwaki2017polr2c} mutation is known to progress ovarian cancers and its found downregulated in resistant clone.
-OLFM4 \cite{ashizawa2019olfm4} is reported to be highly expressed in cancers, including gastric cancer, colon cancer, and pancreatic cancer and to promote tumor progression by inducing cell‐cycle progression and enhancing tumor invasion and metastasis.
+\textbf{MMP7} \cite{mcgowan2008matrix} correlated with cancer invasion, metastasis, and poor prognosis,
+\textbf{TMEM45A} \cite{schmit2019characterization} chemoresistance in breast cancer
+\textbf{ETS2} \cite{ge2008role} functions as an oncogene and plays a key role in the progression of hypopharyngeal cancer and associated with poor prognosis \cite{fu2017high}.
+\textbf{COX7A2} \cite{deng2018overexpression} is downregulated in resistant clone which is negatively correlated with prognosis
+\textbf{POLR2C} \cite {moriwaki2017polr2c} mutation is known to progress ovarian cancers and its found downregulated in resistant clone.
+\textbf{OLFM4} \cite{ashizawa2019olfm4} is reported to be highly expressed in cancers, including gastric cancer, colon cancer, and pancreatic cancer and to promote tumor progression by inducing cell‐cycle progression and enhancing tumor invasion and metastasis.
 
 
-\subsubsection{Measuring \textit{in cis} and \textit{in trans} proportions in various gene lists}
-First we pulled the reference genes  intersecting with our \ac{DE} data from the three lists (COSMIC \cite{vogelstein2013cancer}, core cancer fitness \cite{behan2019prioritization} and cisplatin related genes curated from last 10 years literature \textbf{\autoref{tab:Cisplatinrelatedgenes}}.
+
+
+
+\subsubsection{Proportions of genes \textit{in cis} and \textit{in trans} from various database}
+Next, we probed that what proportion of genes exist \textit{in cis} or various \textit{in trans} in our data set from a catalogue of various databases.
+Three database were selected, including COSMIC \cite{vogelstein2013cancer}, core cancer fitness \cite{behan2019prioritization} and cisplatin related genes curated from last 10 years literature \textbf{\autoref{tab:Cisplatinrelatedgenes}}.
+First we pulled the reference genes from these database that were intersecting with our \ac{DE} data and calculated if they are regulated with the change in copy number or not.
 
  In  SA609 TNBC PDX, the mean number of \textit{in cis} genes was 1173.8 (segment positions, $\sigma$ = 494 \textit{in cis} genes, max= 1640, min=215), SA1035 presented with the lowest \textit{in cis} with
  mean value of 187.8 (segment positions, $\sigma$ = 51 \textit{in cis} genes, max=246, min=144). SA535 in cisplatin timeseries showed mean number of 1056.9 \textit{in cis} genes (segment positions, $\sigma$ = 624 , max=1900, min=116), whereas, SA535 in CX-5461 exhibit highest number of mean \textit{in cis} value of 1400.7 (segment positions, $\sigma$ = 481 \textit{in cis} genes, max=1884, min=739).
