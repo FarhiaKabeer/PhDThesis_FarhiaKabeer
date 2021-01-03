@@ -397,49 +397,32 @@ First we pulled the reference genes from these database that were intersecting w
 \includegraphics[width=\textwidth]{Figures/pathwaysevolution.pdf}
 \caption[Summary of number of genes \textit{in-cis} and \textit{in-trans}]
 	{\small
-	\textbf{Pathways comparison over time in all PDX series}
-	Vertical left column enlist the pathways analysed. Horizontal axis at the bottom, represents the comparisons made between the time points and the treatment status. each single `T' indicates the number of cycles of the treatment from cisplatin. Each `X' indicates number of cycles of CX-5461 treatment. Colour intensity identifies normalized enrichment score (NES). Horizontal axis on top informs the IDs of TNBC PDX. A normalized enrichment score (NES) was calculated from a ranked gene set enrichment analysis (GSEA) \cite{shi2007gene} performed on each subset of differentially expressed genes using the hallmark gene set collection from MSigDB \cite{liberzon2015molecular}.  Significantly enriched pathways (adjusted p-value $<$ 0.01)
+	\textbf{Pathways comparison over time under chemotherrapy in all PDX series}
+	Vertical left column enlist the pathways analysed. Horizontal axis at the bottom, represents the comparisons made between the time points and the treatment status. each single `T' indicates the number of cycles of the treatment from cisplatin. Each `X' indicates number of cycles of CX-5461 treatment. Colour intensity identifies normalized enrichment score (NES). Horizontal axis on top denotes the IDs of TNBC PDX. A normalized enrichment score (NES) was calculated from a ranked gene set enrichment analysis (GSEA) \cite{shi2007gene} performed on each subset of differentially expressed genes using the hallmark gene set collection from MSigDB \cite{liberzon2015molecular}.  Significantly enriched pathways (adjusted p-value $<$ 0.01).
 }
     \label{fig:pathwaysevolution}
     \end{figure}
-%------------------------------------------------------------------------
-
-\subsection{Integrated transcriptome and pathway analyses revealed potential genes and key activated pathways in breast cancer}
-Next, we generated a heatmap of pathway evolution from one treated time pint to another in all timeseries TNBC PDX \textbf{\autoref{fig:pathwaysevolution}}. Most of the listed pathways were enriched at the later timepoints.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-%------------------------------------------------------------------------
-
+%-------------------------------------------------------------------
 \begin{figure}
 \centering
   \includegraphics[width=\textwidth]{Figures/pathwaysnetwork.pdf}
 \caption[Pathways enrichment analysis of PDX timeseries]
 	{\small
 	\textbf{Pathways enrichment analysis of PDX timeseries.}
-	 Vertical axis on the left enlisting the pathways involved under various conditions in timeseries PDXs. Left panel comparing resistant clone versus clone exposed to only one cycle of drug. Middle panel comparing resistant versus sensitive clone in all PDXs. Right panel comparing last treated timepoint as a whole with first treated timepoint. Horizontal axis is showing the names of PDXs.
+	 	\textbf{(a)} Vertical axis on the left enlisting the pathways involved from a ranked gene set enrichment analysis (GSEA) \cite{shi2007gene}. Colour intensity identifies normalized enrichment score (NES). Horizontal axis on top denotes the IDs of TNBC PDX. \textbf{(b)} SA609 resistant vs sensitive clone.  A normalized enrichment score (NES) was calculated from GSEA, performed on each subset of differentially expressed genes using the hallmark gene set collection from MSigDB \cite{liberzon2015molecular}. Significantly enriched pathways (adjusted p-value $<$ 0.01). The grey to black coloured lines indicating the number of genes shared between pathways \textbf{(c)} same as \textbf{b} but SA1035 \textbf{(d)} same as \textbf{b} but SA535-cisplatin treated \textbf{(e)}same as \textbf{b} but SA535-CX-5461 treated
 	}
 	\label{fig:pathwaysnetwork}
 \end{figure}
 
-%------------------------------------------------------------------------
+%-------------------------------------------------------------------
+\subsection{Integrated transcriptome and pathway analyses revealed potential genes and key activated pathways in breast cancer}
+Next, we generated a heatmap of pathway evolution from one treated time pint to another in all timeseries TNBC PDX \textbf{\autoref{fig:pathwaysevolution}}. Most of the listed pathways were enriched at the later timepoints where tumor responses to the chemotherapies were comparatively less. 
 
-\subsubsection{Transcriptomic profiling capture key pathways up-down regulation in resistant and sensitive clones}
+\subsubsection{Profiling of signaling pathways reveals a distinct demarcation between SA1035 and rest of 3 TNBC PDX}
+To assess the common pathways and their network connections, 
+we profiled pathways enrichment scores between the resistant and sensitive clones of all TNBC PDX. 
+Pathways specific differentially expressed genes were included in network enrichment analysis and the nodes were colored by NES value. Interestingly, SA1035 TNBC PDX demonstrated only three upregulated pathways in resistant versus sensitive clone, including oxidative phosphorylation (OXPHOS), Interferon alpha response \cite{provance2019deciphering} and interferon gamma response \cite{mojic2018dark} \textbf{\autoref{fig:pathwaysnetwork} a, second column}. \ac{OXPHOS} is known to be upregulated in cisplatin related drug resistance mechanism \cite{lee2017myc}. The later two pathways are not well studied in relation to tumor progression or drug resistance but there are some speculative research related to these interferons and cancer related immune mechanisms. In addition to SA1035, only SA535 timeseries that was treated with CX-5461 showed   these interferons pathways upregulation. However, the rest of 3 TNBC PDX, SA609,SA535-cisplatin treated and SA535-CX5461 treated, showed commonly upregulated certain pathways, including, TNFA signaling via NFKB \cite{lagunas2008nuclear,ito2015down, ryan2019targeting}, hypoxia \cite{lee2012hypoxia, mcevoy2015identifying, deben2018hypoxia,li2019erk}, apoptosis, TGF Beta signaling and Estrogen response. E2F targets \cite{zheng2020upregulation} and G2M checkpoint were common between SA609 and SA535-CX5461 treated only \textbf{\autoref{fig:pathwaysnetwork} a, first, third and fourth columns}.
+
 
 
 \subsubsection{Gene co-expression network analysis apprise biological processes relationship}
@@ -459,14 +442,13 @@ Next, we generated a heatmap of pathway evolution from one treated time pint to 
   \includegraphics[width=\textwidth]{Figures/genenetworkanalysis.pdf}
 \caption[DE of resistant and sensitive clonealign defined clones]
 	{\small
-	\textbf{Pathway enrichment network comparing resistant and sensitive clones across timeseries PDX.}
+	\textbf{Gene network analysis showing up-and downregulation resistant and sensitive clones across timeseries PDX.}
 	\textbf{(a)} Normalized enrichment score of Pathways between resistant and sensitive clone of all treated timeseries PDXs.
 	    \textbf{(b)} Pathway enrichment network comparison of clone }
 		\label{fig:genenetworkanalysis}
 \end{figure}
 
-%------------------------------------------------------------------------
-
+%-------------------------------------------------------------------
 
 \begin{figure}
 \centering
