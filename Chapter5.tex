@@ -409,40 +409,23 @@ First we pulled the reference genes from these database that were intersecting w
 \caption[Pathways enrichment analysis of PDX timeseries]
 	{\small
 	\textbf{Pathways enrichment analysis of PDX timeseries.}
-	 	\textbf{(a)} Vertical axis on the left enlisting the pathways involved from a ranked gene set enrichment analysis (GSEA) \cite{shi2007gene}. Colour intensity identifies normalized enrichment score (NES). Horizontal axis on top denotes the IDs of TNBC PDX. \textbf{(b)} SA609 resistant vs sensitive clone.  A normalized enrichment score (NES) was calculated from GSEA, performed on each subset of differentially expressed genes using the hallmark gene set collection from MSigDB \cite{liberzon2015molecular}. Significantly enriched pathways (adjusted p-value $<$ 0.01). The grey to black coloured lines indicating the number of genes shared between pathways \textbf{(c)} same as \textbf{b} but SA1035 \textbf{(d)} same as \textbf{b} but SA535-cisplatin treated \textbf{(e)}same as \textbf{b} but SA535-CX-5461 treated
+	 	\textbf{(a)} Vertical axis on the left enlisting the pathways involved from a ranked gene set enrichment analysis (GSEA) \cite{shi2007gene}. Colour intensity identifies normalized enrichment score (NES). Horizontal axis on top denotes the IDs of TNBC PDX. \textbf{(b)} SA609 resistant vs sensitive clone.  A normalized enrichment score (NES) was calculated from GSEA, performed on each subset of differentially expressed genes using the hallmark gene set collection from MSigDB \cite{liberzon2015molecular}. Significantly enriched pathways (adjusted p-value $<$ 0.01). The grey to black coloured lines indicating the number of genes shared between pathways \textbf{(c)} same as \textbf{b} but SA1035 \textbf{(d)} same as \textbf{b} but SA535-cisplatin treated \textbf{(e)} same as \textbf{b} but SA535-CX-5461 treated
 	}
 	\label{fig:pathwaysnetwork}
 \end{figure}
 
 %-------------------------------------------------------------------
 \subsection{Integrated transcriptome and pathway analyses revealed potential genes and key activated pathways in breast cancer}
-Next, we generated a heatmap of pathway evolution from one treated time point to another in all timeseries TNBC PDX \textbf{\autoref{fig:pathwaysevolution}}. Most of the listed pathways were enriched at the later timepoints where tumor responses to the chemotherapies were comparatively less. 
+Next, we did gene set enrichment analysis (GSEA) to search for sets of genes that are significantly over-represented in a given list of genes, compared to a background set of genes and their respective pathways and network connections. First, We generated a heatmap of pathway evolution from one treated time point to another in all timeseries TNBC PDX \textbf{\autoref{fig:pathwaysevolution}}. Most of the listed pathways were enriched at the later timepoints, where tumors started developing chemoresistance. 
 
 \subsubsection{Profiling of signaling pathways reveals a distinct demarcation between SA1035 and rest of 3 TNBC PDX}
 To assess the common pathways and their network connections, 
 we profiled pathways enrichment scores between the resistant and sensitive clones of all TNBC PDX. 
-Pathways specific differentially expressed genes were included in network enrichment analysis and the nodes were colored by NES value. Interestingly, SA1035 TNBC PDX demonstrated only three upregulated pathways in resistant versus sensitive clone, including oxidative phosphorylation (OXPHOS), Interferon alpha response \cite{provance2019deciphering} and interferon gamma response \cite{mojic2018dark} \textbf{\autoref{fig:pathwaysnetwork} a, second column}. \ac{OXPHOS} is known to be upregulated in cisplatin related drug resistance mechanism \cite{lee2017myc}. The later two pathways are not well studied in relation to tumor progression or drug resistance but there are some speculative research related to these interferons and cancer related immune mechanisms. In contrast to other TNBC PDX, SA1035 resistant clone also evinced downregulated pathways of hypoxia, TNFA signaling via NFKB, epithelial mesenchymal transition, MTORC1 signaling, KRAS signaling and apoptosis {\textbf{\autoref{fig:pathwaysnetwork} c}}.  
-In addition to SA1035, only SA535 timeseries that was treated with CX-5461 showed interferons pathways upregulation. However, the rest of 3 TNBC PDX, SA609,SA535-cisplatin treated and SA535-CX5461 treated, showed commonly upregulated certain pathways, including, TNFA signaling via NFKB \cite{lagunas2008nuclear,ito2015down, ryan2019targeting}, hypoxia \cite{lee2012hypoxia, mcevoy2015identifying, deben2018hypoxia,li2019erk}, apoptosis, TGF Beta signaling \cite{zhang2019tgfbeta1} and Estrogen response \cite{zhu2018er}. E2F targets \cite{zheng2020upregulation} and G2M checkpoint \cite{visconti2016cell} were common between SA609 and SA535-CX5461 treated \textbf{\autoref{fig:pathwaysnetwork} a, first, third and fourth columns}. 
+Pathways specific differentially expressed genes were included in network enrichment analysis and the nodes were coloured by NES value. Interestingly, SA1035 TNBC PDX demonstrated only three upregulated pathways in resistant versus sensitive clone, including oxidative phosphorylation (OXPHOS), Interferon alpha response \cite{provance2019deciphering} and interferon gamma response \cite{mojic2018dark} \textbf{\autoref{fig:pathwaysnetwork} a, second column}. \ac{OXPHOS} is known to be upregulated in cisplatin related drug resistance mechanism \cite{lee2017myc}. The later two pathways are not well studied in relation to tumor progression or drug resistance but there are some speculative research related to these interferons and cancer related immune mechanisms. In contrast to other TNBC PDX, SA1035 resistant clone also evinced downregulated pathways of hypoxia, TNFA signaling via NFKB, \ac{EMT}, MTORC1 signaling, KRAS signaling and apoptosis {\textbf{\autoref{fig:pathwaysnetwork} c}}. The genes involved in these pathways are shown in \textbf{\autoref{fig:genenetworkanalysis} b}.
 
-\subsubsection{Network inference reveals innovative connections in pathways of resistant clones} 
- The upregulated associated pathways in resistant versus sensitive clones, in \textbf{SA609 TNBC PDX}, comprised of TGF Beta signaling, Hypoxia, TNFA signaling via NFkB, Cholesterol homeostasis, peroxisome and apoptosis. In addition to these, G2M checkpoint and E2F targets were found to be upregulated with $>$40 common genes between these two pathways. Mitotic spindle pathway upregulation was also associated with sharing of $>$10 genes with E2F and G2M check point pathways \textbf{\autoref{fig:pathwaysnetwork} b}.
+In addition to SA1035, only SA535 timeseries that was treated with CX-5461 showed interferons pathways upregulation. However, the rest of 3 TNBC PDX, SA609,SA535-cisplatin treated and SA535-CX5461 treated, showed commonly upregulated certain pathways, including, TNFA signaling via NFKB \cite{lagunas2008nuclear,ito2015down, ryan2019targeting}, Hypoxia \cite{lee2012hypoxia, mcevoy2015identifying, deben2018hypoxia,li2019erk}, Apoptosis \cite{panaretakis2012cisplatin}, TGF Beta signaling \cite{zhang2019tgfbeta1} and Estrogen response \cite{zhu2018er}. E2F targets \cite{zheng2020upregulation} and G2M checkpoint \cite{visconti2016cell} were common between SA609 and SA535-CX5461 treated \textbf{\autoref{fig:pathwaysnetwork} a, first, third and fourth columns}. 
 
-
-
-
-
-\textbf{\autoref{fig:pathwaysnetwork} b, c, d, e}. 
-
-\subsubsection{Gene co-expression network analysis apprise biological processes relationship}
-  
-
-\subsubsection{Gene specific expression trajectories exemplified systematic response to sustained treatment}
-
-
-
-
-
-
+To potray pathway specificity in resistant versus sensitive clones, we explored \textbf{SA609 TNBC PDX}, which was  comprised of TGF Beta signaling, Hypoxia, TNFA signaling via NFkB, Cholesterol homeostasis, peroxisome and apoptosis \textbf{\autoref{fig:pathwaysnetwork} b}. In addition to these, G2M checkpoint and E2F targets were found to be upregulated with $>$40 common genes between these two pathways. Mitotic spindle pathway upregulation was also associated with sharing of $>$10 genes with E2F and G2M check point pathways \textbf{\autoref{fig:genenetworkanalysis} a}.
 
 %------------------------------------------------------------------------
 \begin{figure}
@@ -450,14 +433,20 @@ In addition to SA1035, only SA535 timeseries that was treated with CX-5461 showe
   \includegraphics[width=\textwidth]{Figures/genenetworkanalysis.pdf}
 \caption[DE of resistant and sensitive clonealign defined clones]
 	{\small
-	\textbf{Gene network analysis showing up-and downregulation resistant and sensitive clones across timeseries PDX.}
-	\textbf{(a)} Normalized enrichment score of Pathways between resistant and sensitive clone of all treated timeseries PDXs.
-	    \textbf{(b)} Pathway enrichment network comparison of clone }
-		\label{fig:genenetworkanalysis}
+	\textbf{Gene network analysis denoting connections of up-and-down regulated pathways across timeseries PDX}. Size of black circle indicates the number of genes, colour bars indicate the log fold change.
+	\textbf{(a-d)} Genes in resistant vs sensitive clones of SA609, SA1035, SA535 (cisplatin and CX-5461 treated), respectively}
+	   	\label{fig:genenetworkanalysis}
 \end{figure}
+%------------------------------------------------------------------------
 
-%-------------------------------------------------------------------
+\subsubsection{SA535 TNBC PDX reveals specificity of drugs in pathway network inference} 
+As \textbf{SA535 TNBC PDX} was treated with two different drugs, cisplatin and CX-5461, \textbf{\autoref{fig:SA535CX5461} a}, in parallel, so we explored how many pathways are comparable in these two series and which ones are distinct or unique to one of the specific drug. 
+We found around \textbf{11 related pathways} were upregulated and only one, which was \ac{OXPHOS}, was down regulated in both series, suggesting their specificity to the tumor itself. The list of these pathways encompass \textbf{TNFA signaling via NFKB, hypoxia, apoptosis, UV response\_UP, KRAS signaling\_up, Inflammatory response, epithelial mesenchymal transition, TGF Beta signaling, Estrogen response and P53 pathways \textbf{\autoref{fig:pathwaysnetwork} a (third \& fourth column upper half), d, e}.} However, there were certain pathways that were definitive to one of the two drugs. The cisplatin treated resistant clone was found to have exclusively upregulated pathways including \textbf{MTORC1 signaling \cite{peng2010role}, KRAS signaling\_DN \cite{tao2014oncogenic}, IL2\_STAT5 signaling \cite{wu2020activation, gutierrez2020role}, Hallmark\_apical\_surface} (Genes encoding proteins over-represented on the apical surface of epithelial cells, e.g., apical area important for cell polarity) \cite{halaoui2015rewiring, wodarz2007cell}, \textbf{UV response\_DN (including UV\_response\_Via\_ERCC3\_TTD\_DN
+and UV\_response\_Via\_ERCC3\_XPCS\_DN) and androgen response pathways \cite{rampurwala2016role, michmerhuizen2020we}.}
 
+Within cisplatin treated activated pathways, \textbf{hypoxia, TNFA signaling via NFkB, MTORC1, estrogen response and inflammatory response} related pathways share the most common genes among their network \textbf{\autoref{fig:pathwaysnetwork} e}. The genes that are expressed are shown in  \textbf{\autoref{fig:genenetworkanalysis} c}. However, CX-5461 treated resistant clone came up particularly with \textbf{G2M checkpoint, E2F targets, IL6\_JAK\_STAT3 signaling, angiogenesis, complement system} (Genes encoding components of the complement system, which is part of the innate immune system), \textbf{ interferon alpha response, interferon gamma response and glycolysis} \textbf{\autoref{fig:pathwaysnetwork} d}. Among these pathways, G2M checkpoint and E2F targets pathways shares $>$30 genes, whereas, \ac{EMT}, TNFA signaling via NFKB, hypoxia and glycolysis shares $>$ 15 genes. The gene network with related pathways are shown in  \textbf{\autoref{fig:genenetworkanalysis} d}. 
+
+%------------------------------------------------------------------------
 \begin{figure}
 \centering
  \includegraphics[width=\textwidth]{Figures/generegressionanalysis.pdf}
@@ -469,7 +458,29 @@ In addition to SA1035, only SA535 timeseries that was treated with CX-5461 showe
 	\label{fig:generegressionanalysis}
 \end{figure}
 
+%------------------------------------------------------------------------
 
+\subsubsection{Gene specific expression trajectories exemplified systematic response to sustained treatment}
+To understand the stability of gene expression throughout the treatment, we performed gene regression analysis on the top 500 resistant clone related genes and plotted their trend along various timepoints. All four treated PDX series manifested 5-6 distinct clusters with monotonically increasing, monotonically decreasing, remaining constant or irregular patterns \textbf{\autoref{fig:generegressionanalysis} a-d}.
+
+To examine the single gene expression at each time point, we pulled out atleast 4 genes from each of the 4 TNBC PDX regression analysis \textbf{\autoref{fig:generegressionanalysis} e-h}. 
+
+ From SA609, \textbf{ DNA binding2 (ID2)} is shared between \textbf{TGF-Beta signaling and EMT} in our dataset. It is a key regulator of breast cancer metastasis to the brain. Overexpression of ID2 is known to increase proliferation, self-renewal, and expression of the putative stemness markers and inhibitors of DNA binding2 represents a novel and promising therapeutic target for treating some of the cancers \cite{bae2017inhibitor, kijewska2019using}. This gene seems to be monotonically increasing from first cisplatin treatment cycle to the fourth. \textbf{Mitochondrial fission 1(FIS1), peroxisome pathway}, is a mitochondrial dynamics-regulating gene, also found to be monotonically increasing with treatment cycle. Its overexpression prevents mitochondria elongation, which would otherwise lead to cell cycle delay or arrest \cite{fan2015mir, anderson2018dysregulation}. \textbf{CRABP1, peroxisome pathway} is an adverse prognostic factor and a potent inhibitor of retinoic acid (RA) action in breast cancer. It could serve as a biomarker to predict RA response \cite{liu2015crabp1}. \textbf{MYC} from MYC targets V1, another example of having monotonically increasing expression \textbf{\autoref{fig:generegressionanalysis} e, first panel}. It has been recently recognized that high MYC mRNA expression is more Clinically relevant than MYC DNA Amplification in triple-negative breast cancer \cite{chen2008myc, katsuta2020high}.
+
+From SA1035, we plotted timepoint trajectories of \textbf{MDK}, a growth factor, is recently reported as a key player in cancer progression and a promising therapeutic target \cite{filippou2020midkine}. It showed positive dynamics with continuous drug treatment. 
+\textbf{NDUFB4, COX6C and UQCRB}, all from \ac{OXPHOS} pathway stayed very close to untreated expression levels in the initial few cycles but at the last time point, all of them diverges from untreated \textbf{\autoref{fig:generegressionanalysis} f.} Mitochondrial \textbf{UQCRB} is known as a molecular prognostic biomarker in colorectal cancer \cite{kim2017mitochondrial}.
+
+From SA535, we pulled out in total of 8 genes to demonstrate the change in expression in a time dependent manner. Cisplatin treated cycles includes, \textbf{BCAP31}, cancer/testis antigen-like protein, which drives TNBC development by modulating ligand-independent EGFR trafficking and spontaneous EGFR phosphorylation and it is known to act as a probe for non-small-cell lung cancer metastasis
+\cite{fu2019bcap31, wang2020bcap31}. \textbf{TPT1} promotes tumorigenesis and metastasis in epithelial ovarian cancer \cite{wu2019lncrna}, seem to stay lower than the untreated but gradually kept on increasing till the last time point. \textbf{Obg-like ATPase 1 (OLA1)} overexpression predicts poor prognosis and promotes tumor progression by regulating P21/CDK2 in hepatocellular carcinoma \cite{huang2020obg}. Its expression increased in the last two cycles of cisplatin. 
+
+
+
+
+
+
+
+
+%-------------------------------------------------------------
 
 \section{Discussion}
 
@@ -480,7 +491,6 @@ The magnitude of individual gene expression differences between resistant and se
 SA1035 TNBC PDX behaves a little different as compared to the other two PDX models based on the activated pathways and proportion of individual gene expression \textit{in cis} and \textit{in trans}. This could be possibly explained based on the initial heterogeneity of this tumor. The DLP+ heatmap showed less heterogeneity as compared to SA609 and SA535 and the later was found to show the most heterogeneous tumor.
 
 Some of the gene clusters were found to be increasing or decreasing along the time series of the PDX models but they require further detailed investigation at individual gene level to get enough evidence.
-
 
 
 
