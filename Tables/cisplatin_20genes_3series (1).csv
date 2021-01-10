@@ -1,0 +1,21 @@
+Gene,Description,DE_expression_series
+ABCC2,ATP binding cassette subfamily C member 2,
+ADM,adrenomedullin,SA1035_SA535
+AKT1,AKT serine/threonine kinase 1 BCL2 apoptosis regulator,SA609_SA1035_SA535
+BCL2,BCL2 apoptosis regulator,SA609_SA1035_SA535
+BCL2L1,BCL2 like 1,SA609_SA1035_SA535
+CASP8,caspase 8,
+CAV1,caveolin 1,SA1035_SA535
+CLU,clusterin,SA609_SA1035_SA535
+FAS,Fas cell surface death receptor,
+FOS,Fos proto-oncogene AP-1 transcription factor subunit,SA609_SA1035_SA535
+GSR,glutathione-disulfide reductase,SA1035_SA535
+GJA1,gap junction protein alpha 1,
+HSPB1,heat shock protein family B (small) member 1,SA609_SA1035_SA535
+MSH2,muts homolog 2,SA609_SA1035_SA535
+NOX4,NADPH oxidase 4,
+NQO1,NAD(P)H quinone dehydrogenase 1,SA1035_SA535
+PTK2,protein tyrosine kinase 2,SA609_SA1035_SA535
+TUBA1A,tubulin alpha 1a,SA609_SA1035_SA535
+VCAM1,vascular cell adhesion molecule 1,
+VIM,vimentin,SA609_SA1035_SA535

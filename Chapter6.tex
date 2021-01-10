@@ -3,11 +3,60 @@
 
 }
 \label{ch:Chapter6}
+
+\section{Major findings}
+
+
+\subsection{Identification and confirmation of a significant transcriptomic signature}
+
+In chapter 3, we set out to assess the impacts of tissue dissociation and data analysis quality control, taking advantage of a recently described protease active at low temperatures (on ice), to contrast the effects of low temperature protease solid tissue dissociation with those of more routinely used collagenase at 37\textdegree C. Identification and confirmation of a significant transcriptomic signature comprising 512 core genes in response to collagenase tissue digestion at 37\textdegree C. Significantly, this signature is highly confounded with known cancer biology, comprising a large number of tumour stress and resistance markers. We demonstrate for the first time that this signature can be mitigated by tissue digestion with a cold protease (active at 6\textdegree C) derived from a Himalayan glacier resident bacterial species.
+Predominantly, we FACS sorted lymphoblastoid cells into live, dying, and dead populations (with/without induction of cell death with TNF-alpha) to characterize the efficacy of standard scRNA-seq QC practices on removing dead and dying cells. In doing so, we identify a subset of dead cells which would not be filtered by standard practices. We reported that cells that were FACS sorted as either live, dying, or dead (with/without induction of cell death with TNF-alpha), were present in all three clusters, emphasizing that the although the transcriptomic state and and the surface marker of the cell are correlated but they are not the same. Such concepts are implicative  of ``pseudotime'' in single-cell trajectory analysis, whereby developmentally ordering cells transcriptomically can lead to early or late cells being placed at variable positions along the pseudotime trajectory \cite{campbell2018descriptive, campbell2018uncovering}. 
+ Furthermore, we identified a subpopulation of cells (enriched for dying and dead) that showed increased expression of MHC Class I genes, indicative of stress and which may distinguish these cells from otherwise transcriptomically healthy cells. This finding could be pertinent to thhe studies of immune response in cancer.
+ 
+ Finally, our experiments concluded that digestion by collagenase causes upregulation of the gene set at all time points, with a subset showing further upregulation as digestion time increases.
+
+\subsection{Copy number could be associated with clonal fitness in Tp53 mutant human breast cancers}
+ clonal expansions observed during serial passaging of TP53 mutant human breast cancer cells, through serial passaging, single cell sequencing and fitness modeling of four patient derived xenografts. Bulk WGS and DLP+ confirmed all four tumors were p53 mutant (SA609: p.R213X; SA1035: p.C242F; SA532: p.A159P; SA535: frameshift chr17:7578490) with bi-allelic and truncal distribution across clones. We first studied clonal evolution in untreated PDX models, sampled over 927 days for HER2+ SA532, 619 days for TNBC-SA609, 381 days for TNBC-SA1035 and 353 days for TNBC-SA535. DLP+ were generated and sequenced, yielding a median of 1,116 single cell genomes per sample (95,275XY total cells). 
+
+All series exhibited progressively higher tumour growth rates over time. In contrast to SA532 (HER2 positive), all TNBC PDX models exhibited evidence of clonal diversification associated with copy number alterations and selective coefficients consistent with positive selection over time textbf{\autoref{fig:landscapefitness}}.  In SA535 TNBC, three major clones were observed with clone G characterized by loss of chromosome X exhibiting a clonal expansion from minor prevalence as passage X5 to near dominance at 76\% at passage X9.  Similar patterns were observed for the other TNBC cases.  For SA1035, 11 clones were detected with clone E expanding to 69\% at passage X8 from minor prevalence at the initial timepoint.  The predicted selective coefficient of clone E was(1+s = 1.06 $\pm$ 0.03) . By contrast, Clones A and K had initial prevalences of 20 and 9\% but were not detectable by the last timepoint. For SA609, Clones E  (1+s= 1.07 $\pm$ 0.02 ) and H (1+s=1.02 $\pm$ 0.02) had the highest selective coefficients and exhibited growth from undetectable levels to 59 and 32\% respectively by timepoint X10. To summarize the relative selective coefficients and clonal competition, we computed distributions over the expected difference in clone-specific selective coefficients, derived from the \texttt{fitClone} model fit. In 2 TNBC (but not in the TNBC-SA535 and HER2+SA532 cancer) at least one clone showed a high degree of clonal fitness indicative of positive selection textbf{\autoref{fig:landscapefitness}} and non-neutral clonal dynamics.
+
+
+\subsection{Clone specific genotypes drives clone-specific gene expression programs}
+
+
+
+
+In high fitness clones with high level amplifications as distinguishing features, we noted accompanying \textit{in cis} clone-specific differential gene expression in CRABP1 in resistant clone of SA609 TNBC PDX (clone R with XY copies of Chr15q) and  TCF4 in resistant clone of SA609 (clone R with XY copies of Chr20q) and of TNBC
+CRABP1 on chr15p, TCF4 on chr 18q 
+
+
+
+
+
+
+Together these data indicate that clonal genotypes driving high fitness trajectories are accompanied by changes in gene expression at both chromosomal and focal level copy number alterations.
+
+
+
+
+
+
+
 Predicting the dynamics of malignant cells in cancers and deconstructing the molecular basis of resistance and metastasis can be achieved by repeated observation of cell populations with shared genotypes and phenotypes. In this thesis project we have applied this concept to show that cell population dynamics in cancer can be resolved by assigning cells to specific clones, defined by copy number. We repeatedly observe the similar fitness coefficients for the same copy number genotypes, showing deterministic behaviour. The fitness differences between most clones is small, despite large changes in clone prevalence over time.
 
+Here, our novel  and single cell RNA seq analysis data findings that can help in a better comprehension of some widespread and others inherent to more specific biological mechanisms involved in breast cancer progression 
 
 
-
+Genetic alterations and the contextual signaling by the microenvironment give rise to an intricate network of pathological mechanisms and molecular pathways
 
 
 Individual tumors and cancer cells exhibit substantial molecular diversity.
+
+Single cell RNA seq analysis data can help in a better comprehension of some widespread and more specific biological mechanisms involved in breast cancer progression.
+
+
+
+
+that could be further validated pertaining to drug resistance in triple negative 
+
+through modern techniques, such as, CRISPR/Cas9.
