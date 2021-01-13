@@ -8,7 +8,7 @@ As discussed in introduction chapter 1, tumor fitness landscape underpin selecti
 The majority of the work on cancer has focused on bulk tumour sequencing, where cellular population structure decomposition approaches are limited. Single cell genome measurements to scalably define clonal populations in cancer over thousands of cells have only recently emerged \cite{Laks2019-dm,zahn2017scalable}, enabling identification of rare populations, precise tracking of clones and robust clone-specific measurements suitable for population genetics modeling. We are also motivated by newly developed quantifying tools of sitka, a phylogenetic inference method accompanying toolkits to assign cells to clones, \cite{dorri2020efficient} and  \texttt{fitClone}, a probabilistic framework that designates quantitative selection coefficients to individual cancer clones and forecasts competitive clonal dynamics over time \cite{salehi2020single}. Motivated by these observations, we sought to investigate the hypothesis that clones that grow reproducibly have higher fittness in the growing cancer.
 
 \section{Synopsis}
-Based on the knowledge we gained from chapter 3, three \ac{PDX} tumors and two drugs were selected to investigate clonal dynamics and identify patterns of clonal resistance with single cell whole genome sequencing. First, we generated two serially transplanted timeseries PDX (SA535-HER2+ and SA609-TNBC) from passage one (X1) to passage ten (X10) to test the newly developed methods (from collaborators) for identifying sub-populations with their genotypes.
+Based on the knowledge we gained from chapter 3 for transplant efficiency and initial tumor responses to chemotherapies, we selected four \textit{Tp53} mutant \ac{PDX} for this chapter \textbf{\autoref{tab:Tp53mutationofPDX}}. Three TNBC and one HER2+ \ac{PDX} tumors, and two drugs (cisplatin and CX-5461) were selected to investigate clonal dynamics and identify patterns of clonal resistance with single cell whole genome sequencing in treated and untreated timeseries. First we, generated two un-treated transplanted timeseries PDX (SA532-HER2+ and SA609-TNBC) from passage one (X1) to passage ten (X10) to test the newly developed methods for identifying sub-populations with their genotypes. 
 We showed that serial measurements of single cell copy number assigned clones can be used to estimate fitness in conjunction with \texttt{fitClone} \cite{salehi2020single}, under serial transplantation of breast patient derived xenografts, where no drug selection or other conditions were applied. We found that serial measurements can be used to measure relative clonal fitness which enables prediction of future trajectories.
 
 Next we sought to  confirm the reproducibility and independence of dynamics to population size effects, we re-ran the serial transplantation experiments after mixing early and late populations and re-measuring the dynamical behaviour. We observed that sufficiently well sampled clones with confident fitness estimations show repeated trajectories, confirming the estimation of fitness and linking the dynamical behaviour to the copy number genotypes of the clones.
@@ -32,7 +32,7 @@ On all the single cell whole genome sequencing data, we applied three types of s
      SA535-TNBC & V147Gfs*2 & Frame\_Shift\_Ins & 17:g.7578490\_7578489insC \\
      \hline
      \end{tabular}%
-   \label{tab:addlabel}%
+   \label{tab:Tp53mutationofPDX}%
  \end{table}%
 
 
@@ -132,7 +132,7 @@ We experimentally tested these predictions by initiating a new PDX line with the
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{Figures/Mixturenew.pdf}
+\includegraphics[width=\textwidth]{Figures/Mixturenew.png}
 	
 \caption[Reproducible dynamics from SA609-TNBC mixture experiments]
 	{\small
@@ -149,7 +149,6 @@ M1-M5 clonal abundance observations.
 }
 	\label{fig:Mixturenew}
 \end{figure}
-
 
 
 \subsubsection{Mixture branch b recapitulates the predicted dynamics of branch a and the original untreated branch}
@@ -294,7 +293,7 @@ with small relative differences in fitness \textbf{\autoref{fig:SA535analysis} d
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{Figures/SA535analysis.pdf}
+\includegraphics[width=\textwidth]{Figures/SA535analysis.png}
 	
 \caption[SA535 TNBC PDX timeseries clonal dynamics under drug perturbations]
 	{\small
@@ -309,7 +308,7 @@ with small relative differences in fitness \textbf{\autoref{fig:SA535analysis} d
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{Figures/landscapefitness.pdf}
+\includegraphics[width=\textwidth]{Figures/landscapefitness.png}
 	
 \caption[Fitness landscape reversal in early cisplatin treatment in TNBC PDX models.]
 	{\small
@@ -351,7 +350,7 @@ Tumor growth curves displayed progressively less response of the tumors in last 
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{Figures/SA535CX5461.pdf}
+\includegraphics[width=\textwidth]{Figures/SA535CX5461 .png}
 	
 \caption[SA535 TNBC PDX timeseries with cisplatin and CX-5461]
 	{\small
@@ -369,7 +368,7 @@ Vertical axis on right indicates the tumor status. The top bar gives cycle numbe
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{Figures/SA535combinebarplots.pdf}
+\includegraphics[width=\textwidth]{Figures/SA535combinebarplots .png}
 	
 \caption[Combined data analysis of SA535 with cisplatin and CX-5461]
 	{\small

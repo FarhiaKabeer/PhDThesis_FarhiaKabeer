@@ -76,7 +76,7 @@ Next, we asked how much of the expression is accounted by the change in copy num
 %------------------------------------------------------------------------
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{Figures/fig2_clonealignembeddings.pdf}
+\includegraphics[width=\textwidth]{Figures/fig2_clonealignembeddings.png}
 	
 \caption[Gene expression impacts of clone-specific copy number profiles]
 	{\small
@@ -135,7 +135,7 @@ To calculate the percentage of genes presenting \textit{in cis} or \textit{in tr
 
 Firstly, we did differential expression analysis of resistant clones as in \textbf{\autoref{tab:Listofresistantandsensitiveclones}} and some of selected clones that were closely related to the resistant clones or having second highest fitness coefficients in DLP+ data from chapter 4, versus the sensitive ones from each of the time series PDX using \texttt{edgeR} \cite{robinson2010edger}. Then, we classified these genes into upregulated with increase in copy number (incis\_IU) and downregulated (incis\_DD) with decrease in copy number or upregulated with decrease in copy number (incis\_DU) or downregulated with increase in copy number (incis\_ID), from one clone to another, as mentioned in the legend of \textbf{\autoref{fig:fig3Summaryincistrans} a}.
 
-From HMMcopy output of segment copy number position (chromosome start and end), we get gene coordinates by mapping our segment positions with reference database of known genes for human  \cite{carlson2015txdb}. First, we identify overlapping positions between chromosome segments and known genes, then we assigned those segments to an ensemble gene ID \cite{rainer2019ensembldb} of the  selected \ac{DE} of clones across all timeseries and calculated their number and percentages in each PDX timeseries  \textbf{\autoref{tab:DEpercentageincisintrans}}. Importantly, we found that the overall number of \textit{in trans} genes were higher as compared to \textit{in cis}, which is supporting previously reported results \cite{shao2019copy}. 
+From HMMcopy output of segment copy number position (chromosome start and end), we get gene coordinates by mapping our segment positions with reference database of known genes for human  \cite{carlson2015txdb}. First, we identified overlapping positions between chromosome segments and known genes, then we assigned those segments to an ensemble gene ID \cite{rainer2019ensembldb} of the  selected \ac{DE} of clones across all timeseries and calculated their number and percentages in each PDX timeseries  \textbf{\autoref{tab:DEpercentageincisintrans}}. Notably, we found that the overall number of \textit{in trans} genes were higher as compared to \textit{in cis}, which is supporting previously reported results \cite{shao2019copy}. 
 
 %------------------------------------------------------
 
@@ -246,7 +246,7 @@ To get the idea of the magnitude of expression differences for most of up and do
 
 \begin{figure}
 \centering
-  \includegraphics[width=\textwidth]{Figures/Volcanotrackplots2.pdf}
+  \includegraphics[width=\textwidth]{Figures/Volcanotrackplots2.png}
 \caption[DE of resistant and sensitive clonealign defined clones]
 	{\small
 	\textbf{Differential expression of resistant and sensitive clones.}
@@ -268,7 +268,7 @@ To get the idea of the magnitude of expression differences for most of up and do
 \begin{table}
 \centering
 
- \caption{Summary of number of differentially expressed genes \textit{in cis} and \textit{in trans} in resistant vs sensitive clones}
+ \caption{Summary of number of differentially expressed genes \textit{in cis} and \textit{in trans} in major clones}
 
 
 \resizebox{\textwidth}{!}{%
@@ -321,25 +321,105 @@ SA535-UXXXX-M\_N\_O\_vs\_UUUUU\_Q  & 753 & 296 & 48  & 739  & 710  & 1281 \\
  \subsubsection{Differential expression analysis of resistant and sensitive clones deciphers cancer related genes}
  Next, we investigated the proportions and types of genes that are upregulated in resistant clones in each of the treated PDX series.
  
- In \textbf{SA609} PDX, pairwise comparisons of clone-specific differential gene expression, between resistant clone R and sensitive clone H (FDR$<$0.01, p$<$0.05), identified 922 genes having clone specific copy number increase in expression \textit{(incis\_IU)}, whereas, 435 genes were downregulated with decrease in copy number \textit{(incis\_DD)}. However, 850 genes were downregulated and 738 were upregulated and 975 were downregulated independent of change in copy number \textit{in trans} \textbf{(\autoref{fig:Volcanotrackplots2.pdf} a, left )}. The Manhattan plot establishing the increase and decrease in copy number between clones at that genomic position and its respective change in gene expression \textbf{(\autoref{fig:Volcanotrackplots2.pdf} a, right)}.
+ In \textbf{SA609} PDX, pairwise comparisons of clone-specific differential gene expression, between resistant clone R and sensitive clone H (FDR$<$0.01, p$<$0.05), identified 922 genes having clone specific copy number increase in expression \textit{(incis\_IU)}, whereas, 435 genes were downregulated with decrease in copy number \textit{(incis\_DD)}. However, 975 genes were downregulated and 783 were upregulated independent of change in copy number ( \textit{in trans}) \textbf{(\autoref{fig:Volcanotrackplots2.pdf} a, left )}. The Manhattan plot establishing the increase and decrease in copy number between clones at that genomic position and its respective change in gene expression \textbf{(\autoref{fig:Volcanotrackplots2.pdf} a, right)}.
  
-Amidst the upregulated \textit{in cis}, some known cancer promoting genes were detected, for example, \textbf{HSPA1} \cite{zoppino2018comprehensive}, \textbf{TCF4} \cite{ravindranath2011wnt}, \textbf{NDUF} \cite{li2015down}, PTN \cite{huang2018chemotherapy}, \textbf{ID4} \cite{donzelli2018expression}, \textbf{RAC3} \cite{donnelly2017rac3}. Many of them are not well studied in breast cancers and could be used as a potential candidates for comprehensive research.
+Amidst the upregulated \textit{in cis}, some known cancer promoting genes were detected, for example, \textbf{HSPA1} \cite{zoppino2018comprehensive}, \textbf{TCF4} \cite{ravindranath2011wnt}, \textbf{NDUF} \cite{li2015down}, \textbf{PTN} \cite{huang2018chemotherapy}, \textbf{ID4} \cite{donzelli2018expression}, \textbf{RAC3} \cite{donnelly2017rac3}. Many of them are not well studied in breast cancers and could be used as a potential candidates for comprehensive research.
 Moreover, \textit{in cis} downregulated genes includes genes that have role in tumor suppression, for example, \textbf{OSR2}, is a known tumor suppressor in gastric and lung cancer \cite{otani2014odd,wang2018odd}. Other genes including, \textbf{DYRK4}, found to be downregulated in our data, is a key regulator of p53, and phosphorylates it at Ser46 to induce apoptosis in response to DNA damage \cite{yoshida2019multiple}, \textbf{POLR2K} is a candidate biomarker for predicting breast cancer immunotherapy \cite{lopez2020prediction}. Another gene, \textbf{PRRX1} is known to predict poor prognosis in hepatocellular carcinoma via the p53-dependent signaling pathway in hepatocellular carcinoma \cite{fan2017downregulation}. Furthermore, \textbf{KLF6} is found to be among the upregulated genes, which is associated with poor prognosis in prostate, lung, ovarian cancer and breast cancer \cite{hatami2013klf6,difeo2009role}, \textbf{RHOB} \cite{ju2018rhob},
 \textbf{STAT3} \cite{li2019clinicopathological,kamran2013role} and 
 \textbf{ARF5} \cite{li2017roles,casalou2020role} promotes cancer cell survival, migration and invasion. \textbf{HMGCS} \cite{chen2017hmgcs2} mRNA expression is associated with poor clinical prognosis and outcomes in patients with colorectal cancer (CRC) and oral squamous cell carcinoma (OSCC). \textbf{NR2F2} is also found upregulated in resistant clone and is known for a worse prognosis and lymph node metastasis in human breast cancer \cite{erdHos2020nr2f2,xia2020nr2f2},
 \textbf{M6PR} is frequently down-regulated or inactivated by mutations in a broad range of malignant human cancers \cite{dalle2018mannose} and is found to be down regulated in the resistant clone in our dataset. 
 
-Similarly, we congregated the number of genes upregulated and down regulated \textit{in cis} and \textit{in trans} in other 3 series, which are summarized in \textbf{\autoref{tab:numberofDEgenesincistrans}}.
+Similarly, we congregated the number of genes upregulated and down regulated \textit{in cis} and \textit{in trans} in all series, which are summarized in \textbf{\autoref{tab:numberofDEgenesincistrans}}.
  Inspection of prominant genes in \textbf{SA1035} PDX, reported some important upregulated genes \textit{(incis\_IU)}, inclusive of \textbf{COX6C} \cite{yang2018overexpression,chang2017estrogen} and 
  \textbf{UQCRB} \cite{kim2017mitochondrial,park2017mitochondrial} on chromosome 8 \textbf{(\autoref{fig:Volcanotrackplots2.pdf} b, right)}, known novel prognostics markers in prostate, colorectal and hepatocellular carcinomas, \textbf{ATP5MPL}, a prognostic factor in ovarian cancer also seems to be upregulated with copy number gain on chromosome 14q in our dataset. These three genes are not well recognized in triple negative breast cancers before and could be potential candidates for further validations. \textbf{CSDE1} gene \cite{martinez2019unr}, an example of downregulated gene with copy number loss \textit{(incis\_DD)}, found to be downregulated in our dataset on chromosome 1 \textbf{(\autoref{fig:Volcanotrackplots2.pdf} b, right)}. Many genes were found to be upregulated \textit{in trans}, for example,  \textbf{CXCL3} \cite{gui2016overexpression, karin2020cxcr3}, \textbf{S100P} \cite{arumugam2011s100p,cong2020calcium}, 
 \textbf{HERC5} \cite{wrage2015identification}, \textbf{IFITM3} \cite{liu2019ifitm3}, \textbf{S100A7} \cite{zhang2019clinical, mayama2018olfm} and \textbf{NDUF} \cite{li2015down}. These genes could be further probed in triple negative breast cancers as likely biomarkers of prognosis.
+%------------------------------------------------------------------
+
+% Table generated by Excel2LaTeX from sheet 'top20genes_incis upregulated in'
+ \begin{table}[htbp]
+   \centering
+   \caption{Top 20 \textit{in cis} upregulated genes in SA609-TNBC resistant clone}
+     
+     \begin{tabular}{|l|r|r|l|}
+     \hline
+     Gene\_ID & \multicolumn{1}{|l|}{Copy no. in R} & \multicolumn{1}{|l|}{Copy no. in H} & Gene\_regulation \\
+     \hline
+     HSPA1A & 5 & 4 & In\_cis\_Increase\_UpRegulated \\
+     ID1 & 4 & 2 & In\_cis\_Increase\_UpRegulated \\
+     ID2 & 4 & 3 & In\_cis\_Increase\_UpRegulated \\
+     ID4 & 5 & 6 & In\_cis\_Decrease\_UpRegulated \\
+     SPINT2 & 4 & 2 & In\_cis\_Increase\_UpRegulated \\
+     STAT3 & 4 & 3 & In\_cis\_Increase\_UpRegulated \\
+     SFRP1 & 3 & 2 & In\_cis\_Increase\_UpRegulated \\
+     ARF5 & 3 & 2 & In\_cis\_Increase\_UpRegulated \\
+     CYR61 & 4 & 3 & In\_cis\_Increase\_UpRegulated \\
+     TCF4 & 3 & 2 & In\_cis\_Increase\_UpRegulated \\
+     NPW & 2 & 3 & In\_cis\_Decrease\_UpRegulated \\
+     RAC3 & 4 & 2 & In\_cis\_Increase\_UpRegulated \\
+     HLA-A & 5 & 4 & In\_cis\_Increase\_UpRegulated \\
+     DCXR & 4 & 2 & In\_cis\_Increase\_UpRegulated \\
+     SH3BP5 & 2 & 3 & In\_cis\_Decrease\_UpRegulated \\
+     CRABP1 & 3 & 2 & In\_cis\_Increase\_UpRegulated \\
+     NR2F2 & 4 & 3 & In\_cis\_Increase\_UpRegulated \\
+     DNAJC3 & 4 & 2 & In\_cis\_Increase\_UpRegulated \\
+     MEST & 3 & 2 & In\_cis\_Increase\_UpRegulated \\
+     RCN2 & 3 & 2 & In\_cis\_Increase\_UpRegulated \\
+     
+    \hline
+     \end{tabular}%
+  
+   \label{tab:top20SA609upregulated}%
+ \end{table}%
+
+%------------------------------------------------------------------
+ % Table generated by Excel2LaTeX from sheet 'Sheet1'
+ \begin{table}[htbp]
+   \centering
+   \caption{Top 20 upregulated \textit{in cis} genes in SA1035-TNBC resistant clone}
+     \begin{tabular}{|l|r|r|l|r}
+     \hline
+     Gene ID & \multicolumn{1}{|l|}{Copy no. in H} & \multicolumn{1}{|l|}{Copy no. in E} & Gene regulation\\
+     
+     \hline
+     ATP5MPL & 2 & 1 & In\_cis\_Increase\_UpRegulated \\
+     UQCRB & 2 & 1 & In\_cis\_Increase\_UpRegulated   \\
+     COX6C & 5 & 3 & In\_cis\_Increase\_UpRegulated  \\
+     MRPL33 & 3 & 2 & In\_cis\_Increase\_UpRegulated \\
+     COX6B1 & 1 & 2 & In\_cis\_Decrease\_UpRegulated  \\
+     PRKDC & 2 & 1 & In\_cis\_Increase\_UpRegulated  \\
+     PCMTD1 & 2 & 1 & In\_cis\_Increase\_UpRegulated \\
+     SIVA1 & 2 & 1 & In\_cis\_Increase\_UpRegulated \\
+     YTHDF3-AS1 & 2 & 1 & In\_cis\_Increase\_UpRegulated \\
+     RAB2A & 2 & 1 & In\_cis\_Increase\_UpRegulated \\
+     TCEA1 & 2 & 1 & In\_cis\_Increase\_UpRegulated  \\
+     FXYD3 & 1 & 2 & In\_cis\_Decrease\_UpRegulated  \\
+     BCL11B & 2 & 1 & In\_cis\_Increase\_UpRegulated  \\
+     ENY2 & 5 & 4 & In\_cis\_Increase\_UpRegulated  \\
+     AHNAK2 & 2 & 1 & In\_cis\_Increase\_UpRegulated  \\
+     CLMN & 2 & 1 & In\_cis\_Increase\_UpRegulated  \\
+     TIMM8B & 1 & 2 & In\_cis\_Decrease\_UpRegulated  \\
+     PLEKHF2 & 2 & 1 & In\_cis\_Increase\_UpRegulated  \\
+     PSENEN & 1 & 2 & In\_cis\_Decrease\_UpRegulated  \\
+     CKB & 2 & 1 & In\_cis\_Increase\_UpRegulated  \\
+     
+     \hline
+     \end{tabular}%
+   
+   \label{tab:top20SA1035upregulated}%
+ \end{table}%
+
+
+
+
+
+
 
 
 %-------------------------------------------------------------------
 
 \begin{figure}
 \centering
-  \includegraphics[width=\textwidth]{Figures/commongenesfromvolcanoplots.pdf}
+  \includegraphics[width=\textwidth]{Figures/commongenesfromvolcanoplots.png}
 	
 \caption[Representative trajectories of 4 common genes upregulated in all PDX]
 	{\small
@@ -355,9 +435,9 @@ Similarly, we congregated the number of genes upregulated and down regulated \te
 
 %------------------------------------------------------------------------
 
-In \textbf{SA535} TNBC PDX, both timeseries from two different drugs showed up with somewhat distinct set of regulated genes. Interestingly, the first upregulated gene,\textit{(incis\_IU)}, that caught our attention was on chromosome X, \textbf{XIST}\cite{salama2020xist,chen2017long, chen2019up}, in both independently treated different drug series \textbf{(\autoref{fig:Volcanotrackplots2.pdf} c, d right)}. 
+In \textbf{SA535} TNBC PDX, both timeseries from two different drugs showed up with somewhat distinct set of regulated genes. Interestingly, the first upregulated gene, \textit{(incis\_IU)}, that caught our attention was on chromosome X, \textbf{XIST} \cite{salama2020xist,chen2017long, chen2019up}, in both independently treated different drug series \textbf{(\autoref{fig:Volcanotrackplots2.pdf} c, d right)}. 
 In addition, other \textbf{cisplatin} related set of genes in this PDX comprised of \textbf{TACC1}, which is upregulated \textit{(incis\_IU)} on chromosome 8, known to be amplified in 10-15\% of human breast cancers and plays a role in interactions between centrosomes and microtubules \cite{ray2004genomic, gergely2000tacc, shakya2018high},
-\textbf{COX17}, downregulated in or resistant clone, is a human copper chaperone, that binds cisplatin \cite{katano2002acquisition, zhao2014cisplatin}, \textbf{CYP27A1} is more specific in hapatocellular carcinome but also seem to be expressed in high grade breast tumors \cite{liang2019cyp27a1, wu201327}, \textbf{SLC31A2}, are membrane transporters known to be downregulated in resistance \cite{bai2017structural}. Other significant genes that could be under consideration for further validations in our cisplatin related data sets were \textbf{DST}  \cite{salerno2016human,lee2012differentially}, \textbf{HMGCS1} \cite{walsh2020mevalonate},
+\textbf{COX17}, downregulated in or resistant clone, is a human copper chaperone, that binds cisplatin \cite{katano2002acquisition, zhao2014cisplatin}, \textbf{CYP27A1} is more specific in hapatocellular carcinoma but also seem to be expressed in high grade breast tumors \cite{liang2019cyp27a1, wu201327}, \textbf{SLC31A2}, are membrane transporters known to be downregulated in resistance \cite{bai2017structural}. Other significant genes that could be under consideration for further validations in our cisplatin related data sets were \textbf{DST}  \cite{salerno2016human,lee2012differentially}, \textbf{HMGCS1} \cite{walsh2020mevalonate},
 \textbf{TAGLN} \cite{wu2014transgelin, elsafadi2020transgelin},
 \textbf{KRT16} \cite{huang2019novel},
 \textbf{IFITM3} \cite{liu2019ifitm3} and
@@ -368,7 +448,7 @@ In addition, other \textbf{cisplatin} related set of genes in this PDX comprised
 % \usepackage{graphicx}
 \begin{table}[]
 \caption{Upregulated common genes in resistant clones of all TNBC PDX}
-\resizebox{0.65\textwidth}{!}{
+\resizebox{0.55\textwidth}{!}{
 \begin{tabular}{lllll}
 \hline
 PW             & APKAPK5-AS1    & CCDC28B \\
@@ -416,12 +496,12 @@ In \textbf{SA535} treated with \textbf{CX-5461}, the differential expression of 
 \textbf{POLR2C} mutation is known to progress ovarian cancers and its found downregulated in our resistant clone \cite {moriwaki2017polr2c} and
 \textbf{OLFM4} is reported to be highly expressed in cancers, including gastric cancer, colon cancer, and pancreatic cancer and to promote tumor progression by inducing cell cycle progression and enhancing tumor invasion and metastasis \cite{ashizawa2019olfm4}.
 
-\subsubsection{Trend of genes common in all four TNBC PDX under chemotherapy}
-We next asked whether there is drug induced adaptive expression of common genes that could be seen in all timeseries. 
- Few genes were enlisted that were found to be increasing monotonically in all 4 TNBC PDX series. We recorded their expression at each time under various experimental conditions in all timeseries. Some of common genes were ASPH, CDKN2, RAB10, RCAN1, SCARB2, PAPOLA, UBE3C and YY1. The representative line trajectories from \textbf{ASPH}, which is known to be upregulated in breast carcinoma, hepatic carcinoma, cervical cancer and ovarian cancer and contributes to enhancing cell migration  \cite{zheng2020diverse,li2018expression, hou2018recent, lin2019asph}, tend to rise under the drug in all series but less significantly in SA535 treated with cisplatin \textbf{\autoref{fig:commongenesfromvolcanoplots} a}. 
-\textbf{RAB10,(Member RAS Oncogene Family)} is also found to be increasing monotonically with each cycle of drug in all 4 TNBC PDX \textbf{\autoref{fig:commongenesfromvolcanoplots} b}. It has been recently demonstrated to be aberrantly expressed in some of the cancers and show biological significance in tumor progression and prognosis,  especially, in hepatocellular carcinoma \cite{wang2017rab10, he2002identification, jiang2016mir}. 
-Another gene, \textbf{UBE3C} also seem to establish high expression in all 4 PDXs but more significantly in SA609 and SA535, treated with cisplatin \textbf{\autoref{fig:commongenesfromvolcanoplots} c}. The role of aberrant expression of ubiquitin Protein ligase E3C (UBE3C) has not been widely studied in triple negative breast cancers but in ovarian cancer, gastric cancer, renal cell carcinome and melanoma, it is known to promote proliferation and invasion and inhibition of apoptosis by activating the β-catenin signaling possibly via degradation of AXIN1 \cite{xiong2019mir, pan2015ubiquitin, zhang2020ube3c}.
- Zinc-finger protein \textbf{Yin Yang 1 (YY1)}, In our data, YY1 expression remained high under the drug as compare to most of untreated timepoints \textbf{\autoref{fig:commongenesfromvolcanoplots} c}. YY1 generally overexpressed in breast cancer cells 
+\subsubsection{Trend of common genes in all four TNBC PDX under chemotherapy}
+Next, we asked whether there is drug induced adaptive expression of common genes that could be seen in all timeseries. 
+ Few genes were enlisted that were found to be increasing monotonically in all 4 TNBC PDX series. We recorded their expression at each time under various experimental conditions in all timeseries. Some of common genes were  \textit{\textbf{ASPH, CDKN2, RAB10, RCAN1, SCARB2, PAPOLA, UBE3C and YY1}}. The representative line trajectories from \textbf{ASPH}, which is known to be upregulated in breast carcinoma, hepatic carcinoma, cervical cancer and ovarian cancer and contributes to enhancing cell migration  \cite{zheng2020diverse,li2018expression, hou2018recent, lin2019asph}, tend to rise under the drug in all series but less significantly in SA535 treated with cisplatin \textbf{\autoref{fig:commongenesfromvolcanoplots} a}. 
+ \textit{\textbf{RAB10, (Member RAS Oncogene Family)}} is also found to be increasing monotonically with each cycle of drug in all 4 TNBC PDX \textbf{\autoref{fig:commongenesfromvolcanoplots} b}. It has been recently demonstrated to be aberrantly expressed in some of the cancers and show biological significance in tumor progression and prognosis,  especially, in hepatocellular carcinoma \cite{wang2017rab10, he2002identification, jiang2016mir}. 
+Another gene,  \textit{\textbf{UBE3C}} also seem to establish high expression in all 4 PDXs but more significantly in SA609 and SA535, treated with cisplatin \textbf{\autoref{fig:commongenesfromvolcanoplots} c}. The role of aberrant expression of ubiquitin protein ligase E3C (UBE3C) has not been widely studied in triple negative breast cancers but in ovarian cancer, gastric cancer, renal cell carcinoma and melanoma, it is known to promote proliferation and invasion and inhibition of apoptosis by activating the $\beta$-catenin signaling possibly via degradation of  \textit{AXIN1} \cite{xiong2019mir, pan2015ubiquitin, zhang2020ube3c}.
+  Zinc-finger protein  \textit{\textbf{Yin Yang 1 (YY1)}}, In our data, YY1 expression remained high under the drug as compare to most of untreated timepoints \textbf{\autoref{fig:commongenesfromvolcanoplots} c}. YY1 generally over expressed in breast cancer cells 
 is uniformly highly over-expressed in a wide range of human cancers including human colon cancer tissue samples. It involves numerous genes involved in cell proliferation, cell cycle, survival and cellular metabolism.  \cite{wan2012yin, chinnappan2009transcription, meliala2020biological}. Literature indicates that YY1 possesses a great potential as a biomarker for many cancers and can serve as a therapeutic target to impede cancer progression or sensitize cancer cells to chemotherapies \cite{wan2012yin, chinnappan2009transcription, meliala2020biological, shi2015role}.
 
 \subsubsection{Proportions of genes \textit{in cis} and \textit{in trans} from various database}
@@ -440,10 +520,10 @@ First we pulled the reference genes from these database that were intersecting w
 %------------------------------------------------------------------------
  \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{Figures/pathwaysevolution.pdf}
+\includegraphics[width=\textwidth]{Figures/pathwaysevolution.png}
 \caption[Summary of number of genes \textit{in-cis} and \textit{in-trans}]
 	{\small
-	\textbf{Pathways comparison over time under chemotherrapy in all PDX series}
+	\textbf{Pathways comparison over time under chemotherapy in all PDX series}
 	Vertical left column enlist the pathways analysed. Horizontal axis at the bottom, represents the comparisons made between the time points and the treatment status. each single `T' indicates the number of cycles of the treatment from cisplatin. Each `X' indicates number of cycles of CX-5461 treatment. Colour intensity identifies normalized enrichment score (NES). Horizontal axis on top denotes the IDs of TNBC PDX. A normalized enrichment score (NES) was calculated from a ranked gene set enrichment analysis (GSEA) \cite{shi2007gene} performed on each subset of differentially expressed genes using the hallmark gene set collection from MSigDB \cite{liberzon2015molecular}.  Significantly enriched pathways (adjusted p-value $<$ 0.01).
 }
     \label{fig:pathwaysevolution}
@@ -451,7 +531,7 @@ First we pulled the reference genes from these database that were intersecting w
 %-------------------------------------------------------------------
 \begin{figure}
 \centering
-  \includegraphics[width=\textwidth]{Figures/pathwaysnetwork.pdf}
+  \includegraphics[width=\textwidth]{Figures/pathwaysnetwork .png}
 \caption[Pathways enrichment analysis of PDX timeseries]
 	{\small
 	\textbf{Pathways enrichment analysis of PDX timeseries.}
@@ -469,15 +549,15 @@ To assess the common pathways and their network connections,
 we profiled pathways enrichment scores between the resistant and sensitive clones of all TNBC PDX. 
 Pathways specific differentially expressed genes were included in network enrichment analysis and the nodes were coloured by NES value. Interestingly, SA1035 TNBC PDX demonstrated only three upregulated pathways in resistant versus sensitive clone, including oxidative phosphorylation (OXPHOS), Interferon alpha response \cite{provance2019deciphering} and interferon gamma response \cite{mojic2018dark} \textbf{\autoref{fig:pathwaysnetwork} a, second column}. \ac{OXPHOS} is known to be upregulated in cisplatin related drug resistance mechanism \cite{lee2017myc}. The later two pathways are not well studied in relation to tumor progression or drug resistance but there are some speculative research related to these interferons and cancer related immune mechanisms. In contrast to other TNBC PDX, SA1035 resistant clone also evinced downregulated pathways of hypoxia, TNFA signaling via NF-$\kappa$B, \ac{EMT}, MTORC1 signaling, KRAS signaling and apoptosis {\textbf{\autoref{fig:pathwaysnetwork} c}}. The genes involved in these pathways are shown in \textbf{\autoref{fig:genenetworkanalysis} b}.
 
-In addition to SA1035, only SA535 timeseries that was treated with CX-5461 showed interferons pathways upregulation. However, the rest of 3 TNBC PDX, SA609,SA535-cisplatin treated and SA535-CX-5461 treated, showed commonly upregulated certain pathways, including, TNFA signaling via NF-$\kappa$B \cite{lagunas2008nuclear,ito2015down, ryan2019targeting}, Hypoxia \cite{lee2012hypoxia, mcevoy2015identifying, deben2018hypoxia,li2019erk}, Apoptosis \cite{panaretakis2012cisplatin}, TGF Beta signaling \cite{zhang2019tgfbeta1} and Estrogen response \cite{zhu2018er}. E2F targets \cite{zheng2020upregulation} and G2M checkpoint \cite{visconti2016cell} were common between SA609 and SA535-CX5461 treated \textbf{\autoref{fig:pathwaysnetwork} a, first, third and fourth columns}. 
+In addition to SA1035, only SA535 timeseries that was treated with CX-5461 showed interferons pathways upregulation. However, the rest of 3 TNBC PDX, SA609, SA535-cisplatin treated and SA535-CX-5461 treated, showed commonly upregulated certain pathways, including, TNFA signaling via NF-$\kappa$B \cite{lagunas2008nuclear,ito2015down, ryan2019targeting}, Hypoxia \cite{lee2012hypoxia, mcevoy2015identifying, deben2018hypoxia,li2019erk}, Apoptosis \cite{panaretakis2012cisplatin}, TGF Beta signaling \cite{zhang2019tgfbeta1} and Estrogen response \cite{zhu2018er}. E2F targets \cite{zheng2020upregulation} and G2M checkpoint \cite{visconti2016cell} were common between SA609 and SA535-CX5461 treated \textbf{\autoref{fig:pathwaysnetwork} a, first, third and fourth columns}. 
 
 To potray pathway specificity in resistant versus sensitive clones, we explored \textbf{SA609 TNBC PDX}, which was  comprised of TGF Beta signaling, Hypoxia, TNFA signaling via NF-$\kappa$B, Cholesterol homeostasis, peroxisome and apoptosis \textbf{\autoref{fig:pathwaysnetwork} b}. In addition to these, G2M checkpoint and E2F targets were found to be upregulated with $>$40 common genes between these two pathways. Mitotic spindle pathway upregulation was also associated with sharing of $>$10 genes with E2F and G2M check point pathways \textbf{\autoref{fig:genenetworkanalysis} a}.
 
 %------------------------------------------------------------------------
 
-\subsubsection{SA535 TNBC PDX reveals specificity of drugs in pathway network inference} 
-As \textbf{SA535 TNBC PDX} was treated with two different drugs, cisplatin and CX-5461, \textbf{\autoref{fig:SA535CX5461} a}, in parallel, so we explored how many pathways are comparable in these two series and which ones are distinct or unique to one of the specific drug. 
-We found around \textbf{11 related pathways} were upregulated and only one, which was \ac{OXPHOS}, was down regulated in both series, suggesting their specificity to the tumor itself. The list of these pathways encompass \textbf{TNFA signaling via NF-$\kappa$B, hypoxia, apoptosis, UV response\_UP, KRAS signaling\_up, Inflammatory response, epithelial mesenchymal transition, TGF Beta signaling, Estrogen response and P53 pathways \textbf{\autoref{fig:pathwaysnetwork} a (third \& fourth column upper half), d, e}.} However, there were certain pathways that were definitive to one of the two drugs. The cisplatin treated resistant clone was found to have exclusively upregulated pathways including \textbf{MTORC1 signaling \cite{peng2010role}, KRAS signaling\_DN \cite{tao2014oncogenic}, IL-2\_STAT5 signaling \cite{wu2020activation, gutierrez2020role}, Hallmark\_apical\_surface} (Genes encoding proteins over-represented on the apical surface of epithelial cells, e.g., apical area important for cell polarity) \cite{halaoui2015rewiring, wodarz2007cell}, \textbf{UV response\_DN (including UV\_response\_Via\_ERCC3\_TTD\_DN
+\subsubsection{SA535-TNBC PDX reveals specificity of drugs in pathway network inference} 
+As \textbf{SA535-TNBC PDX} was treated with two different drugs, cisplatin and CX-5461, \textbf{\autoref{fig:SA535CX5461} a}, in parallel, so we explored how many pathways are comparable in these two series and which ones are distinct or unique to one of the specific drug. 
+We found around \textbf{11 related pathways} were upregulated and only one, which was \ac{OXPHOS}, was down regulated in both series, suggesting their specificity to the tumor itself. The list of these pathways encompass \textbf{TNFA signaling via NF-$\kappa$B, hypoxia, apoptosis, UV response\_UP, KRAS signaling\_up, Inflammatory response, epithelial mesenchymal transition, TGF Beta signaling, Estrogen response and p53 pathways \textbf{\autoref{fig:pathwaysnetwork} a (third \& fourth column upper half), d, e}.} However, there were certain pathways that were definitive to one of the two drugs. The cisplatin treated resistant clone was found to have exclusively upregulated pathways including \textbf{MTORC1 signaling \cite{peng2010role}, KRAS signaling\_DN \cite{tao2014oncogenic}, IL-2\_STAT5 signaling \cite{wu2020activation, gutierrez2020role}, Hallmark\_apical\_surface} (Genes encoding proteins over-represented on the apical surface of epithelial cells, e.g., apical area important for cell polarity) \cite{halaoui2015rewiring, wodarz2007cell}, \textbf{UV response\_DN (including UV\_response\_Via\_ERCC3\_TTD\_DN
 and UV\_response\_Via\_ERCC3\_XPCS\_DN) and androgen response pathways \cite{rampurwala2016role, michmerhuizen2020we}.}
 
 Within cisplatin treated activated pathways, \textbf{hypoxia, TNFA signaling via NF-$\kappa$B, MTORC1, estrogen response and inflammatory response} related pathways share the most common genes among their network \textbf{\autoref{fig:pathwaysnetwork} e}. The genes that are expressed are shown in  \textbf{\autoref{fig:genenetworkanalysis} c}. However, CX-5461 treated resistant clone came up particularly with \textbf{G2M checkpoint, E2F targets, IL-6\_JAK\_STAT3 signaling, angiogenesis, complement system} (Genes encoding components of the complement system, which is part of the innate immune system), \textbf{ interferon alpha response, interferon gamma response and glycolysis} \textbf{\autoref{fig:pathwaysnetwork} d}. Among these pathways, G2M checkpoint and E2F targets pathways shares $>$30 genes, whereas, \ac{EMT}, TNFA signaling via NF-$\kappa$B, hypoxia and glycolysis shares $>$ 15 genes. The gene network with related pathways are shown in  \textbf{\autoref{fig:genenetworkanalysis} d}. 
@@ -485,12 +565,13 @@ Within cisplatin treated activated pathways, \textbf{hypoxia, TNFA signaling via
 %------------------------------------------------------------------------
 \begin{figure}
 \centering
- \includegraphics[width=\textwidth]{Figures/generegressionanalysis.pdf}
+ \includegraphics[width=\textwidth]{Figures/generegressionanalysis.png}
 	
 \caption[Gene expression changes over time]
 	{\small
-	 \textbf{Gene expression changes over time in all 4 TNBC PDX timseries} .
-	}
+	 \textbf{Gene expression changes over time in all 4 TNBC PDX timseries}.
+	Horizontal axis represents time point passages while vertical axis denotes the eman log2 count of single cell expression level. Three line trjetories indicates treated, un-treated and drug-holiday samples. }
+
 	\label{fig:generegressionanalysis}
 \end{figure}
 
@@ -501,7 +582,7 @@ To understand the stability of gene expression throughout the treatment, we perf
 
 To evaluate the spectrum of single gene expression at each time point, we designated atleast 4 genes from each of the 4 TNBC PDX from regression analysis \textbf{\autoref{fig:generegressionanalysis} e-h}. 
 
- From SA609, \textbf{ DNA binding2 (ID2)} is shared between \textbf{TGF-Beta signaling and EMT} in our dataset. It is a key regulator of breast cancer metastasis to the brain. Overexpression of ID2 is known to increase proliferation, self-renewal, and expression of the putative stemness markers and inhibitors of DNA binding2 represents a novel and promising therapeutic target for treating some of the cancers \cite{bae2017inhibitor, kijewska2019using}. This gene seems to be monotonically increasing from first cisplatin treatment cycle to the fourth. \textbf{Mitochondrial fission 1(FIS1), peroxisome pathway}, is a mitochondrial dynamics-regulating gene, also found to be monotonically increasing with treatment cycle. Its overexpression prevents mitochondria elongation, which would otherwise lead to cell cycle delay or arrest \cite{fan2015mir, anderson2018dysregulation}. \textbf{CRABP1, peroxisome pathway} is an adverse prognostic factor and a potent inhibitor of retinoic acid (RA) action in breast cancer. It could serve as a biomarker to predict RA response \cite{liu2015crabp1}. \textbf{MYC} from MYC targets V1, another example of having monotonically increasing expression \textbf{\autoref{fig:generegressionanalysis} e, first panel}. It has been recently recognized that high MYC mRNA expression is more Clinically relevant than MYC DNA Amplification in triple-negative breast cancer \cite{chen2008myc, katsuta2020high}.
+ From SA609, \textbf{ DNA binding2 (ID2)} is shared between \textbf{TGF-Beta signaling and EMT} in our dataset. It is a key regulator of breast cancer metastasis to the brain. Overexpression of ID2 is known to increase proliferation, self-renewal, and expression of the putative stemness markers and inhibitors of DNA binding2 represents a novel and promising therapeutic target for treating some of the cancers \cite{bae2017inhibitor, kijewska2019using}. This gene seems to be monotonically increasing from first cisplatin treatment cycle to the fourth. \textbf{Mitochondrial fission 1 (FIS1), peroxisome pathway}, is a mitochondrial dynamics-regulating gene, also found to be monotonically increasing with treatment cycle. Its overexpression prevents mitochondria elongation, which would otherwise lead to cell cycle delay or arrest \cite{fan2015mir, anderson2018dysregulation}. \textbf{CRABP1, peroxisome pathway} is an adverse prognostic factor and a potent inhibitor of retinoic acid (RA) action in breast cancer. It could serve as a biomarker to predict RA response \cite{liu2015crabp1}. \textbf{MYC} from MYC targets V1, another example of having monotonically increasing expression \textbf{\autoref{fig:generegressionanalysis} e, first panel}. It has been recently recognized that high MYC mRNA expression is more Clinically relevant than MYC DNA Amplification in triple-negative breast cancer \cite{chen2008myc, katsuta2020high}.
 
 From SA1035, we plotted timepoint trajectories of \textbf{MDK}, a growth factor, is recently reported as a key player in cancer progression and a promising therapeutic target \cite{filippou2020midkine}. It showed positive dynamics with continuous drug treatment. 
 \textbf{NDUFB4, COX6C and UQCRB}, all from \ac{OXPHOS} pathway stayed very close to untreated expression levels in the initial few cycles but at the last time point, all of them diverges from untreated \textbf{\autoref{fig:generegressionanalysis} f.} Mitochondrial \textbf{UQCRB} is known as a molecular prognostic biomarker in colorectal cancer \cite{kim2017mitochondrial}.

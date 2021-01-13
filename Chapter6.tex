@@ -5,9 +5,10 @@
 \label{ch:Chapter6}
 
 \section{Major findings}
+Predicting the dynamics of malignant cells in cancers and deconstructing the molecular basis of resistance and metastasis can be achieved by repeated observation of cell populations with shared genotypes and phenotypes. In this thesis project we have applied this concept to show that cell population dynamics in cancer can be resolved by assigning cells to specific clones, defined by copy number. We repeatedly observe the similar fitness coefficients for the same copy number genotypes, showing deterministic behaviour. The fitness differences between most clones is small, despite large changes in clone prevalence over time.
 
 
-\subsection{Identification and confirmation of a significant transcriptomic signature}
+\subsection{Identification and confirmation of a significant transcriptomic signature under various conditions}
 
 In chapter 3, we set out to assess the impacts of tissue dissociation and data analysis quality control, taking advantage of a recently described protease active at low temperatures (on ice), to contrast the effects of low temperature protease solid tissue dissociation with those of more routinely used collagenase at 37\textdegree C. Identification and confirmation of a significant transcriptomic signature comprising 512 core genes in response to collagenase tissue digestion at 37\textdegree C. Significantly, this signature is highly confounded with known cancer biology, comprising a large number of tumour stress and resistance markers. We demonstrate for the first time that this signature can be mitigated by tissue digestion with a cold protease (active at 6\textdegree C) derived from a Himalayan glacier resident bacterial species.
 Predominantly, we FACS sorted lymphoblastoid cells into live, dying, and dead populations (with/without induction of cell death with TNF-alpha) to characterize the efficacy of standard scRNA-seq QC practices on removing dead and dying cells. In doing so, we identify a subset of dead cells which would not be filtered by standard practices. We reported that cells that were FACS sorted as either live, dying, or dead (with/without induction of cell death with TNF-alpha), were present in all three clusters, emphasizing that the although the transcriptomic state and and the surface marker of the cell are correlated but they are not the same. Such concepts are implicative  of ``pseudotime'' in single-cell trajectory analysis, whereby developmentally ordering cells transcriptomically can lead to early or late cells being placed at variable positions along the pseudotime trajectory \cite{campbell2018descriptive, campbell2018uncovering}. 
@@ -15,34 +16,110 @@ Predominantly, we FACS sorted lymphoblastoid cells into live, dying, and dead po
  
  Finally, our experiments concluded that digestion by collagenase causes upregulation of the gene set at all time points, with a subset showing further upregulation as digestion time increases.
 
-\subsection{Copy number could be associated with clonal fitness in Tp53 mutant human breast cancers}
- clonal expansions observed during serial passaging of TP53 mutant human breast cancer cells, through serial passaging, single cell sequencing and fitness modeling of four patient derived xenografts. Bulk WGS and DLP+ confirmed all four tumors were p53 mutant (SA609: p.R213X; SA1035: p.C242F; SA532: p.A159P; SA535: frameshift chr17:7578490) with bi-allelic and truncal distribution across clones. We first studied clonal evolution in untreated PDX models, sampled over 927 days for HER2+ SA532, 619 days for TNBC-SA609, 381 days for TNBC-SA1035 and 353 days for TNBC-SA535. DLP+ were generated and sequenced, yielding a median of 1,116 single cell genomes per sample (95,275XY total cells). 
+\subsection{Copy number could be associated with clonal fitness in \textit{Tp53} mutant human breast cancers}
+From chapter 4, clonal expansions were observed in \textit{TP53} mutant human breast cancer cells, through serial passaging, single cell sequencing and fitness modeling of four patient derived xenografts. Bulk WGS and DLP+ confirmed all four tumors were p53 mutant (SA609: p.R213X; SA1035: p.C242F; SA532: p.A159P; SA535: frameshift chr17:7578490, \textbf{\autoref{tab:Tp53mutationofPDX}} with bi-allelic and truncal distribution across clones.
+We first studied clonal evolution in untreated PDX models, sampled over 927 days for HER2+ SA532, 619 days for TNBC-SA609, 381 days for TNBC-SA1035 and 353 days for TNBC-SA535. DLP+ were generated and sequenced, yielding a median of 1,116 single cell genomes per sample (95,275XY total cells). 
 
-All series exhibited progressively higher tumour growth rates over time. In contrast to SA532 (HER2 positive), all TNBC PDX models exhibited evidence of clonal diversification associated with copy number alterations and selective coefficients consistent with positive selection over time textbf{\autoref{fig:landscapefitness}}.  In SA535 TNBC, three major clones were observed with clone G characterized by loss of chromosome X exhibiting a clonal expansion from minor prevalence as passage X5 to near dominance at 76\% at passage X9.  Similar patterns were observed for the other TNBC cases.  For SA1035, 11 clones were detected with clone E expanding to 69\% at passage X8 from minor prevalence at the initial timepoint.  The predicted selective coefficient of clone E was(1+s = 1.06 $\pm$ 0.03) . By contrast, Clones A and K had initial prevalences of 20 and 9\% but were not detectable by the last timepoint. For SA609, Clones E  (1+s= 1.07 $\pm$ 0.02 ) and H (1+s=1.02 $\pm$ 0.02) had the highest selective coefficients and exhibited growth from undetectable levels to 59 and 32\% respectively by timepoint X10. To summarize the relative selective coefficients and clonal competition, we computed distributions over the expected difference in clone-specific selective coefficients, derived from the \texttt{fitClone} model fit. In 2 TNBC (but not in the TNBC-SA535 and HER2+SA532 cancer) at least one clone showed a high degree of clonal fitness indicative of positive selection textbf{\autoref{fig:landscapefitness}} and non-neutral clonal dynamics.
+All series exhibited progressively higher tumour growth rates over time. In contrast to SA532 (HER2 positive), all TNBC PDX models exhibited evidence of clonal diversification associated with copy number alterations and selective coefficients consistent with positive selection over time \textbf{\autoref{fig:landscapefitness}}. 
+For SA609, Clones E  (1+s= 1.07 $\pm$ 0.02) and H (1+s=1.02 $\pm$ 0.02) had the highest selective coefficients and exhibited growth from undetectable levels to 59 and 32\% respectively by timepoint X10.
+In SA535 TNBC, three major clones were observed with clone G characterized by loss of chromosome X exhibiting a clonal expansion from minor prevalence as passage X5 to near dominance at 76\% at passage X9.  Similar patterns were observed for the other TNBC cases.  
+For SA1035, 11 clones were detected with clone E expanding to 69\% at passage X8 from minor prevalence at the initial timepoint.  The predicted selective coefficient of clone E was(1+s = 1.06 $\pm$ 0.03) . By contrast, Clones A and K had initial prevalences of 20 and 9\% but were not detectable by the last timepoint. 
+
+Having established quantification of CNA associated subclone fitness, we next asked how clone-specific fitness is influenced under drug treatment. We tested how cisplatin, a standard therapy for primary TNBC,  impacted the stability of the fitness landscape of the three independent PDX TNBC series (TNBC-SA609, TNBC-SA535, TNBC-SA1035).
+
+For TNBC-SA609, we implemented a more extensive experimental design to account for potential differences in transplantation from fresh tissues relative to those subjected to a freeze-thaw cycle used in serial propagation between X3 and X4. Three treated lines and Line 2 untreated samples were propagated from an X3 frozen sample, whereas Line 1 untreated samples were propagated from dissociation of a fresh specimen. Technical replicates were also collected for Line 1 and 2.    
+
+In each series, we observed an inversion of the clone fitness landscape \textbf{\autoref{fig:landscapefitness}}, left and right panels), resulting in suppression of clones that dominated in the absence of treatment and emergence of low fitness and/or previously unobserved CNA genotypes. For example, in the treatment branch of TNBC-SA609 Line 2, the growth dynamics over (X3 U; X4 UT; X5 UTT; X6 UTTT; X7 UTTTT) and fitClone modeling revealed that a new Clone R1 - constituting a branch of the phylogeny derived from clone B,  monotonically increased on treatment. A technical replicate of X7 in Line 2 showed a similar composition and nearly all cells consisted of Clones B and R1.  In Line 1, a sibling clone of R1, clone R reproducibly swept to fixation on treatment. Notably, after the first treatment cycle, all three lines showed expansion of clone B and its derivative R at timepoint X4 and a contraction of clone H. 
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{Figures/All3barplots.pdf}
+\caption[Summary of number of genes \textit{in-cis} and \textit{in-trans}]
+	{\small
+	\textbf{}
+	Observed clonal abundances in TNBC-SA609, TNBC-SA535-Rx and TNBC-SA1035-Rx, for each tumor sampled for scWGS. Right vertical axis represents the line. Right panels show clonal phylogenies.
+}
+    \label{fig:All3barplots}
+    \end{figure}
+
+Notably, the high fitness clones H, G, D from the untreated series exhibited low fitness coefficients in the treatment series and were no longer detected \textbf{\autoref{fig:landscapefitness}}, refsupfig{sfig:rxpdxdynamics} e). This was evident in the relative fitness ranking \textbf{\autoref{fig:landscapefitness} d}, clone bipartite fitness rank) and absolute fitness values (reffig{fig:landscape} d, probability of positive selection). Conversely, Clones A, B,  and C, comprising a low fitness phylogenetic superclade, distinct from high fitness clone H in the untreated series, were the precursors to the resistant clone R (reffig{fig:landscape}, refsupfig{sfig:rxpdxdynamics} e). 
+
+In the TNBC-SA535 and TNBC-SA1035 treatment series, similar patterns of low fitness clones in the untreated series expanding on treatment (clone A, in TNBC-SA535; clones G, H, in TNBC-SA1035), with the fittest clones under no treatment (e.g. TNBC-SA535 clone G; TNBC-SA1035 clone E) decreasing to near zero prevalence. The majority of the other clones were also impacted by treatment in all three series. For example, in SA535, the relative fitness rank of Clone G fell from first to sixth and clone B fell from third to tenth.  Clone H increased from sixth to second and Clone J from seventh to third.  
+
+In SA1035, Clone E fell from first to seventh and clone A fell from third to eighth. Clone G increased from tenth to second.  The impact across the whole fitness landscape was reflected in the probability of positive selection distributions.  These distributions were statistically significantly increased in the treatment series  (reffig{fig:landscape} d), indicating that fewer clones were under neutral selection as a function of cisplatin, and that the fitness landscape exhibited a wider variance between clones.
+
+For example, in the treatment branch of TNBC-SA609 Line 2, the growth dynamics over (X3 U; X4 UT; X5 UTT; X6 UTTT; X7 UTTTT) and \texttt{fitClone} modeling revealed that a new Clone R1 - constituting a branch of the phylogeny derived from clone B,  monotonically increased on treatment.  A technical replicate of X7 in Line 2 showed a similar composition - nearly all cells consisted of Clones B and R1.  In Line 1 a sibling clone of R1, clone R reproducibly swept to fixation on treatment.  Notably, after the first treatment cycle, all three lines showed expansion of clone B and its derivative R at timepoint X4 and a contraction of clone H.
+
+In each series, we observed an inversion of the clone fitness landscape (reffig{fig:landscape}, left and right panels), resulting in suppression of clones that dominated in the absence of treatment and emergence of low fitness and/or previously unobserved CNA genotypes.
 
 
 \subsection{Clone specific genotypes drives clone-specific gene expression programs}
 
+After establishhing the fitness of genomic clones in the presence or absence of chemotherapies in chapter 4, we next sought to uncover the basis of how copy number variation alters gene expression in complex cell mixtures. In parallel, we sequenced single-cell RNA from independent cell populations and mapped for genome-transcriptome association. 
+We were able to assign gene expression states to cancer clones using single-cell RNA and DNA sequencing independently sampled from a heterogeneous cell populations. We also demonstrated that single cell RNAseq clusters exhibited comparably monomorphic pattern of global expression over time which could be tracked with clonal assignments.
+
+\subsubsection{SA609-TNBC-gene regulation status of resistant versus sensitive clone}
+Pairwise comparisons of clone-specific differential gene expression in \textbf{SA609} , between resistant clone R and sensitive clone H (FDR$<$0.01, p$<$0.05), identified 926 genes having clone specific copy number increase in expression \textit{(incis\_IU)}, whereas, 435 genes were downregulated with decrease in copy number \textit{(incis\_DD)}. However, 850 genes were downregulated and 738 were upregulated and 975 were downregulated independent of change in copy number \textit{in trans} \textbf{(\autoref{fig:Volcanotrackplots2.pdf} a, left)}. The Manhattan plot establishing the increase and decrease in copy number between clones at that genomic position and its respective change in gene expression \textbf{(\autoref{fig:Volcanotrackplots2.pdf} a, right)}.
+
+
+ % Table generated by Excel2LaTeX from sheet 'SA609_nb_genes_incisintrans'
+ \begin{table}[htbp]
+   \centering
+   \caption{Number of genes in DE of resistant versus sensitive clones and their regulation status in all TNBC PDX series}
+     \begin{tabular}{|l|l|l|}
+     \hline
+     \multicolumn{1}{|l|}{\textbf{No. of genes}} & \multicolumn{1}{|l|}{\textbf{Percent genes (\%)}} & \textbf{Gene regulation} \\
+     \hline
+     \multicolumn{1}{|l|}{\textbf{SA609-TNBC}} &   &  \\
+     438 & 12.9 & In\_cis\_Decrease\_DownRegulated \\
+     76 & 2.2 & In\_cis\_Decrease\_UpRegulated \\
+     214 & 6.3 & In\_cis\_Increase\_DownRegulated \\
+     926 & 27.3 & In\_cis\_Increase\_UpRegulated \\
+     966 & 28.4 & In\_trans\_DownRegulated \\
+     778 & 22.9 & In\_trans\_UpRegulated \\
+     \multicolumn{1}{|l|}{\textbf{SA1035-TNBC}} &   &  \\
+     93 & 2.6 & In\_cis\_Decrease\_DownRegulated \\
+     18 & 0.5 & In\_cis\_Decrease\_UpRegulated \\
+     19 & 0.5 & In\_cis\_Increase\_DownRegulated \\
+     116 & 3.3 & In\_cis\_Increase\_UpRegulated \\
+     1661 & 47.2 & In\_trans\_DownRegulated \\
+     1612 & 45.8 & In\_trans\_UpRegulated \\
+     \multicolumn{1}{|l|}{\textbf{SA535-TNBC-cisplatin}} &   &  \\
+     473 & 9.8 & In\_cis\_Decrease\_DownRegulated \\
+     271 & 5.6 & In\_cis\_Decrease\_UpRegulated \\
+     43 & 0.9 & In\_cis\_Increase\_DownRegulated \\
+     253 & 5.2 & In\_cis\_Increase\_UpRegulated \\
+     1068 & 22.1 & In\_trans\_DownRegulated \\
+     2716 & 56.3 & In\_trans\_UpRegulated \\
+     \multicolumn{1}{|l|}{\textbf{SA535-TNBC-CX-5461}} &   &  \\
+     697 & 21.5 & In\_cis\_Decrease\_DownRegulated \\
+     91 & 2.8 & In\_cis\_Decrease\_UpRegulated \\
+     45 & 1.4 & In\_cis\_Increase\_DownRegulated \\
+     345 & 10.6 & In\_cis\_Increase\_UpRegulated \\
+     924 & 28.5 & In\_trans\_DownRegulated \\
+     1145 & 35.3 & In\_trans\_UpRegulated \\
+     \hline
+     \end{tabular}%
+   \label{tab:NumberofDEgenesandstatus}%
+ \end{table}%
 
 
 
-In high fitness clones with high level amplifications as distinguishing features, we noted accompanying \textit{in cis} clone-specific differential gene expression in CRABP1 in resistant clone of SA609 TNBC PDX (clone R with XY copies of Chr15q) and  TCF4 in resistant clone of SA609 (clone R with XY copies of Chr20q) and of TNBC
-CRABP1 on chr15p, TCF4 on chr 18q 
+ 
+
+
+In high fitness clones (resistant) with amplifications as distinguishing features, we noted accompanying \textit{in cis} clone-specific differential gene expressions, for example, \textit{CRABP1} in resistant clone of SA609 TNBC PDX (clone R with copies of Chr15q) and  \textit{TCF4} in clone R with 3 copies of Chr20q).
+
+
+Together these data indicate that clonal genotypes driving high fitness trajectories are accompanied by changes in gene expression at both chromosomal and focal level copy number alterations.------
 
 
 
 
 
 
-Together these data indicate that clonal genotypes driving high fitness trajectories are accompanied by changes in gene expression at both chromosomal and focal level copy number alterations.
 
 
-
-
-
-
-
-Predicting the dynamics of malignant cells in cancers and deconstructing the molecular basis of resistance and metastasis can be achieved by repeated observation of cell populations with shared genotypes and phenotypes. In this thesis project we have applied this concept to show that cell population dynamics in cancer can be resolved by assigning cells to specific clones, defined by copy number. We repeatedly observe the similar fitness coefficients for the same copy number genotypes, showing deterministic behaviour. The fitness differences between most clones is small, despite large changes in clone prevalence over time.
 
 Here, our novel  and single cell RNA seq analysis data findings that can help in a better comprehension of some widespread and others inherent to more specific biological mechanisms involved in breast cancer progression 
 
@@ -55,8 +132,14 @@ Individual tumors and cancer cells exhibit substantial molecular diversity.
 Single cell RNA seq analysis data can help in a better comprehension of some widespread and more specific biological mechanisms involved in breast cancer progression.
 
 
+\section{Limitations and future directions}
 
+ Furthermore, the focus of this work has been on linking transcriptional measurements to genomically defined clones assuming only a copy-number dosage effect on transcript abundance. While the clonealign model allows for integration of allelic imbalance information caused by clone-specific LOH events, the sparse expression of germline heterozygous variants detected by the 10X chromium 3 ′ assay demonstrated here makes such information uninformative (Additional file 2: Supplementary text section 3). However, full-transcript-length single-cell RNA sequencing technologies such as Smart-seq2 [29] would allow for further refinement of clonal assignment and represent the appropriate use-case of clonealign’s incorporation of allelic imbalance information.
+ 
+ 
+ 
+ 
+ 
+ 
+ Single cell RNA seq analysis data can help in a better comprehension of some widespread and more specific biological mechanisms involved in breast cancer progression.that could be further validated pertaining to drug resistance in triple negative through modern techniques, such as, CRISPR/Cas9.
 
-that could be further validated pertaining to drug resistance in triple negative 
-
-through modern techniques, such as, CRISPR/Cas9.
