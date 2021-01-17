@@ -63,7 +63,7 @@ Tumor growth measurements record from both PDX serries exhibited increased growt
  
  \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{Figures/Untreatedgrowthcurves.pdf}
+\includegraphics[width=\textwidth]{Figures/Untreatedgrowthcurves.png}
 	
 \caption[Untreated PDX timeseries and growth trajectories]
 	{\small
@@ -156,18 +156,15 @@ We forward simulated 10,000 trajectories using identical selection coefficient v
 
 The analysis of the two mixture series suggests that (i) we can validate the selection coefficients estimated from a timeseries using \texttt{fitClone} and (ii) it is possible make quantitative predictions about the likely trajectories of tumour subpopulations at least at the clade level. Also, in the prediction trajectories plot \textbf{(\autoref{fig:Mixturenew} c, f)}, the time-axis for the observations is shrunk to best match the mean predicted trajectories line (red line). The diffusion time horizon that is obtained by dividing the generation time measured in days by the effective population size estimate results in trajectories that are ahead of the biological system. While in branch a the original time horizon is 0.24 and the best matching time is 0.20, in branch b the values are 0.23 and 0.08 respectively.
 
-
-
-
-
+%-------------------------------------------------
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{Figures/treatedtimeseriesgreen.pdf}
-	
+
 \caption[Experimental overview of TNBC PDX treated time series]
 	{\small
 	\textbf{Experimental overview of TNBC PDX treated time series.}
-	      All nodes representing each PDX tumour were digested to acquire genomes of single cells (~200-600 cells/tumor). Extra replicate tumors at each time point are not shown in the diagram (n=2-4). Grey circles represent un-treated, green represents Cisplatin treated and grey with green outline presents drug-holiday samples \textbf{(a)} SA609-TNBC time series with replicate treated and un-treated branches. DLP+ collected starting from X1 to X10 (Un-Rx line 1). Top grey branch indicating Un-Rx line 2. The middle three branches are cisplatin treated time series replicate branches \textbf{(b)} SA535-TNBC  showing the tumor nodes taken for DLP+ starting from X5 untreated \textbf{(c)} SA1035-TNBC  showing the tumor nodes taken for DLP+ starting from X 4 untreated.}
+	      All nodes representing each PDX tumour were digested to acquire genomes of single cells (~200-600 cells/tumor). Extra replicate tumors at each time point are not shown in the diagram (n=2-4). Grey circles represent un-treated, green represents Cisplatin treated and grey with green outline presents drug-holiday samples \textbf{(a)} SA609-TNBC time series with replicate treated and un-treated branches. DLP+ collected starting from X1 to X10 (Un-Rx line 1). Top grey branch indicating Un-Rx line 2. The middle three branches are cisplatin treated time series replicate branches \textbf{(b)} SA535-TNBC showing the tumor nodes taken for DLP+ starting from X5 untreated \textbf{(c)} SA1035-TNBC showing the tumor nodes taken for DLP+ starting from X 4 untreated.}
 	
 	\label{fig:treatedtimeseriesgreen}
 \end{figure}
@@ -178,7 +175,7 @@ So far we have applied our framework to pharmacologically unperturbed tumor envi
 additional TNBC PDX lines to check the reproducibility  and generalizability of our observation.
 
 \subsubsection{Repeated platinum exposure causes less tumor responsiveness} 
- To test pharmacologic perturbation with cisplatin (platinum) impacted the stability of the fitness landscape of the TNBC series, we generated a separate branch of the SA609-TNBC PDX model where we administered cisplatin (2mg/kg, \textit{Q3Dx8} i.p. max) serially over four successive passages to induce drug resistance along with its un treated control branch. For each serially treated tumour, a parallel set of transplanted mice were left untreated, establishing corresponding drug ‘holiday’ samples (\textbf{See methods for detailed experimental design \textbf{1.1.4}, \textbf{\autoref{fig:treatmentdesignMTD} a)}}. Briefly, We coded the treated passages with `T' and untreated with `U' initialised by the X3 untreated (U) passage in SA609 TNBC, X4 untreated (U) in SA1035 TNBC and X5 untreated (U) in SA535 TNBC \textbf{\autoref{fig:treatedtimeseriesgreen} a, b, c}. In SA609 TNBC, the first treatment passage(\textit{X4 UT}) exhibited rapid tumour shrinkage (>50\% of initial size). However \textit{X5 UTT}, \textit{X6 UTTT} and \textit{X7 UTTTT} had progressively less response, indicating drug resistance and positive growth kinetics \textbf{(\autoref{fig:SA609allcyclescisplatin})}. 
+ To test pharmacologic perturbation with cisplatin (platinum) impacted the stability of the fitness landscape of the TNBC series, we generated a separate branch of the SA609-TNBC PDX model where we administered cisplatin (2mg/kg, \textit{Q3Dx8} i.p. max) serially over four successive passages to induce drug resistance along with its un treated control branch. For each serially treated tumour, a parallel set of transplanted mice were left untreated, establishing corresponding drug `holiday' samples (\textbf{See methods for detailed experimental design \textbf{1.1.4}, \textbf{\autoref{fig:treatmentdesignMTD} a)}}. Briefly, We coded the treated passages with `T' and untreated with `U' initialised by the X3 untreated (U) passage in SA609 TNBC, X4 untreated (U) in SA1035 TNBC and X5 untreated (U) in SA535 TNBC \textbf{\autoref{fig:treatedtimeseriesgreen} a, b, c}. In SA609 TNBC, the first treatment passage(\textit{X4 UT}) exhibited rapid tumour shrinkage (>50\% of initial size). However \textit{X5 UTT}, \textit{X6 UTTT} and \textit{X7 UTTTT} had progressively less response, indicating drug resistance and positive growth kinetics \textbf{(\autoref{fig:SA609allcyclescisplatin})}. 
 
 
 \subsubsection{A new clone evolved and swept to fixation with increasing platinum cycles in SA609-TNBC PDX}
@@ -189,7 +186,7 @@ Decomposing the growth dynamics over (\textit{X3 U}; \textit{X4 UT}; \textit{X5 
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{Figures/SA609allcyclescisplatin.pdf}
+\includegraphics[width=\textwidth]{Figures/SA609allcyclescisplatin.png}
 	
 \caption[Representative growth curves from SA609 TNBC treated with cisplatin]
 	{\small
@@ -368,13 +365,13 @@ Vertical axis on right indicates the tumor status. The top bar gives cycle numbe
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{Figures/SA535combinebarplots .png}
+\includegraphics[width=\textwidth]{Figures/SA535combinebarplots.png}
 	
 \caption[Combined data analysis of SA535 with cisplatin and CX-5461]
 	{\small
 	\textbf{Combined data analysis of SA535 with cisplatin and CX-5461.}
 	   \textbf{(a)} Integer copy number heat map showing vertical columns as chromosomes and each row represent single cell. Red arrows pointing to change in copy number events in that specific clone.
-	    \textbf{(b)} Bar plots showing clonal composition at each time point. Vertical axis shows the clonal fraction   and horizontal axis presents the passage timepoint.
+	    \textbf{(b)} Bar plots showing clonal composition at each time point. Vertical axis shows the clonal fraction and horizontal axis presents the passage timepoint.
 	     \textbf{(c)} Simplified way to present clonal lineage tree matching the bars composition in \textbf{(a)}.
 	}
 	\label{fig:SA535combinebarplots}
