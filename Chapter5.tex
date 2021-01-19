@@ -76,7 +76,7 @@ Next, we asked how much of the expression is accounted by the change in copy num
 %------------------------------------------------------------------------
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{Figures/fig2_clonealignembeddings.png}
+\includegraphics[width=\textwidth]{Figures/chap5/fig2_clonealignembeddings.png}
 	
 \caption[Gene expression impacts of clone-specific copy number profiles]
 	{\small
@@ -109,7 +109,7 @@ Having made the assignments of cells to clones, next, we visualized the data usi
 
 \begin{figure}
 \centering
-  \includegraphics[width=\textwidth]{Figures/fig4Summaryincistrans.png}
+  \includegraphics[width=\textwidth]{Figures/chap5/fig4Summaryincistrans.png}
 	
 \caption[Summary proportion of \textit{in cis} and \textit{in trans} regulated gene expression in scRNAseq data]
 	{\small
@@ -244,7 +244,7 @@ To get the idea of the magnitude of expression differences for most of up and do
 
 \begin{figure}
 \centering
-  \includegraphics[width=\textwidth]{Figures/Volcanotrackplots2.png}
+  \includegraphics[width=\textwidth]{Figures/chap5/Volcanotrackplots2.png}
 \caption[DE of resistant and sensitive clonealign defined clones]
 	{\small
 	\textbf{Differential expression of resistant and sensitive clones.}
@@ -499,7 +499,7 @@ Similarly, we congregated the number of genes upregulated and down regulated \te
 
 \begin{figure}
 \centering
-  \includegraphics[width=\textwidth]{Figures/commongenesfromvolcanoplots.png}
+  \includegraphics[width=\textwidth]{Figures/chap5/commongenesfromvolcanoplots.png}
 	
 \caption[Representative trajectories of 4 common genes upregulated in all PDX]
 	{\small
@@ -605,7 +605,7 @@ First we pulled the reference genes from these database that were intersecting w
 %------------------------------------------------------------------------
  \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{Figures/pathwaysevolution.png}
+\includegraphics[width=\textwidth]{Figures/chap5/pathwaysevolution.png}
 \caption[Summary of number of genes \textit{in-cis} and \textit{in-trans}]
 	{\small
 	\textbf{Pathways comparison over time under chemotherapy in all PDX series}
@@ -616,7 +616,7 @@ First we pulled the reference genes from these database that were intersecting w
 %-------------------------------------------------------------------
 \begin{figure}
 \centering
-  \includegraphics[width=\textwidth]{Figures/pathwaysnetwork.png}
+  \includegraphics[width=\textwidth]{Figures/chap5/pathwaysnetwork.png}
 \caption[Pathways enrichment analysis of PDX timeseries]
 	{\small
 	\textbf{Pathways enrichment analysis of PDX timeseries.}
@@ -650,36 +650,48 @@ Within cisplatin treated activated pathways, \textbf{hypoxia, TNFA signaling via
 %------------------------------------------------------------------------
 \begin{figure}
 \centering
- \includegraphics[width=\textwidth]{Figures/generegressionanalysis.png}
-	
+ \includegraphics[width=\textwidth]{Figures/chap5/genesclustering_regression.pdf}
 \caption[Gene expression changes over time]
 	{\small
-	 \textbf{Gene expression changes over time in all 4 TNBC PDX timseries}.
-	Horizontal axis represents time point passages while vertical axis denotes the eman log2 count of single cell expression level. Three line trjetories indicates treated, un-treated and drug-holiday samples. }
+	 \textbf{Upregulated and downregulated gene expression clusters over time in all 4 TNBC PDX timseries}.
+ }
 
-	\label{fig:generegressionanalysis}
+	\label{fig:geneclusterregression}
 \end{figure}
 
 %------------------------------------------------------------------------
 
 \subsubsection{Gene specific expression trajectories exemplified systematic response to sustained treatment}
-To understand the stability of gene expression throughout the treatment, we performed gene regression analysis on the top 500 resistant clone related genes and plotted their trend along various timepoints. All four treated PDX series manifested 5-6 distinct clusters with monotonically increasing, monotonically decreasing, remaining constant or irregular patterns \textbf{\autoref{fig:generegressionanalysis} a-d}. Some of the gene clusters were found to be increasing or decreasing along the time series of the PDX models and require detailed investigation at individual gene level to get enough evidence.
+To understand the stability of gene expression throughout the treatment, we performed gene regression analysis on the top 500 resistant clone related genes and plotted their trend along various timepoints. All four treated PDX series manifested 5-6 distinct clusters with monotonically increasing, monotonically decreasing, remaining constant or irregular patterns \textbf{\autoref{fig:geneclusterregression}}. Some of the gene clusters were found to be increasing or decreasing along the time series of the PDX models and require detailed investigation at individual gene level to get enough evidence.
 
-To evaluate the spectrum of single gene expression at each time point, we designated atleast 4 genes from each of the 4 TNBC PDX from regression analysis \textbf{\autoref{fig:generegressionanalysis} e-h}. 
+To evaluate the spectrum of single gene expression at each time point, we designated atleast 4 genes from each of the 4 TNBC PDX from regression analysis \textbf{\autoref{fig:generegressionanalysis}}. 
 
- From SA609, \textbf{ DNA binding2 (ID2)} is shared between \textbf{TGF-Beta signaling and EMT} in our dataset. It is a key regulator of breast cancer metastasis to the brain. Overexpression of ID2 is known to increase proliferation, self-renewal, and expression of the putative stemness markers and inhibitors of DNA binding2 represents a novel and promising therapeutic target for treating some of the cancers \cite{bae2017inhibitor, kijewska2019using}. This gene seems to be monotonically increasing from first cisplatin treatment cycle to the fourth. \textbf{Mitochondrial fission 1 (FIS1), peroxisome pathway}, is a mitochondrial dynamics-regulating gene, also found to be monotonically increasing with treatment cycle. Its overexpression prevents mitochondria elongation, which would otherwise lead to cell cycle delay or arrest \cite{fan2015mir, anderson2018dysregulation}. \textbf{CRABP1, peroxisome pathway} is an adverse prognostic factor and a potent inhibitor of retinoic acid (RA) action in breast cancer. It could serve as a biomarker to predict RA response \cite{liu2015crabp1}. \textbf{MYC} from MYC targets V1, another example of having monotonically increasing expression \textbf{\autoref{fig:generegressionanalysis} e, first panel}. It has been recently recognized that high MYC mRNA expression is more Clinically relevant than MYC DNA Amplification in triple-negative breast cancer \cite{chen2008myc, katsuta2020high}.
+ From SA609, \textbf{ DNA binding2 (ID2)} is shared between \textbf{TGF-Beta signaling and EMT} in our dataset. It is a key regulator of breast cancer metastasis to the brain. Overexpression of ID2 is known to increase proliferation, self-renewal, and expression of the putative stemness markers and inhibitors of DNA binding 2 represents a novel and promising therapeutic target for treating some of the cancers \cite{bae2017inhibitor, kijewska2019using}. This gene seems to be monotonically increasing from first cisplatin treatment cycle to the fourth. \textbf{Mitochondrial fission 1 (FIS1), peroxisome pathway}, is a mitochondrial dynamics-regulating gene, also found to be monotonically increasing with treatment cycle. Its overexpression prevents mitochondria elongation, which would otherwise lead to cell cycle delay or arrest \cite{fan2015mir, anderson2018dysregulation}. \textbf{CRABP1, peroxisome pathway} is an adverse prognostic factor and a potent inhibitor of retinoic acid (RA) action in breast cancer. It could serve as a biomarker to predict RA response \cite{liu2015crabp1}. \textbf{MYC} from MYC targets V1, another example of having monotonically increasing expression \textbf{\autoref{fig:generegressionanalysis} a-first panel}. It has been recently recognized that high MYC mRNA expression is more Clinically relevant than MYC DNA Amplification in triple-negative breast cancer \cite{chen2008myc, katsuta2020high}.
 
 From SA1035, we plotted timepoint trajectories of \textbf{MDK}, a growth factor, is recently reported as a key player in cancer progression and a promising therapeutic target \cite{filippou2020midkine}. It showed positive dynamics with continuous drug treatment. 
-\textbf{NDUFB4, COX6C and UQCRB}, all from \ac{OXPHOS} pathway stayed very close to untreated expression levels in the initial few cycles but at the last time point, all of them diverges from untreated \textbf{\autoref{fig:generegressionanalysis} f.} Mitochondrial \textbf{UQCRB} is known as a molecular prognostic biomarker in colorectal cancer \cite{kim2017mitochondrial}.
+\textbf{NDUFB4, COX6C and UQCRB}, all from \ac{OXPHOS} pathway stayed very close to untreated expression levels in the initial few cycles but at the last time point, all of them diverges from untreated \textbf{\autoref{fig:generegressionanalysis} b.} Mitochondrial \textbf{UQCRB} is known as a molecular prognostic biomarker in colorectal cancer \cite{kim2017mitochondrial}.
 
 From SA535, we pulled out in total of 8 genes to demonstrate the change in expression in a time dependent manner. Cisplatin treated cycles includes, \textbf{BCAP31}, cancer/testis antigen-like protein, which drives TNBC development by modulating ligand-independent EGFR trafficking and spontaneous EGFR phosphorylation and it is known to act as a probe for non-small-cell lung cancer metastasis
-\cite{fu2019bcap31, wang2020bcap31}. \textbf{TPT1} promotes tumorigenesis and metastasis in epithelial ovarian cancer \cite{wu2019lncrna}, seem to stay lower than the untreated but gradually kept on increasing till the last time point. \textbf{Obg-like ATPase 1 (OLA1)} overexpression predicts poor prognosis and promotes tumor progression by regulating P21/CDK2 in hepatocellular carcinoma \cite{huang2020obg}. Its expression was found to be increased in the last two cycles of cisplatin. \textbf{METTL5}, is known to promote translation initiation and breast cancer growth \cite{zeng2020roles}, also found to be increasing with increasing time points of treatment \textbf{\autoref{fig:generegressionanalysis} g.}
+\cite{fu2019bcap31, wang2020bcap31}. \textbf{TPT1} promotes tumorigenesis and metastasis in epithelial ovarian cancer \cite{wu2019lncrna}, seem to stay lower than the untreated but gradually kept on increasing till the last time point. \textbf{Obg-like ATPase 1 (OLA1)} overexpression predicts poor prognosis and promotes tumor progression by regulating P21/CDK2 in hepatocellular carcinoma \cite{huang2020obg}. Its expression was found to be increased in the last two cycles of cisplatin. \textbf{METTL5}, is known to promote translation initiation and breast cancer growth \cite{zeng2020roles}, also found to be increasing with increasing time points of treatment \textbf{\autoref{fig:generegressionanalysis} c.}
 
 CX-5461 treated time dependent expression of \textbf{ID2, TOP2A, MARKCS and PABPC1} are shown in \textbf{\autoref{fig:generegressionanalysis} h.}
-\textbf{PABPC1} is known to exert carcinogenesis in gastric carcinoma by targeting miR-34c and it is correlated with tumor progression and has a prognostic role in esophageal cancer \cite{zhu2015pabpc1,takashima2006expression}. \textbf{MARCKS} is known to be over expressed in lung cancers and is known as a novel predictor of cancer malignancy  \cite{reddy2014marcks, chen2014novel} \textbf{\autoref{fig:generegressionanalysis} h.}
+\textbf{PABPC1} is known to exert carcinogenesis in gastric carcinoma by targeting miR-34c and it is correlated with tumor progression and has a prognostic role in esophageal cancer \cite{zhu2015pabpc1,takashima2006expression}. \textbf{MARCKS} is known to be over expressed in lung cancers and is known as a novel predictor of cancer malignancy  \cite{reddy2014marcks, chen2014novel} \textbf{\autoref{fig:generegressionanalysis} d.}
 
 All these genes found in our timeseries datasets, could act as a potential candidates to be further validated in triple negative breast cancers.
 
+%-----------------------------------------------
+
+\begin{figure}
+\centering
+ \includegraphics[width=\textwidth]{Figures/chap5/genelinetrajecregressionanalysis.png}
+	
+\caption[Gene expression changes over time]
+	{\small
+	 \textbf{Gene expression changes over time in all 4 TNBC PDX timseries}.
+	Horizontal axis represents time point passages while vertical axis denotes the mean log2 count of single cell expression level. Three line trajectories indicates treated, un-treated and drug-holiday samples. }
+
+	\label{fig:generegressionanalysis}
+\end{figure}
 
 %-------------------------------------------------------------
 
