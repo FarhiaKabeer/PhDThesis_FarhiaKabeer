@@ -45,46 +45,10 @@ Sections were deparaffinized in xylene, rehydrated in graded alcohol, and used f
 H \& E and \ac{IHC}  of the two PDX tumours showed that TNBC is  derived from a triple negative breast cancer patient while HER2+ was derived from a HER2+ breast cancer patient. HER2 IHC was scored as 2+, HER2/CEP17 ratio was calculated as 6.5 (positive)\cite{ahn2020her2} from  \ac{FISH}  and focal high level amplification (average copy number state of 10) of the \ac{ERBB2} locus (approximately Chr17:37500001-38000000) was found in the DLP+ data.
 
 \subsubsection{TNBC-SA609-Line 2, TNBC-SA1035 and TNBC-1035}
-For the experiments in chapter 4 and 5, we re transplanted TNBC-SA609, and conducted drug treatment experiments along with TNBC-SA1035 and TNBC-SA535. The preparation of tissue paraffin sections are identical as explained in the previous section. A new TMA was prepared from these tumors for \ac{IHC} staining. 
+For the experiments in chapter 4 and 5, we re transplanted TNBC-SA609, and conducted drug treatment experiments along with TNBC-SA1035 and TNBC-SA535. The preparation of tissue paraffin sections are identical as explained in the previous section. A new TMA was prepared from these tumors for \ac{IHC} staining for the markers ER, PR, HER2, CK5/6, CK14, SMA, E-Cad and Vimentin.  \textbf{(\autoref{fig:fig:HistologySA609}},  \textbf{(\autoref{fig:fig:HistologySA1035}}, \textbf{(\autoref{fig:fig:HistologySA535})}. IHC scores are shown in the figures confirming their triple negative receptor status, however, the replicate tumor sections and different passages were also stained and confirmed to retain the receptors and biomarkers status in \textbf{\autoref{tab:TNBCTMAscoringIHC}.}
 
-%-------------------------------------------------------------
- \begin{figure}
-\centering
-\includegraphics[width=\textwidth]{Figures/chap2/HistologySA609.png}
-	
-\caption[]
-	{\small
-\textbf{Immunohistochemistry staining of TNBC-SA609 TMA.}
- \textbf{(a)} IHC of TNBC-SA609 tumours, 20x and 40x (insets). Scale bars \SI{100}{\micro\metre} and \SI{50}{\micro\metre} (insets). On top of each panel presenting the antibody name and the right bottom square is showing the score of the stain. TMA scores are in \textbf{\autoref{tab:TNBCTMAscoringIHC}.}}
-	\label{fig:HistologySA609}
-\end{figure}
-%-------------------------------------------------------------
-%-------------------------------------------------------------
 
- 
- \begin{figure}
-\centering
-\includegraphics[width=\textwidth]{Figures/chap2/HistologySA1035.png}
-	
-\caption[]
-	{\small
-\textbf{Immunohistochemistry staining of TNBC-SA1035 TMA.}
- \textbf{(a)} IHC of TNBC-SA609 tumours, 20x and 40x (insets). Scale bars \SI{100}{\micro\metre} and \SI{50}{\micro\metre} (insets). On top of each panel presenting the antibody name and the right bottom square is showing the score of the stain. \textbf{\autoref{tab:TNBCTMAscoringIHC}.}}
-	\label{fig:HistologySA1035}
-\end{figure}
-%-------------------------------------------------------------
-
- \begin{figure}
-\centering
-\includegraphics[width=\textwidth]{Figures/chap2/HistologySA535.png}
-	
-\caption[]
-	{\small
-\textbf{Immunohistochemistry staining of TNBC-SA535 TMA.}
- \textbf{(a)} IHC of TNBC-SA609 tumours, 20x and 40x (insets). Scale bars \SI{100}{\micro\metre} and \SI{50}{\micro\metre} (insets). On top of each panel presenting the antibody name and the right bottom square is showing the score of the stain. \textbf{\autoref{tab:TNBCTMAscoringIHC}.}}
-	\label{fig:HistologySA535}
-\end{figure}
-%-------------------------------------------------------------
+%--------------------------------------------------------------------------
 
 \begin{table}
 \centering
@@ -175,15 +139,9 @@ To identify murine cells in the PDX samples, we re-ran CellRanger version 3.0.2 
 
 \section{\textit{in vitro} cultures and assays}
 
-\subsection{Chemotherapies}
-For \textit{in vitro} assays, the chemotherapies used are summarized in \textbf{\autoref{tab:summaryresponsesinvitro}}.
-
-
 \subsection{WST-1 assay}
 In all the experiments in \textbf{\autoref{fig:invitro}}, the cell viability was measured by WST-1 assay according to the protocol provided by manufacturer (Roche, Catalogue number 11644807001). Single cells from PDX and Wild type and HCT116 (DNA-PK and Lig4 knockout) cells were plated in 96-well plates either untreated or treated with drug continuously during the indicated time before WST-1 assay. Drug incubation time was 6-7 days. Absorbance was read with the microplate reader SpectraMax 3 (Molecular Devices, Sunnyvale, CA, USA).
 
-\subsection{Dose response curve fitting for cell line WST-1 assay}
-Where sigmoid curves were appropriate for dose response analysis, a four-parameter logistic regression curve was fitted to the data using the R function ‘nlme’. An IC50 was estimated, the difference in IC50 values was calculated for conditions with and without drug. The set of differences was tested using the Student's paired t-test.
 
 \section{Live/dead cells analysis}
 
@@ -213,15 +171,27 @@ scWGS DLP+ library construction was carried out as described in \cite{laks2019cl
 \section{Single cell whole genome data analysis}
 \subsection{DLP+ sequence analysis, copy number determination and quality control filtering}
 FASTQ pre-processing, sequence alignment, quality control, copy number calling and S-phase classification and filtering was performed on all libraries as detailed in \cite{laks2019clonal}. Briefly, cells were assigned a quality score (QS) for data quality based on a 13 feature Random forest classifier fitted and applied as per \cite{laks2019clonal}. Copy number alterations on a per cell basis were determined using a hidden Markov Model (HMM) approach using the \texttt{HMMCopy} package with parameterizations detailed in \cite{laks2019clonal}. S-phase cells were identified using an automated classifier trained using cell-cycle sorted cells and where features from HMM output were used to identify cells most probably in early or late phase replication of their genomes. As these cells interfere with downstream phylogenetic analysis, they were removed from the analysis according to parameter settings and thresholds established in \cite{laks2019clonal}. To further enable phylogenetic inference, 10-15\% of cells with highest average copy number state jumps were removed. Upon inspection, these cells included early and late dividing cells that were not captured by the s-phase classifier. 
-Attrition of cells at each stage of quality control is shown in (suptabtab:omnibusMedians).
+ 
+ %is a Bayesian model and associated inference algorithm based on a diffusion approximation to K-allele Wright-Fisher model with selection. We start with timeseries clonal abundance measurements over a fixed number of clones and estimate two key unknown parameters of interest. Fitness coeffcients represents a quantitative measure of the growth potential of a given clone; and distributions over continuous-time trajectories, a latent (unobserved) population structure gives trajectory in `generational' time.
+\subsection{Statistical models to infer evolutionary history of clones}
+The two key statistical models used to measure and infer clonal evolution are: 
+ 
+ (i) Bayesian phylogenetic inference method, to identify biologically related groups of cells (i.e., clones) across multiple timepoints. 
+ In this dissertation, we applied newly developed phylogenetic model, called \texttt{Sitka} \cite{dorri2020efficient}. \texttt{Sitka} scales to thousands of cells for copy number states in scWGS. This is accompanied with a modified tree cutting algorithm, named as \texttt{Lumberjack}.
 
+(ii) Quantitatively reason about the underlying evolutionary
+forces acting on the clones through their observed dynamics
+ using Bayesian state space \texttt{fitClone}  based on the Wright-Fisher diffusion with selection.
 
-
-\subsection{Identifying clones through phylogenetic analysis}
+\subsubsection{Identifying clones through phylogenetic analysis}
 Using sitka we established the evolutionary relationships of cells in a PDX heterogeneous samples. To investigate cancer evolution we need to determine the abundance of subpopulations over time. To this end, we introduce \texttt{Lumberjack}, a tree-cutting algorithm that we used to define clonal subpopulations. In the output tree of \texttt{sitka}, cells are part of the terminal leaf nodes of the phylogenetic topology. We post-processed the inferred trees to identify clonal populations from major clades. When clonal populations are defined, their abundances were counted as a function of timeseries and these were used for fitness inference. 
 Clones are constructed by identifying connected components (each a clade or a paraphyly) in the phylogenetic tree reconstruction. The tree is `cut' into discrete populations according to the following procedure
 
-\subsection{Phylogenetic tree inference, clone determination and clonal abundance measurements}
+
+\subsubsection{\texttt{fitClone}-quantitative measure of fitness model}
+ \texttt{fitClone} is a statistical model which determines whether measurements across a timeseries, that show growth or decline of cell populations, could have arisen by chance. The basic intuition of Wright-Fisher model is that small natural fluctuations in transmission of alleles during population growth could eventually lead to fixation of one of the subpopulations. In population genetics this referred to as genetic drift. In the cancer system we are studying, its application allows us to test for fluctuations in subpopulation growth and decline that could be neutral, as opposed those associated with non-neutral fitness. 
+
+\subsubsection{Phylogenetic tree inference, clone determination and clonal abundance measurements}
 
 We developed a single cell Bayesian tree reconstruction method based on copy number change point binary variables called \texttt{sitka} \cite{dorri2020efficient} to fit phylogenetic trees to the copy number profiles.  
 In the output of \texttt{sitka}, cells are the terminal leaf nodes of the phylogenetic topology.  
@@ -269,7 +239,7 @@ For estimation of clonal fractions, we used the following procedure (i) let $M$ 
 PDX tumours were harvested and mechanically disaggregated into small fragments to viably freeze them according to the protocol mentioned above. 
 One of the viable frozen tumour vial was thawed and after washing out the freezing media, the tumour clumps and fragments were incubated with digestion enzymes as with DLP+ preparation. After complete dissociation with collagenase/hyaluronidase enzyme mix according to the protocol at \SI{37}{\degreeCelsius}, followed by briefly washing in 0.05\% trypsin-EDTA and resuspension in 0.04\% BSA in PBS. Dead cells were removed using the Miltenyi MACS Dead Cell Removal kit and cells were processed as previously described \cite{o2019dissociation}.
 To avoid processing artifacts, dissociation methods and times were tightly controlled and for treatment and treatment holiday pairs, library construction was performed on the same chips. Single cell suspensions were loaded onto the 10x Genomics single cell controller and libraries prepared according to the Chromium Single Cell 3’ Reagent Chemistry kit standard protocol. 
-Libraries were then sequenced on an Illumina Nextseq500/550 with 42bp paired-end reads, or a HiSeq2500 v4 with 125bp paired-end reads. 10x Genomics Cell Ranger version 3.1 was used to perform demultiplexing,  counting and alignment to GRCh38.
+Libraries were then sequenced on an Illumina Nextseq500/550 with 42bp paired-end reads, or a HiSeq2500 v4 with 125bp paired-end reads. 10x Genomics Cell Ranger version 3.1 was used to perform demultiplexing,  counting and alignment to human genome (GRCh38).
 
 \subsection{Quality control}
 
