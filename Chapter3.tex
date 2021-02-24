@@ -88,10 +88,13 @@ The success rates according to breast cancer subtype were 100\% for HR+/HER2-ve,
 bar plot show the corresponding set intersections. For example, all of the tumour samples derived from pleural effusions were ER+ cases and produced successful xenografts. Tumour samples from two triple negative cases and one HER2+ case failed in xenografting.
 
 
-\subsubsection{Histologic characteristics of the patient breast cancers corresponds to the xenografts}
+\subsubsection{Histologic characteristics of the NSG mice corresponds to the NRG mice}
 
 To confirm that histological features of the patient's original tumor were stably retained in the xenograft, we conducted a comparative histological analysis of xenograft tumors and tumors of origin using H\&E, ER, HER2 and Ki67 as biomarkers. 
-\textbf{\autoref{fig:EstablishmentofPDX} d}, depicts histological results of representative patients and their xenograft tumors. For each subtype, morphological characteristics were conserved and hormone receptors, ER, HER2 along with Ki-67 statuses were maintained throughout the respective xenografts. Ki-67 expression determines the growth fraction of a given cell population in the tumor and it remains the same from patient to NSG to NRG mice. This data confirmed that PDX tumors in \ac{NRG} could be confidently used for downstream experiments as the main histological markers of the original tumors were conserved in xenografts and that the PDX models of breast cancer developed in this study reflect the characteristics of the original tumors. Also, Eirew et al,. showed that comparisons of clonal dynamics by serial engraftment and propagation in NSG mice vs NRG mice suggested no major differences \cite{eirew2015dynamics}.
+\textbf{\autoref{fig:EstablishmentofPDX} d}, depicts histological results of representative patients and their xenograft tumors. For each subtype, morphological characteristics were conserved and hormone receptors, ER, HER2 along with Ki67 statuses were maintained throughout the respective xenografts. ER, PR and HER2 remained negative from NSG to NRG. In addition, EGFR, Ki67, if score 3+ in NSG PDX, they kept the same intensity semiquantitative scores on NRG tumor sections. Ki-67 expression determines the growth fraction of a given cell population in the tumor and it remains the same from patient to NSG to NRG mice. Other tested markers include CK5/6, SMA, Vimentin, E-Cadherin, CK8 and CK14. The range of score varies from negative (0) to 3+ in each independent tumor for each marker but the scores were consistent between NSG and NRG PDX tumors of same type as shown in representative histological images of TNBC-SA609 \textbf{(\autoref{fig:EstablishmentofPDX} d)}.
+
+
+ This data confirmed that PDX tumors in \ac{NRG} could be confidently used for downstream experiments as the main histological markers of the original tumors were conserved in xenografts and that the PDX models of breast cancer developed in this study reflect the characteristics of the original tumors. Also, Eirew et al,. showed that comparisons of clonal dynamics by serial engraftment and propagation in NSG mice vs NRG mice suggested no major differences \cite{eirew2015dynamics}.
 
 %---------------------------------------------------------------
 
@@ -247,8 +250,8 @@ This section of chapter 3 belongs to \textit{Genome Biology, 2019} paper, title 
 	{\small
 	    \textbf{Evaluation of viable-high percent cell recovery for single cell measurements.}
 	    \textbf{(a)} Representative tumors in dishes. Two small black lines as 2mm. Middle dish showing partially chopped tumor with white necrotic tissues. Right side panel showing example from comparatively solid to cut tumor.
-	    \textbf{(b)} Schematics of processing the frozen vials.
-	    \textbf{(c)} Vertical axis showing the percent viability and horizontal axis shows the type of vials from each of three tumors  \textbf{(d)} Left sided images are pre-dead cell removal while right sided are the post dead removal \textbf{(e)} Vertical axis showing the number of viable cells obtained from each vial and horizontal axis shows type of vials processed.
+	    \textbf{(b)} Schematics of processing of frozen vials. single cells (SC), Viable frozen (VF) and remaining big chunks (REM).
+	    \textbf{(c)} Vertical axis showing the percent viability and horizontal axis shows the type of vials from each of three tumors. Error bars represent one standard deviation from the mean.  \textbf{(d)} Left sided images are pre-dead cell removal while right sided are the post dead removal on hemocytometer. \textbf{(e)} Vertical axis showing the number of viable cells obtained from each vial and horizontal axis shows type of vials processed. Error bars represent one standard deviation from the mean.
 	}
 	\label{fig:cellviability}
 \end{figure}
@@ -256,7 +259,7 @@ This section of chapter 3 belongs to \textit{Genome Biology, 2019} paper, title 
 
 
 \subsection{Small viable frozen fragments of the tumors culminated in high viability and less debris as compared to big frozen chunks}
-To investigate which status of tissue freezing will give us better outcome of single cell suspension, we mechanically disaggregated three TNBC PDX tumors \textbf{\autoref{fig:cellviability} a}, TNBC-SA609, TNBC-SA1035 and -TNBC-SA535 and froze them in three different ways. First, after mechanical digestion, viable frozen (VF) tissue fragments were frozen in the freezing media. Second, consist of single cells (SC) by complete enzymatic digestion \textbf{(See methods)} and lastly big tissue chunks frozen vial labelled as ``REM'' (remaining). 
+To investigate which status of tissue freezing will give us better outcome of single cell suspension, we mechanically disaggregated three TNBC PDX tumors \textbf{\autoref{fig:cellviability} a}, TNBC-SA609, TNBC-SA1035 and TNBC-SA535 and froze them in three different ways. First, after mechanical digestion, viable frozen (VF) tissue fragments were frozen in the freezing media. Second, consist of single cells (SC) by complete enzymatic digestion \textbf{(See methods)} and lastly big tissue chunks frozen vial labelled as ``REM'' (remaining). 
 Tumor fragments were thawed and washed twice with 
 Gibco Dulbecco's Modified Eagle Medium (DMEM) media. VF and REM fragments were digested to single cells with collagenase hyaluronidase and dead cells and debris were removed from all the single cells final suspension as described in the method section \textbf{\autoref{fig:cellviability} b}. We obtained high percent viabilty from viable frozen tumor fragments across all the three tested PDX tumors ranging approximately from 82\% to 95\% as compared to big chunks (REM) or SC cells \textbf{\autoref{fig:cellviability} c}.
 However, the final number of viable cells in each of the condition across different PDX varies from 200 thousands to one million cells \textbf{\autoref{fig:cellviability} e}. Interestingly, one of the PDX tumor, SA609-TNBC turns out to be behaving comparatively effectively under every condition. 
@@ -385,26 +388,39 @@ Interestingly, a highly similar set of genes are affected by both digestion time
 
 
 \section{Discussion}
-In this chapter, we began with the intention of developing patient derived xenograft (PDX) in immunodeficient NOD Rag-1 null interleukin-2 receptor gamma null (NRG) and identifying the dose response properties of PDX to determine relative ability of the drugs to produce maximum functional response.
 
-To establish PDX models, patient-derived tumors need to be injected into highly immunodeficient mice, because the mouse immune system could eradicate transplanted cancer cells and prohibit tumor engraftment. In order to reach to final formation of longitudinal chemotherapy perturbed model systems, it was important to successfully create PDX in immunodeficient NOD Rag-1 null interleukin-2 receptor gamma null (NRG) instead of highly immunodeficient NOD/SCID/IL2r$\gamma$ $-$/$-$ (NSG). It is by now well known that \ac{NRG} mice can harbor established PDX, and can tolerate aggressive induction chemotherapy at higher doses than NSG mice without overt toxicity \cite{barve2018comparative}. 
+\begin{itemize}
 
+ \item In this chapter, we began with the intention of developing patient derived xenograft (PDX) in immunodeficient NOD Rag-1 null interleukin-2 receptor gamma null (NRG) and identifying the dose response properties of PDX to determine relative ability of the drugs to produce maximum functional response. These 2D \textit{in vitro} sensitivity assays were not ideal to report accurate drug efficiency but they did gave an overall idea to narrow down the choice of chemotherapies and PDXs.  
 
-Having established tumors in immunodeficient mice, we sought to select breast cancer \ac{PDX} and the chemotherapies that could be used in cancer evolution studies. TNBC-SA609, TNBC-SA1035 and TNBC-SA535 tend to show high sensitivity for platinum so these were selected for making a timeseries model for the next chapter 4. CX-5461, G4 stabilizer drug showed synthetic lethality with DNA repair pathway deficiency in \textit{in vitro} cultures as \cite{xu2017cx}, so along with treating for timeseries with cisplatin, we selected TNBC-SA535 (BRCA1-HRD) for CX-5461 in parallel for timeseries drug perturbation for the next chapter.
-
-Recent advancements in sequencing technologies have allowed for DNA and RNA sequencing at single-cell resolution, which can be used to interrogate genomes and transcriptomes of tumor tissues that may not be resolved by bulk sequencing, such as intratumoral heterogeneity, clonal dynamics, and the mapping of known and de novo cell types. However, various steps can impact the quality and quantity of these single cells for sequencing analysis.
-Here we sought to optimize conditions and factors that could participate single cell sequencing outcome. Standard sample preparation methods for solid tissues require enzymatic and mechanical dissociation and, depending on the tissue origin, density, disease state, elastin, or collagen content, may require long enzymatic digestion and/or vigorous mechanical disruption.
-For single cell whole genome sequencing the additional step of dead cell removal from the final single cell suspension tend to show  cleaner cells, less debris and high percent viability providing high chances of live cells taken up by the robotic spotters as explained in \cite{laks2019clonal}. 
-
-Current sequencing techniques require single-cell suspensions for passage through microfluidic or microwell platforms, and the generation of single-cell suspensions from solid tissues requires the enzymatic and mechanical disruption of extracellular matrix and cell-cell contacts. To date, the effect of these dissociation methods on the transcriptome of single cells has been largely ignored, despite the potential effects on the interpretation of scRNA-seq data. Moreover, during both dissociation of tissues and passage through fluidic devices, cells can undergo stress, shearing, anoikis, and apoptosis \cite{aljanahi2018introduction}. For this reason, efforts must be made on both sample handling and bioinformatics to ensure minimal noise and optimal filtration of data. Here, we endeavored to describe the artifactual gene expression associated with tissue dissociation and dead or dying cell populations. Using a large, diverse dataset, we highlight the variability in key QC metrics, including the percentage of mitochondrial genes, number of UMIs, and number of genes detected. 
-
-We identified a sub-population of dead cells that would not be removed through standard data filtering practices and quantify the extent to which their transcriptomes differ from live sorted cells
-We described sub-populations of dead cells that express either high or low mitochondrial genes, contrary to the notion that dead cells can be characterized by their mitochondrial gene content alone. Importantly, cells that are FACS sorted as either live, dying, or dead based on PI/annexin V staining are present in all three clusters, highlighting that the transcriptomic state of the cell is not necessarily the same as the surface marker state (though the two are correlated). As noted, this is reminiscent of ``pseudotime'' orderings, with PC1 from \textbf{\autoref{fig:livedead} a}  approximating a trajectory through the data that tracks transcriptomically healthy cells to transcriptomically dead cells with increasing PC1 values. Though expressing transcriptomes similar to live, healthy cells, dead cells with low mitochondrial content expressed significantly high levels of MHC class I genes such as HLA-A, HLA-B, and B2M.
-
- We identified a further sub-population that represents transcriptomically dying cells, expressing increased major histocompatibility complex (MHC)-class I genes. Furthermore, core gene set of immediate, heat shock, and stress response genes associated with collagenase dissociation, highly conserved across cell and tissue types, and which are minimized by dissociation at cold temperature. We suggested that each tissue and dissociation method should be assessed for dissociation-induced signatures before undertaking large-scale scRNA-seq experiments.
+ \item To establish PDX models, patient-derived tumors need to be injected into highly immunodeficient mice, because the mouse immune system could eradicate transplanted cancer cells and prohibit tumor engraftment. The implications of creating \ac{NRG} mice models was that they can tolerate aggressive chemotherapy at higher doses than NOD/SCID/IL2r$\gamma$ $-$/$-$ (NSG) mice without overt toxicity \cite{barve2018comparative}. 
 
 
+\item Out of 4 chemotherapies tested on 4 TNBC-PDXs, cisplatin (platinum) was found to show high growth inhibition in all PDXs, while Paclitaxel, CX-5461 and Rucaparib showed variable responses depending on type and background of breast tumors. Platinum salt is of high clinical significance because its a conventional chemotherapy and a first choice of treatment in various cancer types, including breast cancer.
+
+\item We found that freezing of PDX tumors as a viable frozen (VF) fragments had high percent viability of single cells from different tumor types. Moreover, adding an extra step of dead cell removal from the final single cell suspension showed cleaner cells and less debris  providing high chances of live cells taken up by the robotic spotters for scDNA sequencing and GEM prep for scRNA-seq.
+
+\item We described the association of gene expression with tissue dissociation and dead or dying cell populations. It was highlighted that the variability in quality control metrics, including the percentage of mitochondrial genes, number of unique molecular identifiers (UMIs) and number of genes detected should be considered cautiously. These have implications in meaningful interpretation of biological mechanisms.
+
+ \item We identified a sub-population of dead cells that would not be removed through standard data filtering practices and quantify the extent to which their transcriptomes differ from live sorted cells. It was highlighted that the transcriptomic state of the cell is not necessarily the same as the surface marker state. Furthermore, a sub-population was identified that represented transcriptomically dying cells, expressing increased major histocompatibility complex (MHC)-class I genes. 
+ 
+ \item  Moreover, core gene set of immediate, heat shock, and stress response genes associated with collagenase dissociation, highly conserved across cell and tissue types, and which are minimized by dissociation at cold temperature. We suggested that each tissue and dissociation method should be assessed for dissociation-induced signatures before undertaking large-scale scRNA-seq experiments. This has clinical implications because chemotherapies also induce stress response and stress proteins are known to cause chemoresistance.
 
 
+\end{itemize}
 
+\subsection{Limitations}
+
+\begin{itemize}
+
+\item The effect of tumor freezing and dissociation were tested on 3 patients xenografts. Although we had many replicates of the same tumor but we don't know that to what extent increasing the number of tumor types would influence the results.
+
+\item The comparisons of cold active protease digestion and collagenase were  made on untreated tumors. We don't know to what extent the stress response induced by a chemotherapy would be minimized by tumor dissociation at cold temperature.
+
+\item For the identification of Live/dying and dead populations by FACS, we treated cell line with TNF\textalpha. Althhough we expect that PDX tumor cells are more fragile and more prrone to dying but we don't know how quicklythis "dying to dead" mecahnism operates in PDX tumor cells. 
+
+\item Cold active protease 
+
+
+\end{itemize}
 

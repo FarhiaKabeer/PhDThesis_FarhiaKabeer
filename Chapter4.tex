@@ -20,9 +20,28 @@ The majority of the work on cancer has focused on bulk tumour sequencing, where 
 \end{itemize}
 
 
-\subsection {Phylogenetics and fitness analysis of untreated timeseries PDXs}
+\subsection {Clonal dynamics and fitness analysis of untreated timeseries PDXs}
 \begin{itemize}
+
 \item Serial measurements of copy number assigned clones can be used to estimate fitness in conjunction with \texttt{fitClone} \cite{salehi2020single}.
+
+\item All TNBC PDX but not HER2+ PDX timeseries exhibited weak positive selection over clones.
+\item Clone specific fitness estimates were validated by enforced clone competition re transplants. Clones with higher selection coefficients out compete low fitness clones in TNBC-SA609 both mixture branches where clones were diluted in two different proportions and two independent mixture timeseries were generated.
+ 
+\end{itemize} 
+
+\subsection {Clonal dynamics and fitness analysis of cisplatin treated 3 timeseries PDXs}
+\begin{itemize}
+ \item Resistant clones in all treated lines of TNBC-SA609 were derived from the same precursor \textbf{clone B}.
+ \item Neutral fitness dynamics of TNBC-535 and TNBC-1035 reveal weak positive selection distributed over clones with cisplatin selection pressure.
+ \item Reversal of fitness landscape in early cisplatin treatment was seen in TNBC PDX models.
+ \end{itemize}
+ 
+ \subsection{Drug resistance arises from a common lineage precursor with different DNA damaging drug}
+\begin{itemize} 
+  \item  Resistant clones from cisplatin \textbf{clone T} and CX-5461 \textbf{clone U} in TNBC-SA535 PDX shared late common precursor, \textbf{clone R}. 
+   \item \textbf CX-5461 resistant \textbf{clone U} shared many common events with precursor \textbf{clone R}, however, cisplatin resistant clone was more distinct. 
+
 
 \end{itemize}
 
@@ -67,7 +86,7 @@ The majority of the work on cancer has focused on bulk tumour sequencing, where 
 \subsection{Establishment of timeseries patient derived xenografts}
 
 To understand and quantify fitness attributes of cancer cells as  predictive measures of their growth potential in polyclonal systems, we set out to establish timeseries patient derived xenografts (PDX) with and without pharmacological perturbations (\textbf{\autoref{fig:schematic} a}). We studied breast cancer PDX, sequencing $>$123,106 genomes over serial passaging (\textbf{\autoref{fig:schematic} a}), from 101 single cell libraries (a median of 303 single cell genomes per sample) of high quality for downstream analysis. 
-Serial transplantations of four \textit{p53 mutant} human breast cancers were performed by injecting patient derived tumor cells and clumps into primary engrafted mice to secondary and subsequent recipients in a timeseries manner (\textbf{\autoref{fig:Untreatedgrowthcurves} a-top), n=3-4 at each time point)}. 
+Serial transplantations of 3 TNBC human breast cancers were performed by injecting patient derived tumor cells and clumps into primary engrafted mice to secondary and subsequent recipients in a timeseries manner to create 4 independent sets as TNBC-SA535 was transplanted ini two cohorts for two different drugs (\textbf{\autoref{fig:Untreatedgrowthcurves} a-top), n=3-4 at each time point)}. 
 
 From untreated timeseries PDXs, we generated observations sampled over 927 days for HER2+SA532, 619 days for TNBC-SA609, 381 days for TNBC-SA1035 and 353 days for TNBC-SA535. 
 
@@ -244,7 +263,7 @@ For TNBC-SA1035, scWGS data collected from an untreated branch with five serial 
  Consistent with increased dynamics in the TNBC-SA609 line 1 series, we found an initial increase of 0.1 breakpoints per cell per generation in the first 4 passages \textbf{(\autoref{fig:mutationanalysisbreakpoints} a)}.
  Clone E also had the highest number of breakpoints with 12.8 additional copy number breakpoints per cell, relative to the reference Clone C with the lowest (linear regression with coverage breadth, ploidy and cell cycle state as covariates, p $<$0.0001) \textbf{(\autoref{fig:mutationanalysisbreakpoints} c)}.
 
-By contrast, in all 3 TNBC series at least one clone showed a high degree of clonal fitness with pairwise probability of positive selection $>$ 0.9  \textbf{\autoref{fig:Mixturenew} a},\textbf{(\autoref{fig:landscapefitness} a}), consistent with diverse CNA clonal genotypes linked to high variation in fitness.
+By contrast, in all 3 TNBC series at least one clone showed a high degree of clonal fitness with pairwise probability of positive selection $>$ 0.9  \textbf{(\autoref{fig:Mixturenew} a},\textbf{\autoref{fig:landscapefitness} a}), consistent with diverse CNA clonal genotypes linked to high variation in fitness.
 
 \subsection{Clone specific fitness estimates validated by enforced clone competition transplants} 
 Next, we set out to validate the predictions of clone fitness under no treatment by generating enforced clonal competition mixtures in re-transplant experiments. starting with clone E is a bit disconnected. 
@@ -322,12 +341,12 @@ So far, we have applied our framework to pharmacologically unperturbed tumor env
 %we investigate whether establishing baseline fitness measures could help to interpret selection under drug administration. We first present the TNBC-SA609 series in detail and make an observation about early response to cisplatin treatment. We then analyse two additional TNBC PDX lines to check the reproducibility  and generalizability of our observation.
 
 \subsubsection{Repeated platinum exposure introduced drug resistance in TNBC PDXs} 
- To test pharmacologic perturbation with cisplatin (platinum) impacted the stability of the fitness landscape of the TNBC series, we propagated a separate branch, for each of the series (\textbf{\autoref{fig:schematic} ,\autoref{fig:treatedtimeseriesgreen} a, b, c}). Cisplatin (2mg/kg) was administered once every 3 days for 8 doses maximum (Q3Dx8 max) through intraperitoneal (IP) injections, over at least four successive passages to induce drug resistance  (\textbf{\autoref{fig:SA609allcyclescisplatin}, also see methods}). Gradual onset of platinum resistance was physically confirmed with progressive reduction in tumour growth inhibition (TGI) \cite{hather2014growth} (\%TGI from first to last cycle: TNBC-SA609=77\%-4.7\%; TNBC-SA1035= 76\%-15\%; TNBC-SA535= 58\%-16\%, \textbf{\autoref{fig:SA609allcyclescisplatin} b-d}).
+ To test pharmacologic perturbation with cisplatin (platinum) impacted the stability of the fitness landscape of the TNBC series, we propagated a separate branch, for each of the series (\textbf{\autoref{fig:schematic} , \autoref{fig:treatedtimeseriesgreen} a, b, c}). Cisplatin (2mg/kg) was administered once every 3 days for 8 doses maximum (Q3Dx8 max) through intraperitoneal (IP) injections, over at least four successive passages to induce drug resistance  (\textbf{\autoref{fig:SA609allcyclescisplatin}, also see methods}). Gradual onset of platinum resistance was physically confirmed with progressive reduction in tumour growth inhibition (TGI) \cite{hather2014growth} (\%TGI from first to last cycle: TNBC-SA609=77\%-4.7\%; TNBC-SA1035= 76\%-15\%; TNBC-SA535= 58\%-16\%, \textbf{\autoref{fig:SA609allcyclescisplatin} b-d}).
  
  For each serially treated tumour, a parallel set of transplanted mice were left untreated, establishing corresponding drug `holiday' samples (\textbf{See methods for detailed experimental design, \textbf{\autoref{fig:treatmentdesignMTD} a}}). Briefly, We coded the treated passages with `T' and untreated with `U' initialised by the X3 untreated (U) passage in SA609 TNBC, X4 untreated (U) in SA1035 TNBC and X5 untreated (U) in  TNBC-SA535 (\textbf{\autoref{fig:treatedtimeseriesgreen} a, b, c}). In TNBC-SA609, the first treatment passage (\textit{X4 UT}) exhibited rapid tumour shrinkage (>50\% of initial size). However, \textit{X5 UTT}, \textit{X6 UTTT} and \textit{X7 UTTTT} had progressively less response, indicating drug resistance and positive growth kinetics (\textbf{\autoref{fig:SA609allcyclescisplatin} b}).
 
 
-\subsubsection{Resistant clones in all treated lines were derived from the same clone in TNBC-SA609 PDX}
+\subsubsection{Resistant clones in all TNBC-SA609 treated lines were derived from the same precursor}
 For TNBC-SA609, total of 5 independent transplant lineages  were surveyed with technical replicates for lines 1, 2 (\textbf{\autoref{fig:treatedtimeseriesgreen} a}, (\textbf{\autoref{fig:schematic} a, details in methods}).
 Decomposing the growth dynamics over (\textit{X3 U}; \textit{X4 UT}; \textit{X5 UTT}; \textit{X6 UTTT}; \textit{X7 UTTTT}) into clonal trajectories with DLP+ analysis suggested sustained cisplatin treatment inverted the fitness landscape. In particular, for TNBC-SA609 line 2, growth dynamics over (\textit{X3 U; X4 UT; X5 UTT; X6 UTTT; X7 UTTTT}) reproducibly resulted in expansion of \textbf{clone B} and its derivative \textbf{clones (A and R)}, from a starting population comprised primarily of clones C, D and B (\textbf{\autoref{fig:genotype609} c, d, e}).
 
@@ -365,7 +384,7 @@ Clone A in the phylogeny is derived from clone B \textbf{(\autoref{fig:landscape
 
 %.........................................................................
 
-\subsubsection{Resistant clones in TNBC-SA609 share the same precursor}
+
 Next, we examined whether the fitness inversion dynamics as a result of cisplatin chemotherapy in TNBC-SA609 PDX model are due to stochastic effect or real.
 We collected DLP+ on all the established parallel replicate timeseries of TNBC-SA609 with cisplatin treatment shown as line 2 and line 3 in \textbf{\autoref{fig:treatedtimeseriesgreen} a}, and duplicate experiments of specific time points. We observed the same type of clonal dynamics as of line 1, briefly, a phylogenetic branch of the population which has low fitness in the untreated control branch is repeatedly observed to selectively expand on treatment. The precursor clone B that gave rise to clone A in line 1, also gave rise to another resistant clone R in \textbf{\autoref{fig:genotype609} d-Line 2}. Time points analysis of line 3 also exhibited expansion of precursor clone B started giving rise to clone A, that was again found to be reversed in drug holiday sample of \textbf{\autoref{fig:genotype609} Line 3}. This indicates that the fitness inversion is not a stochastic effect and establishes with precision that high fitness lineages in the untreated setting are selectively pruned, while low fitness lineages in the untreated setting selectively expand.
 
@@ -374,8 +393,10 @@ We collected DLP+ on all the established parallel replicate timeseries of TNBC-S
 \subsection{Neutral fitness dynamics of TNBC-535 and TNBC-1035 reveal weak positive selection distributed over clones with cisplatin}
 To test the generalizability of the observed drug selection dynamics with cisplatin, we explored two additional TNBC PDX timeseries treated with cisplatin, derived from the patients identified above as TNBC-SA1035 and TNBC-SA535, in the untreated regime  (\textbf{\autoref{fig:treatedtimeseriesgreen} b, c)}. 
 
-\subsubsection{Fitness inversion under cisplatin selection for TNBC-SA1035 and TNBC-535}
+%\subsubsection{Fitness inversion under cisplatin selection for TNBC-SA1035 and TNBC-535}
 % fitness inversion under platinum selection for SA1035 SA535
+
+
 From another independent TNBC-SA1035 PDX system, in total of 14,170 single cells (including both treated and un-treated) were generated, where 4,444 passed the quality filters. The experimental design diagram is shown in \textbf{\autoref{fig:treatedtimeseriesgreen} b}.
  The treated branch with cisplatin starting at X5, X6, X7, and X8 comprising 1,596 filtered cells. 833 cells belonged to the drug-holiday timepoints (\textbf{\autoref{fig:genotype1035} d}). Phylogenetic inference followed by cutting the tree yielded 11 clones (\textbf{\autoref{fig:genotype1035} c, d, e}, {\autoref{fig:landscapefitness} a, b-right}). In the treated branch, clonal fractions were A(0.065), B(0.129), C(0.132), D(0.066), E(0.055), F(0.018), G(0.205), H(0.144), I(0.094), J(0.014), and K(0.078) {\autoref{fig:landscapefitness} c-right}) . In this regime, G (1+s = 1.01 $\pm$ 0.0123) and H (1+s = 1.02 $\pm$ 0.0135), which were among the clones with lower fitness in absence of treatment, rose to occupy 73\% of the tumor cell population at X8 while clone E (1 + s = 0.993 $\pm$ 0.0344) fell from about 10\% at X5 to undetectable at X8. As compare to clone E,
  \textbf{Clone H} with highest fitness coefficient in TNBC-SA1035, exhibits predominantly copy number gain of some genes at chr8 locus, including MCM4 \cite {issac2019mcm2, stoeber2001dna, kwok2015prognostic}, PRKDC \cite {tan2020prkdc, sun2017prkdc, zhang2019prkdc} and ASPH and copy loss of some genes at chr19, including SLC7A9 (being under research for potential role in tumor suppressor activities) \cite {bhutia2016slc, ji2018function, broer2020amino, ganapathy2015slc5a8, gupta2006slc5a8} (\textbf{\autoref{fig:genotype1035} a, b}).
@@ -421,8 +442,12 @@ In the treated branch, clonal fractions were A(0.156), B(0.066), C(0.140), D(0.1
 \caption[Fitness landscape reversal in early cisplatin treatment in TNBC PDX models.]
 	{\small
 	\textbf{TNBC PDX models exhibiting fitness landscape inversion in early cisplatin treatment.}
-	     We observe in 3 independent TNBC PDX lines that clone specific resistance to cisplatin treatment arises. In all three cases, clones with low fitness under no treatment exhibit high fitness under the treatment regime. In each panel, the left and right sub-panels are from the untreated and treated branches respectively \textbf{(top)} Phylogenetic trees showing clones sorted by their median selection coefficient in -Rx and +Rx regimes  \textbf{(middle)} inferred trajectories, and \textbf{(bottom)} selection coefficients of \texttt{fitClone} model fits to each branch.
-	}
+	Fitness landscape reversal in early Cisplatin treatment in TNBC PDX models. In each column, the left and right sub-panels are from the untreated and treated branches respectively. \textbf{(a)} Phylogenetic trees annotated with fittest clones in -Rx and Rx. \textbf{b)} Inferred trajectories, first coloured by clonal assignment, and then coloured by fitness rank, and \textbf{(c)} quantiles of selection coefficients of \texttt{fitClone} model fits to each branch with respect to the reference Clone C in TNBC-SA609, Clone C in TNBC-SA535, and Clone A in TNBC-SA1035.
+ \textbf{(d)} Inversion of the fitness landscape. Clones represented as coloured squares, are rank ordered by their median coefficients in untreated, treated conditions. 
+\textbf{(e)} Distribution over the probability of positive selection over pairs of clones for each series.}   
+	   
+% We observe in 3 independent TNBC PDX lines that clone specific resistance to cisplatin treatment arises. In all three cases, clones with low fitness under no treatment exhibit high fitness under the treatment regime. In each panel, the left and right sub-panels are from the untreated and treated branches respectively \textbf{(top)} Phylogenetic trees showing clones sorted by their median selection coefficient in -Rx and +Rx regimes  \textbf{(middle)} inferred trajectories, and \textbf{(bottom)} selection coefficients of \texttt{fitClone} model fits to each branch.
+	
 	\label{fig:landscapefitness}
 \end{figure}
 
@@ -431,36 +456,30 @@ In each series, emergent clones on treatment were distinct in phylogenetic origi
 %...........................................................
 \subsection {Clone-specific cisplatin resistance has a fitness cost}
 Next, we asked whether the clonal dynamics in the presence of cisplatin were reversible by exploring the replicates of drug holiday samples in
- all 3 TNBC series. We implemented a drug holiday design whereby at each treated timepoint, we tested the impact of removing the drug in a replicate transplant (\textbf{\autoref{fig:schematic} a}, (\textbf{\autoref{fig:treatedgrowthcurves} a}). In the case of TNBC-SA609, the inverted fitness is reversible in a short interval, (\textbf{\autoref{fig:genotype609} d-}, \textit{X5 UTU; X6 UTTU; X7 UTTTU}) when in competition with precursor clones, under no treatment. In the first drug holiday \textit{X5 UTU}, clonal composition reverted to consist predominantly of precursor clone B with 90\% abundance, and only 10\% abundance from clone A (\textbf{\autoref{fig:genotype609} d, e}). However, in \textit{X6  UTTU} and \textit{X7 UTTTU} no reversion was detected, and these populations consisted of $>$99\% Clone A, similar to their on-treatment analogues. Thus, when clonal competition was possible in the absence of drug, cells derived from the precursor B clade outcompeted clone A, and clone-specific cisplatin resistance displays a fitness cost. Moreover, the genotype specificity of reversion between \textit{X4 UT} to \textit{X5 UTU} indicates that the clonal dynamics can be attributed to selection of genomically defined clones with differential fitness. The TNBC-SA1035 series exhibited more moderate reversibility. Clone G contracted from 10\% at \textit{X5 UT} to 9\% at \textit{X6 UTU}, compared to 20\% at \textit{X6 UTT}, and clone A contracted from XX\% at \textit{X7 UTTT} to XY\% at \textit{X8 UTTTU} (\textbf{\autoref{fig:genotype1035} c-e}). 
+ all 3 TNBC series. We implemented a drug holiday design whereby at each treated timepoint, we tested the impact of removing the drug in a replicate transplant \textbf{(\autoref{fig:schematic} a)}. In the case of TNBC-SA609, the inverted fitness is reversible in a short interval, \textbf{(\autoref{fig:genotype609} d)}, \textit{X5 UTU; X6 UTTU; X7 UTTTU}) when in competition with precursor clones, under no treatment. In the first drug holiday \textit{X5 UTU}, clonal composition reverted to consist predominantly of precursor clone B with 90\% abundance, and only 10\% abundance from clone A (\textbf{\autoref{fig:genotype609} d, e}). However, in \textit{X6  UTTU} and \textit{X7 UTTTU} no reversion was detected, and these populations consisted of $>$99\% Clone A, similar to their on-treatment analogues. Thus, when clonal competition was possible in the absence of drug, cells derived from the precursor B clade outcompeted clone A, and clone-specific cisplatin resistance displays a fitness cost. Moreover, the genotype specificity of reversion between \textit{X4 UT} to \textit{X5 UTU} indicates that the clonal dynamics can be attributed to selection of genomically defined clones with differential fitness. The TNBC-SA1035 series exhibited more moderate reversibility. Clone G contracted from 10\% at \textit{X5 UT} to 9\% at \textit{X6 UTU}, compared to 20\% at \textit{X6 UTT}, and clone A contracted from XX\% at \textit{X7 UTTT} to XY\% at \textit{X8 UTTTU} (\textbf{\autoref{fig:genotype1035} c-e}). 
 Similarly, in TNBC-SA535 (\textbf{\autoref{fig:genotype535cisplatin} c-e}) the highest fitness clone A in the treatment setting either maintained or decreased clonal fractions in the holiday setting, and clone E exhibited clonal fractions similar to consecutively treated timepoints at parallel drug holiday timepoints \textit{X7 UTTU}, \textit{X8 UTTU}, and \textit{X9 UTTTU}.  However, clone E increased to 32\% in \textit{X10 UTTTTU} from 10\% in \textit{X9 UTTTT}.  Lack of monotonically increasing growth dynamics of treatment resistant clones in the holiday setting, resulting in only stable or decreasing growth, emphasizes the fitness cost of resistance and further implicates drug induced selection of clones with low fitness in the absence of drug.     
 
 
 
 %--------------------------------------------------------------------------
 
-\subsection{Comparison of fitness landscape of cisplatin and CX-5461 in TNBC-SA535 PDX timeseries}
-The observation of resistance emerging from common clonal precursors within a TNBC-SA609 PDX line raises the question of whether common precursors give rise to resistance with unrelated drugs. To address question, next we  selected CX-5461, a G4 binder, which is synthetic lethal with loss of DNA repair and structurally unrelated to cisplatin. We asked how clonal dynamics behave if same tumor is perturbed with different drugs. 
-One TNBC-SA535, was BRCA1 deficient (HRD-Dup), so we established a repeated CX-5461 (G4-stabilizer, see introduction) drug exposure timeseries \textbf{(\autoref{fig:schematic} a)}, same experimental design as with cisplatin, \textbf{(\autoref{fig:SA535CX5461} a)} to compare cisplatin induced clonal dynamics. Platinum (cisplatin) is a standard chemotherapeutic agent whereas, CX-5461 is a G4 quadruplex stabilizer drug, known to have synthetic lethality with BRCA deficiency.
-
-We established a timeseries TNBC-SA535 TNBC PDX treated and untreated branches of CX-5461 similar and in parallel to cisplatin.
- CX-5461 treatment started from timepoint X5 to X9 while cisplatin was given in parallel from X6 to X10 \textbf{\autoref{fig:SA535CX5461} a}. 
+\subsection{Drug resistance arises from a common lineage precursor with different DNA damaging drugs}
+%{Comparison of fitness landscape of cisplatin and CX-5461 in TNBC-SA535 PDX timeseries}
+The observation of resistance emerging from common clonal precursors within a TNBC-SA609 PDX line raises the question of whether common precursors give rise to resistance with unrelated drugs. To address question, CX-5461 (G4-stabilizer, see introduction), was selected, which is synthetic lethal with loss of DNA repair and structurally unrelated to cisplatin. We asked how clonal dynamics behave if same tumor is perturbed with different drugs. 
+ We established a similar timeseries from CX-5461, analogous to cisplatin series described in sections above for TNBC-SA535. Repeated CX-5461 drug exposure created patterns of tumor resistance \textbf{(\autoref{fig:schematic} a)},  \textbf{(\autoref{fig:SA535CX5461} a)}. CX-5461 treatment started from timepoint X5 to X9 (five cycles) \textbf{\autoref{fig:SA535CX5461} a}. 
  
-We collected sc-WGS from consecutively transplanted treated and untreated all aforementioned timepoints for a raw total of 44,618 single cells (mean = 1274.8, $\sigma$ = 300.8 per library. After aggressive filtering for a very high quality human genomes and removing dividing cells, we analysed a total of 7,894 (mean = 1127.7, $\sigma$ = 708.2 per timepoint) single cells from the whole TNBC-SA535 PDX dataset \textbf{(\autoref{fig:SA535combinebarplots} a)}.
+Tumor growth curves from displayed progressively less response of the tumors in last cycle of drug as compared to the first, indicating initiation of drug resistance to CX-5461 \textbf{(\autoref{fig:SA535CX5461} b, c)}. 
+Gradual onset of resistance was physically confirmed with progressive reduction in tumour growth inhibition (TGI\%) with 71\%-35\%, from first cycle to fifth cycle of CX-5461 treatment, respectively \textbf{\autoref{fig:SA609allcyclescisplatin} d}, \textbf{\autoref{fig:SA535CX5461} b}). 
+ 
+%A cut of the phylogenetic tree inferred over all cells in this series, resulted in 13 clones. 
+%We collected sc-WGS from consecutively transplanted treated and untreated all aforementioned timepoints for a raw total of 44,618 single cells (mean = 1274.8, $\sigma$ = 300.8 per library. After aggressive filtering for a very high quality human genomes and removing dividing cells, we analysed a total of 7,894 (mean = 1127.7, $\sigma$ = 708.2 per timepoint) single cells from the whole TNBC-SA535 PDX dataset \textbf{(\autoref{fig:SA535combinebarplots} a)}.
 
-We acquired scWGS on 7 consecutively transplanted untreated timepoints (X4, X5, X6, X7, X8, X9, X10) generating a total of 1,968 single cells (mean = 328, $\sigma$ = 104.5 per timepoint).
-Clonal fractions calculated as I(0.002), J(0.3206), K(0.0071), L(0.0051), N(0.0066), P(0.0056), Q(0.6011), R(0.0386), S(0.0097) and U(0.0036). 
+%We acquired scWGS on 7 consecutively transplanted untreated timepoints (X4, X5, X6, X7, X8, X9, X10) generating a total of 1,968 single cells (mean = 328, $\sigma$ = 104.5 per timepoint).
+% Clonal fractions calculated as I(0.002), J(0.3206), K(0.0071), L(0.0051), N(0.0066), P(0.0056), Q(0.6011), R(0.0386), S(0.0097) and U(0.0036). 
 
 %Simultaneously, from a Cisplatin treated timeseries starting from timepoint X6, and continued for 5 cycles up to X10, generating a total of 2,921 cells from scWGS (mean = 584.2, $\sigma$ = 190.5 per timepoint) from 5 cycles. A cut of the phylogenetic tree inferred over all cells in this series, resulted in 13 clones.
 %In the drug cycle treatment Cisplatin line, clonal fractions were
 %calculated as I(0.1568), J(0.0575), K(0.0791), L(0.1852), N(0.0065), O(0.001), P(0.1072), Q(0.0387), R(0.0524), S(0.0839), T(0.1938) and U(0.038).
-
-In CX-5461 treated timeseries, starting from timepoint X5, and continuing for 5 cycles up to X9, we generated a total of 3,005 cells from scWGS (mean = 601, $\sigma$ = 342 per timepoint). A cut of the phylogenetic tree inferred over all cells in this series, resulted in 13 clones. In the drug cycle treatment CX-5461 line, clonal fractions were I(0.0004), J(0.0077), K(0.0027), L(0.0013), M(0.0389), N(0.0709), O(0.0795), P(0.003), Q(0.005), R(0.3428), S(0.016), U(0.4319).
-
-
-\subsubsection{CX-5461 treated tumors were more responsive as compared to cisplatin}
-Tumor growth curves from displayed progressively less response of the tumors in last cycle of drug as compared to the first, indicating initiation of drug resistance to both cisplatin and CX-5461 \textbf{(\autoref{fig:SA535CX5461} b, c)}. 
-Gradual onset of platinum resistance was physically confirmed with progressive reduction in tumour growth inhibition (TGI) (\%TGI from first to last cycle of: cisplatin=58\%-16\%; CX-5461= 71\%-35\% \textbf{\autoref{fig:SA609allcyclescisplatin} d}, \textbf{\autoref{fig:SA535CX5461} b}). 
-These values show that tumor resistant behaviour and positive growth kinetics induced earlier in cisplatin tumors as compared to CX-5461. 
 
 %......................................................
 \begin{figure}
@@ -469,14 +488,13 @@ These values show that tumor resistant behaviour and positive growth kinetics in
 	
 \caption[SA535 TNBC PDX timeseries with CX-5461]
 	{\small
- \textbf{SA535 TNBC PDX timeseries with CX-5461}
+ \textbf{TNBC-SA535 PDX timeseries with CX-5461}
 Vertical axis on right indicates the tumor status. The top bar gives cycle numbers and left vertical axis gives tumor measurements. Horizontal axis are days post measurable tumors\textbf{(a)} Experimental overview and passaging details of start and end of cisplatin and CX-5461 treatments. 
-	   \textbf{(b)} Growth curves of CX-5461 treated tumors. Red arrows point to the start of treatment and black arrows point to the tumor digested for scWGS.
+	   \textbf{(b)} Growth curves of CX-5461 treated tumors. Red arrows point to the start of treatment and black arrows point to the tumor digested for scWGS. Vertical axis present Tumor volumes on the left side and Tumor status on right.  Horizontal axis denotes the time in days.
 	    
 	}
 	\label{fig:SA535CX5461}
 \end{figure}
-
 %..................................................................
 \begin{figure}
 \centering
@@ -485,39 +503,66 @@ Vertical axis on right indicates the tumor status. The top bar gives cycle numbe
 \caption[Combined data analysis of SA535 with cisplatin and CX-5461]
 	{\small
 	\textbf{Combined data analysis of SA535 with cisplatin and CX-5461.}
-		\textbf{(a)} Integers copy number heat map showing vertical columns as chromosomes and each row represent single cell. Blue arrows pointing to change in copy number events in that specific clone. \textbf{(b)}Bar plots showing clonal composition at each time point. Vertical axis shows the clonal fraction and horizontal axis presents the passage timepoint. \textbf{(c)} Simplified way to present clonal lineage tree matching the bars composition from \textbf{(a)}.
+		\textbf{(a)} Integers copy number heat map showing vertical columns as chromosomes and each row represent single cell. Blue arrows pointing to change in copy number events in that specific clone. \textbf{(b)}Bar plots showing clonal composition at each time point. Vertical axis shows the clonal fraction and horizontal axis presents the passage timepoint. \textbf{(c)} Simplified way to present clonal lineage tree matching the bars composition from \textbf{(a)}. \textbf{(d)} Quantiles of selection coefficients of \texttt{fitClone} model fits to each branch with respect to the reference Clone Q in TNBC-SA535. 
 	}
 	\label{fig:SA535combinebarplots}
 \end{figure}
 %...............................................................
 
 
-\subsubsection{Drug resistant clones arise from the same precursor}
-Integer heat map of copy number heterogeneity was computed using \texttt{sitka} and interestingly cisplatin and CX-5461 treated cells clustered independently from each other and from the un treated cell clusters \textbf{\autoref{fig:SA535combinebarplots} a}. Clonal abundance for the un treated time series depicted increase of Clone Q till passage 7 (X7) but then gradual decrease favouring emerging of clone J in the later generations \textbf{(\autoref{fig:SA535combinebarplots} b (left top panel))}. In cisplatin treated series, clone T showed up expanding under the drug whereas with CX-5461 favored emerging of clone U.
-Moreover, the resistant branches having \textbf{clone S} and \textbf{clone T} for cisplatin and \textbf{clone U} for CX-5461, both derived from precursor \textbf{clone R}. Clone R was present early in variable proportions in the two branches, but did not have fitness in the untreated, present, but at a very minor proportion. 
+\subsubsection{Resistant clones from cisplatin and CX-5461 in TNBC-SA535 PDX shared late common precursor}
+For CX-5461 treated timeseries, starting from timepoint X5, and continuing for 5 cycles up to X9, we generated a total of 3,005 cells from scWGS (mean = 601, $\sigma$ = 342 per timepoint). A cut of the phylogenetic tree inferred over all cells in this series, resulted in 13 clones. In the drug cycle treatment CX-5461 line, clonal fractions were I(0.0004), J(0.0077), K(0.0027), L(0.0013), M(0.0389), N(0.0709), O(0.0795), P(0.003), Q(0.005), R(0.3428), S(0.016), U(0.4319). 
 
-Next, we sought to compare the genotypes of the resistant and sensitive clones and observed that the precursor clone R has a copy number loss at chromosome 6 and copy gain on chromosome 11, 18 and X-chromosome as compared to the sensitive clone J. Notably, the CX-5461 resistant clone U shared many common events with precursor clone R, however, cisplatin resistant clone was distinct with copy number loss on chromosomes 1, 3, 7, 8, 10, 11, 12 and 18 while copy gain on chromosomes 2, 6,15 and 20.
+Consistent with positive selection and differential fitness of above mentioned 3 TNBC timeseries with cisplatin, the TNBC-SA535 with CX-5461 also exhibited evidence of clonal dynamics and variation in selection coefficients \textbf{\autoref{fig:SA535combinebarplots} d}. Out of 13 clones, the resistant \textbf{clone U} was observed expanding under CX-5461 treatment cycles, starting from very small initial population in first cycle (passage X5) to around 70\% of the population at fifth cycle of drug exposure (passage X9) \textbf{\autoref{fig:SA535combinebarplots} b}. From \texttt{sitka} clonal relationship inference, we found that clone U was derived from a precursor \textbf{clone R} \textbf{\autoref{fig:SA535combinebarplots} a, c}. The precursor \textbf{clone R} was high in abundance in early drug cycles but proportionally started decreasing with expansion of resistant \textbf{clone U}. The prevalence of Clone R decreased from 60\% in first cycle of CX-5461 (passage X5) to only 15\% in the last cycle of the drug (passage X9) \textbf{\autoref{fig:SA535combinebarplots} b}. 
+Notably, \textbf{clone U} showed the highest selection coefficient of fitness and its precursor \textbf{clone R} was found to be within top 3 clones of having high fitness coefficients \textbf{\autoref{fig:SA535combinebarplots} d-right panel}.  
+
+Next, we were curious to understand the relationship between two resistant clones from two different drugs in same tumor. As the tumor was same TNBC-SA535 treated with cisplatin as described above, we combined cisplatin treated previous data with CX-5461 and generated a combined data set for analysis. 
+
+Integer heat map of copy number heterogeneity was computed using \texttt{sitka} and cisplatin and CX-5461 treated cells were observed clustering independent from each other and from the untreated cell clusters \textbf{\autoref{fig:SA535combinebarplots} a}.
+From the untreated time series, depicted increase of \textbf{clone Q} till passage 7 (X7) but then gradual decrease favouring emerging of \textbf{clone J} in the later generations \textbf{(\autoref{fig:SA535combinebarplots} b-top left)}. \textbf{Clone J} also had the highest coefficient of fitness (\textbf{\autoref{fig:SA535combinebarplots} b-left}).
 
 
-Comparing drug holiday samples from cisplatin and CX-5461 treated timeseries showed that resistant clones are reversible early in the treatment of cisplatin but not with CX-5461 (\textbf{\autoref{fig:SA535combinebarplots} b middle and right panels}).
-These results require further confirmation of clonal fitness by calculating fitness coefficients by applying \texttt{fitClone}. 
+The resistant clone emerged under cisplatin treatment, in the combined dataset, was labelled as \textbf{clone T}. \textbf{Clone T} was not observed in early drug exposure but it started appearing in third cycle of treatment and expanded from 25\% in third cycle (passage X8) to 75\% in the last drug cycle treatment (passage X10). Moreover, phylogeny showed that \textbf{clone T} was evolved from \textbf{clone S} and more interestingly, \textbf{clone S} was derived from precursor \textbf{clone R}. This relationship implied that \textbf{clone U} (resistant clone under CX-5461) and \textbf{clone T} (resistant clone under cisplatin), shared a same common precursor, \textbf{clone R} \textbf{(\autoref{fig:SA535combinebarplots} c)}.
+
+Moreover, \textbf{clone R} was present early in variable proportions in both treated branches, but did not have fitness advantage in the untreated branch. present, but at a very minor proportion. Here we found that \textbf{clone T} genotype corresponds to \textbf{clone A} in previously analyzed cisplatin alone TNBC-SA535, \textbf{clone J}, map back to \textbf{clone G} of untreated cisplatin alone TNBC-SA535. However, the resistant lineage precursor \textbf{clone R} could either correspond to \textbf{clone D or F} of the cisplatin alone tree. The limitation of exact mapping of precursor clone is the low number of genomes in each clone, in cisplatin alone computed tree.
 
 
+
+Next, we sought to compare the genotypes of the resistant vs sensitive clones and observed that the precursor \textbf{clone R} has a copy number loss at chromosome 6 and copy gain on chromosome 11, 18 and X-chromosome as compared to the sensitive \textbf{clone J}. Notably, the CX-5461 resistant \textbf{clone U} shared many common events with precursor \textbf{clone R}, however, cisplatin resistant clone was distinct with copy number loss on chromosomes 1, 3, 7, 8, 10, 11, 12 and 18 while copy gain on chromosomes 2, 6,15 and 20.
+
+
+Comparing drug holiday samples from cisplatin and CX-5461 treated timeseries showed that resistant clones are reversible early in the treatment of cisplatin but not with CX-5461 (\textbf{\autoref{fig:SA535combinebarplots} b- middle and right}).
 
 
 
 \section{Discussion}
 
-In this chapter, we have shown that decoding the contributions of clonal competition in the course of tumour growth with and without drug selection can be achieved by measuring and modeling cellular dynamics with granular scWGS timeseries over several months to years.
-Single cell whole genome sequencing allowed for robust application of population genetics statistical models, and their subsequent validation through experimental mixtures and timeseries observations.
+\begin {itemize}
 
-In population genetics, the repeated observation of dominance or decline in specific clones, defined here by CNA genotypes, implies that either the genotype or a factor heritably linked to the genotype, is deterministic. 
-While we do not rule out that, for example, linked epigenetic or mutation features could be driving selection, our results are consistent with changes in the genome architecture linked to increased fitness.  
-Our results suggest that positive selection attributed to copy number changes of all scales may be under-appreciated. This has implications for interpreting etiologic processes of \textit{TP53} driven cancers where the rates of structural variation acquisition and deviation away from diploid configurations confers quantitative fitness advantages.
+\item In this chapter, we showed that time series measurements can identify CNA determined clonal fitness. In our timeseries PDXs with and without drug perturbation, we found fitness being distributed over copy number defined clones. In tumor evolution, copy number alterations have implications in drug resistance, cancer progression and metastasis \cite{ bielski2018genome, beroukhim2010landscape}. Specifically, in breast cancer, CNA leads to genomic instability which is associated with distinct clinicopathological features, including clinical outcome and change in gene expression. Copy number defined fitness of genotypes can be exploited for the identification of novel cancer genes and this approach could be used across various cancer types \cite{ lopez2020interplay}.
 
-In tumour evolution within patients, copy number alterations as a key biological process is revealing impact on treatment outcomes and co-morbidities \cite{Bielski2018-cm}, innate and adaptive immune response \cite{Bakhoum2018-ko,Davoli2017-mf}, the root cause of major genomic reconfigurations~\cite{Umbreit2020-ls} and evolutionary plasticity \cite{Lopez2020-ku}. 
-Our work here suggests that \textit{TP53} mutation can lead to structural alterations are observed in breast cancer patients, thereby representing a realistic model for studying how the impact of driver mutations inducing genomic instability leads to clonal expansions and evolutionary selection. Variously through single cell approaches \cite{gao2016punctuated} or computational reconstruction of evolutionary histories \cite{Gerstung2020-jl}, the evolutionary impact of structural variations is still a work in progress. Over successive generations in three TNBC PDX, in the context of cisplatin perturbation, emergent copy number changes contribute to the kinetics of the fitness landscape, consistent with a continual diversifying mechanism that induces competitive clonal advantages.  
-The impact of drug intervention on cancer evolution is a key determinant of patient outcomes across all human cancers.  
-We show that resistance to platinum in polyclonal cancers was consistent with a fitness cost, interpreted from a repeatedly observed inversion of the fitness landscape relative to untreated controls. We suggest this could be exploited in future therapeutic strategies. Forecasting the trajectories of cancer clones is of immediate importance to understanding therapeutic response in cancer and for deploying adaptive approaches \cite{Vasan2019-mt}. The presence within a tumour of lineage precursors to resistant genotypes may define time windows within which clonal competition could mediate plasticity to treatment. We suggest that population genetics modeling of timeseries tumour or tumour cell-free DNA measurements to predict clonal evolution is tractable, but will require complementary measurements of genotypic clonal abundance and phenotypic plasticity to gain comprehensive understanding. Further study with timeseries modeling will provide insight into therapeutic strategies promoting early intervention, drug combinations and evolution-aware approaches to clinical management \cite{Acar2020-tf}.
 
-Emergence of two different resistant clones from the same precursor clone R geneotype, indicates that drug resistance has apparently a favored clonal starting point in this PDX \textbf{\autoref{fig:SA535combinebarplots} c}. This is a single observation from one example and require more timeseries treated with the same drugs to generalize the findings.
+\item We showed that resistance to chemotherapies could involve time dependent phases of clonal selection pruning unfit clones. However, by examining the drug holiday samples, we found that clone-specific cisplatin resistance has a fitness cost, because in the absence of cisplatin, the impact of  selective pressure on the starting tumour cell population was reversible. Later, once the population became fixed and evolutionary bottle neck narrows, no reversibility was seen even in the absence of drug. Forecasting these trajectories of cancer clones is of immediate importance to understand therapeutic response in cancer and for deploying adaptive approaches \cite{Vasan2019-mt}. 
+
+
+\item In TNBC-SA609, we found clone B, as common lineage precursor to cisplatin resistant clone, whereas, in TNBC-SA535, common lineage precursor to two distinct resistant clones, clone U and clone T from CX-5461 and cisplatin, respectively. These results implied that the presence of common lineage precursors to resistant genotypes may define time windows within which clonal competition could mediate plasticity to treatment. This could help in therapeutic strategies promoting early intervention, drug combinations and evolution-aware approaches to clinical management \cite{Acar2020-tf}.
+\end {itemize}
+
+
+\subsection{Limitations}
+\begin {itemize}
+
+\item In this study, we applied one drug, cisplatin, to three TNBC PDX to create timeseries resistance model. Although, we find that the clonal dynamics were reproducible, but we need to have more TNBC PDXs to declare that the findings are generalizable. 
+
+\item Replicate tumor samples and more cisplatin treated branches for TNBC-SA1035 and TNBC-535, analogous to 3 lines of TNBC-SA609,  was not available so we are not sure how much cisplatin treated clonal dynamics are reproducible in other two TNBC PDXs. 
+
+\item Emergence of two different resistant clones from the same precursor  geneotype, indicates that drug resistance has apparently a favored clonal starting point in this PDX \textbf{\autoref{fig:SA535combinebarplots} c}. This is a single observation from one example and require more timeseries treated with the same drugs to generalize the findings.
+
+\item Only one TNBC-SA535 PDX timeseries was exposed to CX-5461 in parallel to cisplatin. We don't know if TNBC-SA609 and TNBC-SA1035 are also exposed to CX-5461, and a combined tree from both drugs is generated, will there appear a common lineage precursor for the resistant clones of different drugs?
+
+\item we did not find specific single nucleotide variant (SNV) that was private to a high fitness clone and  was implicated in the literature as oncogenic. It is possible that such a mutation exists but was missed either at sequencing or by our computational pipelines.
+
+\item The \texttt{sitka} model for phylogeny construction doesn't give us branch length for individual clones and also we don't know the evolutionary time between the clones. It  uses rooted tree from where all terminal nodes are at equal distance. 
+
+
+\end {itemize}
