@@ -32,35 +32,58 @@ Here we aimed to systematically investigate the specific relationship between co
 
  \section{Synopsis}
 
+The overall goal of this chapter is to determine the impact of change in copy number on the phenotype. By using single cell RNA sequencing in conjunction with clonealign  \cite{campbell2019clonealign}, a proportion of the genome  was defined that was affected by copy number dependent transcription.
  
- %From the previous chapter, we know that the population changes with the tumor growth from one passage to another, with and without the drugs. We see the shifts in the clones and some clones get selected and others disappear.
-To explore the cellular compositions and breast cancer heterogeneity under diverse conditions, we performed scRNAseq analysis on the same 3 patient derived xenograft timeseries used as substrates in chapter 4. We acquired transcriptional signatures of 171,560 individual cells. Two libraries from CX-5461 treated samples were excluded from analysis as they did not pass our QC threshold. A total of 145,858 individual cells were taken into further transcriptome analysis, including  52,256 cells from untreated tumors, 40,754 cells from cisplatin treated tumors, 31,269 cells from cisplatin drug holiday tumors, 8,558 cells from CX-5461 treated tumors and 13,021 cells from CX-5461 drug holiday tumors (\textbf{\autoref{tab:nofcellsRNA}}).
+ This chapter is divided into 3 sections of data evaluation, copy number dependent transcriptome proportions and changes over time. Highlights in synopsis are followed by detialed results: 
+  
+  \subsection{ScRNA-seq data processing and evaluations for downstream analyses} 
+\begin{itemize}
+  
+   \item Generated scRNA-seq data for 145,858 single cells across 3 triple negative breast cancer timeseries PDX 
+(TNBC-SA609, TNBC-SA1035, TNBC-SA535) that were serially challenged for 4-5 cycles of (cisplatin) platinum and SA535 additionally with CX-5461 to create resistance.
+   \item \texttt{edgeR} and SCTransform were strongly correlated for normalization of all 3 timeseries data with TNBC-SA609 having the highest correlation coefficient between them.
+ \item Normalization with SCTransform partially removed batch effects with a small range of mean gene expression differences.
+ \item Relative abundance of copy numbers assigned scRNA-seq clonal subpopulations were strongly correlated.
+ \item Single cell copy number clonal structure observed in UMAP was able to summarize transcriptomes with residual batch effects.
 
+\end{itemize}
+\subsection{Contrasts of resistant and sensitive clone specific gene 
+expression reveals the rates of in cis and in trans components} 
+\begin{itemize}
+   
+   \item Copy number change \textit{in cis} expression accounts for $\sim${6.3\%-38.52\%} of clonal differences in resistant vs sensitive transcriptomes. The overall number of \textit{in trans} genes were higher as compared to \textit{in cis}, which was consistent with previously reported results.
  
-%----------------------------------------------------------------
-
  
-%To pursue our analysis at single cell RNA level, we encompassed on three main queries; (i) how to explain the data processing from our experimental design (ii) how much of the differentially expressed genes in resistant vs sensitive clones are \textit{in cis} or \textit{in trans} regulated and (iii) explore the change of expression overtime.   
+ %\item For all DE comparisons, DE in-cis genes average was 38.52\% (sd=11.43) for SA609, SA535 cisplatin, SA535 CX5461,  however, the proportion of DE in-cis genes for SA1035: average was 6.3\% (sd= 0.92).
+ 
+ 
+ 
+ \item  In 4 published cancer fitness and cisplatin resistance datasets, DE genes showed  highest match \textit{in cis} of TNBC-SA535, in both treatment regimes with 28\% maximum. Whereas, TNBC-1035 had the lowest match with 2.4\%.
 
-To pursue our analysis at single cell RNA level, we set to explore three main questions: (i) how to best  process our experimental design data; (ii) how the gene expression changes in resistant (with drug) versus sensitive (no treatment) clones and the relationship with the copy number change (\textit{in cis} or \textit{in trans} regulated genes); (iii) how the gene expression changes over time.  
+ \item Overall, out of 100\% of \textit{in cis} regulated genes, the highest average of positive linear up or down regulation with copy number was found in TNBC-SA1035 with average of 88.3\% (sd=3.9) and lowest in TNBC-SA609 with average of 74.1\% (sd=13.2). 
+ %TNBC-SA535-cisplatin, SA535-CX-5461 showed 83.7\% (sd=6.5) and  85.7\% (sd=3), respectively.
+ 
+ \item Cisplatin resistance associated genes were observed in the extremes of the distribution, for example \textbf{COX6C, PI3, UQCRB, ATP5MPL, CSDE1, CXCL3, S100P, S100A7, HERC5, IFITM3, NDUF and  CRABP1}.
+ 
+  \item Commonly upregulated pathways in TNBCs-SA609, SA535-cisplatin and SA535-CX-5461 included \textbf{TNF, EMT, TGF beta, HYPOXIA, APOPTOSIS, E2F, MITOTIC SPINDLE and ESTROGEN  RESPONSE}, whereas, \textbf{OXPHOS} was downregulated. 
+ 
+ \item \textbf{OXPHOS and INTERFERON pathways} were only upregulated  in TNBC-SA1035.
 
-\subsection{Data processing and clonal assignments}
- From the data processing metrics, we found that batch effects in samples were largely removed by the SCTransform normalization method \cite{hafemeister2019normalization}. Differential gene expression analysis between resistant and sensitive clones was performed using \texttt{edgeR} \cite{robinson2010edger}.
-Next, we used \texttt{clonealign} \cite{campbell2019clonealign} to assign RNAseq single cells to DLP+ clones and, as expected, we observed correlated clonal proportions between RNAseq clones and  DLP+ clones from chapter 4. Finally,   
-we applied dimensionality reduction embeddings of the normalized gene expression levels and revealed that the clones appear to be clustering together with minor exceptions. 
-%----------------------------------
+\end{itemize}
 
-%----------------------------------------------------------------
+\subsection{Change in gene expression over time}
 
-\subsection{Gene expression change over treatment states \textit{in cis} and \textit{in trans}} 
-In the next section, we asked what proportion of the gene expression change in treated versus untreated samples is accounted for by the change in copy number and what proportion is independent. We defined a differentially expressed gene (DEG) to be \textit{in cis} if there was a difference in median copy number for that gene between the two compared clones, and \textit{in trans} otherwise. The global proportions of \textit{in cis} and \textit{in trans} genes in resistant versus sensitive clones were measured. Then, we looked for the magnitude of difference of upregulated or downregulated genes. Finally, we explored which pathways and individual genes are involved in resistant and sensitive clones across all timeseries PDX models. 
-%We found few intersecting pathways that seems to be upregulated in all timeseries and some with 2-3
+\begin{itemize}
+ \item Most of the chemoresistance associated pathways were activated in the later passages with repeated exposure to drugs.
+ 
+ \item Drug holiday samples showed a shift towards untreated expression, for example, drug holiday samples of \textit{in cis} regulated \textbf{UQCRB (OXPHOS pathway)},  and drug holidays samples of \textit{in trans} regulated, \textbf{MYC (MYC targets V2)}.
+ \item Line trajectories of individual genes over time showed that expression change could be monotonically increasing or decreasing under drug selection, for example, \textit{in cis} regulated \textbf{VDAC3  (OXPHOS pathways)} and in trans regulated, \textbf{BTG1 (TNFA via NFKB pathway)}.
+ %\item In TNBC-SA535, common precursor clone R, in comparison with untreated sensitive clone, showed additional upregulation of HEDGEHOG and ANDROGEN RESPONSE pathways in TNBC-SA535.
 
-\subsection{Gene expression change over time}
-Lastly, we explored the gene expression change over time in the entire gene population in each of our data sets, and we distinguished genes that were increasing or decreasing under continuous drug pressure, while observing the opposite behaviour without drug. We identified common genes that showed trends under the drug in all TNBC timeseries PDX; these could be further investigated as potential biomarkers of disease progression and tumor response.
+ \item Line trajectories of individual genes over time showed that expression change could be monotonically increasing or decreasing under drug selection, for example, in cis regulated VDAC3, from OXPHOS pathways and in trans regulated, BTG1 from TNFA via NFKB pathway.
 
+\end{itemize}
 
-%-----------------------------------------------------------------
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{Figures/chap5/RNAworkflow.png}
@@ -93,7 +116,7 @@ Binary base call (BCL) files are the raw data files generated by the Illumina se
 Next, low quality cells were removed and only cells that passed the threshold of quality control were kept. 
  \texttt{scater} package was applied for quality control filters. Cells were considered to be good quality if (i) at least 1000 genes detected, (ii) less than 20\% of counts (UMIs) mapping to genes from the mitochondrial genome (``mitochondrial genes''), (iii) fewer than 60\% of counts (UMIs) mapping to ribosomal genes, and (iv) the total counts (UMIs) per cell was at most 3 median absolute deviations lower than the overall median. Cells not matching all criteria were filtered using the \ac{QC} Metrics and Outlier functions in the \texttt{scater} package \cite{mccarthy2017scater}.
 
-Next, clonal assignments from \texttt{sitka} tree inference from chapter 4 was used to run clonealign \cite{campbell2019clonealign} for \ac{scRNAseq} clone labels. Moreover, \texttt{SCTransform} \cite{hafemeister2019normalization}and \texttt{edgeR} \cite{robinson2010edger}, were applied for normalization and differential gene expression analysis, respectively (\textbf{\autoref{fig:chap5RNAworkflow} c}). 
+Next, clonal assignments from \texttt{sitka} tree inference from chapter 4 was used to run clonealign \cite{campbell2019clonealign} for \ac{scRNAseq} clone labels. Moreover, \texttt{SCTransform} \cite{hafemeister2019normalization} and \texttt{edgeR} \cite{robinson2010edger}, were applied for normalization and differential gene expression analysis, respectively (\textbf{\autoref{fig:chap5RNAworkflow} c}). 
 
 
 %---------------------------------------------------------------
@@ -127,14 +150,23 @@ by dissociation at cold temperature. For the experiments of this chapter, we pre
 %need to fill in the proper number and table from Mirela
 From the scRNA-seq libraries, the cells obtained per line ranged from 1111 to 222222 after filtering for high quality cells, representing X to Y cells per time point sample, median Z \textbf{\autoref{tab:nofcellsRNA}}. 
 
-%\textbf{\autoref{fig:Diagnosticplotsreadcounts}} shows a range of features by counts (explain what this means ) and total counts per cell, ranging from X-Y interquartile range, median range A-B over all samples
-%- the large variablity between samples is in part due to batch processing effects in sequencing depth per cell and number of cells obtained pointing to the need for batch correction/normalization - described next 
 
-After filtering cells that have total features by counts greater than 1500 are considered and included in analysis. Most of the libraries in 4 TNBC-PDX timeseries showed total features by counts or number of counts as greater than 3000. 
+\textbf{\autoref{fig:Diagnosticplotsreadcounts}} shows medians of features by counts (number of genes with non-zero counts value) range from 3826 to 4878 (interquartile range of (3109 to 6320).and total counts per cell medians range from 14043.6 to 27805.5 over all samples (interquartile range of 4342.2 to 63899) in all 4 TNBC-PDX timeseries. 
+
+%\begin{itemize}
+   % \item Series SA609: total counts - median over all samples: 14043.6 interquartile range: [4508-17752.2]   number of genes with non-zero counts - median over all samples: 4283.9 interquartile range: [3109-6053]
+%\item Series SA1035: total counts - median over all samples: 21935.2 interquartile range: [4342.2-48549.8]   number of genes with non-zero counts - median over all samples: 3826 interquartile range: [2013-5366] 
+%\item Series SA535:Cisplatin: total counts - median over all samples: 27805.5 interquartile range: [10453.8-63899]   number of genes with non-zero counts - median over all samples: 4878.7 interquartile range: [3236-6320]
+%\item Series SA535:CX5461: total counts - median over all samples: 26869 interquartile range: [17787.2-35371]   number of genes with non-zero counts - median over all samples: 4286.2 interquartile range: [3603.5-6057]
+
+%\end{itemize}
+
+The large variablity between samples is in part due to batch processing effects in sequencing depth per cell and number of cells obtained pointing to the need for batch correction/normalization.
+
+
 %Only 2 libraries in TNBC-SA1035 (X5-UT-CHIP0071 and X5-UU-CHIP0076) had a low quality cells than other libraries (~2500 total features by counts) but acceptable and good enough to use. Other exceptions were TNBC-SA535-CX-5461 treated at time points X7 and X9 with low quality, that was excluded from the downstream analysis. 
 
 %----------------------------------------------------------------
-
 
 \begin{figure}
 \centering
@@ -160,8 +192,9 @@ After filtering cells that have total features by counts greater than 1500 are c
 \caption[Summary of overall read counts and features of the raw data presented.]
 	{\small
 	\textbf{Summary of overall read count of the data presented.}
-	   \textbf{(a)} Cell-level metric of ``total features by counts'' for all batches of experiments.y-axis denotes total features by counts: the number of genes for each cell that have counts gene expression value above 0. x-axis denotes different batches of experiments, C is ``CHIP0'', same chip number is same batch. x-axis also contain passage info, and treatment status
-	    \textbf{(b)} Cell level metric ``total counts'' for all batches of experiments.
+	   All Horizontal axis denotes different batches of experiments
+	   \textbf{(a)} Number of ``genes with non-zero counts'' for all batches of experiments. 
+	    \textbf{(b)} Cell level metric ``total cell counts'' for all batches of experiments.
 	   
 	}
 	\label{fig:Diagnosticplotsreadcounts}
@@ -192,35 +225,14 @@ After filtering cells that have total features by counts greater than 1500 are c
 	
 \caption[Evaluation of \texttt{edgeR} in all PDX timeseries data.]
 	{\small
-	\textbf{Evaluation of \texttt{edgeR} in all PDX timeseries data.}
-	Box plots showing upregulated and downregulated differentially expressed genes in four TNBC timeseries PDX. Horizontal axis shows sample status and passage timepoint, where each `T' stands for one cycle of cisplatin and each `X' stands for one cycle of CX-5461. `U' stands for untreated timepoint. Vertical axis denotes average expression of genes.
-	\textbf{(a)} TNBC-SA609 showing upregulated gene expression in 4 cycles treated resistant tumor (red) and sensitive tumor (blue). 
-	\textbf{(b)} TNBC-SA609 showing down regulated gene expression in 4 cycles treated resistant tumor (red) and sensitive tumor (blue). 
-		\textbf{(c, d)} Same as \textbf{(a, b)} but for TNBC-SA1035.
-		\textbf{(e, f)} Same as \textbf{(a, b)} but for TNBC-SA535-Cisplatin treated.
-		\textbf{(g, h)} Same as \textbf{(a, b)} but for TNBC-SA535-CX-5461 treated.
+	\textbf{Comparison of edgeR with SCTransform normalization for downstream data analysis.}
+All vertical axis presents SCTransform normalized logcounts genes expression in resistant clone versus logcounts genes expression in sensitive clone. All horizontal axis presents log base 2 fold change of gene expression of \texttt{edgeR}.	
 	}
 	\label{fig:edgeRsctransformcorrelation}
 \end{figure}
 
 %-------------------------------------------------------------
-% Table generated by Excel2LaTeX from sheet 'Sheet1'
- \begin{table}[htbp]
-   
-   \centering
-   \caption{List of resistant and sensitive clones across TNBC PDX}
-     \begin{tabular}{|l|l|l|}
-      \hline
-     TNBC PDX & Resistant clone & Sensitive clone \\
-     \hline
-     TNBC-SA609  & Clone A & Clone H \\
-     TNBC-SA1035 & Clone H & Clone E \\
-     TNBC-SA535-Cisplatin Rx & Clone S\_T & Clone J \\
-     TNBC-SA535-CX-5461 Rx & Clone U & Clone J \\    \hline
-     \end{tabular}%
-   \label{tab:Listofresistantandsensitiveclones}%
-   
- \end{table}%
+
  %------------------------------------------------------------------
 
 
@@ -271,25 +283,31 @@ After filtering cells that have total features by counts greater than 1500 are c
 \subsubsection{Normalization and batch correction of scRNA-seq}
 %{SCTransform performs more optimal normalization for Single cell RNAseq data in longitudinal \textit{in vivo} experiments}
  %To discern the nature of single cell RNA sequencing data in longitudinal samples, we applied few comparative and diagnostic statistical tools to check the normalization and its effects in our datasets.
- An essential step in scRNA-seq analysis is normalization. Errors in normalization can have a significant impact on downstream analysis, such as high false positives in differential expression analysis.
- As noted above for our data, large sample variation occurs suggesting the need for normalization. To examine this issue, we analyzed the variance between samples of N house keeping genes, identified in the literature as suitable index genes for batch corrections \cite{lin2019evaluating}.
-
- To examine this issue, we analyzed the variance between samples of (362-512)house keeping genes (HK), identified in the literature as suitable index genes for batch corrections. 
+The tumor samples of scRNA-seq were collected at different time points because of the nature of experimental design and it was also noted above that large sample variation occurs, suggesting the need for normalization. 
+ %Errors in normalization can have a significant impact on downstream analysis, such as high false positives in differential expression analysis.
+  To examine this issue, we analyzed the variance between samples of 362 to 512 house keeping genes (HK) that expressed in our dataset  HK were identified from the literature as suitable index genes for batch corrections \cite{lin2019evaluating}, tailed selection criteria is mentioned in methods.
 As HK genes can also be influenced by treatments, so we conducted a similar analysis with low variance genes and observed similar results.
-- Figure 5.3a shows high variance (IQR X to Y, median A to B) across HK genes.
-we compared the raw data (\textbf{\autoref{fig:Comparisonofbatcheffects} a}) with twice scran \cite{lun2016pooling} \textbf{\autoref{fig:Comparisonofbatcheffects} b}, Seurat \cite{butler2018integrating} \textbf{\autoref{fig:Comparisonofbatcheffects} c} and SCTransform \cite{hafemeister2019normalization}. Normalization with SCTransform partially removed batch effects with small range of mean gene expression differences \textbf{\autoref{fig:Comparisonofbatcheffects} d}.
+\textbf{\autoref{fig:Comparisonofbatcheffects} b} shows high variance (Interquantile ratio range from 0 to 0.86, median 0.13 to 0.94) across HK genes.
+we compared the raw data (\textbf{\autoref{fig:Comparisonofbatcheffects} a}) with Seurat \cite{butler2018integrating}, scran \cite{lun2016pooling} and SCTransform \cite{hafemeister2019normalization}. 
+
+We assumed that normalization method with good performance should display stable level of normalized HK genes expression with low variance across libraries.
+
+\textbf{\autoref{fig:Comparisonofbatcheffects} } showed that  \textbf{SCTransform} (median range in all TNBC PDX from 0.1-0.41) and \textbf{Scran} both (median range of 0.21 to 0.66) demonstrated low variance between batches, while sample size effect was observed in \textbf{Seurat} output.
+
+Normalization with SCTransform partially removed batch effects with small range of mean gene expression differences \textbf{\autoref{fig:Comparisonofbatcheffects} a-d}.
+ 
+%Based on series of TNBC-SA1035, SCTransform seems work better than Scran, so  
+%Scran: median range: [0.29-0.5]   interquartile: [0.12-0.22]    SCTransform: median range: [0.13-0.26]   interquartile: [0.09-0.17] 
+ 
 
 \subsubsection{Comparison of \texttt{edgeR} with SCTransform normalization for downstream data analysis}
-A benchmark study evaluated eleven methods \cite{soneson2013comparison} for differential expression analysis of RNA-seq transcriptomic data, and showed that \texttt{edgeR} outperforms other methods in differential expression estimation with high accuracy of differential expressed genes detection while showing low false discovery rated compared to other methods. 
-As \texttt{edgeR} performs internal normalization, accepting raw data values as input, we sought to evaluate whether differentially expressed (DE) genes that are detected by \texttt{edgeR} are true DE genes or a false positive detected genes due to technical effects of data handling.
+Here, we set to examine a correlation between raw values, scTransform values and edgeR values for differential gene expression. We anticipated that edgeR differential expression is reasonably correlated to post SCTransform at the same gene loci.
 
-Here we intend to examine the correlation between raw values, scTransform values and edgeR values for differential gene expression. We hope/anticipate that edgeR differential expression is reasonably correlated to post scTransform at the same gene loci
+A benchmark study evaluated eleven methods \cite{soneson2013comparison} for differential expression analysis of RNA-seq transcriptomic data, and showed that \texttt{edgeR} outperforms other methods in differential expression estimation with high accuracy of differential expressed genes detection while showing low false discovery rated compared to other methods. As \texttt{edgeR} performs internal normalization, accepting raw data values as input, we sought to evaluate whether differentially expressed (DE) genes that are detected by \texttt{edgeR} are correlated with SCTransform normalization.
 
-
-
+It was observed that \texttt{edgeR} and SCTransform normalization were strongly correlated in all timeseries datasets. The correlation coefficients range from 0.78 to 0.9 with the highest correlation in TNBC-SA609 dataset  \textbf{\autoref{fig:edgeRsctransformcorrelation} a}, followed by TNBC-SA1035 with correlation coefficient of 0.8 then TNBC-SA535-CX-5461 with correlation coefficient of 0.79  \textbf{\autoref{fig:edgeRsctransformcorrelation} b, d} and the minimum correlation coefficient was observed in the data of TNBC-535-Cisplatin treated with  0.78 \textbf{\autoref{fig:edgeRsctransformcorrelation} b, d}.
 
 
- 
 
 %-----------------------------------------------------------------
 
@@ -306,13 +324,13 @@ Here we intend to examine the correlation between raw values, scTransform values
   
 \subsubsection{Single cell copy number clonal structure observed in UMAP summarized transcriptomes with residual batch effects}
 
-The observed clonealign transcriptome correlations suggest that CNA differences between clones may account for some of the phenotypes. To further illustrate this relationship, we summarized the transcriptomes of cells using UMAP dimensional reduction \cite{becht2019dimensionality}, with the clonal assignments of cells shown as embeddings. 
+The observed clonealign transcriptome correlations suggested that CNA differences between clones may account for some of the phenotypes. To further illustrate this relationship, we summarized the transcriptomes of cells using UMAP dimensional reduction \cite{becht2019dimensionality}, with the clonal assignments of cells shown as embeddings. 
 
  We found that scRNAseq embeddings displayed a dynamic pattern of global expression over time with and without treatment, which tracked with clone assignments indicating co-variation of transcriptional properties with clonal abundance. UMAP visualization of clusters identified Clone H cells clusters together at the last time point along with Clone C, in untreated setting and Clone A cells clusters together \textbf{\autoref{fig:EmbeddingsRNA} a}, in the cisplatin treated series of TNBC-SA609 PDX, purified over time matching their genomically defined counterparts \textbf{(\autoref{fig:EmbeddingsRNA} b)}. Similarly, Clone E in untreated and Clone H in treated timeseries of TNBC-SA1035  \textbf{(\autoref{fig:Clonealigncorrelation} c)}, clustered uniquely at the later time points. \textbf{\autoref{fig:EmbeddingsRNA} d} reminding the clonal prorportions at each time point in DLP+ emerging with and without treatment from chapter 4 in TNBC-SA1035. 
 
-TNBC-SA535 PDX all three arms of untreated, treated with cisplatin and treated CX-5461, exhibited aggregation of similar patterns of cell clusters that favours emerging of genomic clones in their respective series \textbf{\autoref{fig:EmbeddingsRNA} e,f}. Clone J (purple), in untreated control timeseries \textbf{(\autoref{fig:EmbeddingsRNA} e, top panel)}, Clone T (red), in cisplatin treated \textbf{(\autoref{fig:EmbeddingsRNA} e, middle panel)}, and clone U (dark brown) in CX-5461 treated \textbf{(\autoref{fig:EmbeddingsRNA} e, lower panel)}. They exhibited approximately similar proportions with respect to other clones as observed in DLP+ (\textbf{\autoref{fig:EmbeddingsRNA} f}). 
+TNBC-SA535 PDX all three arms of untreated, treated with cisplatin and treated CX-5461, exhibited aggregation of similar patterns of cell clusters that favours emerging of genomic clones in their respective series \textbf{\autoref{fig:EmbeddingsRNA} e, f}. Clone J (purple), in untreated control timeseries \textbf{(\autoref{fig:EmbeddingsRNA} e, top panel)}, Clone T (red), in cisplatin treated \textbf{(\autoref{fig:EmbeddingsRNA} e, middle panel)}, and clone U (dark brown) in CX-5461 treated \textbf{(\autoref{fig:EmbeddingsRNA} e, lower panel)}. They exhibited approximately similar proportions with respect to other clones as observed in DLP+ (\textbf{\autoref{fig:EmbeddingsRNA} f}). 
 
-Furthermore,some batch effects could be seen more obvious in TNBC-SA1035, X7 to X8 (\textbf{\autoref{fig:EmbeddingsRNA} c}). The major clone E (blue) along with minors, B and D, are clustering in two different dimensions in untreated passage X7 and passage X8. However, they are clustering together indicating that although there are some residual batch effects showing up but the cells belong to the same group.
+Furthermore, some batch effects could be seen more obvious in TNBC-SA1035, X7 to X8, even after normalization and batch correction (\textbf{\autoref{fig:EmbeddingsRNA} c}). The major clone E (blue) along with minors, B and D, are clustering in two different dimensions in untreated passage X7 and passage X8. However, they are clustering together indicating that although there are some residual batch effects showing up but the cells belong to the same group.
 
 %------------------------------------------------------------------
 
@@ -323,7 +341,7 @@ Furthermore,some batch effects could be seen more obvious in TNBC-SA1035, X7 to 
 \caption[Summary proportion of \textit{in cis} and \textit{in trans} regulated gene expression in scRNAseq data]
 	{\small
 	\textbf{Proportion of CNA differences mapping to resistant and sensitive clone differentially expressed genes.}
-	   Vertical axis, proportion of clone copy number differences by group; red, Higher CN in resistant clone for DE genes, purple lower CN in resistant clone for DE genes, grey CN differences not associated with DE expression.
+	  Vertical axis represents the percentage of DE genes. Horizontal axis represents the two clones. The numbers written for each coloured bar represent the percentage of respective category between those two clones.
 	     
 	}
 	\label{fig:fig3Summaryincistrans}
@@ -334,12 +352,11 @@ Furthermore,some batch effects could be seen more obvious in TNBC-SA1035, X7 to 
 \subsection{Contrasts of resistant and sensitive clone specific gene expression reveals the rates of \textit{in cis} and \textit{in trans} components}
 The above analysis points to copy number mediated effects on transcriptome phenotype, thus we set out to estimate the proportion of the transcriptome affected \textit{in cis} versus that affected \textit{in trans}. 
 
-
-We defined a differentially expressed gene (DEG) to be \textit{in cis}, if there was a difference in median copy number for that gene between the two compared clones, and \textit{in trans}, if the median copy number remains the same but the gene is differentially expressed between resistant and sensitive clones.
+We intersected differentially expressed genes (DE) by comparing resistant clones from all the 4 treated timeseries PDX versus sensitive clones of all the timeseries PDX. A  (DE) is \textit{in cis} regulated if there was a difference in median copy number for that gene between the two compared clones, and \textit{in trans}, if the median copy number remains the same but the gene is differentially expressed between resistant and sensitive clones (either upregulated or downregulated). \textbf{{\textit{in cis} positive tendency}} means if the gene expression is up regulated with the gain in copy number, whereas, \textbf{{\textit{in cis} negative tendency}} means that the gene expression is paradoxically changing with change in copy number. However, \textbf{\textit{in trans}} genes are independent of copy number change.
 
 To determine how much of the transcriptome is modulated by \textit{in cis} and \text{in trans}, first, we identified sensitive and resistant clones from the DLP+ clones summarized in chapter 4. We assumed that the clones that showed fitness advantage under drug selection were resistant because they were high abundance clones (tumor growth inhibition was low in those tumors), whereas the clones that had high fitness coefficients in the absence of drug were sensitive because they could not survive under drug pressure but showed fitness advantage over others in the absence of drug (\textbf{\autoref{tab:Listofresistantandsensitiveclones}}). We focused on differential expression analysis of these major resistant and sensitive clones to simplify the analysis.
 
-\subsubsection{Copy number change \textit{in cis} expression accounts for {$\sim${~}}20-50\% of clonal differences in resistant vs sensitive transcriptomes}
+\subsubsection{Copy number change \textit{in cis} expression accounts for {$\sim${~}}5.2\% and 56.5\% of clonal differences in resistant vs sensitive transcriptomes}
 
 We next investigated the proportion of the genome in resistant and sensitive clones that is potentially influenced by clone copy number differences (cis regulation) and that which is outside of observed copy number differences (trans regulation).
 
@@ -347,7 +364,6 @@ Some of the selected clones that were closely related to the resistant clones or
 
 Using \texttt{edgeR} determined differential expression, we classifed genes into cis and trans up or down regulated, according to the overlap with clone specific copy number differences, or common genomic regions. \textbf{\autoref{fig:fig3Summaryincistrans} a}.
 
-%From HMMcopy output of segment copy number position (chromosome start and end), we get gene coordinates by mapping gene segment positions with reference database of known genes for human  \cite{carlson2015txdb}. First,
 We identified overlapping positions between chromosome segments and known genes, then we assigned those segments to an ensemble gene ID \cite{rainer2019ensembldb} of the  selected \ac{DE} of clones across all timeseries and calculated their number and percentages in each PDX timeseries. Notably, we found that the overall number of \textit{in trans} genes were higher as compared to \textit{in cis}, which is supporting previously reported results \cite{shao2019copy}. Our dataset showed that around 20-50\% of transcriptome is modulated \textit{in-cis} by \ac{CNA} depicting that copy number altered clones have a phenotypic expression.
 
 %------------------------------------------------------
@@ -371,162 +387,8 @@ We identified overlapping positions between chromosome segments and known genes,
  \end{table}%
  %--------------------------------------------------------------------------
 
-% Please add the following required packages to your document preamble:
-% \usepackage{lscape}
-%\begin{landscape}
-%\begin{table} 
-%\centering
-%\caption{Summary of \textit{in cis} and \textit{in trans} %percentages (\%) of differentially expressed genes}
-%\resizebox{\textwidth}{!}{%
-%\begin{tabular}{|l|p{4em}|p{4em}|p{4em}|p{4em}|p{4em}|p{4em}|}
- % \hline
-%\ac{DE}-scRNAseq between clones &
- % In\_cis\_Decrease\_DownRegulated \% &
- % In\_cis\_Decrease\_UpRegulated \% &
- % In\_cis\_Increase\_DownRegulated \% &
- %In\_cis\_Increase\_UpRegulated \% &
- % In\_trans\_DownRegulated \% &
- % In\_trans\_UpRegulated \% \\
-  %  \hline
-%SA609-UUUU-A\_vs\_UUUU-C         & 7.9  & 4.4 & 4   & 5.2  & 40.1 & 38.4 \\
-%SA609-UUUU-A\_vs\_UUUU-H         & 3.5  & 5.1 & 13  & 17.5 & 27.7 & 33.2 \\
-%SA609-UTTT-A\_vs\_UUUU-C         & 14.4 & 3.3 & 1.1 & 9.3  & 32.1 & 39.8 \\
-%SA609-UTTT-A\_vs\_UUUU-H         & 13   & 2.5 & 6.5 & 22.5 & 31.3 & 24.2 \\
-%SA609-UTTTT-A\_vs\_UUUUU-C       & 13.2 & 3.8 & 0.9 & 10.1 & 30.5 & 41.5 \\
-%SA609-UTTTT-A\_vs\_UUUUU-H       & 12.8 & 2.2 & 6.1 & 27.1 & 28.7 & 23   \\
-%SA1035-UTTTT-G\_vs\_UUUUU-E      & 1.8  & 0.2 & 0.4 & 2.3  & 59.2 & 36.2 \\
-%SA1035-UTTTT-H\_vs\_UUUUU-E      & 2.6  & 0.5 & 0.5 & 3.3  & 47.2 & 45.8 \\
-%SA1035-UTTT-G\_vs\_UUUU-E        & 1.6  & 0.1 & 0.1 & 4.8  & 31.5 & 61.9 \\
-%SA1035-UTTT-H\_vs\_UUUU-E        & 1.9  & 0.3 & 0.3 & 3.4  & 27.4 & 66.7 \\
-%SA535\_UUTTTT-T\_vs\_UUUUUU-J     & 9.7  & 5.6 & 0.3 & 3.2  & 22.8 & 58.3 \\
-%SA535\_UUTTT-T\_vs\_UUUUU-J       & 20.9 & 3.4 & 0.2 & 4.5  & 27.6 & 43.3 \\
-%SA535\_UUTTT-S\_T\_vs\_UUUUU-J       & 20.7 & 3.4 & 0.2 & 4.4  & 28.3 & 43   \\
-%SA535-UUTTT-R\_vs\_UUUUU-J       & 7.9  & 2.5 & 1.5 & 12.3 & 36.8 & 39.1 \\
-%SA535\_UUTTT-T\_vs\_UUUUU-Q       & 22.5 & 4.9 & 1.5 & 20.7 & 18.4 & 32   \\
-%SA535-UUTTT\_S\_T\_vs\_UUUUU-Q    & 21.7 & 5.2 & 1.4 & 21.2 & 18.1 & 32.4 \\
-%SA535-UUTTT-R\_vs\_UUUUU-Q       & 16   & 4.4 & 1.8 & 31.5 & 19.9 & 26.4 \\
-%SA535-UXXXX-U\_vs\_UUUUU-J       & 21.5 & 2.8 & 0.6 & 8.8  & 29.2 & 37.1 \\
-%SA535-UXXXX-U\_vs\_UUUUU-Q       & 18.1 & 4.4 & 1.6 & 21.4 & 20.1 & 34.5 \\
-%SA535-UXXXX-R\_vs\_UUUUU-J       & 15.3 & 2.4 & 0.6 & 7    & 40.4 & 34.3 \\
-%SA535-UXXXX-R\_vs\_UUUUU-Q       & 17.1 & 3.4 & 1.9 & 27.5 & 21.8 & 28.2 \\
-%SA535\_UXXXX\_M\_N\_O\_vs\_UUUUU-J & 22.1 & 4.3 & 0.4 & 6    & 28.5 & 38.7 \\
-%SA535-UXXXX-M\_N\_O\_vs\_UUUUU\_Q & 19.7 & 7.7 & 1.3 & 19.3 & 18.6 & 33.5 \\
-%  \hline
-% \end{tabular}%
-% }
-%\label{tab:DEpercentageincisintrans}
-%\end{table}
-%\end{landscape}
-%--------------------------------------------------------------
 
-% Table generated by Excel2LaTeX from sheet 'copy number change'
-% \begin{table}[htbp]
- %  \centering
- %  \caption{Percent change of copy number from one clone to another}
- %    \begin{tabular}{|l|l|l|l|}
-  %     \hline
-  %   Samples & \multicolumn{1}{|l}{Percent\_incis\_incr} & \multicolumn{1}{|l}{Percent\_incis\_decr} & 
-  %   \multicolumn{1}{|l|}{Percent\_others} \\
-  %    \hline
-   %  SA609-UUUU-B\_to\_UUUU-C & 2.25 & 3.01 & 94.74 \\
- %    SA609-UUUU\_B\_to\_UUUU-H & 13.51 & 3.82 & 82.67 \\
-  %   SA609-UTTT\_A\_to\_UUUU-C & 9.35 & 15.91 & 74.74 \\
-  %   SA609-UTTT\_A\_to\_UUUU-H & 8.55 & 4.57 & 86.88 \\
-  %   SA609-UTTTT\_A\_to\_UUUUU-C & 9.96 & 15.35 & 74.69 \\
-   %  \textbf{*}SA609-UTTTT\_A\_to\_UUUUU-H & 12.27 & 5.54 & 82.19 \\
-  %   SA1035-UTTTT\_G\_to\_UUUUU-E & 12.15 & 9.19 & 78.66 \\
-  %   \textbf{*}SA1035-UTTTT\_H\_to\_UUUUU-E & 14.66 & 12.05 & 73.29 \\
-   %  SA1035-UTTT\_G\_to\_UUUU-E & 16 & 5.63 & 78.37 \\
-  %   SA1035-UTTT\_H\_to\_UUUU-E & 14.66 & 8.69 & 76.65 \\
-  %   \textbf{*}SA535-UUTTTT\_T\_to\_\_UUUUUU-J & 4.5 & 19.81 & 75.69 \\
-   % \textbf{*}SA535-UUTTT\_T\_to\_UUUUU-J & 3.59 & 18.63 & 77.78\\
-   %  SA535-UUTTT\_S\_T\_to\_UUUUU-J & 3.51 & 18.53 & 77.96 \\
-   %  SA535-UUTTT\_R\_to\_UUUUU-J & 2.03 & 1.54 & 96.43 \\
-  %   SA535-UUTTT\_T\_to\_UUUUU-Q & 9.89 & 12.2 & 77.91 \\
-   %  SA535-UUTTT\_S\_T\_to\_UUUUU-Q & 10.42 & 12.44 & 77.14 \\
-  %   SA535-UUTTT\_R\_to\_UUUUU-Q & 7.92 & 4.85 & 87.23 \\
-%\textbf{*}SA535-UXXXX\_U\_to\_UUUUU-J & 7.19 & 18.45 & 74.36 \\
-   %  SA535-UXXXX\_U\_to\_UUUUU-Q & 11.84 & 11.59 & 76.57 \\
-   %  SA535-UXXXX\_R\_to\_UUUUU-J & 6.8 & 15.94 & 77.26 \\
-   %  SA535-UXXXX\_R\_to\_UUUUU-Q & 14.37 & 10.06 & 75.57 \\
-   %  SA535-UXXXX\_M\_N\_O\_to\_UUUUU-J & 4.53 & 18.69 & 76.78 \\
-   %  SA535-UXXXX\_M\_N\_O\_to\_UUUUU-Q & 9.27 & 12.36 & 78.37 \\
-  % \hline 
-   
-% \end{tabular}%
-%\label{tab:copynumberchange}%
-
- % \small\textbf{(* Resistant vs sensitive clones at the last time point of treatment cycle)}.
-%\end{table}%
-
-%-------------------------------------------------------------------------
-% Please add the following required packages to your document preamble:
-% \usepackage{lscape}
-
-%\begin{landscape}
-%\begin{table}
-%\centering
-
- %\caption{Summary of number of differentially expressed genes \textit{in cis} and \textit{in trans} in major clones}
-
-
-%\resizebox{\textwidth}{!}{%
-%\begin{tabular}{|l|p{3.8em}|p{3.8em}|p{3.8em}|p{3.8em}|p{3.8em}|p{3.8em}|}
-%\hline
-%DE scRNAseq between clones &
- % In\_cis\_Decrease\_DownRegulated &
- % In\_cis\_Decrease\_UpRegulated &
- % In\_cis\_Increase\_DownRegulated &
- % In\_cis\_Increase\_UpRegulated &
- % In\_trans\_DownRegulated &
- % In\_trans\_UpRegulated \\
- % \hline
-%SA609-UUUU-B\_vs\_UUUU-C           & 79  & 44  & 40  & 52   & 399  & 382  \\
-%SA609-UUUU-B\_vs\_UUUU-H           & 127 & 186 & 471 & 636  & 1005 & 1207 \\
-%SA609-UTTT-A\_vs\_UUUU-C           & 655 & 150 & 48  & 425  & 1466 & 1817 \\
-%SA609-UTTT-A\_vs\_UUUU-H           & 352 & 69  & 177 & 611  & 850  & 659  \\
-%SA609-UTTTT-A\_vs\_UUUUU-C         & 603 & 174 & 43  & 461  & 1394 & 1894 \\
-%\textbf{*}SA609-UTTTT-A\_vs\_UUUUU-H         & 435 & 75  & 208 & 922  & 975  & 783  \\
-%SA1035-UTTTT-G\_vs\_UUUUU-E        & 55  & 7   & 11  & 71   & 1841 & 1125 \\
-%\textbf{*}SA1035-UTTTT-H\_vs\_UUUUU-E        & 93  & 18  & 19  & 116  & 1661 & 1612 \\
-%SA1035-UTTT-G\_vs\_UUUU-E          & 35  & 3   & 2   & 106  & 696  & 1368 \\
-%SA1035-UTTT-H\_vs\_UUUU-E          & 69  & 11  & 11  & 124  & 1004 & 2440 \\
-%\textbf{*}SA535\_UUTTTT-T\_vs\_UUUUUU-J      & 469 & 271 & 13  & 155  & 1102 & 2814 \\
-%SA535\_UUTTT-T\_vs\_UUUUU-J        & 599 & 97  & 6   & 128  & 791  & 1240 \\
-%SA535\_UUTTT-S\_T\_vs\_UUUUU-J     & 595 & 97  & 5   & 126  & 811  & 1235 \\
-%SA535-UUTTT-R\_vs\_UUUUU-J         & 38  & 12  & 7   & 59   & 177  & 188  \\
-%SA535\_UUTTT-T\_vs\_UUUUU-Q        & 831 & 183 & 57  & 765  & 681  & 1184 \\
-%SA535-UUTTT\_S\_T\_vs\_UUUUU-Q     & 834 & 200 & 54  & 812  & 696  & 1243 \\
-%SA535-UUTTT-R\_vs\_UUUUU-Q         & 294 & 80  & 33  & 578  & 365  & 483  \\
-%\textbf{*}SA535-UXXXX-U\_vs\_UUUUU-J & 697 & 91  & 21  & 286  & 948  & 1204 \\
-%SA535-UXXXX-U\_vs\_UUUUU-Q         & 695 & 167 & 61  & 820  & 771  & 1324 \\
-%SA535-UXXXX-R\_vs\_UUUUU-J         & 448 & 70  & 18  & 203  & 1178 & 1002 \\
-%SA535-UXXXX-R\_vs\_UUUUU-Q         & 646 & 130 & 70  & 1038 & 823  & 1063 \\
-%SA535\_UXXXX\_M\_N\_O\_vs\_UUUUU-J & 746 & 145 & 14  & 202  & 961  & 1307 \\
-%SA535-UXXXX-M\_N\_O\_vs\_UUUUU\_Q  & 753 & 296 & 48  & 739  & 710  & 1281 \\
-%  \hline
-
-%\end{tabular}
-%}
-
-%\label{tab:numberofDEgenesincistrans}
-
-%  \small\textbf{(* Resistant vs sensitive clones at the last time point of treatment cycle}.
-%\end{table}
-%\end{landscape}
-
-%----------------------------------------------------------------------
-
-To estimate approximately how much of the genome manifest change in copy numbers from one clone to other in our data sets, we computed median genotype profiles of the clones for which we calculated \ac{DE} above.
-
-Total of 22,326 segment positions, from each DE analysis, were mapped. In each pair wise comparison of clones, we enumerated all CNA segments where a difference in copy number and expression existed between resistant and sensitive major clones of each line (\textit{in cis} differentially expressed gene). Approximately 9000 segments had copy number changes, and $>$2000 position intersect with differentially expressed genes between resistant and sensitive clones.
-
-In other words, the average change in copy number between the genomes of two clones in our data set was found to be around 41\%. Out of this, approximately 28\% of the transcriptome is coupled with change in copy number state between clones at these segment positions. It involves either increase in expression with copy number gain or decrease in expression with copy number loss, shown in pink and red for \textit{in cis} and rest of around 72\% of the copy number change was not associated with change in expression shown as green in \textbf{(\autoref{fig:fig3Summaryincistrans} b)}. 
-%------------------------------------------------------------------
-
-
-
-\subsubsection{Differential expression analysis of resistant and sensitive clones deciphers cancer related genes}
+\subsubsection{Differential expression analysis of resistant and sensitive clones reveals cancer related genes}
  
  To get the magnitude of expression differences of up and down regulated genes between resistant and sensitive clones, we explored \ac{DE} with respect to their regulation \textit{in cis} and \textit{in trans}. In all the comparisons in 4 timeseries TNBC PDX, the magnitude of differentially expressed genes were found to be modestly equal on both up and down regulated sides. Majority of them were in the range of log2 fold change both in positive and negative directions \textbf{\autoref{fig:Volcanoes4plots}}.
  
@@ -866,13 +728,24 @@ First, we pulled the reference genes from these databases that were intersecting
 %-------------------------------------------------------------------
 \begin{figure}
 \centering
-  \includegraphics[width=\textwidth]{Figures/chap5/pathwaysnetwork.png}
+  \includegraphics[width=\textwidth]{Figures/chap5/fig13_common_pathways.pdf}
 \caption[Gene pathway enrichment analysis of PDX timeseries]
 	{\small
-	\textbf{Gene pathway enrichment analysis of PDX timeseries.}
-	 	\textbf{(a)} Vertical axis on the left enlists the pathways involved from a ranked gene set enrichment analysis (GSEA) \cite{shi2007gene}. Horizontal axis denotes the IDs of TNBC PDX. Colour intensity identifies normalized enrichment score (NES) obtained by using all the differentially expressed genes at time points X7 for TNBC-SA609, X8 for TNBC-SA1035, X9 for TNBC-SA535-cisplatin and X8 for TNBC-SA535-CX-5461 at p-value $\leq 0.001$. The hallmark gene set collection from MSigDB \cite{liberzon2015molecular} was used. Significantly enriched pathways (p-value $<$ 0.05) were retained.   \textbf{(b-e)} Networks showing the relationship between the enriched pathways in \textbf{a}. The grey to black lines indicate the number of genes shared between pathways. \textbf{(b)} TNBC-SA609. \textbf{(c)} TNBC-SA1035.  \textbf{(d)} TNBC-SA535-CX-5461. \textbf{(e)} TNBC-SA535-cisplatin.
+	\textbf{Significantly enriched pathways} ($p < 0.05$, vertical axis) from a ranked gene set enrichment analysis (GSEA) \cite{shi2007gene}, using the hallmark gene set collection from MSigDB \cite{liberzon2015molecular}. \textbf{(a)} Horizontal axis denotes the IDs of TNBC PDX and clones. Colour intensity identifies normalized enrichment score (NES) obtained by using all the differentially expressed genes at the specified time points and clones at FDR $< 0.01$. \textbf{(b)} \textit{In cis} (red) and \textit{in trans} (blue) gene proportions for each case depicted in panel \textbf{a}. Vertical dashed lines show the expected proportions (defined as the proportions of all differentially expressed genes, top row) plus or minus 10\%. The cases that are outside of the expected range are marked by the \textit{in trans} proportion numbers.
 	}
 	\label{fig:pathwaysnetwork}
+\end{figure}
+
+%-------------------------------------------------------
+%-------------------------------------------------------------------
+\begin{figure}
+\centering
+  \includegraphics[width=\textwidth]{Figures/chap5/fig14_networks.pdf}
+\caption[Gene pathway relationships of PDX timeseries]
+	{\small
+	\textbf{Networks showing the relationship between the enriched pathways in \textbf{\autoref{fig:pathwaysnetwork}}}. The color intensity denotes the normalized enrichment score (NES). The grey to black lines indicate the number of genes shared between pathways. \textbf{(a)} TNBC-SA609. \textbf{(b)} TNBC-SA1035.  \textbf{(c)} TNBC-SA535:Cisplatin. \textbf{(d)} TNBC-SA535:CX5461.
+	}
+	\label{fig:networks}
 \end{figure}
 
 %-------------------------------------------------------
@@ -892,22 +765,22 @@ In addition to TNBC-SA1035, only TNBC-SA535 timeseries that was treated with CX-
 
 
 
-\begin{figure}
-\centering
-  \includegraphics[width=\textwidth]{Figures/chap5/cistransproportionsinpathways.png}
-\caption[Proportions of \textit{in cis} and \textit{in trans} regulated genes in pathways]
-	{\small
-	\textbf{Proportions of \textit{in cis} and \textit{in trans} regulated genes in pathways.}
-	 	Vertical axis on the left enlists the gene set enrichment analysis (GSEA) pathways in the same order as in \textbf{\autoref{fig:pathwaysnetwork}}, with the addition of a new row on top for all the differentially expressed genes. For each set of genes and each series, the proportion of \textit{in cis} (red) and \textit{in trans} (blue) genes was calculated. The \textit{in trans} proportions for all genes (top row) are given. Vertical dashed lines show the expected proportions, defined as the proportions in all genes (top row), plus or minus 10\%. The observed proportions outside of this range are identified. 
-	}
-	\label{fig:cistransproportionsinpathways}
-\end{figure}
+%\begin{figure}
+%\centering
+%  \includegraphics[width=\textwidth]{Figures/chap5/cistransproportionsinpathways.png}
+%\caption[Proportions of \textit{in cis} and \textit{in trans} regulated genes in pathways]
+%	{\small
+%	\textbf{Proportions of \textit{in cis} and \textit{in trans} regulated genes in pathways.}
+%	 	Vertical axis on the left enlists the gene set enrichment analysis (GSEA) pathways in the same order as in \textbf{\autoref{fig:pathwaysnetwork}}, with the addition of a new row on top for all the differentially expressed genes. For each set of genes and each series, the proportion of \textit{in cis} (red) and \textit{in trans} (blue) genes was calculated. The \textit{in trans} proportions for all genes (top row) are given. Vertical dashed lines show the expected proportions, defined as the proportions in all genes (top row), plus or minus 10\%. The observed proportions outside of this range are identified. 
+%	}
+%	\label{fig:cistransproportionsinpathways}
+%\end{figure}
 
 
 %------------------------------------------------------------------
 
 % text about the in-cis in-trans proportions figure 
-The proportions of \textit{in cis} and \textit{in trans} genes in the gene set enrichment pathways are within 10\% of the proportion in the entire population of genes for most pathways, with only a few exceptions (\textbf{\autoref{fig:cistransproportionsinpathways}}). In TNBC-SA609 (expected \textit{in trans} proportion 0.51), \textbf{Estrogen response late} pathway has a lower percentage of \textit{in trans} genes (0.32), while \textbf{MYC targets V2} has a higher percentage of \textit{in trans} genes (0.79). In TNBC-SA1035 all pathway proportions are within the expected range (0.93 \textit{in trans} proportion). In TNBC-SA535-cisplatin (expected \textit{in trans} proportion 0.78), only \textbf{Apical surface} pathway has a higher \textit{in trans} proportion of 0.91. Finally, in TNBC-SA535-CX-5461 (expected \textit{in trans} proportion 0.78), \textbf{EMT} and \textbf{G2M checkpoint} pathways have a higher \textit{in trans} proportion (0.76 and 0.85, respectively), and \textbf{Angiogenesis} has a lower \textbf{in trans} proportion of 0.43.
+The proportions of \textit{in cis} and \textit{in trans} genes in the gene set enrichment pathways are within 10\% of the proportion in the entire population of genes for most pathways, with only a few exceptions (\textbf{\autoref{fig:pathwaysnetwork} b}). In TNBC-SA609 (expected \textit{in trans} proportion 0.51), \textbf{Estrogen response late} pathway has a lower percentage of \textit{in trans} genes (0.32), while \textbf{MYC targets V2} has a higher percentage of \textit{in trans} genes (0.79). In TNBC-SA1035 all pathway proportions are within the expected range (0.93 \textit{in trans} proportion). In TNBC-SA535-cisplatin (expected \textit{in trans} proportion 0.78), only \textbf{Apical surface} pathway has a higher \textit{in trans} proportion of 0.91. Finally, in TNBC-SA535-CX-5461 (expected \textit{in trans} proportion 0.78), \textbf{EMT} and \textbf{G2M checkpoint} pathways have a higher \textit{in trans} proportion (0.76 and 0.85, respectively), and \textbf{Angiogenesis} has a lower \textbf{in trans} proportion of 0.43.
 
 To portray pathway specificity in resistant versus sensitive clones, we explored \textbf{SA609 TNBC PDX}, which was  comprised of \textbf{TGF Beta signaling, Hypoxia, TNFA signaling via NF-$\kappa$B, Cholesterol homeostasis, Peroxisome} and \textbf{Apoptosis} (\textbf{\autoref{fig:pathwaysnetwork} b}). In addition to these, \textbf{G2M checkpoint} and \textbf{E2F targets} were found to be upregulated with $>$40 common genes between these two pathways. \textbf{Mitotic spindle} pathway upregulation was also associated with sharing of $>$10 genes with \textbf{E2F} and \textbf{G2M check point} pathways \textbf{\autoref{fig:genenetworkanalysis} a}.
 
@@ -923,11 +796,11 @@ Within cisplatin treated activated pathways, \textbf{Hypoxia, TNFA signaling via
 %-------------------------------------------------------
 \begin{figure}
 \centering
- \includegraphics[width=0.95\textwidth]{Figures/chap5/GeneschanginginRxclouds.pdf}
-\caption[Gene expression changes over time with or without treatment in all 4 TNBC PDX timseries]
+ \includegraphics[width=\textwidth]{Figures/chap5/fig15_GeneschanginginRxclouds.png}
+\caption[Gene expression changes over time with and without treatment in all 4 TNBC PDX timeseries]
 	{\small
-	 \textbf{Gene expression changes over time with or without treatment in all 4 TNBC PDX timseries}.
-\textbf{(a)} Examples of linear model fitting for four TNBC-SA609 genes. \textbf{(b)-(e)} Density plots of linear slopes showing the gene expression change across treatment cycles (x-axis) versus linear slopes showing gene expression change across untreated time points (y-axis). Unless otherwise noted, the slopes were calculated by fitting a linear model to mean SCTransform log2 normalized gene expression levels at time points UT, UTT, UTTT and UTTTT for treated, and at time points U, UU, UUU, UUUU and UUUUU for untreated. Each of the four quadrants are numbered as I (includes genes increasing in untreated passaging and decreasing with treatment), II (increasing both in untreated as well as with treatment), III (increasing expression only with treatment and decreasing without drug) and  IV (decreasing with passaging over time in both untreated and treated tumors).  \textbf{(b)} TNBC-SA609 . \textbf{(c)} TNBC-SA1035, UT and UU were eliminated from the slope calculation due to lower data quality. \textbf{(d)} TNBC-SA535-cisplatin. \textbf{(e)} TNBC-SA535-CX-5461, slopes were calculated at time points UX, UXX and UXXXX, the available data for this series.}
+	 \textbf{Gene expression changes over time with and without treatment}.
+\textbf{(a)} Examples of linear model fitting to mean SCTransform log2 normalized gene expression levels at the available treated and untreated time points. \textbf{(b)-(e)} Scatter plots of linear slopes showing the gene expression change across treatment cycles (x-axis) versus untreated cycles (y-axis). Each of the four quadrants are numbered as I (genes increasing without treatement and decreasing with treatment), II (increasing both in untreated as well as with treatment), III (increasing expression only with treatment and decreasing without drug) and  IV (decreasing with passaging over time in both untreated and treated tumors).  \textbf{(b)} TNBC-SA609. \textbf{(c)} TNBC-SA1035, Rx and UnRx X5 samples were eliminated from the slope calculation due to lower data quality. \textbf{(d)} TNBC-SA535:Cisplatin. \textbf{(e)} TNBC-SA535:CX5461.}
 
 	\label{fig:GeneschanginginRxclouds}
 \end{figure}
@@ -941,28 +814,61 @@ Within cisplatin treated activated pathways, \textbf{Hypoxia, TNFA signaling via
 
 To understand the gene expression dynamics over several treatment cycles in comparison with gene expression in consecutive untreated time points, we performed linear model fitting over the mean SCTransform log2 normalized gene expression levels at 3-5 time points (\textbf{\autoref{fig:GeneschanginginRxclouds}}). The slope of the linear fitting signifies the overall magnitude of change from one time point to the next. Since the y axis is on a log2 scale, a slope of 1 means that, on average over time, the expression level doubles with every time point. Similarly, slopes 0.1 and 0.2 mean that, on average, the expression level increases by 7\% and 15\%, respectively, at every time point.
 
-\textbf{\autoref{fig:GeneschanginginRxclouds} a} gives examples of linear fitting for four genes from TNBC-SA609 which changed in different directions. \textbf{\autoref{fig:GeneschanginginRxclouds} b-e} shows the untreated slope (y axis) versus the treated slope (x axis) for each gene in our four series, with the \textit{in cis} and \textit{in trans} genes shown in red and blue colours, respectively. The genes in quadrants II and IV changed in the same direction in both treated and untreated (up in II and down in IV), suggesting dynamics due to passage, and not due to treatment status. Conversely, the genes in quadrants I and III changed in the opposite direction in the treated samples versus the untreated samples, suggesting dynamics due to treatment status. While the vast majority of genes form a "cloud" around the origin, a number of genes display significant change. Between 13 and 202 genes are outside of the 5th and 95th percentiles in each quadrant (\textbf{\autoref{tab:NumGenesInCloudPlots}}).
+\textbf{\autoref{fig:GeneschanginginRxclouds} a} gives examples of linear fitting for four genes from TNBC-SA609 which changed in different directions. \textbf{\autoref{fig:GeneschanginginRxclouds} b-e} shows the untreated slope (y axis) versus the treated slope (x axis) for each gene in our four series, with the \textit{in cis} and \textit{in trans} genes shown in red and blue colours, respectively. The genes in quadrants II and IV changed in the same direction in both treated and untreated (up in II and down in IV), suggesting dynamics due to passage, and not due to treatment status. Conversely, the genes in quadrants I and III changed in the opposite direction in the treated samples versus the untreated samples, suggesting dynamics due to treatment status. While the vast majority of genes form a "cloud" around the origin, a number of genes display significant change. Between 13 and 202 genes are outside of the 5th and 95th percentiles in each quadrant.
 
 
-\begin{table}[tbp]
+
+%-------------------------------------------------------
+\begin{figure}
 \centering
-   \caption{The number of genes outside of the 5th and 95th quantiles in each quadrant.}
-%\resizebox{\textwidth}{!}{%
-{
-\begin{tabular}{|lrrrr|}
-\hline
-   TNBC & quadrant I & quadrant II & quadrant III & quadrant IV\\
-\hline
-SA609   &     127    &     202    &      130    &     116\\
-SA1035  &       27   &      110   &        13   &       71\\
-SA535-cisplatin  &      169   &      135   &       116    &     111 \\
-SA535-CX-5461    &    122    &     169     &      99    &     122\\
-\hline
-\end{tabular}%
+ \includegraphics[width=\textwidth]{Figures/chap5/fig16_lineplotscistrans.png}
+\caption[Example \textit{in cis} and \textit{in trans} genes]
+	{\small
+	 \textbf{Example \textit{in cis} and \textit{in trans} genes}.
+	 }
 
-\label{tab:NumGenesInCloudPlots}
-}
-\end{table}
+	\label{fig:cistrans}
+\end{figure}
+%-------------------------------------------------------
+
+
+
+%-------------------------------------------------------
+\begin{figure}
+\centering
+ \includegraphics[width=\textwidth]{Figures/chap5/fig17_pathway_evolution.pdf}
+\caption[Pathway evolution over passages]
+	{\small
+	 \textbf{Pathway evolution over passages}. GSEA pathway analysis similar to \textbf{\autoref{fig:pathwaysnetwork} a}, but now we also include earlier time points for each of the four TNBC PDX. For SA535, we also include the precursor resistant clone R at time point X6 for both cisplatin and CX5461, and at X8 for CX5461.
+	 }
+
+	\label{fig:pathwayevolution}
+\end{figure}
+%-------------------------------------------------------
+
+%-------------------------------------------------------
+\begin{figure}
+\centering
+ \includegraphics[width=\textwidth]{Figures/chap5/fig18_Rclone_pathways.pdf}
+\caption[Pathway networks for the TNBC-SA535 precursor resistant clone.]
+	{\small
+	 \textbf{Pathway networks for the TNBC-SA535 precursor resistant clone R.} \textbf{(a)} Pathway network for SA535:Cisplatin comparing resistant clone R versus sensitive clone J at X6. \textbf{(b)} Pathway network for SA535:CX5461 comparing resistant clone R versus sensitive clone J at X6. \textbf{(c)} Pathway network for SA535:Cisplatin comparing resistant clone R versus sensitive clone J at X8. \textbf{(d)} Clone phylogenetic tree for SA535 from Chapter 4.
+	 }
+
+	\label{fig:Rpathways}
+\end{figure}
+%-------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+%%% What is below has to be largely rewritten
 
 
 To evaluate the spectrum of single gene expression at each time point, we designated at least 4 genes from each of the 4 TNBC PDX from the linear model analysis (\textbf{\autoref{fig:GeneschanginginRxclouds}}).
@@ -970,16 +876,6 @@ To evaluate the spectrum of single gene expression at each time point, we design
 %Summary of top 20 significantly upregulated and downregulated genes of all cisplatin treated PDX timeseries are enlisted in \textbf{\autoref{tab:SA609upregulatedgenesinclusters}, \autoref{tab:SA609downrregulatedgenesinclusters}, \autoref{tab:SA1035upregulatedgenesinclusters}, \autoref{tab:SA1035downregulatedgenesinclusters}, \autoref{tab:SA535upregulatedgenesinclusters} and \autoref{tab:SA535downregulatedgenesinclusters}}.
 
 
-\begin{figure}
-\centering
- \includegraphics[width=\textwidth]{Figures/chap5/incisgenelinetrajectories.png}
-\caption[Four \textit{in cis} gene expression changed over time]
-	{\small
-	 \textbf{Selected four \textit{in cis} regulated gene expression changes over time in all timeseries PDX}.
-	Horizontal axis represents time point passages while vertical axis denotes SCTransform normalized mean log2 counts of single cell expression level. Three line trajectories indicate treated, untreated and drug-holiday samples. }
-	\label{fig:incisgenelinetrajectories}
-\end{figure}
-%---------------------------------------------------------------
 
 %---------------------------------------------------------------
  
@@ -1061,19 +957,6 @@ SA535-CX-5461   & OLFM4   & 0.10   & -0.13 & 6.89\%   & -8.90\%  & 4.12  & 3 & 2
 
 
 %--------------------------------------------------------------------
-\begin{figure}
-\centering
- \includegraphics[width=\textwidth]{Figures/chap5/Intransgenelinetrajectories.png}
-	
-\caption[Four \textit{in trans} gene expression changed over time]
-	{\small
-	 \textbf{Selected four \textit{in trans} regulated gene expression changes over time in all timeseries PDX}.
-	Horizontal axis represents time point passages while vertical axis denotes SCTransform normalized mean log2 count of single cell expression level. Three line trajectories indicates treated, un-treated and drug-holiday samples. }
-
-	\label{fig:Intransgenelinetrajectories}
-\end{figure} 
-
-%---------------------------------------------------------------
 
  \subsubsection{Trend of 4 \textit{in trans} genes overtime in each timeseries}
 
@@ -1133,22 +1016,7 @@ SA535-CX-5461   & MUC16    & -0.06    & 0.06       & -4.37\%             & 4.03\
 
 
 %------------------------------------------------------------
-\begin{figure}
-\centering
-  \includegraphics[width=\textwidth]{Figures/chap5/commongenesfromvolcanoplots.png}
-	
-\caption[Representative trajectories of 4 common genes upregulated in all PDX]
-	{\small
-	\textbf{Representative trajectories of 4 common genes upregulated in all PDXs.}
-	   Horizontal axis shows timepoints passages of tumors. First time point is the baseline untreated value and from second timepoint onwards, depicts increasing cycles of chemotherapy or untreated cycles. Vertical axis represents the SCTransform normalized mean log2 counts of gene expression at that time point. Genes upregulated are selected from \ac{DE} of resistant vs sensitive clones and \textbf{\autoref{tab:UpregulatedgenesinalltreatedPDX}}.
-	   \textbf{(a)} \textit{ASPH} expression trajectories.
-	    \textbf{(b)} \textit{RAB10} expression trajectories.
-	    \textbf{(c)} \textit{UBE3C} expression trajectories.
-	     \textbf{d)} \textit{YY1} expression trajectories.
-	}
-	\label{fig:commongenesfromvolcanoplots}
-\end{figure}
-%---------------------------------------------------------------
+
 
 
 %-------------------------------------------------------------------
@@ -1208,8 +1076,11 @@ and is uniformly highly overexpressed in a wide range of human cancers including
 
 
 \section{Discussion}
-
-In this chapter, we began with the intention of identifying an appropriate method of data processing for the timeseries TNBC PDX heterogeneous samples. We found that \texttt{SCTransform} for gene expression normalization and \texttt{edgeR} for differential expression were able to set a solid ground for biological analyses. 
+\begin{itemize}
+  
+ \item In this chapter, we began with the intention of identifying an appropriate method of data processing for the timeseries TNBC PDX heterogeneous samples. Because of nature of experimental design oftimeseries longitudinal modeling, by necessity we were forced to collect tumor samples at differemnt timepoints 
+ 
+ We found that \texttt{SCTransform} for gene expression normalization and \texttt{edgeR} for differential expression were able to set a solid ground for biological analyses. 
 
 Next, by using \texttt{clonealign}, we were able to assign RNAseq single cells  to  DLP+ clones and observed similar clonal fractions. \ac{UMAP} dimensionality reduction suggested that the clones are behaving in relatively monomorphic way with residual batch effects in particular with TNBC-SA1035 time series PDX. Interestingly, even in the presence of batch effects, it was noticed that cells from the same clone were clustering together showing their close relationship.
 From global survey of the copy number driven change in expression, \textit{in cis} proportion was found to be 20\% to 50\% depending on type of TNBC series, which is less percentage as compared to the \textit{in trans} expression. 
@@ -1227,7 +1098,7 @@ Finally, We were able to enumerate common genes that were upregulated in all of 
  
 A limitation of our results is the lack of replicate samples and only three original patient's tumor. For further validation and evidence
 we need to have more TNBC tumors from different patients and apply the same experimental design of repeated drug cycle exposure along with drug holiday samples.
-
+\end{itemize}
 
 
 

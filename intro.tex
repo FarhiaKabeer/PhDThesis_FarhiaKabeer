@@ -269,14 +269,13 @@ We also reported that both CX-5461 and the related compound CX-3543 induce DNA d
 \section{Clonal theory of cancers and relationship to population genetics.}
 The notion of clonal structure and its emergence in cancers was synthesized and summarized several decades ago by Peter Nowell, from many prior observations of chromosomal heterogeneity during tumor evolution \cite{nowell1976clonal}. The central idea is that cell division and mutation give rise to heritable marks which can be used to identify the relationships between cells. Many generations of cell division, mutation and selection give rise to a highly heterogeneous tumor, composed of different groups of tumor genotypes, where each group is characterized by a defined heritable marks, including mutations and single-nucleotide variants (SNVs) that affect a single base to copy-number aberrations (CNAs) affecting large genomic regions. Thus, a clone, is a group of cells related to each other by descent through a unitary origin. 
 
-By \textbf{identifying clonal subpopulations of cells}, the dynamics of cancer over time and under selective pressures of treatment and metastasis can be understood \cite{aparicio2013implications}. This implies presence of multiple genotypically and/or phenotypically distinct cell subpopulations within a single growing tumor, likely the cause of specific tumor response properties.
+By \textbf{identifying and studying the properties of clonal subpopulations}, the dynamics of cancer over time and under selective pressures of treatment and metastasis can be understood \cite{aparicio2013implications}. This implies presence of multiple genotypically and/or phenotypically distinct cell subpopulations within a single growing tumor, likely the cause of specific tumor response properties.
 
-A practical framework for dissection of cellular dynamics is that of clonal theory and concepts applied from population dynamics and evolution. 
-This has vast implications for cancer biology and therapeutics with respect to drug resistance. 
-
-\textbf{Genetic drift} attributes to the changes in frequency of an allele in a population due to random events. Drift has more prominent effects if the population size is small while it has low impact in larger populations \cite{lynch2007origins}.
 The terms \textbf{clonal dynamics and clonal evolution} should not be confused and understand by defining the change in clone-size and number of cells within a clone as dynamics, while evolution as the appearance of new clonal genotypes (by mutations, change in copy number or epigentic state changes) in a growing tumor populations. 
- Clonal dynamics within a tumour can be complicated as the clonal population change in response to events like drug exposure or any other external pressure alongside of tumor growth over time. Genetic and epigenetic alterations could lead to expansion or shrinkage of clones depending on their fitness characteristics. Clonal selection operates on cell populations that undergo evolution and result in dynamical behaviour which may increase or decrease a subpopulation.
+Clonal dynamics within a tumour can be complicated as the clonal population change in response to events like drug exposure or any other external pressure alongside of tumor growth over time.
+
+The concepts of clonal theory, phylogenetics, evolutionary population genomics and single cell biology are now converging.
+
 
 \subsection{Identifying clonal structure and their relationships}
 
@@ -284,7 +283,7 @@ Any rigorously measurable heritable sequence variant from the genome such as sin
 Other include some epigenetic marks, eg. DNA methylation and transcriptional states or to insert a random viral barcode labelling of single cells where the cellular dynamics in question are not tightly linked to genomic variation. These approaches could be combined. However, in this dissertation we have used copy number as a heritable mark to define a clonal structure. Copy number alterations are an important feature in breast cancer \cite{zhang2009copy, pollack2002microarray}. \textbf{Clonal genotype} is defined as the set of mutations, SNVs or CNV uniquely defines membership of the clone. Advances in single-cell genomics are widely used to directly infer clonal genotypes \cite{macosko2015highly,laks2019clonal}. Cell division and mutation requires heritable genotypes.
 
 
- \textbf{Clonal lineage relationship} is defined by the ordinal relationship between the clones over time. These relationships are considered as branched, treelike structures. However, defining a sub population from SNV or CNV information and computing a phylogeny, describes hierarchical ordering. Phylogeny show a relationship between the cells to the lineage identified cell population as described below:
+ \textbf{Clonal lineage relationship} is defined by the ordinal relationship between the clones over time. These relationships are considered as branched, treelike structures. However, defining a sub population from SNV or CNV information and computing a phylogeny, describes hierarchical ordering. Phylogeny shows a relationship between the cells to the lineage identified cell population as described below:
  %-----------------------------------------------------------------
  
  \begin{figure}
@@ -298,33 +297,55 @@ Other include some epigenetic marks, eg. DNA methylation and transcriptional sta
 	\label{fig:phylogentictree}
 \end{figure}
  \subsubsection{Phylogenetic representation of clonal evolution and clonal relationship}
- Quantification of intra-tumor heterogeneity and evolutionary tree construction plays a role in diagnosis and treatment \cite{burrell2013causes, tabassum2015tumorigenesis}. It provides insights into the sequence of events that occurred during tumor evolution but the main challenge is to resolve the subpopulation structure of a heterogeneous tumour sample. The developments in cancer evolution studies and advanced single cell technologies \cite{laks2019clonal} have led to the innovations of new computational methods to reconstruct evolutionary relationship of genotypes into phylogenies or phylogenetic trees \cite{schwartz2017evolution}. 
+Cancers are understood to evolve by mutation of the genome. Decoding cancer evolution approach is  essential to understand how therapeutics and progression work, which requires phylogenetics \cite{burrell2013causes, tabassum2015tumorigenesis}. 
 
-A Phylogenetic tree is a diagram that depicts the cell division and inheritance as a branching process whose leaves represent the genotypes observed at the present time and whose internal nodes represent ancestral genotype \cite{satas2020scarlet}.
-It is useful for organizing the clonal genotypes based on their heritable marks. Tumour cells having same heritable marks, such as, SNV (single nucleotide variation) or CNV (copy number variation), can be grouped into one clone that form the terminal ends of tree. Then, clonal lineage is identified by placing them on the tree branches based on their relationship to each other (using tree cutting methods). A clade represent a part of a tree that includes an ancestral lineage and all the descendants of that ancestor which can be referred to as monophyletic or polyphyletic  A monophyletic clade can be separated from the root with a single cut, whereas a polyphyletic group needs two or more cuts \textbf{\autoref{fig:phylogentictree}}. Clones in the same clade share a portion of history that is common to all members of the same clade and different from the clones in other clades \cite{baum2008reading, baum2008phylogenics}.
+The phylogeny of a tumor gives insights into the sequence of events that occurred during tumor evolution but the main challenge is to resolve the subpopulation structure of a heterogeneous tumour sample. Developments in cancer evolution studies and advanced single cell technologies \cite{laks2019clonal} have lfurther  stimulated development of new phlyogenetic methods, building on a rich literature from classical studies of heredity and evolutionary genomics \cite{schwartz2017evolution}. 
 
-Perfect phylogeny is a term used in computational phylogenetics to denote a phylogenetic tree in which all internal nodes are labeled such that all events (SNV or CNV) evolve down the tree without homoplasy (gain or loss occurring independently in separate lineages over the course of evolution) \cite{gusfield1997algorithms}. Conceptually the model is based on the \textbf{infinite sites} assumption, that no same event can occur more than once in the whole tree. 
+A Phylogenetic tree is a diagram that depicts the cell division and inheritance as a branching process whose leaves represent the genotypes observed at the present time and whose internal nodes inferred ancestral genotypes \cite{satas2020scarlet}.
+It is useful for organizing the clonal genotypes based on their heritable marks. Tumour cells sharing the same heritable marks, such as, SNV (single nucleotide variation) or CNV (copy number variation), can be grouped into one clone that form the terminal ends of tree. Then, clonal lineage is identified by placing them on the tree branches based on their relationship to each other (using tree cutting methods). A clade represent a part of a tree that includes an ancestral lineage and all the descendants of that ancestor which can be referred to as monophyletic or polyphyletic  A monophyletic clade can be separated from the root with a single cut, whereas a polyphyletic group needs two or more cuts \textbf{\autoref{fig:phylogentictree}}. Clones in the same clade share a portion of history that is common to all members of the same clade and different from the clones in other clades \cite{baum2008reading, baum2008phylogenics}.
 
-In general, phylogenetic tree building techniques are divided into two distinct classes:
+Perfect phylogeny is a term used in computational phylogenetics to denote a phylogenetic tree in which all internal nodes are labeled such that all events (SNV or CNV) evolve down the tree without homoplasy (gain or loss occurring independently in separate lineages over the course of evolution) \cite{gusfield1997algorithms}. Conceptually the model is based on the \textbf{infinite sites} assumption, that there are an infinite number of sites where events can occur and no same event can occur more than once in the whole tree. As every new event is at a new position so there would be no homoplasy or back mutation. In this model, for example, copy number are gained with low probability (0 to 1 only once), but that are lost with much higher probability (1 to 0 without constraint).
 
-\textbf{(i) Optimality criterion:} Parsimony and Maximum likelihood: These methods use estimating a phylogeny by defining for comparing alternative phylogenies to one another and deciding which tree is better.
+Persistent phylogeny is an extension of perfect-Phylogeny in that a trait (SNV or CNV) can only be gained once (0 to 1) on the tree, but differs to it in that it allows the trait (SNV or CNV) to be lost exactly once (1 to 0).
 
-\textbf{(a)} Parsimony methods are considered as model free simplest procedure that imposes minimum restrictions upon permitted event changes. Free reversibility of events is allowed.
+\textbf{Optimality criterion} include assumptions that allowed to state that the inferred tree is close to the reality.
+
+\textbf{(a)} Parsimony methods identify the phylogeny that requires the fewest necessary changes to explain the differences amongst observed sequences (the smallest number of steps needed to explain the data). They are considered as model free simplest procedure that imposes minimum restrictions upon permitted event changes. Free reversibility of events is allowed.
 
 \textbf{(b)} Maximum likelihood evaluates evolutionary history in terms of the probabilities of sequences that a proposed model of an evolutionary history with higher probability of giving rise to the observed data is preferred to one with lower probability. 
 
-\textbf{(ii) Algorithmic methods:} Hierarchical cluster analysis (UPGMA-unweighted pair group method with arithmetic mean) and Neighbour joining:
-These methods estimate a phylogenetic tree by defining a specific sequence of steps that leads to the determination of a tree.
+%\textbf{(ii) Algorithmic methods:} Hierarchical cluster analysis (UPGMA-unweighted pair group method with arithmetic mean) and Neighbour joining:
+%These methods estimate a phylogenetic tree by defining a specific sequence of steps that leads to the determination of a tree.
 
 In this dissertation, for the sake of extracting meaningful knowledge from the timeseries data and to understand cancer evolutionary forces acting on clones, we applied cluster type phylogenetic model that is based on perfect phylogeny and taking presence and absence of changes in the copy number profiles. 
 Cluster analysis is different from neighbor joining in that it refers to the ultrametric properties of the tree that includes:
 \textbf{(a)} Branch distance between two taxa is equal to the sum of branches joining them.
+
 \textbf{(b)} Tree is rooted so that all taxa clades are equidistance from the root. The root (usually unlabelled) corresponds to the common ancestor of all clones.
+
 \textbf{(c)} Clock assumptions, that changes occur at the same rate in all lineages at any any given time.
 
+Another important concept in phylogenetics is \textbf{phylogenetic distance or branch length} which explains the number of events that are required to go from one node to another. Clock type branch length is important to understand cancer evolution because its important to know at what rates the events are occurring. The phylogenetic model assume that the phylogenetic distance is the number of steps but not track of rate of events.
 
-%The developments in cancer evolution studies and advanced single cell technologies have led to the innovations of new computational methods to reconstruct evolutionary relationship of clones into phylogenies or phylogenetic trees \cite{schwartz2017evolution}. A Phylogenetic tree is a diagram that represents the underlying branching process and cell divisions whose leaves represent the cells observed at the present time and whose internal nodes represent ancestral cells \cite{satas2020scarlet}.
-%It is useful for organizing the clones based on their heritable marks. Quantification of intra-tumor heterogeneity and evolutionary tree construction plays a role in diagnosis and treatment \cite{burrell2013causes, tabassum2015tumorigenesis}. It provides insights into the sequence of events that occurred during tumor evolution.
+\textbf{Cancer cells can violate the rules of perfect persistence phylogeny}
+ The assumptions of perfect phylogeny or persistent perfect phylogeny are more likely to be violated in the data explored in this dissertation. This is because we are defining clones based on their copy number profiles by using \texttt{sitka (see methods)}, which is a type of perfect persistence phylogeny with same assumptions. However,in molecular evolution, if the method of tree construction is measuring single changes of amino acid or a single nucleotide variant (SNV), it could be easy to interpret but if the tree building model is taking CNA as an event then branch length becomes more important. Taking change in copy number as an event is more complicated because that single event could be a small deletion or it could be a whole chromosome loss/gain, which in turn has implications in cancer biology. We know that in case of copy number, chromosomal gain can occur independently, which is against the model, which consider it homoplasy free.
+
+If a chromosome is lost, it cannot be regained but if we gain a chromosome, it could be lost, meaning back mutation is possible. Also, its plausible that events can occur more than once in cancer cells, for example, chromosomal missegregation can occur in mitosis. In this dissertation, as we are using the state of gaining a chromosome to mean a genotype, so that could have occured independently more than once because of the nature of the data itself.
+
+ 
+
+
+
+
+
+
+
+%Developments in cancer evolution studies and advanced single cell technologies have further stimulated development of new phlyogenetic methods, building on a rich literature from classical studies of heredity and evolutionary genomics \cite{schwartz2017evolution}.
+
+%A Phylogenetic tree is a diagram that represents the underlying branching process and cell divisions whose leaves represent the cells observed at the present time and whose internal nodes inferred ancestral genotypes \cite{satas2020scarlet}.
+%It is useful for organizing the clones based on their heritable marks. 
+
+%Quantification of intra-tumor heterogeneity and evolutionary tree construction plays a role in diagnosis and treatment \cite{burrell2013causes, tabassum2015tumorigenesis}. It provides insights into the sequence of events that occurred during tumor evolution.
 
 %Standard algorithms have been used by majority of studies of tumour phylogenetics that were developed for species phylogenetics (for example, maximum parsimony, minimum evolution, neighbour joining,  UPGMA (unweighted pair group method with arithmetic mean), or various maximum likelihood or Bayesian probabilistic inference methods \cite{de2014spatial, zhang2014intratumor, brocks2014intratumor, navin2011tumour, xu2012single, huelsenbeck2001bayesian, felsenstein2004inferring}. Recent developments in the filed has modified algorithms that are taking into account the specifics to tumor evolution \cite{chowdhury2013phylogenetic, yuan2015bitphylogeny, jahn2016tree}.
 
@@ -336,22 +357,51 @@ Cluster analysis is different from neighbor joining in that it refers to the ult
 %A new model applied on the data set used in this dissertation is \texttt{sitka} \cite{dorri2020efficient}, which is based on lossy transformation of single cell copy number matrices retaining only presence or absence of changes in copy number profiles. This transformation turns a complex evolutionary process (integer-valued copy numbers, prone to a high degree of homoplasy and dense dependence structure across sites) into a simpler one which can be approximated by a probabilistic version of an ideal phylogeny .
 
 \subsubsection{Clonal fitness and selection}
+%fitness is a quantitative expression of reproducible growth trajectories.  
+The tendency of clones to increase or decrease in prevalence under some intrinsic or extrinsic form of selection leads to the idea that the \textbf{fitness} of a clone may be measured by its reproducible growth trajectory. 
+%Fitness means quantitative measure of ability of specific clonal lineage that undergo directional dynamics over time. 
+%Mutation, selection and genetic drift are the three basic processes that defines cancer evolution. \cite{lipinski2016cancer,szendro2013predictability}.
+Both fitness and selection are related concepts and can explain why subpopulations grow and decline. 
 
-The tendency of clones to increase or decrease in prevalence under some intrinsic or extrinsic form of selection leads to the idea that the \textbf{fitness} of a clone is known by its reproducible growth trajectory. Fitness means quantitative measure of ability of specific clonal lineage that undergo directional dynamics over time. 
-Mutation, selection and genetic drift are the three basic processes that defines cancer evolution. \cite{lipinski2016cancer,szendro2013predictability}.
-The topology of the \textbf{fitness landscape} is determined by how different mutations interact in their effect to confer survival advantage or disadvantage \cite{de2014empirical}. Clones that impose more fitness behaviour are less likely to be eradicated by the drift.
-In contrast, \textbf{selection} is an ongoing system that could be transient or stable. The tumor phenotypes selected from fixed oncogenic mutations \cite{sidransky1992clonal,j2010mutator} are tend to be more stable as compared to the emergence of genetic drift which includes mutations over time.These random events are inherent in evolution and tumor spatial structures hinder the efficacy of selection, which is the only deterministic evolutionary force \cite{szendro2013predictability}.
-However, interdependencies of mutation and spacial and temporal variabilities selection along with genetic drift creates an additional layer of complexity of evolving clones. Any new mutation that enhances the ability of the dividing individual cell to survive and reproduce under particular environmental conditions and increase its abundance within a tumor population is selection while the fitness of an individual clone is defined by the fitness of other competing clones \cite{jain2007deterministic,gerrish1998fate}. These form of cellular dynamics plays a role in the the concept of tumour initiating cells \cite{magee2012cancer} and to some forms of drug resistance \cite{shaffer2017rare, kreso2013variable}. In population genetics, the basic intuition of \textbf{Wright and Fisher}, is that small natural fluctuations in transmission of alleles during population growth could eventually lead to fixation of one subpopulations, this referred to as \textbf{genetic drift}. In the cancer system we are studying, its application allows us to test for fluctuations in subpopulation growth and decline that could be neutral, as opposed those associated with non-neutral fitness. 
+The growth or decline of sub populations is also affected by both selection genetic drift. In population genetics, the basic intuition of \textbf{Wright and Fisher}, is that small natural fluctuations in transmission of alleles during population growth could eventually lead to fixation of one subpopulations, this referred to as \textbf{genetic drift}. Genetic drift attributes to the changes in frequency of an allele in a population due to stochastic random events. Drift has more prominent effects if the population size is small while it has low impact in larger populations \cite{lynch2007origins}.
+
+
+%The topology of the \textbf{fitness landscape} is determined by how different mutations interact in their effect to confer survival advantage or disadvantage \cite{de2014empirical}. Clones possessing higher fitness are less likely to be eradicated by the drift. 
+
+
+In contrast, \textbf{selection} is an ongoing system that could be transient or stable. The tumor phenotypes selected from fixed oncogenic mutations \cite{sidransky1992clonal,j2010mutator} are tend to be more stable as compared to the emergence of genetic drift which includes mutations over time. These random events are inherent in evolution and tumor spatial structures hinder the efficacy of selection, which is the only deterministic evolutionary force \cite{szendro2013predictability}.
+However, interdependencies of mutation and spacial and temporal variabilities selection along with genetic drift creates an additional layer of complexity of evolving clones.
+
+\textbf{Definition of drift/neutrality by other methods for SNVs: } 
+The two key methods are:
+\textbf{(i) dN/dS ratios}, (cite and discuss the papers from Peter Campbell) the 
+
+\textbf{(i) power law in SNV allele prevalances:}
+(Marc Williams, Andrea Sottoriva paper) on the form of neutral drift in mutations as a power law in SNV allele prevalance.
+
+No such models exist for CNA determined tumour evolution.
+
+
+Mutation defines how new things come into the population with a fixed number of starting genotype. Mutation drives evolution of new genotypes that could get selected overtime \cite{jain2007deterministic,gerrish1998fate}. These forms of cellular dynamics play a role in the the concept of tumour initiating cells \cite{magee2012cancer} and to some forms of drug resistance \cite{shaffer2017rare, kreso2013variable}. 
+
+
+ Genetic and epigenetic alterations could lead to expansion or shrinkage of clones depending on their fitness characteristics. Clonal selection operates on cell populations that undergo evolution and result in dynamical behaviour which may increase or decrease a subpopulation.
+
+In the cancer system we are studying, its application allows us to test for fluctuations in subpopulation growth and decline that could be neutral, as opposed those associated with non-neutral fitness. 
 
 
 \subsection{Single cell whole genome sequencing can reveal molecular dynamics of cellular population fitness in biological systems}
 Advancements in identifying the molecular basis of clonal dynamics and evolution by single cell DNA sequencing is unprecedented in cancer research. Conventional bulk DNA sequencing has the advantage of high coverage depth to identify major clones, however, it is limited to resolve minor populations by sequencing error rates \cite{gerstung2012reliable}. 
 
-Large scale single cell genome measurements to scalably define clonal populations in cancer over thousands of cells have only  recently emerged, enabling identification of rare populations, precise tracking of clones and robust clone-specific measurements suitable for population genetics modeling  \cite{laks2019clonal,zahn2017scalable}. Several amplification-based methods have been described \cite{navin2011tumour,zong2012genome, hou2012single,ni2013reproducible} but measuring single-cell genomes at \ac{DLP+} in tissues and cell populations has greatly advanced clonal decomposition of malignant tissues. Moreover, helped studying properties of negative selection, resolving rare cell population genotypes and identifying DNA replication states of individual cells, all of which are hard to measure when cellular information is destroyed in bulk sequencing. 
+Large scale single cell genome measurements to scalably define clonal populations in cancer over thousands of cells have only recently emerged, enabling identification of rare populations, precise tracking of clones and robust clone-specific measurements suitable for population genetics modeling  \cite{laks2019clonal,zahn2017scalable}. Several amplification-based methods have been described \cite{navin2011tumour,zong2012genome, hou2012single,ni2013reproducible} but measuring single-cell genomes with \ac{DLP+} in tissues and cell populations has greatly advanced clonal decomposition of malignant tissues. 
+
+Moreover, helped studying properties of negative selection, resolving rare cell population genotypes and identifying DNA replication states of individual cells, all of which are hard to measure when cellular information is destroyed in bulk sequencing. 
 
 Cellular fitness underpins the tissue population dynamics of cancer progression and treatment response. Yet, quantifying fitness in heterogeneous cell populations and identifying causal mechanisms shaping fitness landscapes remain open problems. In particular, quantitative fitness modelling of cancer cells has numerous and diverse implications; attributing clonal dynamics to drift or selection, identifying the determinants of clonal expansion, enabling causal inference, and forecasting growth trajectories. 
 
 \subsubsection{Measurement of fitness of sub-population in growing cancers}
+
+CNA determined clonal evolution has not been well studied due to lack of scalable methods for single cell CNA measurement.
 
 To identify and quantify fitness based on sub-population in growing cancers require: 
 
@@ -373,7 +423,11 @@ These estimations involve mathematical and statistical models to actually quanti
 
 \section{Studying cancer dynamics by single cell RNA sequencing}
 
-It is assumed that differences between two cancer cells could be either deterministic, meaning both cells receiving different instructions, leading to different phenotypic states of cancer, or probabilistic, meaning receive the same instructions but showing different phenotypic state. The later leads to the concept of ``random or stochasticity’’. In the earlier sections, the consequences of genomic alterations on behaviour of cancer cells are explained in context of fitness. However, the expression of a particular gene or set of genes in the growing cancers could also create a deterministic phenotypic state \cite{symmons2016s}. A proper exploration of transcription could provide a mean of understanding phenotypic states of cancer separating deterministic or probabilistic fate of cancer cells. 
+Differences between cancer cells could arise by hardwired changes in the genome, or by epigenetic/transcriptional reprogramming which may be transient, if the stimulus or condition is transient. 
+As noted above that fixed changes in the genome can lead to changes in gene expression and copy number segment changes themselves can change gene expression.
+However, gene expression can differ between cells independently of genomic alterations, for example by epigenetic reprogramming or selection of rare states of gene expression.
+
+Single cell analysis has increased and is appropriate to advancing our understanding in this area, for example, the ability to assign expression states to subpopulations of cells sharing genomic attributes. \textbf{\textit{in cis}} regulated genes refer to the gene expression modulated by change in copy number. \textbf{{\textit{in cis} positive tendency}} means if the gene expression is up regulated with the gain in copy number, whereas, \textbf{{\textit{in cis} negative tendency}} means that the gene expression is paradoxically changing with change in copy number. However, \textbf{\textit{in trans}} genes are independent of copy number change.
 
 Recent advances in understanding transcription and its role in tumor phenotype suggest that the clinical progression and therapeutic responsiveness, are likely to be strongly regulated by the dysregulated versions of ongoing transcriptional programs within the cancer cells \cite{lawrence2014discovery, sur2016role}. Therefore, its critical to understand the factors altering the gene expression.
 
@@ -402,23 +456,47 @@ The challenge in the field of studying cancer dynamics by single cell RNA sequen
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Thesis goals and Scientific questions}
-Drug resistance and etiology are among the key unresolved areas of investigation that require advanced understanding of fitness in cancer. For example, drug resistance mechanisms are commonly attributed to phenotypic plasticity encoded via epigenetic changes \cite{shaffer2017rare,sun2014reversible} or evolutionary selection of pre-existing genomic clones \cite{vasan2019view}. However, the relative contribution of these processes when  studied  in  tandem  is  poorly  understood  and  requires  integrated  genome-transcriptome investigation.   Moreover,  how  changes  in  genomic  architecture  brought  about  by  copy  number alterations drive etiologic processes remains understudied. Perturbations to induce fitness changes include genetic editing with cancer gene mutations, and pharmacologic drug selection to profile kinetics of therapeutic response.
+%Drug resistance and etiology are among the key unresolved areas of investigation that require advanced understanding of fitness in cancer. For example, drug resistance mechanisms are commonly attributed to phenotypic plasticity encoded via epigenetic changes \cite{shaffer2017rare,sun2014reversible} or evolutionary selection of pre-existing genomic clones \cite{vasan2019view}. Moreover, how changes in genomic architecture brought about by copy number alterations drive etiologic processes remains understudied. Perturbations to induce fitness changes include genetic editing with cancer gene mutations, and pharmacologic drug selection to profile kinetics of therapeutic response.
+%Fitness based on sub-population analysis requires:
+%\textbf{(i)} method for identifying sub-populations with their genotypes
+%\textbf{(ii)} serial sampling of the populations
+%\textbf{(iii)} a method for estimating the likelihood the trajectory is non neutral
+%Limitations of this approach to structural and copy number genotypes arise from inability to resolve populations accurately.
+%Recent development of single cell sequencing methods opens up the opportunity to accurately identify \ac{CNA}, structural sub-populations
 
-The goal of this thesis is to develop timeseries models with and without  drug perturbation and undertake integrated  genome-transcriptome investigation to quantify fitness in cancer population at single cell level. 
+\subsection{Overarching goal}
+
+``to measure copy number clone fitness with and without drug pressure in order to identify if similar processes are operating''.
+
+%The goal of this thesis is to develop timeseries models with and without drug perturbation and undertake integrated  genome-transcriptome investigation to quantify fitness in cancer population at single cell level. 
+
+\subsubsection{Objectives}
+\begin{itemize}
+\item{To set up and identify drug resistance patterns in transplantable breast cancers}
+
+\item{To identify technical conditions for single cell dissociation}
+
+\item{To determine fitness after drug resistance induction and ask which clones are selected whether this is reproducible}. 
+
+\item{To identify what proportion of the clone phenotype might be driven by \textit{in cis} vs \textit{in trans}  in transcript phenotypes} 
+
+\end{itemize}
+
 Fitness based on sub-population analysis requires:
 \textbf{(i)} method for identifying sub-populations with their genotypes
 \textbf{(ii)} serial sampling of the populations
 \textbf{(iii)} a method for estimating the likelihood the trajectory is non neutral
 Limitations of this approach to structural and copy number genotypes arise from inability to resolve populations accurately.
 Recent development of single cell sequencing methods opens up the opportunity to accurately identify \ac{CNA}, structural sub-populations
-In this thesis, we have used all different types of breast tumors for testing transplant capability and initial screening in chapter 3.  However, for chapter 4 and chapter 5 exclusively all \ac{TNBC} were selected to create timeseries forced amplified evolution models under chemotherapy selection to determine the cellular mechanisms in resistance  at single cell resolution.
+
+In this thesis, we have used all different types of breast tumors for testing transplant capability and initial screening in chapter 3.  However, for chapter 4 and chapter 5, only \ac{TNBC} were selected to create timeseries forced amplified evolution models under chemotherapy selection to determine the cellular mechanisms in resistance  at single cell resolution.
 
  We have used \ac{scWGS} and \ac{scRNAseq} to define the population dynamics in re-transplantable TNBC PDX.
  Since TNBC PDX are especially dynamic and exhibit genomic instability, a longitudinal tracking of tumor passages in PDX provides insights into the stability of genome instability patterns, as well as clonal transcriptional states over genomic clones.
  
  In \textbf{Chapter 3}, we established a transplant model and the methods for single cell dissociation. PDX generations, protocol development, optimizations and \textit{in vivo} screening. 
  
- In \textbf{Chapter 4}, Identifying patterns of clonal resistance with single cell whole genome sequecning. 
+ In \textbf{Chapter 4}, Identifying patterns of clonal resistance and sampling from populations using single cell DNA sequencing to measure the fitness over clones.
  
- In \textbf{Chapter 5}, We identified resistance phenotypes by longitudinal scRNA sequencing and characterization of differentially  expressed genes and pathways 
+ In \textbf{Chapter 5}, We identified resistance phenotypes by longitudinal scRNA sequencing and characterization of differentially  expressed genes and pathways.
 

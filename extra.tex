@@ -1,4 +1,235 @@
 
+
+
+
+
+
+
+ \section{Motivation}
+
+%\printinunitsof{in}\prntlen{\textwidth}
+%\printinunitsof{in}\prntlen{\textheight}
+% The text width is 6.5in -- important for plotting
+% The text height is 9in
+
+To further enhance our understanding of how fitness under drug treatment occurs, we sought to identify genomic and non-genomic basis for transcriptome differences. 
+In TNBC, copy number changes have a major influence on the expression landscape \cite{wang2016integrative}.
+Although many studies have analyzed CNV and differential gene expression of distinct oncogenes and tumor suppressor genes in various cancers \cite{kuzyk2015mycn, budczies2016pan, kwak2015fibroblast}, yet there has been no precise study about the relationship between CNV and differential gene expression across multiple tumor samples. It is unclear to what extent the expression level is affected by CNV at single cell level.
+In Chapter 4, we established a system for identifying copy number defined clones and here we intend to exploit that to obtain scRNA-seq from the clones by mapping 10x with clonealign to CNA genotypes \cite{campbell2019clonealign}.
+
+As \ac{DLP+} allows identification of regions of the genome that differ between the clones and the regions that are similar \cite{laks2019clonal}, therefore, we would be able to define which regions of the transcriptome might be influenced by CNA driven expression and those that might be independent of change in copy number state.
+
+Because of the difficulty to analyse longitudinal patient samples for single cell gene expression and the lack of multiple longitudinal pre-clinical breast cancer models, these questions remain unexplored and our understanding of how they relate to triple negative breast cancer heterogeneity is limited.
+
+Here we aimed to systematically investigate the specific relationship between copy number change and differential gene expression across timeseries TNBC PDX for which we have clonal copy number proportions already analysed in chapter 4. 
+
+%In spite of advanced technologies and treatment, triple negative breast cancer still faces the problems of tumor recurrence and drug resistance.
+%For any given difference between the types of drug resistance, for example the expression of a particular gene, it is assumed that differences arise deterministically or probabilistically in the presence of transcription factors regulating the genes in the tumors. Cancer cells in distinct cell states often exhibit important differences in functional properties depending on which genes are turned on and off resulting in sensitive or resistant phenotypes.
+
+%The most challenging analysis is to differentiate whether the change in gene expression leading to change in cellular state is stochastic \cite{raj2008nature} or deterministic to produce the same output under similar environment.
+%Previously it was shown that unique cells within a population can exhibit fluctuations in gene expression that could predict distinct phenotypes \cite{shaffer2019memory}.
+
+%We set to explore 3 timeseries breast cancer patient derived xenografts (PDX) that were serially challenged for around 4-5 cycles with one or two drugs until and beyond they started showing resistant behaviour. The aim is to measure the magnitude of fluctuations in gene expression from sensitive to resistant phenotype.
+%This study may help us better understand the correlation between CNV and differential gene expression and provide new insights into the mechanism of development and progression of cancers with potential biomarkers in triple negative breast cancer.
+
+ \section{Synopsis}
+
+ 
+ %From the previous chapter, we know that the population changes with the tumor growth from one passage to another, with and without the drugs. We see the shifts in the clones and some clones get selected and others disappear.
+To explore the cellular compositions and breast cancer heterogeneity under diverse conditions, we performed scRNAseq analysis on the same 3 patient derived xenograft timeseries used as substrates in chapter 4. We acquired transcriptional signatures of 171,560 individual cells. Two libraries from CX-5461 treated samples were excluded from analysis as they did not pass our QC threshold. A total of 145,858 individual cells were taken into further transcriptome analysis, including  52,256 cells from untreated tumors, 40,754 cells from cisplatin treated tumors, 31,269 cells from cisplatin drug holiday tumors, 8,558 cells from CX-5461 treated tumors and 13,021 cells from CX-5461 drug holiday tumors (\textbf{\autoref{tab:nofcellsRNA}}).
+
+ 
+%----------------------------------------------------------------
+
+ 
+%To pursue our analysis at single cell RNA level, we encompassed on three main queries; (i) how to explain the data processing from our experimental design (ii) how much of the differentially expressed genes in resistant vs sensitive clones are \textit{in cis} or \textit{in trans} regulated and (iii) explore the change of expression overtime.   
+
+To pursue our analysis at single cell RNA level, we set to explore three main questions: (i) how to best  process our experimental design data; (ii) how the gene expression changes in resistant (with drug) versus sensitive (no treatment) clones and the relationship with the copy number change (\textit{in cis} or \textit{in trans} regulated genes); (iii) how the gene expression changes over time.  
+
+\subsection{Data processing and clonal assignments}
+ From the data processing metrics, we found that batch effects in samples were largely removed by the SCTransform normalization method \cite{hafemeister2019normalization}. Differential gene expression analysis between resistant and sensitive clones was performed using \texttt{edgeR} \cite{robinson2010edger}.
+Next, we used \texttt{clonealign} \cite{campbell2019clonealign} to assign RNAseq single cells to DLP+ clones and, as expected, we observed correlated clonal proportions between RNAseq clones and  DLP+ clones from chapter 4. Finally,   
+we applied dimensionality reduction embeddings of the normalized gene expression levels and revealed that the clones appear to be clustering together with minor exceptions. 
+%----------------------------------
+
+%----------------------------------------------------------------
+
+\subsection{Gene expression change over treatment states \textit{in cis} and \textit{in trans}} 
+In the next section, we asked what proportion of the gene expression change in treated versus untreated samples is accounted for by the change in copy number and what proportion is independent. We defined a differentially expressed gene (DEG) to be \textit{in cis} if there was a difference in median copy number for that gene between the two compared clones, and \textit{in trans} otherwise. The global proportions of \textit{in cis} and \textit{in trans} genes in resistant versus sensitive clones were measured. Then, we looked for the magnitude of difference of upregulated or downregulated genes. Finally, we explored which pathways and individual genes are involved in resistant and sensitive clones across all timeseries PDX models. 
+%We found few intersecting pathways that seems to be upregulated in all timeseries and some with 2-3
+
+\subsection{Gene expression change over time}
+Lastly, we explored the gene expression change over time in the entire gene population in each of our data sets, and we distinguished genes that were increasing or decreasing under continuous drug pressure, while observing the opposite behaviour without drug. We identified common genes that showed trends under the drug in all TNBC timeseries PDX; these could be further investigated as potential biomarkers of disease progression and tumor response.
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{lscape}
+%\begin{landscape}
+%\begin{table} 
+%\centering
+%\caption{Summary of \textit{in cis} and \textit{in trans} %percentages (\%) of differentially expressed genes}
+%\resizebox{\textwidth}{!}{%
+%\begin{tabular}{|l|p{4em}|p{4em}|p{4em}|p{4em}|p{4em}|p{4em}|}
+ % \hline
+%\ac{DE}-scRNAseq between clones &
+ % In\_cis\_Decrease\_DownRegulated \% &
+ % In\_cis\_Decrease\_UpRegulated \% &
+ % In\_cis\_Increase\_DownRegulated \% &
+ %In\_cis\_Increase\_UpRegulated \% &
+ % In\_trans\_DownRegulated \% &
+ % In\_trans\_UpRegulated \% \\
+  %  \hline
+%SA609-UUUU-A\_vs\_UUUU-C         & 7.9  & 4.4 & 4   & 5.2  & 40.1 & 38.4 \\
+%SA609-UUUU-A\_vs\_UUUU-H         & 3.5  & 5.1 & 13  & 17.5 & 27.7 & 33.2 \\
+%SA609-UTTT-A\_vs\_UUUU-C         & 14.4 & 3.3 & 1.1 & 9.3  & 32.1 & 39.8 \\
+%SA609-UTTT-A\_vs\_UUUU-H         & 13   & 2.5 & 6.5 & 22.5 & 31.3 & 24.2 \\
+%SA609-UTTTT-A\_vs\_UUUUU-C       & 13.2 & 3.8 & 0.9 & 10.1 & 30.5 & 41.5 \\
+%SA609-UTTTT-A\_vs\_UUUUU-H       & 12.8 & 2.2 & 6.1 & 27.1 & 28.7 & 23   \\
+%SA1035-UTTTT-G\_vs\_UUUUU-E      & 1.8  & 0.2 & 0.4 & 2.3  & 59.2 & 36.2 \\
+%SA1035-UTTTT-H\_vs\_UUUUU-E      & 2.6  & 0.5 & 0.5 & 3.3  & 47.2 & 45.8 \\
+%SA1035-UTTT-G\_vs\_UUUU-E        & 1.6  & 0.1 & 0.1 & 4.8  & 31.5 & 61.9 \\
+%SA1035-UTTT-H\_vs\_UUUU-E        & 1.9  & 0.3 & 0.3 & 3.4  & 27.4 & 66.7 \\
+%SA535\_UUTTTT-T\_vs\_UUUUUU-J     & 9.7  & 5.6 & 0.3 & 3.2  & 22.8 & 58.3 \\
+%SA535\_UUTTT-T\_vs\_UUUUU-J       & 20.9 & 3.4 & 0.2 & 4.5  & 27.6 & 43.3 \\
+%SA535\_UUTTT-S\_T\_vs\_UUUUU-J       & 20.7 & 3.4 & 0.2 & 4.4  & 28.3 & 43   \\
+%SA535-UUTTT-R\_vs\_UUUUU-J       & 7.9  & 2.5 & 1.5 & 12.3 & 36.8 & 39.1 \\
+%SA535\_UUTTT-T\_vs\_UUUUU-Q       & 22.5 & 4.9 & 1.5 & 20.7 & 18.4 & 32   \\
+%SA535-UUTTT\_S\_T\_vs\_UUUUU-Q    & 21.7 & 5.2 & 1.4 & 21.2 & 18.1 & 32.4 \\
+%SA535-UUTTT-R\_vs\_UUUUU-Q       & 16   & 4.4 & 1.8 & 31.5 & 19.9 & 26.4 \\
+%SA535-UXXXX-U\_vs\_UUUUU-J       & 21.5 & 2.8 & 0.6 & 8.8  & 29.2 & 37.1 \\
+%SA535-UXXXX-U\_vs\_UUUUU-Q       & 18.1 & 4.4 & 1.6 & 21.4 & 20.1 & 34.5 \\
+%SA535-UXXXX-R\_vs\_UUUUU-J       & 15.3 & 2.4 & 0.6 & 7    & 40.4 & 34.3 \\
+%SA535-UXXXX-R\_vs\_UUUUU-Q       & 17.1 & 3.4 & 1.9 & 27.5 & 21.8 & 28.2 \\
+%SA535\_UXXXX\_M\_N\_O\_vs\_UUUUU-J & 22.1 & 4.3 & 0.4 & 6    & 28.5 & 38.7 \\
+%SA535-UXXXX-M\_N\_O\_vs\_UUUUU\_Q & 19.7 & 7.7 & 1.3 & 19.3 & 18.6 & 33.5 \\
+%  \hline
+% \end{tabular}%
+% }
+%\label{tab:DEpercentageincisintrans}
+%\end{table}
+%\end{landscape}
+%--------------------------------------------------------------
+
+% Table generated by Excel2LaTeX from sheet 'copy number change'
+% \begin{table}[htbp]
+ %  \centering
+ %  \caption{Percent change of copy number from one clone to another}
+ %    \begin{tabular}{|l|l|l|l|}
+  %     \hline
+  %   Samples & \multicolumn{1}{|l}{Percent\_incis\_incr} & \multicolumn{1}{|l}{Percent\_incis\_decr} & 
+  %   \multicolumn{1}{|l|}{Percent\_others} \\
+  %    \hline
+   %  SA609-UUUU-B\_to\_UUUU-C & 2.25 & 3.01 & 94.74 \\
+ %    SA609-UUUU\_B\_to\_UUUU-H & 13.51 & 3.82 & 82.67 \\
+  %   SA609-UTTT\_A\_to\_UUUU-C & 9.35 & 15.91 & 74.74 \\
+  %   SA609-UTTT\_A\_to\_UUUU-H & 8.55 & 4.57 & 86.88 \\
+  %   SA609-UTTTT\_A\_to\_UUUUU-C & 9.96 & 15.35 & 74.69 \\
+   %  \textbf{*}SA609-UTTTT\_A\_to\_UUUUU-H & 12.27 & 5.54 & 82.19 \\
+  %   SA1035-UTTTT\_G\_to\_UUUUU-E & 12.15 & 9.19 & 78.66 \\
+  %   \textbf{*}SA1035-UTTTT\_H\_to\_UUUUU-E & 14.66 & 12.05 & 73.29 \\
+   %  SA1035-UTTT\_G\_to\_UUUU-E & 16 & 5.63 & 78.37 \\
+  %   SA1035-UTTT\_H\_to\_UUUU-E & 14.66 & 8.69 & 76.65 \\
+  %   \textbf{*}SA535-UUTTTT\_T\_to\_\_UUUUUU-J & 4.5 & 19.81 & 75.69 \\
+   % \textbf{*}SA535-UUTTT\_T\_to\_UUUUU-J & 3.59 & 18.63 & 77.78\\
+   %  SA535-UUTTT\_S\_T\_to\_UUUUU-J & 3.51 & 18.53 & 77.96 \\
+   %  SA535-UUTTT\_R\_to\_UUUUU-J & 2.03 & 1.54 & 96.43 \\
+  %   SA535-UUTTT\_T\_to\_UUUUU-Q & 9.89 & 12.2 & 77.91 \\
+   %  SA535-UUTTT\_S\_T\_to\_UUUUU-Q & 10.42 & 12.44 & 77.14 \\
+  %   SA535-UUTTT\_R\_to\_UUUUU-Q & 7.92 & 4.85 & 87.23 \\
+%\textbf{*}SA535-UXXXX\_U\_to\_UUUUU-J & 7.19 & 18.45 & 74.36 \\
+   %  SA535-UXXXX\_U\_to\_UUUUU-Q & 11.84 & 11.59 & 76.57 \\
+   %  SA535-UXXXX\_R\_to\_UUUUU-J & 6.8 & 15.94 & 77.26 \\
+   %  SA535-UXXXX\_R\_to\_UUUUU-Q & 14.37 & 10.06 & 75.57 \\
+   %  SA535-UXXXX\_M\_N\_O\_to\_UUUUU-J & 4.53 & 18.69 & 76.78 \\
+   %  SA535-UXXXX\_M\_N\_O\_to\_UUUUU-Q & 9.27 & 12.36 & 78.37 \\
+  % \hline 
+   
+% \end{tabular}%
+%\label{tab:copynumberchange}%
+
+ % \small\textbf{(* Resistant vs sensitive clones at the last time point of treatment cycle)}.
+%\end{table}%
+
+%-------------------------------------------------------------------------
+% Please add the following required packages to your document preamble:
+% \usepackage{lscape}
+
+%\begin{landscape}
+%\begin{table}
+%\centering
+
+ %\caption{Summary of number of differentially expressed genes \textit{in cis} and \textit{in trans} in major clones}
+
+
+%\resizebox{\textwidth}{!}{%
+%\begin{tabular}{|l|p{3.8em}|p{3.8em}|p{3.8em}|p{3.8em}|p{3.8em}|p{3.8em}|}
+%\hline
+%DE scRNAseq between clones &
+ % In\_cis\_Decrease\_DownRegulated &
+ % In\_cis\_Decrease\_UpRegulated &
+ % In\_cis\_Increase\_DownRegulated &
+ % In\_cis\_Increase\_UpRegulated &
+ % In\_trans\_DownRegulated &
+ % In\_trans\_UpRegulated \\
+ % \hline
+%SA609-UUUU-B\_vs\_UUUU-C           & 79  & 44  & 40  & 52   & 399  & 382  \\
+%SA609-UUUU-B\_vs\_UUUU-H           & 127 & 186 & 471 & 636  & 1005 & 1207 \\
+%SA609-UTTT-A\_vs\_UUUU-C           & 655 & 150 & 48  & 425  & 1466 & 1817 \\
+%SA609-UTTT-A\_vs\_UUUU-H           & 352 & 69  & 177 & 611  & 850  & 659  \\
+%SA609-UTTTT-A\_vs\_UUUUU-C         & 603 & 174 & 43  & 461  & 1394 & 1894 \\
+%\textbf{*}SA609-UTTTT-A\_vs\_UUUUU-H         & 435 & 75  & 208 & 922  & 975  & 783  \\
+%SA1035-UTTTT-G\_vs\_UUUUU-E        & 55  & 7   & 11  & 71   & 1841 & 1125 \\
+%\textbf{*}SA1035-UTTTT-H\_vs\_UUUUU-E        & 93  & 18  & 19  & 116  & 1661 & 1612 \\
+%SA1035-UTTT-G\_vs\_UUUU-E          & 35  & 3   & 2   & 106  & 696  & 1368 \\
+%SA1035-UTTT-H\_vs\_UUUU-E          & 69  & 11  & 11  & 124  & 1004 & 2440 \\
+%\textbf{*}SA535\_UUTTTT-T\_vs\_UUUUUU-J      & 469 & 271 & 13  & 155  & 1102 & 2814 \\
+%SA535\_UUTTT-T\_vs\_UUUUU-J        & 599 & 97  & 6   & 128  & 791  & 1240 \\
+%SA535\_UUTTT-S\_T\_vs\_UUUUU-J     & 595 & 97  & 5   & 126  & 811  & 1235 \\
+%SA535-UUTTT-R\_vs\_UUUUU-J         & 38  & 12  & 7   & 59   & 177  & 188  \\
+%SA535\_UUTTT-T\_vs\_UUUUU-Q        & 831 & 183 & 57  & 765  & 681  & 1184 \\
+%SA535-UUTTT\_S\_T\_vs\_UUUUU-Q     & 834 & 200 & 54  & 812  & 696  & 1243 \\
+%SA535-UUTTT-R\_vs\_UUUUU-Q         & 294 & 80  & 33  & 578  & 365  & 483  \\
+%\textbf{*}SA535-UXXXX-U\_vs\_UUUUU-J & 697 & 91  & 21  & 286  & 948  & 1204 \\
+%SA535-UXXXX-U\_vs\_UUUUU-Q         & 695 & 167 & 61  & 820  & 771  & 1324 \\
+%SA535-UXXXX-R\_vs\_UUUUU-J         & 448 & 70  & 18  & 203  & 1178 & 1002 \\
+%SA535-UXXXX-R\_vs\_UUUUU-Q         & 646 & 130 & 70  & 1038 & 823  & 1063 \\
+%SA535\_UXXXX\_M\_N\_O\_vs\_UUUUU-J & 746 & 145 & 14  & 202  & 961  & 1307 \\
+%SA535-UXXXX-M\_N\_O\_vs\_UUUUU\_Q  & 753 & 296 & 48  & 739  & 710  & 1281 \\
+%  \hline
+
+%\end{tabular}
+%}
+
+%\label{tab:numberofDEgenesincistrans}
+
+%  \small\textbf{(* Resistant vs sensitive clones at the last time point of treatment cycle}.
+%\end{table}
+%\end{landscape}
+
+%----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \begin{table}[htbp]
   \centering
    \caption{Number of genes in DE* of resistant versus sensitive clones and their regulation status in all TNBC PDX series}
