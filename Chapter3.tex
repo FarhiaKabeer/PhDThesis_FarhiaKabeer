@@ -1,32 +1,34 @@
-\chapter{Identification of drugs response properties and methods of tissue preparation for single cell measurements in patient derived xenografts %Establishing a transplant model and the methods for single cell dissociation 
+\chapter{Identification of drug response properties and methods of tissue preparation for single cell measurements in patient derived xenografts %Establishing a transplant model and the methods for single cell dissociation 
 }
 \label{ch:Chapter 3}
 
-\section{Motivation}
-Developing models that mimic human cancer is a long-standing goal in cancer research \cite{aparicio2015examining, may2018cancer, ryu2019integrative}. However, as compare to cell culture in dishes, patient derived xenograft (PDX) models better retain the biological and molecular characteristics and heterogeneity of the patient's tumor. This could be due to their close genomic and transcriptomic fidelity to the tumors of origin \cite{lin2014high}. In addition, PDXs are also known as dignified models to explore patient's specific response to therapy and understanding drug resistance \cite{matossian2019drug, derose2011tumor}. So we started this chapter with the intent of establishing the transplant models of breast cancer patient derived xenografts of breast cancer to explore the baseline sensitivity patterns. This was important to select which models could be further utilized for drug resistance timeseries measurements for upcoming chapters. 
+%\section{Motivation}
+%Developing models that mimic human cancer is a long-standing goal in cancer research \cite{aparicio2015examining, may2018cancer, ryu2019integrative}. However, as compare to cell culture in dishes, patient derived xenograft (PDX) models better retain the biological and molecular characteristics and heterogeneity of the patient's tumor. This could be due to their close genomic and transcriptomic fidelity to the tumors of origin \cite{lin2014high}. In addition, PDXs are also known as dignified models to explore patient's specific response to therapy and understanding drug resistance \cite{matossian2019drug, derose2011tumor}. So we started this chapter with the intent of establishing the transplant models of breast cancer patient derived xenografts of breast cancer to explore the baseline sensitivity patterns. This was important to select which models could be further utilized for drug resistance timeseries measurements for upcoming chapters. 
 
-Next, we established conditions for tissue dissociations from PDX tumors. 
-Due to the sensitivity of single-cell RNA sequencing, the data is subject to technical and biological noise \cite{potter2018single, stegle2015computational}. Moreover, small changes in gene expression can dramatically influence the interpretation of biological results. So we compared PDX tumors dissociations with different enzymes that work at different temperatures.
-
+%Next, we established conditions for tissue dissociations from PDX tumors. 
+%Due to the sensitivity of single-cell RNA sequencing, the data is subject to technical and biological noise \cite{potter2018single, stegle2015computational}. Moreover, small changes in gene expression can dramatically influence the interpretation of biological results. So we compared PDX tumors dissociations with different enzymes that work at different temperatures.
 
 %Single-cell whole genome sequencing with direct library prep (DLP+) and RNA sequencing (scRNA-seq) are powerful tool for studying complex biological systems, such as tumor heterogeneity and tissue microenvironments. However, the sources of technical and biological variation in primary solid tumor tissues and patient-derived mouse xenografts for scRNA-seq are not well understood.
 %Due to the sensitivity of single-cell RNA sequencing (scRNA-seq), small changes in gene expression can dramatically influence the interpretation of biological data. scRNA-seq data is also subject to technical and biological noise \cite{potter2018single, stegle2015computational} Transcriptional machinery remains active at 37\textdegree C, and extended incubation at high temperatures may introduce gene expression artifacts, independent of the biology at the time of harvest. Moreover, extended incubation at higher temperatures in the absence of nutrients or anchorage, or harsh dissociation, may induce apoptosis or anoikis, polluting the viable cell population or generating low-quality suspensions \cite{volovitz2016non}. Therefore, it is imperative to characterize the inherent variation and potential effects of cell isolation methods on the transcriptomic profiles of tissues. Recently, it has been shown that a serine protease (subtilisin A) isolated from a Himalayan glacier-resident bacterium, \textit{Bacillus lichenformis}, is suitable for dissociation of non-malignant renal tissues at 4-6 \textdegree C and can reduce scRNA-seq artifacts in these tissues, including reducing global and single-cell gene expression changes \cite{shah2012clonal}. 
 
 \section{Synopsis}
- The main goal of this chapter is the selection of specific chemotherapies and PDXs for the drug resistance timeseries \textit{in vivo} models and to optimize tumor dissociation protocols for downstream major projects. 
+This chapter describes the establishment and selection of PDX and drugs for study and conditions for single cell dissociation. 
  
  
  \subsection{Established transplant PDX models}
  \begin{itemize}
   \item Established 26 breast cancer patient derived xenografts (PDX) transplant models in NOD Rag-1 null interleukin-2 receptor gamma null (NRG) to assess the capabilities of tumor engraftments. 
   \item Overall engraftment rate from NSG to NRG was 90\% in total. 100\% from HR+/HER2-ve subtype,  80\% from HR-ve/HER2+ and 87.5\% from triple-negative breast cancer types (TNBC).
-   \item Histological sections showed that PDX tumors in NRG retains their receptor status.
+   \item Histology showed that PDX tumors in NRG retains their receptor status.
   
   \end{itemize}
   
  \subsection{Drug resistance and sensitivity patterns}
 \begin{itemize} 
- \item Established qualitatively drug resistance sensitivity over 4 TNBC PDX as precursor to be used for drug resistance \textbf{\textit{in vivo}} timeseries for chapter 4.
+     \item First, \textit{in vitro} drug screening of patient derived xenograft tumors with 11 different chemotherapies helped selection of 4 drugs and 4 PDX  for detailed \textit{in vivo} drug studies.
+     
+   \item  Established qualitatively drug resistance sensitivity over 4 TNBC PDX as precursor to be used for drug resistance \textbf{\textit{in vivo}} timeseries for chapter 4.
+   
  \item All 4 TNBC PDX were sensitive to cisplatin with more than 60\% tumor growth inhibition. TNBC-SA609 and SA604, having similar background mutational signature of fold back inversion (FBI), showed resistant patterns to both Rucaparib and CX-5461 with less than 30\% tumor growth inhibition. However, TNBC SA535 with BRCA 1 deficiency, was sensitive to all but partially sensitive to Rucaparib. TNBC-SA1035 was partially sensitive to Paclitaxel, resistant to Rucaparib, but sensitive to Paclitaxel and CX-5461.
 
 \end{itemize}
@@ -57,7 +59,9 @@ Due to the sensitivity of single-cell RNA sequencing, the data is subject to tec
  
  %Finally, while optimizing viability of single cells for transcriptome analysis, we found that stress response genes, including \textit{FOS} and \textit{JUN}, were induced by collagenase/ hyaluronidase digestion at high temperature (37 \textdegree C), which were minimized by dissociation with a cold active protease at low temperatures (6 \textdegree C). 
  %These findings lead to the first co-authored publication in \textit {Genome Biology, 2019)}. Here, we endeavored to describe the artifactual gene expression associated with tissue dissociation and dead or dying cell populations. Using a large, diverse dataset, we highlighted the variability in key QC metrics, including the percentage of mitochondrial genes, number of \ac{UMIs}, and number of genes detected. \cite{o2019dissociation}.
- 
+
+
+\newpage 
 \section{Results}
 
 \subsection{Establishment of patient derived xenografts in immunodeficient mice}
@@ -83,19 +87,21 @@ Due to the sensitivity of single-cell RNA sequencing, the data is subject to tec
 %Tumor samples were obtained from 30 breast cancer patients at BC cancer research centre from Vancouver, British Columbia hospitals and were implanted sub cutaneously into highly immunodeficient NOD/SCID/IL2r$\gamma^{\small{-/-}}$ (NSG) and NOD/Rag1$^{\small{-/-}}$Il2r$\gamma ^{\small{-/-}}$ (NRG)\cite{pearson2008non}. 
 
 Breast cancer patient's tumor samples from primary tumor site, axillary lymph nodes, brain metastasis and pleural effusion were already established into highly immunodeficient NOD/SCID/IL2r$\gamma^{\small{-/-}}$ (NSG) in the lab \cite{eirew2015dynamics}. 
-29 established NSG tumors were re transplanted in NOD/Rag1$^{\small{-/-}}$Il2r$\gamma ^{\small{-/-}}$ (NRG) \cite{pearson2008non} \textbf{\autoref{fig:EstablishmentofPDX} a, see methods)}.
-Of the 29 implanted samples into NRG, 26 successfully established PDX tumors in immunodeficient NOD Rag-1 null interleukin-2 receptor gamma null (NRG) mice (overall engraftment rate, 90\%) that comparatively have better tolerance to chemotherapies. 
-The success rates according to breast cancer subtype were 100\% for HR+/HER2-ve, 80\% for HR-ve/HER2+, and 87.5\% for triple-negative breast cancer (TNBC) \textbf{\autoref{fig:EstablishmentofPDX} c}. Source of engraft tissue which came from patient's surgical specimens or biopsy did not affect PDX engraftment, consistent with previous results \cite{ryu2019integrative}. Summary venn sets bar plot of intersection sizes (upper panel) and group size bar plot (left panel) for groups of interest (pleural effusion sample, metastatic sample, primary/secondary tumour status, xenograft success, stage, grade and tumour genotype). Vertical connectors below the intersection size \textbf{\autoref{fig:EstablishmentofPDX} b},
-bar plot show the corresponding set intersections. For example, all of the tumour samples derived from pleural effusions were ER+ cases and produced successful xenografts. Tumour samples from two triple negative cases and one HER2+ case failed in xenografting.
+To set up and evaluate transplant models with drugs, I transplanted 29 of the established NSG tumours into NOD/Rag1$^{\small{-/-}}$Il2r$\gamma ^{\small{-/-}}$ (NRG) \cite{pearson2008non} \textbf{(\autoref{fig:EstablishmentofPDX} a, see methods)}.
+Of the 29 implanted samples into NRG, 26 successfully established PDX tumors NRG mice (overall engraftment rate, 90\%). NSG IL2r$\gamma^{\small{-/-}}$ and NRG IL2r$\gamma^{\small{-/-}}$ are equivalent in immune deficiency functions, but NRG are more tolerant of DNA damaging chemotherapy drugs that comparatively have better tolerance to chemotherapies. 
+The success rates according to breast cancer subtype were 100\% for HR+/HER2-ve, 80\% for HR-ve/HER2+, and 87.5\% for triple-negative breast cancer (TNBC) \textbf{\autoref{fig:EstablishmentofPDX} c}. Source of engraft tissue which came from patient's surgical specimens or biopsy did not affect PDX engraftment, consistent with previous results \cite{ryu2019integrative}. 
+%Summary venn sets bar plot of intersection sizes (upper panel) and group size bar plot (left panel) for groups of interest (pleural effusion sample, metastatic sample, primary/secondary tumour status, xenograft success, stage, grade and tumour genotype). Vertical connectors below the intersection size \textbf{\autoref{fig:EstablishmentofPDX} b}, bar plot show the corresponding set intersections. For example, 
+All of the tumour samples derived from pleural effusions were ER+ cases and produced successful xenografts. Tumour samples from two triple negative cases and one HER2+ case failed the transfer between NSG and NRG hosts \textbf{\autoref{fig:EstablishmentofPDX} b}.
 
 
 \subsubsection{Histologic characteristics of the NSG mice corresponds to the NRG mice}
 
 To confirm that histological features of the patient's original tumor were stably retained in the xenograft, we conducted a comparative histological analysis of xenograft tumors and tumors of origin using H\&E, ER, HER2 and Ki67 as biomarkers. 
-\textbf{\autoref{fig:EstablishmentofPDX} d}, depicts histological results of representative patients and their xenograft tumors. For each subtype, morphological characteristics were conserved and hormone receptors, ER, HER2 along with Ki67 statuses were maintained throughout the respective xenografts. ER, PR and HER2 remained negative from NSG to NRG. In addition, EGFR, Ki67, if score 3+ in NSG PDX, they kept the same intensity semiquantitative scores on NRG tumor sections. Ki-67 expression determines the growth fraction of a given cell population in the tumor and it remains the same from patient to NSG to NRG mice. Other tested markers include CK5/6, SMA, Vimentin, E-Cadherin, CK8 and CK14. The range of score varies from negative (0) to 3+ in each independent tumor for each marker but the scores were consistent between NSG and NRG PDX tumors of same type as shown in representative histological images of TNBC-SA609 \textbf{(\autoref{fig:EstablishmentofPDX} d)}.
+\textbf{\autoref{fig:EstablishmentofPDX} d}, depicts histological results of representative patients and their xenograft tumors. For each subtype, morphological characteristics were conserved and hormone receptors, ER, HER2 along with Ki67 statuses were maintained throughout the respective xenografts. ER, PR and HER2 remained negative from NSG to NRG \textbf{(\autoref{fig:EstablishmentofPDX} d)}. 
+Of the other tumour markers tested (EGFR, CK5/6, SMA, Vimentin, E-Cadherin, CK8 and CK14), a range of immunopositivity was found that was maintained between transplants. The range of score varies from negative (0) to 3+ in each independent tumor for each marker but the scores were consistent between NSG and NRG PDX tumors of same type as shown in representative histological images of TNBC-SA609 \textbf{(\autoref{fig:EstablishmentofPDX} d)}.
 
 
- This data confirmed that PDX tumors in \ac{NRG} could be confidently used for downstream experiments as the main histological markers of the original tumors were conserved in xenografts and that the PDX models of breast cancer developed in this study reflect the characteristics of the original tumors. Also, Eirew et al,. showed that comparisons of clonal dynamics by serial engraftment and propagation in NSG mice vs NRG mice suggested no major differences \cite{eirew2015dynamics}.
+ The above results confirmed that PDX tumors in \ac{NRG} could be confidently used for downstream experiments as the main histological markers of the original tumors were conserved. Also, the PDX models of breast cancer developed in this study reflected the characteristics of the original tumors because Eirew et al,. showed that comparisons of clonal dynamics by serial engraftment and propagation in NSG mice vs NRG mice suggested no major differences \cite{eirew2015dynamics}.
 
 %---------------------------------------------------------------
 
@@ -110,11 +116,10 @@ The aim was to select atleast 4 drugs for downstream \textit{in vivo} screening.
 
 To evaluate the spectrum of drug sensitivity in short term PDX,
 total of 7 PDX tumors, including 3 TNBC, 2 ER+ and 2 HER2+, were enzymatically digested into single cells and plated in 96-wells, collagen coated plates \textbf{\autoref{fig:invitro} a, see methods}. 
-Briefly, PDX cells were incubated with various chemotherapies at 5 different concentrations after 24 hours of cell seeding. The dose sensitivities (7 days in drug) were quatified by using a WST-1 metabolic, cell viability assay (n=4). 
+Briefly, PDX cells were incubated with various chemotherapies at 5 different concentrations after 24 hours of cell seeding. The dose sensitivities (7 days in drug) were quantified by using a WST-1 metabolic, cell viability assay (n=4). 
 
-Notably, dose response inhibition curves \textbf{\autoref{fig:invitro} b} and estimated IC50 values from sigmoid fit \textbf{\autoref{tab:invitroIC50}}, it showed that platinums (cisplatin, carboplatin), Taxanes (Paclitaxel, docetaxel) and doxorubicin displayed wide dynamic range of responses across multiple PDX towards. A new compound of our interest, CX-5461 also showed up with high efficacy and a wide range of responses with very low IC50 values range starting from from -9(logIC50)M across different PDX tissues \textbf{\autoref{fig:invitro} b}. In addition, PARP inhibitor was only exposed to 5 PDX cultures, where it showed -8(logIC50)M specific to TNBC-SA535 only, which was BRCA 1 deficient PDX. In other PDXs, it didn't show high efficacy based on its comparatively high IC50 value.
-
-Few of other chemotherapies tend to be less effective, such as BMH-21, Fluorouracil, Pyridostatin and Methotrexate with minimum of -7(logIC50)M  \textbf{(Summary results in \autoref{tab:invitroIC50}, representative response curves in \autoref{fig:invitro} a}. A new compound of our interest, CX-5461 also showed up with high efficacy and wide range of responses with very low IC50 values across different PDX tissues \textbf{\autoref{fig:invitro} b}. 
+Notably, dose response inhibition curves \textbf{\autoref{fig:invitro} b} and estimated IC50 values from sigmoid fit \textbf{\autoref{tab:invitroIC50}}, showed that platinums (cisplatin, carboplatin), Taxanes (Paclitaxel, Docetaxel) and doxorubicin displayed wide dynamic range of -9(logIC50)M to -5(logIC50)M across multiple PDX. Moreover, CX-5461 showed a range of -9(logIC50)M to -6(logIC50)M \textbf{\autoref{fig:invitro} b}. In addition, 5 PDX cultures were exposed to PARP inhibitor, however, only TNBC-SA535, which was BRCA 1 deficient PDX, exhibited sensitivity to PARP inhibitor with -8(logIC50)M. 
+BMH-21, Fluorouracil, Pyridostatin and Methotrexate were not very effective because of high IC50 values (minimum of -7(logIC50)M ) \textbf{(Summary results in \autoref{tab:invitroIC50}, representative response curves in \autoref{fig:invitro} a}. A new compound of our interest, CX-5461 also showed up with high efficacy and wide range of responses with very low IC50 values across different PDX tissues \textbf{\autoref{fig:invitro} b}. 
 
 %\subsubsection{CX-5461 show higher drug sensitivity in LIG4$-$/$-$ and PRKDC$-$/$-$ HCT116 cells than wild type}
 
@@ -168,7 +173,7 @@ Based on IC50 values and wide range of tumor responses,  CX-5461, cisplatin, pac
    \label{tab:invitroIC50}%
    
    
-    \small\textbf{ (N/A: not applicable)}.
+    \small\textbf{ (N/A means not measured)}.
  \end{table}%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -178,10 +183,9 @@ Based on IC50 values and wide range of tumor responses,  CX-5461, cisplatin, pac
 	\caption[Representative tumor responses from four PDX and  to four drugs]
 	{\small
 	   \textbf{Representative tumor responses from four PDX and  to four drugs.}
-	    \textbf{(a)} Summary matrix of four TNBC PDX with drugs
-	     \textbf{(b)} Bar plot showing tumor growth inhibition percentages. Error bars represent 95\% bootstrap confidence interval based on 2-4 replicates.
-	    \textbf{(c)} Tumor growth curves from treated and un treated tumors. Vertical axis representing the tumor volume in cubic millimeters and horizontal axis is showing the days tumor measurements. Red arrows represent the time of start of treatments.
-}
+	    \textbf{(a)} Tumor growth curves from treated and un treated tumors. Vertical axis-left, represents the tumor volume in cubic millimeters; vertical axis-right, represents the drug and treatment status. Horizontal axis represents the days post-measurable tumors. Red arrows represent the time of start of treatments,
+	   \textbf{(b)} Bar plot showing tumor growth inhibition percentages. Error bars represent 95\% bootstrap confidence interval based on 2-4 replicates.  \textbf{(c)} Response summary matrix of \textbf{a} based on quantified tumor growth inhibition in \textbf{b}.
+	    }
 	\label{fig:invivo}
 \end{figure}
 
@@ -213,7 +217,7 @@ Based on IC50 values and wide range of tumor responses,  CX-5461, cisplatin, pac
      \hline
     \end{tabular}%
 
-\small\textbf{PDX ID = Patient-derived xenograft identification, N/A = not applicable}\\
+\small\textbf{PDX ID = Patient-derived xenograft identification, N/A means not measured}\\
   \label{tab:PDXtumorsinvivo}%
 
 
@@ -227,21 +231,24 @@ Based on IC50 values and wide range of tumor responses,  CX-5461, cisplatin, pac
 %--------------------------------------------
 
 \subsection{Baseline \textit{in vivo} sensitivity patterns of triple negative breast cancer}
-To evaluate the spectrum of baseline sensitivity of PDX tumors with conventional and novel targeted chemotherapies, we modified the previously published 1x1x1 design for semi-quantitative PDX drug senstivity mapping, increasing the number of replicate mice to a 3x1x1 design. \cite{gao2015high,migliardi2012inhibition}. 
+To evaluate the spectrum of baseline sensitivity of PDX tumors with conventional and novel targeted chemotherapies, I modified previously published 1x1x1 design, for semi-quantitative PDX drug sensitivity mapping, by increasing the number of replicate mice to a 3x1x1 design. \cite{gao2015high, migliardi2012inhibition}. 
 %We performed \textit{in vivo} screen to model inter-patient response heterogeneity with \textbf{three animals per model per treatment strategy (3x1x1)}. 
- 13 PDXs were tested with cisplatin, Paclitaxel, Rucaparib or CX-5461. NOtably, all 8 of the TNBC tested were sensitive to cisplatin with tumor growth inhibition of more than 60\%, however, less responsive to Rucaparib \textbf{Summary in \autoref{tab:PDXtumorsinvivo}}. 
-We selected in total of four drugs, including two standard chemotherapies, platinum (cisplatin-(2mg/kg, \ac{Q3Dx8}, \ac{IP} max)) and Taxanes (Paclitaxel-13mg/kg, \ac{Q3Dx8}, \ac{IP} max), and two targeted chemotherapies, PARP inhibitors (Rucaparib-\ac{IP} daily 5 days per week for 3 weeks) and G4 quadruplex stabilizers (CX-5461-62.5mg/kg, \ac{Q3Dx8} by oral gavage). 
-\textbf{\autoref{fig:invivo} a} showing summary matrix of four triple negative breast (TNBC) PDX towards chemotherapies. 
-The representative growth curves are shown in \textbf{\autoref{fig:invivo} c}, including TNBC-SA609 (Basal, TP53, FBI), TNBC-SA1035 (Basal, HRD, APOBEC-like, POLH), TNBC-SA535 (Basal, MMRD-1, S-Dup, TP53, BRCA1 def) and TNBC-SA604 (Basal, CI-SV, CI-FBI).
+ 13 PDXs were tested with cisplatin, Paclitaxel, Rucaparib or CX-5461. Notably, all 8 of the TNBC tested were sensitive to cisplatin with tumor growth inhibition of more than 60\%, however, less responsive to Rucaparib \textbf{Summary in \autoref{tab:PDXtumorsinvivo}}. 
+I selected in total of four TNBC PDX, including TNBC-SA609 (Basal, TP53, FBI), TNBC-SA1035 (Basal, APOBEC-like), TNBC-SA535 (Basal, BRCA1 def) and TNBC-SA604 (Basal, FBI), to complete screening with 4 selected drugs, including two standard chemotherapies, platinum (cisplatin-(2mg/kg, \ac{Q3Dx8}, \ac{IP} max)) and Taxanes (Paclitaxel-13mg/kg, \ac{Q3Dx8}, \ac{IP} max), and two targeted chemotherapies, PARP inhibitor (Rucaparib-\ac{IP} daily 5 days per week for 3 weeks) and G4 quadruplex stabilizer (CX-5461-62.5mg/kg, \ac{Q3Dx8} by oral gavage). 
 
-To classify tumor responses, we measured tumor growth inhibition percent (TGI\%) in each PDX and divided them into three categories according to modified RECIST criteria \cite{aykan2020objective}. Sensitive: \ac{TGI} $>$60\%; partially sensitive: \ac{TGI} $>$30\% but $<$60\%; Resistant: \ac{TGI} $<$30\% \textbf{(\autoref{fig:invivo} a)}.
-Interestingly, we found that all TNBC PDXs with different background mutational signatures behaved differently towards the same drugs. Both PDXs with FBI backgrounds, TNBC-SA609 and TNBC-SA604 were both found to be resistant to CX-5461 with tumor growth inhibition (TGI) of 15\% and 7\%, respectively \textbf{\autoref{fig:invivo} b}. Moreover, they were resistant to Rucaparib as well, with \ac{TGI} of 9\% and 16\%, respectively.
-All four of the PDX showed high sensitivity to platinum (cisplatin). Three out of four PDXs were sensitive to (taxane) paclitaxel, while TNBC-SA1035 was partially sensitive with \ac{TGI} of 34\%. Surprisingly,  TNBC-SA535 with BRCA deficiency was expected to be very sensitive to Rucaparib, but in our screening, it tend to be partially sensitive with \ac{TGI} of 36\% \textbf{\autoref{fig:invivo} b}.
+%\textbf{\autoref{fig:invivo} a} showing summary matrix of four triple negative breast (TNBC) PDX towards chemotherapies. 
+%The growth curves are shown in \textbf{\autoref{fig:invivo} c}, including 
+
+%TNBC-SA609 (Basal, TP53, FBI), TNBC-SA1035 (Basal, APOBEC-like, POLH), TNBC-SA535 (Basal, MMRD-1, S-Dup, TP53, BRCA1 def) and TNBC-SA604 (Basal, CI-SV, CI-FBI).
+
+To classify tumor responses, I measured tumor growth inhibition percent (TGI\%) in each PDX and divided them into three categories according to modified RECIST criteria \cite{aykan2020objective}. Sensitive: \ac{TGI} $>$60\%; partially sensitive: \ac{TGI} $>$30\% but $<$60\%; Resistant: \ac{TGI} $<$30\% \textbf{(\autoref{fig:invivo} a, c)}.
+Not surprisingly, I found that all TNBC PDXs with different background mutational signatures behaved differently towards the same drugs. Both PDXs with FBI backgrounds, TNBC-SA609 and TNBC-SA604 were both found to be resistant to CX-5461 with tumor growth inhibition (TGI) of 15\% and 7\%, respectively \textbf{\autoref{fig:invivo} a, b}. Moreover, they were resistant to Rucaparib as well, with \ac{TGI} of 9\% and 16\%, respectively.
+All four of the PDX showed high sensitivity to platinum (cisplatin). Three out of four PDXs were sensitive to (taxane) paclitaxel, while TNBC-SA1035 was partially sensitive with \ac{TGI} of 34\%. Surprisingly, TNBC-SA535 (BRCA 1 deficient), which was expected to be very sensitive to Rucaparib, showed growth inhibition of only 36\%  (partially sensitive) \textbf{\autoref{fig:invivo} c}.
 
 
 \section{Optimization methods in tumor dissociation for single cell analysis}
 
-This section of chapter 3 belongs to \textit{Genome Biology, 2019} paper, title  \textbf{``Dissociation of solid tumor tissues with cold active protease for single-cell RNA-seq minimizes conserved collagenase-associated stress responses''}.
+This section of chapter 3 was published in \textit{Genome Biology, 2019} paper, title  \textbf{``Dissociation of solid tumor tissues with cold active protease for single-cell RNA-seq minimizes conserved collagenase-associated stress responses''}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}
@@ -252,7 +259,7 @@ This section of chapter 3 belongs to \textit{Genome Biology, 2019} paper, title 
 	    \textbf{Evaluation of viable-high percent cell recovery for single cell measurements.}
 	    \textbf{(a)} Representative tumors in dishes. Two small black lines as 2mm. Middle dish showing partially chopped tumor with white necrotic tissues. Right side panel showing example from comparatively solid to cut tumor.
 	    \textbf{(b)} Schematics of processing of frozen vials. single cells (SC), Viable frozen (VF) and remaining big chunks (REM).
-	    \textbf{(c)} Vertical axis showing the percent viability and horizontal axis shows the type of vials from each of three tumors. Error bars represent one standard deviation from the mean.  \textbf{(d)} Left sided images are pre-dead cell removal while right sided are the post dead removal on hemocytometer. \textbf{(e)} Vertical axis showing the number of viable cells obtained from each vial and horizontal axis shows type of vials processed. Error bars represent one standard deviation from the mean.
+	    \textbf{(c)} Vertical axis showing the percent viability and horizontal axis: tumor type. Error bars represent one standard deviation from the mean. \textbf{(d)} Vertical axis: number of viable cells obtained from each vial and horizontal axis tumor type. Error bars: one standard deviation from the mean.\textbf{(e)} Left: pre-dead cell removal; right: post-dead removal on hemocytometer. \textbf{(f)} Vertical axid represent percent viability and   horizontal axis: tumor type. Error bars: one standard deviation from the mean.  
 	}
 	\label{fig:cellviability}
 \end{figure}
@@ -260,12 +267,20 @@ This section of chapter 3 belongs to \textit{Genome Biology, 2019} paper, title 
 
 
 \subsection{Small viable frozen fragments of the tumors culminated in high viability and less debris as compared to big frozen chunks}
-To investigate which status of tissue freezing will give us better outcome of single cell suspension, we mechanically disaggregated three TNBC PDX tumors \textbf{\autoref{fig:cellviability} a}, TNBC-SA609, TNBC-SA1035 and TNBC-SA535 and froze them in three different ways. First, after mechanical digestion, viable frozen (VF) tissue fragments were frozen in the freezing media. Second, consist of single cells (SC) by complete enzymatic digestion \textbf{(See methods)} and lastly big tissue chunks frozen vial labelled as ``REM'' (remaining). 
+To investigate the method of tissue freezing that could provide optimal single cell suspensions for downstream analysis, I mechanically disaggregated (paddle blender, \cite{eirew2015dynamics}, also see methods) three TNBC PDX tumors \textbf{\autoref{fig:cellviability} a}, TNBC-SA609, TNBC-SA1035 and TNBC-SA535 and cryopreserved with three protocol variations. First, after mechanical digestion, small organoid-like cell clumps (VF) were cryopreserved in the freezing media. Second, full dissociation (with collagenase/Hyaluronidase) to single cell (SC) suspensions, third, remaining large tissue fragments (REM) were cryopreserved. 
 Tumor fragments were thawed and washed twice with 
-Gibco Dulbecco's Modified Eagle Medium (DMEM) media. VF and REM fragments were digested to single cells with collagenase hyaluronidase and dead cells and debris were removed from all the single cells final suspension as described in the method section \textbf{\autoref{fig:cellviability} b}. We obtained high percent viabilty from viable frozen tumor fragments across all the three tested PDX tumors ranging approximately from 82\% to 95\% as compared to big chunks (REM) or SC cells \textbf{\autoref{fig:cellviability} c}.
-However, the final number of viable cells in each of the condition across different PDX varies from 200 thousands to one million cells \textbf{\autoref{fig:cellviability} e}. Interestingly, one of the PDX tumor, SA609-TNBC turns out to be behaving comparatively effectively under every condition. 
-Finally, in order to  remain consistent across every type of tumor, we concluded that Viable frozen "VF" is the best option giving us moderate number of viable cells across xenografts.
-Also, we found that dead cell removal step helped cleaning up debris providing high percentage of viable cells \textbf{\autoref{fig:cellviability} d}.
+Gibco Dulbecco's Modified Eagle Medium (DMEM) media. VF and REM fragments were digested to single cells with collagenase hyaluronidase and dead cells and debris were removed from all the single cells final suspension as described in the method section \textbf{\autoref{fig:cellviability} b}. I obtained high proportion of viable cells from viable frozen (VF) tumor fragments across all the three tested PDX tumors ranging 82\% for REM fragment cryopreservation to 95\% for single cell suspensions (SC) \textbf{\autoref{fig:cellviability} c}.
+However, the final number of viable cells in each of the condition across different PDX varies from 200 thousands to one million cells \textbf{\autoref{fig:cellviability} d}. Interestingly, High viability was obtained from SA609 in all conditions. 
+It was concluded that across all conditions and PDX lines tested, VF organoid cryopreservation was the most consistent and was therefore chosen as the standard method for all subsequent experiments.
+
+%Finally, in order to  remain consistent across every type of tumor, I  concluded that Viable frozen "VF" was the best option as providing  moderate number of viable cells across xenografts.
+Finally, single cell suspension from all three PDX were tested for high proportion of viable cells pre or post dead cell removal step. First, cell viability was recorded before dead cell removal. Then, dead cells, debris and dying cells were eliminated by magnetic activated cell sorting (MACS) columns (Miltenyi Biotec, dead cell removal kit, according to manufacturer's protocol). Briefly, for the dead cell
+depletion, cells were magnetically labeled with dead cell removal
+microbeads, that recognize a moiety in the plasma
+membrane of apoptotic as well as dead cells, and passed through a separation column. These columns were placed within the magnetic field. Apoptotic cells present in the single cell suspension would bind to the Annexin V containing microbeads and stayed in the column, while the effluent would contain live cells. It was found that single cell field on the hemocytometer was much cleaner after dead cells and debris removal \textbf{\autoref{fig:cellviability} e}.
+The percentage of viable cells was increased from 69\% to 95\% in SA609, 54\% to 91\% in SA1035 and from 47\% to 88\% in SA535 PDX tumor cells \textbf{\autoref{fig:cellviability} f}. 
+
+
 
 
 %----------------------------------------------------------------
@@ -274,7 +289,7 @@ Also, we found that dead cell removal step helped cleaning up debris providing h
 %--------------------------------------------------------------------
 
 \subsection{Dissociation with Collagenase at 37\textdegree C induces a distinct stress response in single-cell transcriptomes}
-To uncover transcriptional variation and responses to dissociation method and to see the effect of digestion temperature on the transcriptome, we generated scRNA-seq data from a range of PDX tumors dissociated at low temperature with cold active protease and at high temperature with collagenase and Hyaluronidase, using the 10x Genomics Chromium v3 platform \textbf{(see methods)}.
+To uncover transcriptional variation and responses to dissociation method and to see the effect of digestion temperature on the transcriptome, I generated scRNA-seq data from a range of PDX tumors dissociated at low temperature with cold active protease and at high temperature with collagenase and Hyaluronidase, using the 10x Genomics Chromium v3 platform \textbf{(see methods)}.
 We performed a differential expression analysis on the 23,731 cells found by combining all experiments measured in PDX tumors at either 6\textdegree C or 37\textdegree C. After retaining genes with at least 10 counts across all cells, we performed differential expression analysis with edgeR \cite{robinson2010edger}, while controlling for the sample-of-origin.
 We found that of the 19,464 genes retained for analysis, 11,975 (62\%) were differentially expressed at a Benjamini-Hochberg corrected false discovery rate (FDR) of 5\%. We defined a core set of genes meaningfully perturbed by digestion temperature as those significantly differentially expressed as above, but with an absolute log fold change of at least 1.5. Therefore, for a gene to be included under these criteria it must be differentially expressed and its abundance increased or decreased by at least 50\% by digestion temperature. 
 
@@ -390,38 +405,47 @@ Interestingly, a highly similar set of genes are affected by both digestion time
 
 \section{Discussion}
 
-\begin{itemize}
 
- \item In this chapter, we began with the intention of developing patient derived xenograft (PDX) in immunodeficient NOD Rag-1 null interleukin-2 receptor gamma null (NRG) and identifying the dose response properties of PDX to determine relative ability of the drugs to produce maximum functional response. These 2D \textit{in vitro} sensitivity assays were not ideal to report accurate drug efficiency but they did give an overall idea to narrow down the choice of chemotherapies and PDXs.  
+ In this chapter, I developed patient derived xenograft (PDX) in NRG mice.  Identified the dose response properties of PDX to determine relative ability of the drugs to produce maximum functional response. 
+ %These 2D \textit{in vitro} sensitivity assays were not ideal to report accurate drug efficiency but they did give an overall idea to narrow down the choice of chemotherapies and PDXs.  
 
- \item To establish xenograft models, patient-derived tumors need to be injected into highly immunodeficient mice, because in immunocompetent mice, the immune system could eradicate transplanted cancer cells and prohibit tumor engraftment. The implications of creating \ac{NRG} mice models was that they can tolerate aggressive chemotherapy at higher doses than NOD/SCID/IL2r$\gamma$ $-$/$-$ (NSG) mice without overt toxicity \cite{barve2018comparative}. 
+  To establish xenograft models, patient-derived tumors need to be injected into highly immunodeficient mice, because in immunocompetent mice, the immune system could eradicate transplanted cancer cells and prohibit tumor engraftment. The implications of creating \ac{NRG} mice models was that they can tolerate aggressive chemotherapy at higher doses than NOD/SCID/IL2r$\gamma$ $-$/$-$ (NSG) mice without overt toxicity \cite{barve2018comparative}. 
 
 
-\item Out of the 4 chemotherapies tested on 4 TNBC-PDXs, cisplatin (platinum) was found to show high growth inhibition in all PDXs, while Paclitaxel, CX-5461 and Rucaparib showed variable responses depending on type and background of breast tumors. Platinum salt is of high clinical significance because it is a conventional chemotherapy and the first choice of treatment in various cancer types, including breast cancer.
-
-\item We found that freezing of PDX tumors as viable frozen (VF) fragments had high percent viability of single cells from different tumor types. Moreover, adding an extra step of dead cell removal from the final single cell suspension showed cleaner cells and less debris  providing high chances of live cells taken up by the robotic spotters for scDNA sequencing and GEM prep for scRNA-seq.
-
-\item We described the association of gene expression with tissue dissociation and dead or dying cell populations. It was highlighted that the variability in quality control metrics, including the percentage of mitochondrial genes, number of unique molecular identifiers (UMIs) and number of genes detected should be considered cautiously. These have implications in meaningful interpretation of biological mechanisms.
-
- \item We identified a subpopulation of dead cells that would not be removed through standard data filtering practices and quantified the extent to which their transcriptomes differ from live sorted cells. It was highlighted that the transcriptomic state of the cell is not necessarily the same as the surface marker state. Furthermore, a subpopulation that represented transcriptomically dying cells, expressing increased major histocompatibility complex (MHC)-class I genes was identified. 
+ Out of the 4 chemotherapies tested \textit{in vivo}, cisplatin (platinum) showed high growth inhibition in all PDXs. Platinum salt is of high clinical significance because it is a conventional chemotherapy and the first choice of treatment in various cancer types, including breast cancer.
  
- \item  Moreover, the core gene set of immediate, heat shock, and stress response genes associated with collagenase dissociation were highly conserved but minimized by dissociation at cold temperature. We suggested that each tissue and dissociation method should be assessed for dissociation-induced signatures before undertaking large-scale scRNA-seq experiments. This has clinical implications because chemotherapies also induce stress response and stress proteins are known to cause chemoresistance.
+ Furthermore, two tumors (SA609 and SA604) with FBI signatures were resistant to Rucaparib, as well as CX-5461. This has clinical implications as Wang et al., discussed stratification of ovarian cancers and their response to chemotherapies because of fold back inversion (FBI) signatures  \cite{wang2017genomic}. Here, I demonstrated that PARP inhibitors and CX-5461 (having synthetic lethality with BRCA deficiency \cite{xu2017cx}), could be further explored with respect to FBI background.
+
+SA1035 with APOBEC signatures was resistant to Rucaparib, however partially sensitive to Paclitaxel and SA535 with BRCA 1 deficient background was the only tumor that showed sensitivity to all 4 chemotherapies.
+ 
+
+ In addition, I found that cryopreservation of PDX tumors as viable frozen (VF) fragments had high proportion of viable single cells from different tumor types. Moreover, adding an extra step of dead cell removal from the final single cell suspension showed cleaner cells and less debris providing high chances of live cells taken up by the robotic spotters for scDNA sequencing and GEM prep for scRNA-seq.
+
+I described the association of gene expression with tissue dissociation and dead or dying cell populations. It was highlighted that the variability in quality control metrics, including the percentage of mitochondrial genes, number of unique molecular identifiers (UMIs) and number of genes detected should be considered cautiously. These have implications in meaningful interpretation of biological mechanisms.
+
+I was able to identify a subpopulation of dead cells that would not be removed through standard data filtering practices and quantified the extent to which their transcriptomes differ from live sorted cells. It was highlighted that the transcriptomic state of the cell is not necessarily the same as the surface marker state. Furthermore, a subpopulation that represented transcriptomically dying cells, expressing increased major histocompatibility complex (MHC)-class I genes was identified. 
+ 
+  Moreover, the core gene set of immediate, heat shock, and stress response genes associated with collagenase dissociation were highly conserved but minimized by dissociation at cold temperature. I suggested that each tissue and dissociation method should be assessed for dissociation-induced signatures before undertaking large-scale scRNA-seq experiments. This has clinical implications because chemotherapies also induce stress response and stress proteins are known to cause chemoresistance.
 
 
-\end{itemize}
 
 \subsection{Limitations}
 
-\begin{itemize}
+ The limitations of 2D \textit{in vitro} sensitivity assays include non-physiological conditions, such as, lack of complex microenvironment and interconnections between cells and extracellular matrix. 
 
-\item The effect of tumor freezing and dissociation were tested on 3 patients' xenografts. Although we had many replicates of the same tumor, we don't know to what extent increasing the number of tumor types would influence the results.
+ The effect of tumor cryopreservation and dissociation were tested on 3 patients' xenografts. Although, the procedures established have proven robust, its possible that different tumour types, such as non TNBC would require additional protocol refinements.
 
-\item The comparisons of cold active protease digestion and collagenase were made on untreated tumors. We don't know to what extent the stress response induced by a chemotherapy would be minimized by tumor dissociation at cold temperature.
+ %Although, I had many replicates of the same tumor, 
+ %I don't know to what extent increasing the number of tumor types would influence the results.
 
-\item For the identification of live/dying and dead populations by FACS, we treated the cell line with TNF\textalpha. Although we expect that PDX tumor cells are more fragile and more prone to dying, we don't know how quickly this "dying to dead" mechanism operates in PDX tumor cells. 
+%Furthermore, the comparisons of cold active protease digestion and collagenase showed a strong relationship of stress response with collagenase digestion, however, a comparison of chemotherapy treated tumors with both cold protease as well as collagenase could help understanding difference between temperature induced stress and drug stress response.
+%induced stress would be minimized by tumor dissociation at cold temperature.
 
-\item Tumor digestion with cold active protease at cold temperature was very much prone to clumping as compared to collagenase digestion. We didn't compare single cell genomes from digestion at cold temperature vs hot temperatures. This could have given us confidence in using one type of method for many measurements.
+ In addition, for the identification of live/dying and dead populations by FACS, we treated the cell line with TNF\textalpha. Although we expect that PDX tumor cells are more fragile and more prone to dying, therefore, it would be interesting to understand how quickly this "dying to dead" mechanism operates in PDX tumor cells. 
+
+Moreover, a comparison of single cell genomes from digestion at cold temperature vs hot temperatures would allow better understanding of technical handling of cancer tissues in DLP+ domain.
+
+Finally, tumor digestion with cold active protease gave low cellular yield as compare to collagenase digestion because protease enzyme would not digest all incubated tumor fragments. Therefore, it is important to optimize and select conditions depending upon the underlying scientific question.
 
 
-\end{itemize}
 
