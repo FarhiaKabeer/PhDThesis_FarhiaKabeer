@@ -13,13 +13,15 @@
 
 
 %-----------------------------------------------------------------
+
+
+
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{Figures/SampletreeSA535.png}
   \caption[Sample tree of timeseries TNBC-SA535 CX-5461-Rx and Cisplatin-Rx]
 	{\small
 	\textbf{Sample tree of timeseries TNBC-SA535 CX-5461-Rx and Cisplatin-Rx }
-
 }
     \label{fig:SampletreeSA535cisCX}
     \end{figure}
@@ -31,6 +33,46 @@
 
 
 %-----------------------------------------------------------------
+
+\begin{figure}
+\centering
+  \includegraphics[width=\textwidth]{Figures/simulationspdx.png}
+	
+\caption[Simulation studies for the \texttt{fitClone} model]
+	{\small
+	\textbf{Simulation studies for the \texttt{fitClone} model.}
+	  (a) Comparison to baseline methods for K = 5 clones (left) and K = 11 clones (right). (b) Posterior ordering of clones based on their inferred posterior selection coefficients across three values of effective population size (columns) and different choice of the reference clone (rows). (c) Posterior ordering of clones across different hyper parameters in the \texttt{fitClone} model. Effective population size in the range of 500 to 5,000 (top column), and observation error (bottom column). Minimum number of interpolations between two observations (rows).}
+\label{fig:simulations}
+\end{figure}
+
+%--------------------------------------------------------------------
+
+\begin{figure}
+\centering
+  \includegraphics[width=\textwidth]{Figures/chap4/mediangenotypespdx.png}
+\caption[Heatmaps of median genotypes]
+	{\small
+	\textbf{Heatmap representation of per clone median genotypes for TNBC PDX series SA609 UnRx Line 1 (U1), TNBC-SA609 mixtures a and b (Ma and Mb), SA609 UnRx Line 2 (U2), SA609 Rx line 1 (R1), SA1035 and SA535 treated and untreated (Un and Rx)}}.
+	  
+	 	\label{fig:mediangenotypes}
+\end{figure} 
+
+%---------------------------------------------------------------------------
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{Figures/chap4/treatedtimeseries.png}
+  \caption[TNBC PDX timeseries clonal dynamics under drug perturbations]
+	{\small
+	\textbf{schematics of complete experimental design of TNBC PDX timeseries for longitudinal single cell evaluation}
+	     All nodes representing each PDX tumour were digested to acquire genomes of single cells ($\sim$200-600 cells/tumor). Extra replicate tumors at each time point are not shown in the diagram (n=2-4). Grey circles represent un-treated, blue represents Cisplatin treated and grey with blue outline presents drug-holiday samples 
+	     \textbf{(a)} SA609-TNBC time series with replicates. DLP+ collected starting from X1 to X10 (Un-Rx line 1). Top grey branch indicating Un-Rx line 2. The middle three branches are cisplatin treated time series replicate branches 
+	     \textbf{(b)} SA535-TNBC  showing the tumor nodes taken for DLP+ starting from X5 untreated  \textbf{(c)} SA1035-TNBC  showing the tumor nodes taken for DLP+ starting from X 4 untreated.}
+     \label{fig:treatedtimeseriesmanuscript}
+
+\end{figure}
+%--------------------------------------------------------------------------
+
+
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{Figures/chap4/mutationanalysisbreakpoints.pdf}
@@ -45,36 +87,6 @@ breakpoints/cell as a function of generation for left: TNBC, right: HER2+
     \label{fig:mutationanalysisbreakpoints}
     \end{figure}
 %------------------------------------------------------------------
-
-\begin{figure}
-\centering
-  \includegraphics[width=\textwidth]{Figures/simulationspdx.png}
-	
-\caption[Simulation studies for the \texttt{fitClone} model]
-	{\small
-	\textbf{Simulation studies for the \texttt{fitClone} model.}
-	  (a) Comparison to baseline methods for K = 5 clones (left) and K = 11 clones (right). (b) Posterior ordering of clones based on their inferred posterior selection coefficients across three values of effective population size (columns) and different choice of the reference clone (rows). (c) Posterior ordering of clones across different hyper parameters in the \texttt{fitClone} model. Effective population size in the range of 500 to 5,000 (top column), and observation error (bottom column). Minimum number of interpolations between two observations (rows).}
-\label{fig:simulations}
-\end{figure}
-
-
-
-%---------------------------------------------------------------------------------
-
-
-%---------------------------------------------------------------
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{Figures/chap4/treatedtimeseries.png}
-  \caption[TNBC PDX timeseries clonal dynamics under drug perturbations]
-	{\small
-	\textbf{schematics of complete experimental design of TNBC PDX timeseries for longitudinal single cell evaluation}
-	     All nodes representing each PDX tumour were digested to acquire genomes of single cells (~200-600 cells/tumor). Extra replicate tumors at each time point are not shown in the diagram (n=2-4). Grey circles represent un-treated, blue represents Cisplatin treated and grey with blue outline presents drug-holiday samples 
-	     \textbf{(a)} SA609-TNBC time series with replicates. DLP+ collected starting from X1 to X10 (Un-Rx line 1). Top grey branch indicating Un-Rx line 2. The middle three branches are cisplatin treated time series replicate branches 
-	     \textbf{(b)} SA535-TNBC  showing the tumor nodes taken for DLP+ starting from X5 untreated  \textbf{(c)} SA1035-TNBC  showing the tumor nodes taken for DLP+ starting from X 4 untreated.}
-     \label{fig:treatedtimeseriesmanuscript}
-
-\end{figure}
 
 %---------------------------------------------------------------------
 
@@ -112,15 +124,7 @@ breakpoints/cell as a function of generation for left: TNBC, right: HER2+
 
 
 %-------------------------------------------------------------------
-\begin{figure}
-\centering
-  \includegraphics[width=\textwidth]{Figures/chap4/mediangenotypespdx.png}
-\caption[Heatmaps of median genotypes]
-	{\small
-	\textbf{Heatmap representation of per clone median genotypes for TNBC PDX series SA609 UnRx Line 1 (U1), TNBC-SA609 mixtures a and b (Ma and Mb), SA609 UnRx Line 2 (U2), SA609 Rx line 1 (R1), SA1035 and SA535 treated and untreated (Un and Rx)}}.
-	  
-	 	\label{fig:mediangenotypes}
-\end{figure} 
+
 %---------------------------------------------------------------
 
 % Please add the following required packages to your document preamble:

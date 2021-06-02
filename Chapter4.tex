@@ -103,9 +103,10 @@ Two independent TNBC-SA609 mixture timeseries were generated with diluted high f
 \subsection{Establishment of timeseries patient derived xenografts}
 
 To understand and quantify fitness attributes of cancer cells as  predictive measures of their growth potential in polyclonal systems, I set out to establish timeseries patient derived xenografts (PDX) with and without pharmacological perturbations (\textbf{\autoref{fig:schematic} a}). I studied breast cancer PDX, sequencing $>$123,106 genomes over serial passaging (\textbf{\autoref{fig:schematic} a}), from 101 single cell libraries (a median of 303 single cell genomes per sample) of high quality for downstream analysis. 
-Serial transplantations of 3 TNBC human breast cancers were performed by injecting patient derived tumour cells and clumps into primary engrafted mice to secondary and subsequent recipients in a timeseries manner to create 4 independent sets as TNBC-SA535 was transplanted in two cohorts for two different drugs (\textbf{\autoref{fig:Untreatedgrowthcurves} a-top), n=3-4 at each time point)}. 
+Serial transplantations of 3 TNBC human breast cancers were performed by injecting patient derived tumour cells and clumps into primary engrafted mice to secondary and subsequent recipients in a timeseries manner to create 4 independent sets as TNBC-SA535 was transplanted in two cohorts for two different drugs (\textbf{\autoref{fig:Untreatedgrowthcurves} a-top, n=3-4 at each time point)}. 
 
-From timeseries PDX, I generated observations sampled over 927 days for HER2+SA532, 619 days for TNBC-SA609, 381 days for TNBC-SA1035 and 644 days for TNBC-SA535. 
+From timeseries PDX, I generated observations sampled over 927 days for HER2+SA532, 619 days for TNBC-SA609, 381 days for TNBC-SA1035 and 644 days for TNBC-SA535. Sample trees are detailed in \textbf{(\autoref{fig:SampletreeSA609SA1035}, \autoref{fig:SampletreeSA535cisCX}) }.
+
 
 To assess the growth potential over time, two PDX (HER2+SA532 and TNBC-SA609-Line 1) were passaged further, upto ten generations (X1-X10)
  (\textbf{\autoref{fig:Untreatedgrowthcurves} a-Bottom}).
@@ -197,7 +198,7 @@ As \texttt{fitClone} is a type of statistical model that is referred to as gener
 
 %As a generative process, the model can be used for forecasting evolutionary trajectories of specific clones and posterior probability densities can be interpreted for evidence of positive selection in polyclonal systems. 
 
-The established model was verified to be correct by doing simulation experiments \cite{salehi2020single} \textbf{(\autoref{fig:simulations} b, c)}.
+The established model was verified to be correct by doing simulation experiments \cite{salehi2020single} \textbf{(\autoref{fig:simulations}).}
 
 
 %We carried out simulation experiments to establish theoretical behaviour and limitations of \texttt{fitClone}, over a range of parameters.  In two key advances, simultaneous modeling of multiple clones was superior to modeling each clone independently, and accounting for stochasticity in the dynamics via the diffusion process led to more accurate selection coefficient estimates than with a deterministic growth model (\textbf{\autoref{fig:simulations} a}). Model fits were robust to effective population size ($N_e$) and number of clones (\textbf{\autoref{fig:simulations} b, c}). 
@@ -265,7 +266,7 @@ DLP+ libraries were generated and sequenced, yielding a median of 303 single cel
 \subsubsection{All TNBC PDX but not HER2+ PDX timeseries exhibited weak positive selection over clones.}
 Next question was to determine whether the clonal dynamics of HER2+ and TNBC lines were close to neutrality or not.
 
-To measure clonal fractions in each PDX timeseries, I acquired scWGS on 5 consecutively transplanted timepoints (X5, X6, X7, X8, X9) in untreated TNBC-SA535 \textbf{(\autoref{fig:schematic} a)} \textbf{(\autoref{fig:treatedtimeseriesmanuscript} b)} for a total of 1,341 single cells (mean = 335, $\sigma$ = 84.4 per timepoint).
+To measure clonal fractions in each PDX timeseries, I acquired scWGS on 5 consecutively transplanted timepoints (X5, X6, X7, X8, X9) in untreated TNBC-SA535 \textbf{(\autoref{fig:schematic} a}, \textbf{\autoref{fig:treatedtimeseriesmanuscript} b)} for a total of 1,341 single cells (mean = 335, $\sigma$ = 84.4 per timepoint).
 11 clones \textbf{(\autoref{fig:SA535heatmapdynamicsHER2} a, b, c}) were observed, although only three major clones propagated after the initial time point.
 The inferred clonal fractions were A(0.003), B(0.702), C(0.034), D(0.006), E(0.006), F(0.013), and G(0.237). Other 4 were below the threshold.
 Clone C was chosen as the reference clone as it had a monotonically decreasing clonal fraction trajectory in the untreated branch. Clonal trajectories were consistent with selection coefficients
